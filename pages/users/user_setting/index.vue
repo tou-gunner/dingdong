@@ -2,26 +2,26 @@
 	<view class="user-setting pad20">
 		<view class="list bg-f boder-24 mt20">
 			<view class='item acea-row row-between-wrapper' @click="gouser">
-				<view>个人信息</view>
+				<view>ຂໍ້ມູນສ່ວນຕົວ</view>
 				<text class='iconfont icon-ic_rightarrow'></text>
 			</view>
 		</view>
 		<view class="list bg-f boder-24 mt20">
 			<view class='item acea-row row-between-wrapper' @click="goMultiple('sys_about_us')">
-				<view>关于我们</view>
+				<view>ກ່ຽວກັບພວກເຮົາ</view>
 				<text class='iconfont icon-ic_rightarrow'></text>
 			</view>
 			<view class='item acea-row row-between-wrapper' @click="goMultiple('sys_certificate')">
-				<view>资质证明</view>
+				<view>ໃບຢັ້ງຢືນຄຸນສົມບັດ</view>
 				<text class='iconfont icon-ic_rightarrow'></text>
 			</view>
 			<view class='item acea-row row-between-wrapper' @click="gorules">
-				<view>协议规则</view>
+				<view>ກົດລະບຽບຂໍ້ຕົກລົງ</view>
 				<text class='iconfont icon-ic_rightarrow'></text>
 			</view>
 			<!-- #ifdef MP -->
 			<view class='item acea-row row-between-wrapper' @click="Setting">
-				<view>隐私设置</view>
+				<view>ຕັ້ງຄ່າຄວາມເປັນສ່ວນຕົວ</view>
 				<text class='iconfont icon-ic_rightarrow'></text>
 			</view>
 			<!-- #endif -->

@@ -29,7 +29,7 @@
 						</view>
 					</view>
 					<navigator v-else :url="'/pages/users/user_address/index?cartId='+cartId" hover-class="none" class='addressCon'>
-						<view class='setaddress'>设置收货地址</view>
+						<view class='setaddress'>ຕັ້ງຄ່າທີ່ຢູ່ຮັບສິນຄ້າ</view>
 					</navigator>
 					<view class='iconfont icon-ic_rightarrow'></view>
 				</view>
@@ -51,22 +51,22 @@
 								<view class="img-box">
 									<image :src="goods.productPresellAttr.image || goods.product.image"></image>
 								</view>
-								<view class="content event_content">
+								<view class="content">
 									<view class="name line1"><text
-											class="event_name event_bg">预售</text>{{goods.productPresell.store_name}}
+											class="event_name event_bg">ຈອງລ່ວງໜ້າ</text>{{goods.productPresell.store_name}}
 									</view>
 									<view class="label" style="width: 70%;">{{goods.productAttr.sku}}</view>
 									<view class="price">
 										<priceFormat :price="goods.productPresellAttr.presell_price" weight intSize="28" floatSize="20" labelSize="20"></priceFormat>
 										<view class="num">X{{goods.cart_num}}</view>
 									</view>
-									<view class="event_ship event_color">发货时间：
+									<view class="event_ship event_color">ເວລາຈັດສົ່ງ:
 										<!--全款预售-->
 										<text
-											v-if="goods.productPresell.presell_type === 1">{{goods.productPresell.delivery_type === 1 ? '支付后' : '预售结束后'}}{{ goods.productPresell.delivery_day }}天内</text>
+											v-if="goods.productPresell.presell_type === 1">{{goods.productPresell.delivery_type === 1 ? 'ຫຼັງຈ່າຍເງິນ' : 'ຫຼັງສິ້ນສຸດການຈອງລ່ວງໜ້າ'}}{{ goods.productPresell.delivery_day }}ວັນ</text>
 										<!--定金预售-->
 										<text
-											v-if="goods.productPresell.presell_type === 2">{{ goods.productPresell.delivery_type === 1 ? '付尾款后' : '预售结束后' }}{{ goods.productPresell.delivery_day }}天内</text>
+											v-if="goods.productPresell.presell_type === 2">{{ goods.productPresell.delivery_type === 1 ? 'ຫຼັງຈ່າຍເງິນຍອດທ້າຍ' : 'ຫຼັງສິ້ນສຸດການຈອງລ່ວງໜ້າ' }}{{ goods.productPresell.delivery_day }}ວັນ</text>
 									</view>
 									<!-- <view class="err-txt" v-if="goods.undelivered && addressInfo.real_name">
 										<text class="iconfont icon-icon_tip"></text>
@@ -83,13 +83,13 @@
 										</text>
 									</view>
 									<view class="progress_step">
-										<text class="name">尾款</text>
+										<text class="name">ເງິນຍອດທ້າຍ</text>
 										<view class="price">
 											<priceFormat :price="(goods.productPresellAttr.final_price * goods.cart_num).toFixed(2)" weight intSize="28" floatSize="20" labelSize="20"></priceFormat>
 										</view>
 									</view>
 									<view class="progress_pay">
-										{{ goods.productPresell.final_start_time | filterDay}}开始支付尾款</view>
+										{{ goods.productPresell.final_start_time | filterDay}}ເລີ່ມຈ່າຍເງິນຍອດທ້າຍ</view>
 								</view>
 							</view>
 						</view>
@@ -138,13 +138,13 @@
 						<view v-if="order_model !=4" class="boxs">
 							<view class='item acea-row row-between-wrapper'>
 								<view class="delivery-type flex-box">
-									配送方式
+									ວິທີການຈັດສົ່ງ
 									<view
 										v-if="item.order.isCityTake && !item.order.delivery_status"
 										class="delivery-type-err ml-20"
 									>
 										<text class="iconfont icon-icon_tip"></text>
-										<text class="txt">不在配送范围内</text>
+										<text class="txt">ບໍ່ຢູ່ໃນຂອບເຂດການຈັດສົ່ງ</text>
 									</view>
 								</view>
 								<view class='discount' @tap="openShowBox(item,index)">
@@ -166,7 +166,7 @@
 								</view>
 								<view class="map" @click="goMap(item, index)">
 									<text class="iconfont icon-ic_location5"></text>
-									<view class="map_text">地图</view>
+									<view class="map_text">ແຜນທີ່</view>
 								</view>
 							</view>
 						</view>
@@ -174,7 +174,7 @@
 						<view
 							class="item acea-row row-between-wrapper"
 							v-if="item.order.isCityTake">
-							<view style="width: 100px;">配送时间</view>
+							<view style="width: 100px;">ເວລາຈັດສົ່ງ</view>
 							<view class="discount">
 								<block
 									v-if="deliverySettings[index].deliverySettings.delivery_time_type == 1"
@@ -193,8 +193,8 @@
 						</view>
 						<view class='item acea-row row-between-wrapper' v-if="shippingType==0 && item.order.default_delivery != 'mer_take' && order_model == 0">
 							<view>
-								{{item.order.isCityTake? '配送费用' : '快递费用'}}
-								<text v-if="item.list[0].productPresell && item.list[0].productPresell.presell_type == 2">(尾款阶段）</text>
+								{{item.order.isCityTake? 'ຄ່າຈັດສົ່ງ' : 'ຄ່າຂົນສົ່ງ'}}
+								<text v-if="item.list[0].productPresell && item.list[0].productPresell.presell_type == 2">(ໄລຍະເງິນຍອດທ້າຍ)</text>
 							</view>
 							<view class='discount regular' v-if='!item.order.isCityTake && item.order.postage_price > 0'>
 								¥{{item.order.postage_price}}
@@ -205,28 +205,28 @@
 							>
 								¥{{item.order.city_take_postage}}
 							</view>
-							<view class='discount' v-else-if="item.order.isCityTake && !item.order.delivery_status">不在配送范围内</view>
-							<view class='discount' v-else>{{item.order.isCityTake ? '免配送费' : '免运费'}}</view>
+							<view class='discount' v-else-if="item.order.isCityTake && !item.order.delivery_status">ບໍ່ຢູ່ໃນຂອບເຂດການຈັດສົ່ງ</view>
+							<view class='discount' v-else>{{item.order.isCityTake ? 'ຈັດສົ່ງຟຣີ' : 'ຂົນສົ່ງຟຣີ'}}</view>
 						</view>
 						<view class='item acea-row row-between-wrapper'
 							v-if="order_type != 3 && order_type != 4 && item.order.enabledCoupon">
-							<view>店铺优惠</view>
+							<view>ສ່ວນຫຼຸດຮ້ານຄ້າ</view>
 							<block v-if="item.coupon.length>0">
 								<view class='discount' @tap='couponTap(item,index)'>
 									<text v-if="item.order.coupon_price>0">-¥{{item.order.coupon_price}}</text>
-									<text v-else>暂未选择优惠券</text>
+									<text v-else>ຍັງບໍ່ໄດ້ເລືອກຄູປອງ</text>
 									<text class='iconfont icon-ic_rightarrow'></text>
 								</view>
 							</block>
 							<block v-else>
-								<view class='placeholder'>暂无优惠券</view>
+								<view class='placeholder'>ບໍ່ມີຄູປອງ</view>
 							</block>
 						</view>
 						<view v-if="order_type === 2 && item.list[0].productPresell.presell_type ==2"
 							class="item acea-row row-between-wrapper">
 							<checkbox-group class="checkgroup" @change='changeIsAgree'>
 								<text class="iconfont icon-icon_question" style="margin-left: 0;margin-right:8px;"></text>
-								<text @click="getPresellAgree">我已同意定金不退等预售协议</text>
+								<text @click="getPresellAgree">ຂ້ອຍໄດ້ຍອມຮັບເງິນມັດຈຳບໍ່ສາມາດຄືນໄດ້ແລະຂໍ້ຕົກລົງການຈອງລ່ວງໜ້າ</text>
 								<checkbox class="checkbox" :checked="isAgree ? true : false" />
 							</checkbox-group>
 						</view>
@@ -242,19 +242,19 @@
 							</view>
 						</view> -->
 						<view class='item acea-row row-between-wrapper' v-if="textareaStatus">
-							<view style="width: 100px;">备注信息</view>
+							<view style="width: 100px;">ຂໍ້ມູນໝາຍເຫດ</view>
 							<input v-if="coupon.status===false" placeholder-class='placeholder'
-								@input='bindHideKeyboard' value="" name="mark" placeholder='选填备注信息'
+								@input='bindHideKeyboard' value="" name="mark" placeholder='ເລືອກຂຽນຂໍ້ມູນໝາຍເຫດ'
 								v-model="msgObj[item.mer_id]"></input>
 						</view>
 						<view class="total">
 							<view>
 								<view class="shipping-amount" v-if="checkIsDisplayDiffAmount(item, index)">
-									还差<text class="fs-10px">￥</text>{{ deliverySettings[index].deliverySettings.free_shipping_amount - item.order.total_price }} 包邮
+									ຍັງຂາດ<text class="fs-10px">￥</text>{{ deliverySettings[index].deliverySettings.free_shipping_amount - item.order.total_price }} ຈັດສົ່ງຟຣີ
 								</view>
 							</view>
 							<view class="flex-box">
-								共{{item.order.total_num}}件 小计
+								ລວມ {{item.order.total_num}} ລາຍການ ລວມຍ່ອຍ
 								<view class="price" v-if="item.isTake == 0">
 									<priceFormat :price="item.order.pay_price" weight intSize="40" floatSize="28" labelSize="28"></priceFormat>
 								</view>
@@ -352,11 +352,11 @@
 						<text class='iconfont icon-ic_rightarrow'></text>
 					</view>
 					<!-- select -->
-					<view v-if="item.name=='selects'" class="discount">
+							<view v-if="item.name=='selects'" class="discount">
 						<picker :value="item.value" :range="item.wordsConfig.list" @change="bindSelectChange($event,index,item)" range-key="val">
 							<view class="acea-row row-between-wrapper">
 								<view v-if="item.value">{{item.value}}</view>
-								<view v-else>请选择</view>
+								<view v-else>ກະລຸນາເລືອກ</view>
 								<text class='iconfont icon-ic_rightarrow'></text>
 							</view>
 						</picker>
@@ -388,7 +388,7 @@
 							</view>
 							<view class='pictrue acea-row row-center-wrapper row-column' @tap='uploadpic(index)'
 								v-if="item.value.length < item.numConfig.val">
-								<view>上传图片</view>
+								<view>ອັບໂຫຼດຮູບພາບ</view>
 							</view>
 						</view>
 					</view>
@@ -411,38 +411,38 @@
 			<view v-if="is_take && order_model != 4" class="wrapper virtual_form bg-f boder-24">
 				<form report-submit='true'>
 					<view  class='item acea-row row-between-wrapper'>
-						<view><text class="item-require">*</text>收货人姓名</view>
+						<view><text class="item-require">*</text>ຊື່ຜູ້ຮັບສິນຄ້າ</view>
 						<view class='discount'>
-							<input type="text" v-model="post.real_name" placeholder="请填写收货人姓名" placeholder-class='placeholder' />
+							<input type="text" v-model="post.real_name" placeholder="ກະລຸນາປ້ອນຊື່ຜູ້ຮັບສິນຄ້າ" placeholder-class='placeholder' />
 						</view>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view><text class="item-require">*</text>收货人电话</view>
+						<view><text class="item-require">*</text>ເບີໂທຜູ້ຮັບສິນຄ້າ</view>
 						<view class='discount'>
-							<input type="number" v-model="post.phone" placeholder="请填写收货人电话" placeholder-class='placeholder' />
+							<input type="number" v-model="post.phone" placeholder="ກະລຸນາປ້ອນເບີໂທຜູ້ຮັບສິນຄ້າ" placeholder-class='placeholder' />
 						</view>
 					</view>
 				</form>
 			</view>
 			<view class='moneyList boder-24 bg-f'>
 				<view class='item acea-row row-between-wrapper'>
-					<view>商品总价：</view>
+					<view>ລາຄາສິນຄ້າລວມ:</view>
 					<view class='money'>¥{{proPrice}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="couponData.order_total_postage > 0">
-					<view>运费：</view>
+					<view>ຄ່າຂົນສົ່ງ:</view>
 					<view class='money'>¥{{couponData.order_total_postage}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="coupon_price > 0">
-					<view>店铺优惠金额：</view>
+					<view>ມູນຄ່າສ່ວນຫຼຸດຮ້ານຄ້າ:</view>
 					<view class='money'>-¥{{coupon_price}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="open_integral && userInfo.integral>0 && order_type == 0">
-					<view>积分抵扣：</view>
+					<view>ຫັກແຕ້ມສະສົມ:</view>
 					<view class='money'>
-						<text v-if="!use_integral">当前积分<text class="pColor">{{userInfo.integral}}</text></text>
-						<text v-else>使用了{{integral_count}}个积分，抵扣<text
-								class="pColor">{{integral_price}}元</text></text>
+						<text v-if="!use_integral">ແຕ້ມປະຈຸບັນ <text class="pColor">{{userInfo.integral}}</text></text>
+						<text v-else>ໃຊ້ {{integral_count}} ແຕ້ມ, ຫັກ <text
+								class="pColor">{{integral_price}} ກີບ</text></text>
 						<view class="checkbox integral_checked" @click="changeIntegral">
 							<view class="iconfont icon-ic_unselect" v-if="!use_integral"></view>
 							<view class='iconfont icon-a-ic_CompleteSelect' v-else></view>
@@ -451,20 +451,20 @@
 				</view>
 				<view class='item acea-row row-between-wrapper'
 					v-if="order_type != 3 && order_type != 4 && enabledPlatformCoupon">
-					<view>平台优惠券<text @tap="showCoupon" class="iconfont icon-icon_question"></text></view>
+					<view>ຄູປອງແພລດຟອມ <text @tap="showCoupon" class="iconfont icon-icon_question"></text></view>
 					<block v-if="platformCoupon.length > 0">
 						<view class='discount money' @tap='couponTap2(platformCoupon,0)'>
-							<text v-if="total_platform_coupon_price>0">优惠¥{{total_platform_coupon_price}}</text>
-							<text v-else>暂未选择优惠券</text>
+							<text v-if="total_platform_coupon_price>0">ສ່ວນຫຼຸດ ¥{{total_platform_coupon_price}}</text>
+							<text v-else>ຍັງບໍ່ໄດ້ເລືອກຄູປອງ</text>
 							<text class='iconfont icon-ic_rightarrow'></text>
 						</view>
 					</block>
 					<block v-else>
-						<view class='placeholder'>暂无优惠券</view>
+						<view class='placeholder'>ບໍ່ມີຄູປອງ</view>
 					</block>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="priceGroup.storePostage > 0">
-					<view>运费：</view>
+					<view>ຄ່າຂົນສົ່ງ:</view>
 					<view class='money'>+¥{{priceGroup.storePostage}}</view>
 				</view>
 			</view>
@@ -472,22 +472,22 @@
 			<view class='footer acea-row row-between-wrapper' v-if="cartInfo.length">
 				<view class="footer_count">
 					<view class="acea-row">
-						<view>合计:</view>
+						<view>ລວມທັງໝົດ:</view>
 						<view class='pColor'>
 							<priceFormat :price="totalPrice" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 						</view>
 					</view>
 					<view class="coupon_price" v-if="couponData.total_coupon > 0">
-						优惠减:¥ {{couponData.total_coupon}}
-						<text @click="openDiscount">优惠明细</text>
+						ສ່ວນຫຼຸດ: ¥ {{couponData.total_coupon}}
+						<text @click="openDiscount">ລາຍລະອຽດສ່ວນຫຼຸດ</text>
 					</view>
 				</view>
 				<view class='settlement' :class='couponData.status != "noAddress" && !hasNotInRange ? "" : "disabled"' style='z-index:100'
-					@tap="SubOrder">{{couponData.status != "noAddress" ? '立即结算':'选择地址'}}</view>
+					@tap="SubOrder">{{couponData.status != "noAddress" ? 'ຢືນຢັນຄຳສັ່ງຊື້':'ເລືອກທີ່ຢູ່'}}</view>
 			</view>
 		</view>
 		<block v-if="coupon.status">
-			<couponListWindow :coupon='coupon' :couponTitle="plantCoupon ? '平台优惠券' : '优惠券'" @ChangCouponsClose="ChangCouponsClose" @getCoupon="getCoupon"
+			<couponListWindow :coupon='coupon' :couponTitle="plantCoupon ? 'ຄູປອງແພລດຟອມ' : 'ຄູປອງ'" @ChangCouponsClose="ChangCouponsClose" @getCoupon="getCoupon"
 				:openType='openType' :coupon_amount='coupon_amount'
 				:coupon_number='coupon_number'></couponListWindow>
 		</block>
@@ -591,19 +591,19 @@
 	const getDeliveryTypeList = (config, orderModel) => {
 		const list = [
 			{
-				title: orderModel == 0 ? "快递配送" : "虚拟发货",
+				title: orderModel == 0 ? "ຂົນສົ່ງດ່ວນ" : "ຈັດສົ່ງເສ້ນ",
 				type: "mer_delivery",
 				check: config.default_delivery === "mer_delivery",
 				validate: config.allow_delivery
 			},
 			{
-				title: "到店自提",
+				title: "ໄປຮັບທີ່ຮ້ານ",
 				type: "mer_take",
 				check: config.default_delivery === "mer_take",
 				validate: config.allow_take
 			},
 			{
-				title: "同城配送",
+				title: "ຈັດສົ່ງໃນເມືອງ",
 				type: "mer_city_takes",
 				check: config.default_delivery === "mer_city_takes",
 				validate: config.allow_city_take
@@ -659,7 +659,7 @@
 				msgObj: {},
 				textareaStatus: true,
 				allowDeliveryTime: 1, // 是否允许设置配送时间
-				deliveryName: '快递配送',
+				deliveryName: 'ຂົນສົ່ງດ່ວນ',
 				tagStyle: {
 					img: 'width:100%;display:block;',
 					video: 'width:100%;'
@@ -671,7 +671,7 @@
 				coupon: {
 					status: false,
 					list: [],
-					statusTile: '立即使用'
+					statusTile: 'ໃຊ້ດຽວນີ້'
 				}, //优惠券组件
 				address: {
 					address: false
@@ -685,7 +685,7 @@
 				userInfo: {}, //用户信息
 				post: {},
 				mark: '', //备注信息
-				couponTitle: '请选择', //优惠券
+				couponTitle: 'ກະລຸນາເລືອກ', //优惠券
 				coupon_price: 0, //优惠券抵扣金额
 				useIntegral: false, //是否使用积分
 				integral_price: 0, //积分抵扣金额
@@ -728,7 +728,7 @@
 				store_coupon_amount: 0,
 				plant_coupon_amount: 0,
 				integral_count: '',
-				agrementTtile: '发票说明',
+				agrementTtile: 'ຄຳອະທິບາຍໃບແຈ້ງໜີ້',
 				pics: [],
 				order_model: 2,
 				allow_address: true,
@@ -797,7 +797,7 @@
 			this.from = 'weixin'
 			// #endif
 			if (!options.cartId) return this.$util.Tips({
-				title: '请选择要购买的商品'
+				title: 'ກະລຸນາເລືອກສິນຄ້າທີ່ຕ້ອງການຊື້'
 			}, {
 				tab: 3,
 				url: 1
@@ -860,7 +860,7 @@
 			/*预售协议*/
 			getPresellAgree: function() {
 				this.showProtocol = true
-				this.agrementTtile = '预售协议'
+				this.agrementTtile = 'ຂໍ້ຕົກລົງການຈອງລ່ວງໜ້າ'
 				presellAgreement().then(res => {
 					this.protocol = res.data.sys_product_presell_agree;
 				})
@@ -913,7 +913,7 @@
 			getCouponAgreement() {
 				let that = this
 				that.showProtocol = true;
-				that.agrementTtile = '优惠券说明'
+				that.agrementTtile = 'ຄຳອະທິບາຍຄູປອງ'
 				getAgreementApi('sys_coupon_agree').then(res => {
 					that.protocol = res.data.sys_coupon_agree
 				})
@@ -1041,7 +1041,7 @@
 					this.getaddressInfo();
 				}).catch(()=> {
 					this.$util.Tips({
-						title: '获取提货点信息失败'
+						title: 'ເກັບຂໍ້ມູນຈຸດເກັບສິນຄ້າລົ້ມເຫລວ'
 					});
 				})
 			},
@@ -1149,7 +1149,7 @@
 						that.proPrice = res.data.total_price
 						that.order_type = res.data.order_type
 						that.allow_address = res.data.allow_address
-						that.deliveryName = res.data.order_model == 0 ?  '快递配送' : '虚拟发货'
+						that.deliveryName = res.data.order_model == 0 ?  'ຂົນສົ່ງດ່ວນ' : 'ຈັດສົ່ງເສ້ນ'
 						that.order_key = res.data.key
 						uni.hideLoading();
 						// 如果此时选择配送方式窗口在打开，则关闭

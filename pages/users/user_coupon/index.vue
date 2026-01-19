@@ -12,44 +12,44 @@
 						<image class="image" :src="item.merchant.mer_avatar"></image>
 						<text class="name">{{item.merchant.mer_name}}</text>
 					</view>
-					<view v-if="hide_mer_status == 0 && item.status == 0" class="store" @click="goStore(item)">进店</view>
+					<view v-if="hide_mer_status == 0 && item.status == 0" class="store" @click="goStore(item)">ເຂົ້າຮ້ານ</view>
 				</view>
 				<view class='item acea-row row-center-wrapper'>
 					<block v-if="item.status == 0">
 						<view v-if="item.coupon.send_type == 5" class='money vip-coupon' :style="{ 'background-image': `url(${domain}/static/images/coupon-vip-bg.png)` }">
 							<view class="line1 coupon_value">¥<text class='num'>{{item.coupon_price}}</text></view>
-							<view v-if="item.use_min_price==0" class="pic-num">领券立减{{item.coupon_price}}元</view>
-							<view v-else class="pic-num">满{{item.use_min_price}}元可用</view>
+							<view v-if="item.use_min_price==0" class="pic-num">ຮັບຄູປອງຫຼຸດລາຄາ {{item.coupon_price}} ກີບ</view>
+							<view v-else class="pic-num">ຊື້ຄົບ {{item.use_min_price}} ກີບໃຊ້ໄດ້</view>
 						</view>
 						<view v-else class='money' :style="{ 'background-image': `url(${domain}/static/diy/couponBg${keyColor}.png)` }">
 							<view class="line1 coupon_value">¥<text class='num semiBold'>{{item.coupon_price}}</text></view>
-							<view v-if="item.use_min_price==0" class="pic-num">领券立减{{item.coupon_price}}元</view>
-							<view v-else class="pic-num">满{{item.use_min_price}}元可用</view>
+							<view v-if="item.use_min_price==0" class="pic-num">ຮັບຄູປອງຫຼຸດລາຄາ {{item.coupon_price}} ກີບ</view>
+							<view v-else class="pic-num">ຊື້ຄົບ {{item.use_min_price}} ກີບໃຊ້ໄດ້</view>
 						</view>
 					</block>
 					<view v-else class='money moneyGray' :style="'background-image: url('+domain+'/static/images/sign-rotate-bg.png)'">
 						<view>¥<text class='num semiBold'>{{item.coupon_price}}</text></view>
-						<view class="pic-num">满{{ item.use_min_price }}元可用</view>
+						<view class="pic-num">ຊື້ຄົບ {{ item.use_min_price }} ກີບໃຊ້ໄດ້</view>
 					</view>
 					<view class='text'>
 						<view class='condition line1' :class="{'no-border' : item.merchant && item.status==0}">
-							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-if="item.coupon && item.coupon.type === 0">店铺券</view>
-							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else-if="item.coupon && item.coupon.type === 1">商品券</view>
-							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else-if="item.coupon && item.coupon.type === 11">品类券</view>
-							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else-if="item.coupon && item.coupon.type === 10">通用券</view>
-							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else-if="item.coupon && item.coupon.type === 12">跨店券</view>
-							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else>商品券</view>
+							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-if="item.coupon && item.coupon.type === 0">ຄູປອງຮ້ານ</view>
+							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else-if="item.coupon && item.coupon.type === 1">ຄູປອງສິນຄ້າ</view>
+							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else-if="item.coupon && item.coupon.type === 11">ຄູປອງປະເພດ</view>
+							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else-if="item.coupon && item.coupon.type === 10">ຄູປອງທົ່ວໄປ</view>
+							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else-if="item.coupon && item.coupon.type === 12">ຄູປອງຂ້າມຮ້ານ</view>
+							<view class="line-title" :class="item.status === 0 ? 'bg-color-check' : 'bg-color-huic'" v-else>ຄູປອງສິນຄ້າ</view>
 							<view class="line1 coupon-title">{{item.coupon_title}}</view>
 						</view>
 						<view class='data acea-row row-between-wrapper'>
 							<view>{{item.start_time | timeYMD}}-{{item.end_time | timeYMD}}</view>
 							<view v-if="item.status==0">
 								<navigator :url="'/pages/columnGoods/goods_coupon_list/index?coupon_id='+item.coupon_id" class='bnt1 b-color' :class="item.coupon.send_type == 5 ? 'svip-btn' : ''" hover-class="none">
-								去使用
+								ໄປໃຊ້
 								</navigator>
 							</view>
-							<view class='bnt1 gray' style="position: static;" v-if="item.status==1">已使用</view>
-							<view class='bnt1 gray' style="position: static;" v-if="item.status==2">已过期</view>
+							<view class='bnt1 gray' style="position: static;" v-if="item.status==1">ໃຊ້ແລ້ວ</view>
+							<view class='bnt1 gray' style="position: static;" v-if="item.status==2">ໝົດອາຍຸ</view>
 						</view>
 					</view>
 				</view>
@@ -58,7 +58,7 @@
 		<view class='noCommodity' v-if="!couponsList.length && loading==true">
 			<view class='pictrue'>
 				<image :src="`${domain}/static/images/noCoupon.png`"></image>
-				<view>暂无优惠券</view>
+				<view>ບໍ່ມີຄູປອງ</view>
 			</view>
 		</view>
 	</view>
@@ -91,10 +91,10 @@
 				isUsed: 0,
 				tabList:[
 					{
-						title:'未使用'
+						title:'ຍັງບໍ່ໃຊ້'
 					},
 					{
-						title:'已使用/已过期'
+						title:'ໃຊ້ແລ້ວ/ໝົດອາຍຸ'
 					}
 				],
 				limit:15,

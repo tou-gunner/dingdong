@@ -2,24 +2,24 @@
 	<view class="feedback-detail" :style="viewColor">
 		<view class="hd bg-f boder-24">
 			<view class="item">
-				<view class="label">反馈类型</view>
+				<view class="label">ປະເພດຄຳຄິດເຫັນ</view>
 				<view class="txt">{{detail.category}}</view>
 			</view>
 			<view class="item">
-				<view class="label">问题分类</view>
+				<view class="label">ປະເພດບັນຫາ</view>
 				<view class="txt">{{detail.type}}</view>
 			</view>
 			<view class="item">
-				<view class="label">姓名</view>
+				<view class="label">ຊື່</view>
 				<view class="txt">{{detail.realname}}</view>
 			</view>
 			<view class="item">
-				<view class="label">电话/邮箱</view>
+				<view class="label">ເບີໂທ/ອີເມວ</view>
 				<view class="txt">{{detail.contact}}</view>
 			</view>
 			<view class="item" v-if="detail.reply">
-				<view class="label">回复状态</view>
-				<view class="txt color">已回复</view>
+				<view class="label">ສະຖານະການຕອບກັບ</view>
+				<view class="txt color">ຕອບກັບແລ້ວ</view>
 			</view>
 		</view>
 		<view class="content boder-24 bg-f">
@@ -35,7 +35,7 @@
 				</view>
 				<view class="reply-right">
 					<view class="clearfix reply-right-top">
-						<view class="pull-left">管理员</view>
+						<view class="pull-left">ຜູ້ຈັດການ</view>
 						<view class="pull-right">{{detail.update_time}}</view>
 					</view>
 					<view class="">{{detail.reply}}</view>

@@ -8,23 +8,23 @@
 				<radio-group class="radio-group" @change="radioChange" v-if="addressList.length">
 					<view class='item bg-f boder-24' v-for="(item,index) in addressList" :key="index">
 						<view class='address' @click='goOrder(item.address_id)'>
-							<view class='consignee font-500'>收货人：{{item.real_name}}<text class='phone'>{{item.phone}}</text></view>
-							<view>收货地址：{{item.province || ''}}{{item.city || ''}}{{item.district || ''}}{{item.street || ''}}{{item.detail || ''}}</view>
+							<view class='consignee font-500'>ຜູ້ຮັບ: {{item.real_name}}<text class='phone'>{{item.phone}}</text></view>
+							<view>ທີ່ຢູ່ຮັບສິນຄ້າ: {{item.province || ''}}{{item.city || ''}}{{item.district || ''}}{{item.street || ''}}{{item.detail || ''}}</view>
 						</view>
 						<view class='operation acea-row row-between-wrapper'>
 							<!-- #ifndef MP -->
 							<radio class="radio" :value="index.toString()" :checked="item.is_default ? true : false">
-								<text>设为默认</text>
+								<text>ຕັ້ງເປັນຄ່າເລີ່ມຕົ້ນ</text>
 							</radio>
 							<!-- #endif -->
 							<!-- #ifdef MP -->
 							<radio class="radio" :value="index" :checked="item.is_default ? true : false">
-								<text>设为默认</text>
+								<text>ຕັ້ງເປັນຄ່າເລີ່ມຕົ້ນ</text>
 							</radio>
 							<!-- #endif -->
 							<view class='acea-row row-middle'>
-								<view @click='editAddress(item.address_id)'><text class='iconfont icon-ic_edit'></text>编辑</view>
-								<view @click='delAddress(index)'><text class='iconfont icon-ic_delete'></text>删除</view>
+								<view @click='editAddress(item.address_id)'><text class='iconfont icon-ic_edit'></text>ແກ້ໄຂ</view>
+								<view @click='delAddress(index)'><text class='iconfont icon-ic_delete'></text>ລຶບ</view>
 							</view>
 						</view>
 					</view>
@@ -36,11 +36,11 @@
 					<view class='pictrue'>
 						<image :src="`${domain}/static/images/noAddress.png`"></image>
 					</view>
-					<view>暂无地址</view>
+					<view>ບໍ່ມີທີ່ຢູ່</view>
 				</view>
 			</view>
 			<view class='footer acea-row row-between-wrapper'>
-				<view class='addressBnt on' @click='addAddress'><text class='iconfont icon-tianjiadizhi'></text>添加新地址</view>
+				<view class='addressBnt on' @click='addAddress'><text class='iconfont icon-tianjiadizhi'></text>ເພີ່ມທີ່ຢູ່ໃໝ່</view>
 			</view>
 		</view>
 	</view>
@@ -75,7 +75,7 @@
 				couponId: 0,
 				loading: false,
 				loadend: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມເຕີມ',
 				page: 1,
 				limit: 20,
 				domain: HTTP_REQUEST_URL,
@@ -126,45 +126,45 @@
 									district:res.countyName,
 									city:res.cityName,
 									city_id:''
-								}).then(res => {
-									that.$util.Tips({
-										title: "添加成功",
-										icon: 'success'
-									}, function() {
-										that.getAddressList(true);
-									});
-								}).catch(err => {
-									return that.$util.Tips({
-										title: err
-									});
+							}).then(res => {
+								that.$util.Tips({
+									title: "ເພີ່ມສຳເລັດ",
+									icon: 'success'
+								}, function() {
+									that.getAddressList(true);
 								});
-							},
-							fail: function(res) {
-								if (res.errMsg == 'chooseAddress:cancel') return that.$util.Tips({
-									title: '取消选择'
+							}).catch(err => {
+								return that.$util.Tips({
+									title: err
 								});
+							});
+						},
+						fail: function(res) {
+							if (res.errMsg == 'chooseAddress:cancel') return that.$util.Tips({
+								title: 'ຍົກເລີກການເລືອກ'
+							});
 							},
 						})
 					},
-					fail: function(res) {
-						uni.showModal({
-							title: '您已拒绝导入微信地址权限',
-							content: '是否进入权限管理，调整授权？',
-							success(res) {
-								if (res.confirm) {
-									uni.openSetting({
-										success: function(res) {
-											console.log(res.authSetting)
-										}
-									});
-								} else if (res.cancel) {
-									return that.$util.Tips({
-										title: '已取消！'
-									});
-								}
+				fail: function(res) {
+					uni.showModal({
+						title: 'ທ່ານປະຕິເສດສິດນຳເຂົ້າທີ່ຢູ່ WeChat',
+						content: 'ເຂົ້າສູ່ການຈັດການສິດເພື່ອປັບການອະນຸຍາດບໍ່?',
+						success(res) {
+							if (res.confirm) {
+								uni.openSetting({
+									success: function(res) {
+										console.log(res.authSetting)
+									}
+								});
+							} else if (res.cancel) {
+								return that.$util.Tips({
+									title: 'ຍົກເລີກແລ້ວ!'
+								});
 							}
-						})
-					}
+						}
+					})
+				}
 				})
 			},
 			/*
@@ -184,19 +184,19 @@
 							is_default: 1,
 							city_id:""
 						})
-						.then(() => {
-							that.$util.Tips({
-								title: "添加成功",
-								icon: 'success'
-							}, function() {
-								that.getAddressList(true);
-							});
-						})
-						.catch(err => {
-							return that.$util.Tips({
-								title: err || "添加失败"
-							});
+					.then(() => {
+						that.$util.Tips({
+							title: "ເພີ່ມສຳເລັດ",
+							icon: 'success'
+						}, function() {
+							that.getAddressList(true);
 						});
+					})
+					.catch(err => {
+						return that.$util.Tips({
+							title: err || "ເພີ່ມລົ້ມເຫລວ"
+						});
+					});
 				});
 			},
 			/**
@@ -218,18 +218,18 @@
 					page: that.page,
 					limit: that.limit
 				}).then(res => {
-					let list = res.data.list;
-					let loadend = list.length < that.limit;
-					that.addressList = that.$util.SplitArray(list, that.addressList);
-					that.$set(that, 'addressList', that.addressList);
-					that.loadend = loadend;
-					that.loadTitle = loadend ? '我也是有底线的' : '加载更多';
-					that.page = that.page + 1;
-					that.loading = false;
-				}).catch(err => {
-					that.loading = false;
-					that.loadTitle = '加载更多';
-				});
+				let list = res.data.list;
+				let loadend = list.length < that.limit;
+				that.addressList = that.$util.SplitArray(list, that.addressList);
+				that.$set(that, 'addressList', that.addressList);
+				that.loadend = loadend;
+				that.loadTitle = loadend ? 'ໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມເຕີມ';
+				that.page = that.page + 1;
+				that.loading = false;
+			}).catch(err => {
+				that.loading = false;
+				that.loadTitle = 'ໂຫຼດເພີ່ມເຕີມ';
+			});
 			},
 			/**
 			 * 设置默认地址
@@ -237,22 +237,22 @@
 			radioChange: function(e) {
 				let index = parseInt(e.detail.value),
 					that = this;
-				let address = this.addressList[index];
-				if (address == undefined) return that.$util.Tips({
-					title: '您设置的默认地址不存在!'
-				});
+			let address = this.addressList[index];
+			if (address == undefined) return that.$util.Tips({
+				title: 'ທີ່ຢູ່ເລີ່ມຕົ້ນທີ່ທ່ານຕັ້ງບໍ່ມີຢູ່!'
+			});
 				setAddressDefault(address.address_id).then(res => {
 					for (let i = 0, len = that.addressList.length; i < len; i++) {
 						if (i == index) that.addressList[i].is_default = true;
 						else that.addressList[i].is_default = false;
-					}
-					that.$util.Tips({
-						title: '设置成功',
-						icon: 'success'
-					}, function() {
-						that.$set(that, 'addressList', that.addressList);
-					});
-				}).catch(err => {
+				}
+				that.$util.Tips({
+					title: 'ຕັ້ງຄ່າສຳເລັດ',
+					icon: 'success'
+				}, function() {
+					that.$set(that, 'addressList', that.addressList);
+				});
+			}).catch(err => {
 					return that.$util.Tips({
 						title: err
 					});
@@ -276,16 +276,16 @@
 			 * 删除地址
 			 */
 			delAddress: function(index) {
-				let that = this,
-					address = this.addressList[index];
-				if (address == undefined) return that.$util.Tips({
-					title: '您删除的地址不存在!'
-				});
-				delAddress(address.address_id).then(res => {
-					that.$util.Tips({
-						title: '删除成功',
-						icon: 'success'
-					}, function() {
+			let that = this,
+				address = this.addressList[index];
+			if (address == undefined) return that.$util.Tips({
+				title: 'ທີ່ຢູ່ທີ່ທ່ານລຶບບໍ່ມີຢູ່!'
+			});
+			delAddress(address.address_id).then(res => {
+				that.$util.Tips({
+					title: 'ລຶບສຳເລັດ',
+					icon: 'success'
+				}, function() {
 						that.addressList.splice(index, 1);
 						that.$set(that, 'addressList', that.addressList);
 

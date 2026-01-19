@@ -15,25 +15,25 @@
 						<view class="product-item" v-for="goods in item.refundProduct" :key="goods.order_product_id">
 							<image class="img-box" :src="goods.product.cart_info.product.image" mode=""></image>
 							<view class="msg">
-								<view class="name line1"><text v-if="goods.product.cart_info.product_type === 2" class="event_name event_bg">预售</text>{{goods.product.cart_info.product.store_name}}</view>
+								<view class="name line1"><text v-if="goods.product.cart_info.product_type === 2" class="event_name event_bg">ຈອງລ່ວງໜ້າ</text>{{goods.product.cart_info.product.store_name}}</view>
 								<view class="des">{{goods.product.cart_info.productAttr.sku}}</view>
-								<view class="price">退款：<text class="semiBold">¥{{goods.refund_price}}</text></view>
+								<view class="price">ຄືນເງິນ: <text class="semiBold">¥{{goods.refund_price}}</text></view>
 								<view class="num">x {{goods.refund_num}}</view>
 							</view>
 						</view>
 					</view>
-					<view class="btn-box" v-if="item.status == 1">
-						<view class="btn gray" @click="goDetail(item)">查看详情</view>
-						<view class="btn" @click="goPage(item.refund_order_id)">退回商品</view>
-					</view>
-					<view class="btn-box" v-else-if="item.status == -1">
-						<view class="btn" @click="goDetail(item)">查看详情</view>
-						<!-- <view class="btn" @click="applyAgain(item)">再次申请</view> -->
-					</view>
-					<view class="btn-box" v-else>
-						<view class="btn gray" v-if="item.status == 3" @click="bindDetele(item,index)">删除订单</view>
-						<view class="btn" @click="goDetail(item)">查看详情</view>
-					</view>
+				<view class="btn-box" v-if="item.status == 1">
+					<view class="btn gray" @click="goDetail(item)">ເບິ່ງລາຍລະອຽດ</view>
+					<view class="btn" @click="goPage(item.refund_order_id)">ສົ່ງສິນຄ້າຄືນ</view>
+				</view>
+				<view class="btn-box" v-else-if="item.status == -1">
+					<view class="btn" @click="goDetail(item)">ເບິ່ງລາຍລະອຽດ</view>
+					<!-- <view class="btn" @click="applyAgain(item)">再次申请</view> -->
+				</view>
+				<view class="btn-box" v-else>
+					<view class="btn gray" v-if="item.status == 3" @click="bindDetele(item,index)">ລຶບຄຳສັ່ງຊື້</view>
+					<view class="btn" @click="goDetail(item)">ເບິ່ງລາຍລະອຽດ</view>
+				</view>
 					<view class="status">
 						<!-- 0审核中 1待发货 2待收货 3已退款 -1已拒绝 -->
 						<block v-if="item.status == 0">
@@ -58,7 +58,7 @@
 				</view>
 			</view>
 			<view v-else>
-				<emptyPage title="暂无退款订单~" :noImage="`${domain}/static/images/noRefund.png`"></emptyPage>
+				<emptyPage title="ບໍ່ມີຄຳສັ່ງຊື້ຄືນເງິນ~" :noImage="`${domain}/static/images/noRefund.png`"></emptyPage>
 			</view>
 		</view>
 	</view>
@@ -93,17 +93,17 @@
 			return {
 				domain: HTTP_REQUEST_URL,
 				tabIndex:0,
-				tabList:[
-					{
-						title:'全部'
-					},
-					{
-						title:'处理中'
-					},
-					{
-						title:'已处理'
-					},
-				],
+			tabList:[
+				{
+					title:'ທັງໝົດ'
+				},
+				{
+					title:'ກຳລັງດຳເນີນການ'
+				},
+				{
+					title:'ດຳເນີນການແລ້ວ'
+				},
+			],
 				goodsList:[],
 				isScroll:true,
 				page:1,
@@ -161,26 +161,26 @@
 				})
 			},
 			// 删除记录
-			bindDetele(item,index){
-				let self = this
-				uni.showModal({
-					title: '提示',
-					content: '确定删除该记录吗？',
-					success: function (res) {
-						if (res.confirm) {
-								refundDel(item.refund_order_id).then(res=>{
-									self.goodsList.splice(index,1)
-								})
-								uni.showToast({
-									title:'删除成功',
-									icon:'none'
-								})
-						} else if (res.cancel) {
-							console.log('用户点击取消');
-						}
+		bindDetele(item,index){
+			let self = this
+			uni.showModal({
+				title: 'ແຈ້ງເຕືອນ',
+				content: 'ແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບບັນທຶກນີ້?',
+				success: function (res) {
+					if (res.confirm) {
+							refundDel(item.refund_order_id).then(res=>{
+								self.goodsList.splice(index,1)
+							})
+							uni.showToast({
+								title:'ລຶບສຳເລັດ',
+								icon:'none'
+							})
+					} else if (res.cancel) {
+						console.log('用户点击取消');
 					}
-				});
-			}
+				}
+			});
+		}
 		},
 		onReachBottom() {
 			this.getList();

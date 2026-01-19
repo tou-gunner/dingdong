@@ -3,8 +3,8 @@
 		<view class="history_count bg-f">
 			<block v-if="list.length>0">
 				<view class="history_header acea-row">
-					<text>共{{total}}条</text>
-					<view class="text" @click.stop="handleEdit">{{isEdit ? '完成' : '管理'}}</view>
+					<text>ລວມ {{total}} ລາຍການ</text>
+					<view class="text" @click.stop="handleEdit">{{isEdit ? 'ສຳເລັດ' : 'ຈັດການ'}}</view>
 				</view>
 				<view class="list" v-for="(item,index) in list" :key="index">
 					<view class="item_time">
@@ -32,7 +32,7 @@
 											</view>
 										</block>
 										<block v-else>
-											<view class="tips">该商品已下架</view>
+											<view class="tips">ສິນຄ້ານີ້ຖືກຍົກເລີກແລ້ວ</view>
 										</block>
 									</view>
 								</view>
@@ -47,7 +47,7 @@
 											</view>
 										</block>
 										<block v-else>
-											<view class="tips">该商品已下架</view>
+											<view class="tips">ສິນຄ້ານີ້ຖືກຍົກເລີກແລ້ວ</view>
 										</block>
 									</view>
 								</view>
@@ -63,18 +63,18 @@
 				<view class="allcheckbox acea-row row-center" @click.stop="checkboxAllChange">
 					<text v-if="!isAllSelect" class="iconfont icon-ic_unselect"></text>
 					<text v-else class="iconfont icon-a-ic_CompleteSelect"></text>
-					<text>全选</text>
+					<text>ເລືອກທັງໝົດ</text>
 				</view>
 			</view>
 			<view class='acea-row row-between-wrapper'>
 				<view class='button acea-row row-middle' style="margin-right: 20rpx;">
 					<form @submit="subCollect" report-submit='true'>
-						<button class='bnt collect_btn' formType="submit">收藏</button>
+						<button class='bnt collect_btn' formType="submit">ເກັບມ້ຽນ</button>
 					</form>
 				</view>
 				<view class='button acea-row row-middle'>
 					<form @submit="subDel('batch')" report-submit='true'>
-						<button class='bnt delete_btn' formType="submit">删除</button>
+						<button class='bnt delete_btn' formType="submit">ລຶບ</button>
 					</form>
 				</view>
 			</view>
@@ -189,14 +189,14 @@
 				}else{
 					type_id = 1
 				}
-				if(type_id.length == 0 && type == 'batch'){
-					return that.$util.Tips({
-						title: '请选择记录'
-					});
-				}else{
-					uni.showModal({
-						title: '提示',
-						 content: content,
+			if(type_id.length == 0 && type == 'batch'){
+				return that.$util.Tips({
+					title: 'ກະລຸນາເລືອກບັນທຶກ'
+				});
+			}else{
+				uni.showModal({
+					title: 'ແຈ້ງເຕືອນ',
+					 content: content,
 						 success: function (res) {
 						if (res.confirm) {
 							historyBatchDelete({
@@ -217,15 +217,15 @@
 										title: err
 									});
 								});
-							}else if (res.cancel) {
-								return that.$util.Tips({
-									title: '已取消'
-								});
-							}
+						}else if (res.cancel) {
+							return that.$util.Tips({
+								title: 'ຍົກເລີກແລ້ວ'
+							});
 						}
-					});
-				}
-			},
+					}
+				});
+			}
+		},
 			subCollect(){
 				let that = this, type_id = []
 				that.list.forEach(item=>{

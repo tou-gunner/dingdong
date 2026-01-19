@@ -11,7 +11,7 @@
 			</view>
 		</block>
 		<block v-if="list.length == 0">
-			<emptyPage title="暂无数据"></emptyPage>
+			<emptyPage title="ບໍ່ມີຂໍ້ມູນ"></emptyPage>
 		</block>
 	</view>
 </template>

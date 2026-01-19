@@ -1,3 +1,38 @@
+/* Noto Sans Lao Looped Font Family */
+@font-face {
+  font-family: 'Noto Sans Lao Looped';
+  src: url('@/static/fonts/Noto_Sans_Lao_Looped/NotoSansLaoLooped-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 62.5% 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Static font weights as fallback */
+@font-face {
+  font-family: 'Noto Sans Lao Looped';
+  src: url('@/static/fonts/Noto_Sans_Lao_Looped/static/NotoSansLaoLooped-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Lao Looped';
+  src: url('@/static/fonts/Noto_Sans_Lao_Looped/static/NotoSansLaoLooped-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Lao Looped';
+  src: url('@/static/fonts/Noto_Sans_Lao_Looped/static/NotoSansLaoLooped-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 .overflow-text {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2660,4 +2695,9 @@
 
 .space-line{
 	white-space: pre-line;
+}
+
+// Seng add 
+.height-fit-content {
+	height: fit-content;
 }

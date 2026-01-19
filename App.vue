@@ -272,6 +272,12 @@
 	@import 'static/css/style.scss';
 	@import 'static/fonts/font.css';
 	@import 'static/css/common.scss';
+	
+	/* Global Font */
+	page, view, text, button, input, textarea, label, navigator, picker, switch, slider, rich-text {
+		font-family: 'Noto Sans Lao Looped', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+	}
+	
 	.bg-color-red {
 		background-color: #e93323 !important;
 	}

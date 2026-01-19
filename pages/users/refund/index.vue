@@ -16,7 +16,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="btn-box font-500" @click="confirm">申请退款</view>
+		<view class="btn-box font-500" @click="confirm">ສະໝັກຄືນເງິນ</view>
 	</view>
 </template>
 
@@ -85,12 +85,12 @@
 			},
 			// 确认
 			confirm(){
-				if(this.activeId.length == 0){
-					uni.showToast({
-						title:'请选择商品',
-						icon:'none'
-					})
-				}else{
+			if(this.activeId.length == 0){
+				uni.showToast({
+					title:'ກະລຸນາເລືອກສິນຄ້າ',
+					icon:'none'
+				})
+			}else{
 					uni.redirectTo({
 						url:'/pages/users/refund/confirm?ids='+this.activeId.join(',')+'&refund_type='+this.refund_type+'&type='+this.type+'&order_id='+this.order_id
 					})

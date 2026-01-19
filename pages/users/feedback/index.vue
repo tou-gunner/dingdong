@@ -4,7 +4,7 @@
 			<view class="tipBox">
 				<view class="left">
 					<image :src="`${domain}/static/images/kefu.png`" mode=""></image>
-					<view class="font">如需尽快解决问题，可直接联系在线客服</view>
+					<view class="font">ຖ້າຕ້ອງການແກ້ໄຂບັນຫາທັນທີ, ສາມາດຕິດຕໍ່ພະນັກງານບໍລິການອອນໄລນ໌ໄດ້</view>
 				</view>
 				<view @click="customer" v-if="service_type.sys_service_switch != 5"><i class="iconfont icon-ic_rightarrow" style="fontsize: 24rpx"></i></view>
 				<!--#ifdef MP-->
@@ -17,10 +17,10 @@
 		<view class="pad20 ">
 			<view class="feedback-container bg-f boder-24">
 				<view class="item-box">
-					<view class="title-box">
-						<text>*</text>
-						反馈类型
-					</view>
+				<view class="title-box">
+					<text>*</text>
+					ປະເພດຄຳຄິດເຫັນ
+				</view>
 					<view class="tab-box" v-if="tabList.length > 0">
 						<block v-for="(item, index) in tabList" :key="index">
 							<view class="tab-item" :key="index" :class="{ active: index == tabKey }" @click="bindTab(item, index)">{{ item.cate_name }}</view>
@@ -35,22 +35,22 @@
 						</picker>
 					</view>
 				</view>
-				<view class="item-box">
-					<view class="title-box">
-						<text>*</text>
-						反馈内容
-					</view>
-					<view class="textarea-box">
-						<textarea maxlength="200" placeholder-class="placeholder" placeholder="请输入文字" v-model="con" />
-						<view class="num">{{ con.length }}/200字</view>
-					</view>
+			<view class="item-box">
+				<view class="title-box">
+					<text>*</text>
+					ເນື້ອຫາຄຳຄິດເຫັນ
 				</view>
-				<view class="item-box">
-					<view class="title-box">
-						<text>*</text>
-						图片上传
-						<text class="des">(上传聊天截图或与问题描述相关的图片)</text>
-					</view>
+				<view class="textarea-box">
+					<textarea maxlength="200" placeholder-class="placeholder" placeholder="ກະລຸນາປ້ອນຂໍ້ຄວາມ" v-model="con" />
+					<view class="num">{{ con.length }}/200 ຕົວອັກສອນ</view>
+				</view>
+			</view>
+			<view class="item-box">
+				<view class="title-box">
+					<text>*</text>
+					ອັບໂຫລດຮູບພາບ
+					<text class="des">(ອັບໂຫລດພາບຖ່າຍຫນ້າຈໍການສົນທະນາຫຼືຮູບພາບທີ່ກ່ຽວຂ້ອງກັບບັນຫາ)</text>
+				</view>
 					<view class="upload-img">
 						<view class="img-wrapper" v-if="uploadImg.length > 0" v-for="(item, index) in uploadImg" :key="index">
 							<image :src="item"></image>
@@ -61,16 +61,16 @@
 						</view>
 					</view>
 				</view>
-				<view class="item-box">
-					<view class="title-box">
-						<text>*</text>
-						联系方式
-					</view>
-					<view class="input-box">
-						<input type="text" placeholder-class="placeholderc" placeholder="请填写您的姓名" v-model="name" />
-						<input type="text" placeholder-class="placeholderc" placeholder="请填写您的电话或邮箱" v-model="phone" />
-					</view>
+			<view class="item-box">
+				<view class="title-box">
+					<text>*</text>
+					ຂໍ້ມູນຕິດຕໍ່
 				</view>
+				<view class="input-box">
+					<input type="text" placeholder-class="placeholderc" placeholder="ກະລຸນາປ້ອນຊື່ຂອງທ່ານ" v-model="name" />
+					<input type="text" placeholder-class="placeholderc" placeholder="ກະລຸນາປ້ອນເບີໂທຫຼືອີເມວຂອງທ່ານ" v-model="phone" />
+				</view>
+			</view>
 				<view class="item-box">
 					<view class="sub-btn" @click="bindSub">ສົ່ງຄຳຄິດເຫັນ</view>
 
@@ -84,10 +84,10 @@
 					</view>
 				</view>
 			</view>
-			<navigator url="/pages/users/feedback/list" class="link" hover-class="none">
-				反馈记录
-				<text class="iconfont icon-ic_rightarrow"></text>
-			</navigator>
+		<navigator url="/pages/users/feedback/list" class="link" hover-class="none">
+			ບັນທຶກຄຳຄິດເຫັນ
+			<text class="iconfont icon-ic_rightarrow"></text>
+		</navigator>
 		</view>
 	</view>
 </template>
@@ -238,35 +238,35 @@ export default {
 		bindSub() {
 			if (!this.con) {
 				uni.showToast({
-					title: '请输入反馈内容',
+					title: 'ກະລຸນາປ້ອນເນື້ອຫາຄຳຄິດເຫັນ',
 					icon: 'none'
 				});
 				return;
 			}
 			if (this.uploadImg.length == 0) {
 				uni.showToast({
-					title: '请上传图片',
+					title: 'ກະລຸນາອັບໂຫລດຮູບພາບ',
 					icon: 'none'
 				});
 				return;
 			}
 			if (!this.name) {
 				uni.showToast({
-					title: '请输入姓名',
+					title: 'ກະລຸນາປ້ອນຊື່',
 					icon: 'none'
 				});
 				return;
 			}
 			if (!this.phone) {
 				uni.showToast({
-					title: '请输入电话或者邮箱',
+					title: 'ກະລຸນາປ້ອນເບີໂທຫຼືອີເມວ',
 					icon: 'none'
 				});
 				return;
 			}
 			if (!isEmailAvailable(this.phone) && !checkPhone(this.phone)) {
 				uni.showToast({
-					title: '请输入有效的电话或者邮箱',
+					title: 'ກະລຸນາປ້ອນເບີໂທຫຼືອີເມວທີ່ຖືກຕ້ອງ',
 					icon: 'none'
 				});
 				return;

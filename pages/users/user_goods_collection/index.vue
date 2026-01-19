@@ -5,8 +5,8 @@
 				<view class="tab-item" v-for="(item,index) in tabList" :key="index" :class="{'on':index == tabIndex-1}" @click="bindTab(index)"><text>{{item.title}}</text></view>
 			</view>
 			<view v-if="collectProductList.length && tabIndex == 1" class="list_header acea-row">
-				<view class="total">共<text>{{total}}</text>件商品</view>
-				<view class="text" @click.stop="handleEdit">{{isEdit ? '完成' : '编辑'}}</view>
+				<view class="total">ລວມ <text>{{total}}</text> ລາຍການສິນຄ້າ</view>
+				<view class="text" @click.stop="handleEdit">{{isEdit ? 'ສຳເລັດ' : 'ແກ້ໄຂ'}}</view>
 			</view>
 		</view>
 		<block v-if="tabIndex == 1">
@@ -17,19 +17,19 @@
 							<text v-if="!item.check" class="iconfont icon-ic_unselect"></text>
 							<text v-else class="iconfont icon-a-ic_CompleteSelect"></text>
 						</view>
-						<view class='pictrue' >
-							<image class="image" :src="item.spu.image"></image>
-							<view v-if="item.spu.product_type==0 && item.spu.status!==1" class="off">已下架</view>
-							<view v-else-if="item.spu.product_type>0 && item.spu.status==0" class="off end-off">活动<br/>结束</view>
-						</view>
+					<view class='pictrue' >
+						<image class="image" :src="item.spu.image"></image>
+						<view v-if="item.spu.product_type==0 && item.spu.status!==1" class="off">ຍົກເລີກແລ້ວ</view>
+						<view v-else-if="item.spu.product_type>0 && item.spu.status==0" class="off end-off">ກິດຈະກຳ<br/>ສິ້ນສຸດ</view>
+					</view>
 					</view>
 					<view class='text acea-row row-column-between' :class="isEdit ? 'edit' : ''">
-						<view class='name' :class="{saleOff : item.spu.status!=1}">
-							<view class="name_text">
-								<text v-if="item.spu.product_type != 0" :class="'font_bg-red type'+item.spu.product_type">{{item.spu.product_type == 1 ? "秒杀" : item.spu.product_type == 2 ? "预售" : item.spu.product_type == 3 ? "助力" : item.spu.product_type == 4 ? "拼团" : ""}}</text>
-							{{item.spu.store_name}}
-							</view>
+					<view class='name' :class="{saleOff : item.spu.status!=1}">
+						<view class="name_text">
+							<text v-if="item.spu.product_type != 0" :class="'font_bg-red type'+item.spu.product_type">{{item.spu.product_type == 1 ? "ແຟລຊເຊລ" : item.spu.product_type == 2 ? "ຈອງລ່ວງໜ້າ" : item.spu.product_type == 3 ? "ຊ່ວຍເຫຼືອ" : item.spu.product_type == 4 ? "ຊື້ຮ່ວມ" : ""}}</text>
+						{{item.spu.store_name}}
 						</view>
+					</view>
 						<view class='acea-row row-between-wrapper'>
 							<view class='money' :class="{saleOff : item.spu.status!=1}">
 								<priceFormat :price="item.spu.price" weight intSize="36" floatSize="24" labelSize="24"></priceFormat>
@@ -41,22 +41,22 @@
 					<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>{{loadTitle}}
 				</view>
 			</view>
-			<view class='footer acea-row row-between-wrapper' v-if="isEdit && collectProductList.length>0">
-				<view>
-					<view class="allcheckbox" @click.stop="checkboxAllChange">
-						<text v-if="!isAllSelect" class="iconfont icon-ic_unselect"></text>
-						<text v-else class="iconfont icon-a-ic_CompleteSelect"></text>
-						全选
-					</view>
-				</view>
-				<view class='acea-row row-between-wrapper'>
-					<view class='button acea-row row-middle' style="margin-right: 20rpx;">
-						<form @submit="subCollect" report-submit='true'>
-							<button class='bnt collect_btn' formType="submit">取消收藏</button>
-						</form>
-					</view>
+		<view class='footer acea-row row-between-wrapper' v-if="isEdit && collectProductList.length>0">
+			<view>
+				<view class="allcheckbox" @click.stop="checkboxAllChange">
+					<text v-if="!isAllSelect" class="iconfont icon-ic_unselect"></text>
+					<text v-else class="iconfont icon-a-ic_CompleteSelect"></text>
+					ເລືອກທັງໝົດ
 				</view>
 			</view>
+			<view class='acea-row row-between-wrapper'>
+				<view class='button acea-row row-middle' style="margin-right: 20rpx;">
+					<form @submit="subCollect" report-submit='true'>
+						<button class='bnt collect_btn' formType="submit">ຍົກເລີກເກັບມ້ຽນ</button>
+					</form>
+				</view>
+			</view>
+		</view>
 		</block>
 		<block v-else>
 			<view v-if="storeList.length>0" class="user_store_attention" :style="viewColor">
@@ -67,15 +67,15 @@
 							<view class="line1">
 								<text class="name line1">{{item.merchant.mer_name}}</text>
 								<text v-if="item.merchant.type_name" class="font-bg-red ml8">{{item.merchant.type_name}}</text>
-								<text v-else-if="item.merchant.is_trader" class="font-bg-red ml8">自营</text>
+								<text v-else-if="item.merchant.is_trader" class="font-bg-red ml8">ດຳເນີນການເອງ</text>
 							</view>
-							<view class="btn" @click.stop="bindDetele(item,index)">取消关注</view>
+							<view class="btn" @click.stop="bindDetele(item,index)">ຍົກເລີກຕິດຕາມ</view>
 						</view>
 					</view>
-					<view class="store-closed" v-if="item.merchant.is_del == 1 || item.merchant.mer_state == 0 || item.merchant.status == 0">
-						<image class="closed" :src="domain+'/static/images/store-closed.png'"></image>
-						<view class="closed-text">店铺已关闭，去看看别的店铺吧~</view>
-					</view>
+				<view class="store-closed" v-if="item.merchant.is_del == 1 || item.merchant.mer_state == 0 || item.merchant.status == 0">
+					<image class="closed" :src="domain+'/static/images/store-closed.png'"></image>
+					<view class="closed-text">ຮ້ານປິດແລ້ວ, ໄປເບິ່ງຮ້ານອື່ນກັນເນີ້~</view>
+				</view>
 					<view class="store_recommend" v-else-if="item.merchant && item.merchant.showProduct.length>0">
 						<block v-for="(itemn,indexn) in item.merchant.showProduct" :key="indexn" v-if="indexn < 3">
 							<navigator :url="'/pages/goods_details/index?id='+itemn.product_id"
@@ -93,7 +93,7 @@
 		<view class='noCommodity' v-if="(!collectProductList.length && tabIndex == 1) || (!storeList.length && tabIndex == 2)">
 			<view class='pictrue'>
 				<image :src="`${domain}/static/images/noAttention.png`"></image>
-				<view>{{tabIndex == 1 ? '暂无商品' : '暂无店铺'}}，去添加点什么吧~</view>
+				<view>{{tabIndex == 1 ? 'ບໍ່ມີສິນຄ້າ' : 'ບໍ່ມີຮ້ານ'}}, ໄປເພີ່ມບາງຢ່າງເນີ້~</view>
 			</view>
 		</view>
 	</view>
@@ -120,9 +120,9 @@
 		components: {},
 		data() {
 			return {
-				hostProduct: [],
-				loadTitle: '加载更多',
-				loading: false,
+			hostProduct: [],
+			loadTitle: 'ໂຫຼດເພີ່ມເຕີມ',
+			loading: false,
 				loadend: false,
 				collectProductList: [],
 				checkedArr: [],
@@ -140,14 +140,14 @@
 				isEdit: false,
 				isAllSelect: false,
 				tabIndex:1,
-				tabList:[
-					{
-						title:'商品'
-					},
-					{
-						title:'店铺'
-					}
-				],
+			tabList:[
+				{
+					title:'ສິນຄ້າ'
+				},
+				{
+					title:'ຮ້ານ'
+				}
+			],
 			};
 		},
 		computed: configMap({recommend_switch:0,hide_mer_status:0},mapGetters(['isLogin','viewColor','keyColor'])),
@@ -201,14 +201,14 @@
 			bindDetele(item,index){
 				userCollectDel({
 					type:10,
-					type_id:[item.type_id]
-				}).then(res=>{
-					uni.showToast({
-						title:'已取消',
-						icon:'none'
-					})
-					this.storeList.splice(index,1)
-				})
+			type_id:[item.type_id]
+		}).then(res=>{
+			uni.showToast({
+				title:'ຍົກເລີກແລ້ວ',
+				icon:'none'
+			})
+			this.storeList.splice(index,1)
+		})
 			},
 			getList(){
 				if(!this.isScroll) return
@@ -243,15 +243,15 @@
 						}
 					})
 					that.collectProductList = that.$util.SplitArray(collectProductList, that.collectProductList);
-					that.$set(that, 'collectProductList', that.collectProductList);
-					that.loadend = loadend;
-					that.loadTitle = loadend ? '我也是有底线的' : '加载更多';
-					that.page = that.page + 1;
-					that.loading = false;
-				}).catch(err => {
-					that.loading = false;
-					that.loadTitle = "加载更多";
-				});
+			that.$set(that, 'collectProductList', that.collectProductList);
+			that.loadend = loadend;
+			that.loadTitle = loadend ? 'ໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມເຕີມ';
+			that.page = that.page + 1;
+			that.loading = false;
+		}).catch(err => {
+			that.loading = false;
+			that.loadTitle = "ໂຫຼດເພີ່ມເຕີມ";
+		});
 			},
 			/**
 			 * 取消收藏
@@ -260,15 +260,15 @@
 				let that = this;
 				userCollectDel({
 					type:1,
-					type_id: that.getSelectGoods()
-				}).then(res => {
-					return that.$util.Tips({
-						title: '取消收藏成功',
-						icon: 'success'
-					}, function() {
-						that.reloadData()
-					});
-				}).catch(err => {
+			type_id: that.getSelectGoods()
+		}).then(res => {
+			return that.$util.Tips({
+				title: 'ຍົກເລີກເກັບມ້ຽນສຳເລັດ',
+				icon: 'success'
+			}, function() {
+				that.reloadData()
+			});
+		}).catch(err => {
 					return that.$util.Tips({
 						title: err,
 					});
