@@ -3,7 +3,7 @@
 		<form>
 			<view class='pad20 personal-data'>
 				<view class="wrapper bg-f boder-24 mt20" v-if="switchUserInfo.length>0">
-					<view class="title">管理我的账号</view>
+					<view class="title">ຈັດການບັນຊີຂອງຂ້ອຍ</view>
 					<view class="wrapList" >
 						<view class="item acea-row row-between-wrapper" :class="item.uid === userInfo.uid ? 'on' : ''"
 						 :style="{ 'background-image': `url(${item.uid == userInfo.uid ? domain+'/static/diy/currentAcc'+keyColor+'.png' : '' })` }"
@@ -32,17 +32,17 @@
 								</view>
 							</view>
 							<view class="currentBnt acea-row row-center-wrapper t-color" v-if='item.uid === userInfo.uid'>
-								当前账号
+								ບັນຊີປະຈຸບັນ
 							</view>
 							<view class="bnt t-color acea-row row-center-wrapper"  @click='switchAccounts(item,index)' v-else>
-								使用账号
+								ໃຊ້ບັນຊີ
 							</view>
 						</view>
 					</view>
 				</view>
 				<view v-else class="list bg-f boder-24 mt20">
 					<view class='item acea-row row-between-wrapper' >
-						<view>头像</view>
+						<view>ຮູບໂປຣໄຟລ໌</view>
 						<view class="pictrue" v-if="!mp_is_new"  @click="uploadpic">
 							<image class="avatar" :src="userInfo.avatar || '/static/images/f.png'"></image>
 						</view>
@@ -53,7 +53,7 @@
 				</view>
 				<view class='list bg-f boder-24 mt20'>
 					<view class='item acea-row row-between-wrapper'>
-						<view>昵称</view>
+						<view>ຊື່ຜູ້ໃຊ້</view>
 						<view class='input acea-row row-between-wrapper' @click="changeInput">
 							<input type='text' name='nickname' :value='userInfo.nickname' class='id' disabled>
 							<text v-if="open_update_info != 0" class='iconfont icon-ic_rightarrow'></text>
@@ -61,16 +61,16 @@
 						</view>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>ID号</view>
+						<view>ໄອດີ</view>
 						<view class='input acea-row row-between-wrapper'>
 							<input type='text' :value='userInfo.uid' disabled='true' class='id'></input>
 							<text class='iconfont icon-ic_lock'></text>
 						</view>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>手机号码</view>
+						<view>ເບີໂທລະສັບ</view>
 						<navigator url="/pages/users/user_phone/index" hover-class="none" class="input" v-if="!userInfo.phone">
-							点击绑定手机号<text class="iconfont icon-ic_rightarrow"></text>
+							ກົດເພື່ອຜູກເບີໂທ<text class="iconfont icon-ic_rightarrow"></text>
 						</navigator>
 						<navigator url="/pages/users/user_modify_phone/index" hover-class="none" class='input acea-row row-between-wrapper' v-else>
 							<text class='id'>{{userInfo.phone}}</text>
@@ -78,43 +78,43 @@
 						</navigator>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>登录密码</view>
+						<view>ລະຫັດຜ່ານ</view>
 						<view class='input acea-row row-between-wrapper' @click="changePwd">
-							<text class='id'>修改登录密码</text>
+							<text class='id'>ແກ້ໄຂລະຫັດຜ່ານ</text>
 							<text class='iconfont icon-ic_rightarrow'></text>
 						</view>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>地址管理</view>
+						<view>ຈັດການທີ່ຢູ່</view>
 						<navigator url="/pages/users/user_address_list/index" hover-class="none" class='input acea-row row-between-wrapper'>
-							<text class='id'>立即前往</text>
+							<text class='id'>ໄປດຽວນີ້</text>
 							<text class='iconfont icon-ic_rightarrow'></text>
 						</navigator>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>发票管理</view>
+						<view>ຈັດການໃບແຈ້ງໜີ້</view>
 						<navigator url="/pages/users/user_invoice_list/index" hover-class="none" class='input acea-row row-between-wrapper'>
-							<text class='id'>立即前往</text>
+							<text class='id'>ໄປດຽວນີ້</text>
 							<text class='iconfont icon-ic_rightarrow'></text>
 						</navigator>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>详细信息</view>
+						<view>ຂໍ້ມູນລະອຽດ</view>
 						<navigator url="/pages/users/user_info_form/index" hover-class="none" class='input acea-row row-between-wrapper'>
-							<text class='id'>立即前往</text>
+							<text class='id'>ໄປດຽວນີ້</text>
 							<text class='iconfont icon-ic_rightarrow'></text>
 						</navigator>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>注销账号</view>
+						<view>ລຶບບັນຊີ</view>
 						<view class='input acea-row row-between-wrapper' @click="changeCancel">
-							<text class='id'>账号注销后不能恢复</text>
+							<text class='id'>ບັນຊີຖືກລຶບແລ້ວບໍ່ສາມາດກູ້ຄືນໄດ້</text>
 							<text class='iconfont icon-ic_rightarrow'></text>
 						</view>
 					</view>
 					<!--#ifdef APP-PLUS-->
 					<view class='item acea-row row-between-wrapper'>
-						<view>当前版本</view>
+						<view>ເວີຊັ່ນປະຈຸບັນ</view>
 						<view class='input acea-row row-between-wrapper'>
 							<input type='text' :value='version' disabled='true' class='id'></input>
 						</view>
@@ -122,10 +122,10 @@
 					<!--#endif-->
 				</view>
 				<!-- #ifdef H5 -->
-				<view class="logOut acea-row row-center-wrapper font-500" @click="outLogin" v-if="!this.$wechat.isWeixin()">退出登录</view>
+				<view class="logOut acea-row row-center-wrapper font-500" @click="outLogin" v-if="!this.$wechat.isWeixin()">ອອກຈາກລະບົບ</view>
 				<!-- #endif -->
 				<!-- #ifdef MP || APP-PLUS -->
-				<view class="logOut acea-row row-center-wrapper font-500" @click="outLogin">退出登录</view>
+				<view class="logOut acea-row row-center-wrapper font-500" @click="outLogin">ອອກຈາກລະບົບ</view>
 				<!-- #endif -->
 				<view class="foot-bar"></view>
 			</view>
@@ -258,10 +258,10 @@ import { RoleManager } from '@/utils/role';
 				that.userIndex = index;
 				if (that.switchUserInfo.length <= 1) return true;
 				if (userInfo === undefined) return that.$util.Tips({
-					title: '切换的账号不存在'
+					title: 'ບັນຊີທີ່ປ່ຽນບໍ່ມີ'
 				});
 				uni.showLoading({
-					title: '正在切换中'
+					title: 'ກຳລັງປ່ຽນ...'
 				});
 				switchH5Login({
 					uid: item.uid
@@ -293,8 +293,8 @@ import { RoleManager } from '@/utils/role';
 				let that = this;
 				if (that.loginType == 'h5') {
 					uni.showModal({
-						title: '提示',
-						content: '确认退出登录?',
+						title: 'ແຈ້ງເຕືອນ',
+						content: 'ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອອກຈາກລະບົບ?',
 						success: function(res) {
 							if (res.confirm) {
 								getLogout()
@@ -347,7 +347,7 @@ import { RoleManager } from '@/utils/role';
 					})
 				}else{
 					that.$util.Tips({
-						title: '请先绑定手机号'
+						title: 'ກະລຸນາຜູກເບີໂທກ່ອນ'
 					});
 				}
 			},

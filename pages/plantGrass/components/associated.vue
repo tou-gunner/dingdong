@@ -8,9 +8,9 @@
 			</view>
 			<view class="search">
 				<text class="iconfont icon-ic_search"></text>
-				<input type="text" placeholder="请输入商品名称" v-model="searchVal" @input="setValue" confirm-type="search" @confirm="searchBut()" placeholder-class='placeholder'>
+				<input type="text" placeholder="ປ້ອນຊື່ສິນຄ້າ" v-model="searchVal" @input="setValue" confirm-type="search" @confirm="searchBut()" placeholder-class='placeholder'>
 			</view>
-			<view class="sub_title">{{isActive == 0 ? '已购宝贝' : isActive == 1 ?'收藏宝贝' : '浏览记录'}}</view>
+			<view class="sub_title">{{isActive == 0 ? 'ສິນຄ້າທີ່ຊື້ແລ້ວ' : isActive == 1 ? 'ສິນຄ້າທີ່ເກັບໄວ້' : 'ປະຫວັດການເຂົ້າຊົມ'}}</view>
 			<text class="iconfont icon-ic_close popup-close" @click="close"></text>
 		</view>
 		<view class="main">

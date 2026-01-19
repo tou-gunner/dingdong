@@ -861,7 +861,8 @@
 					justify-content: center;
 					align-items: center;
 					width: 20%;
-					height: 160rpx;
+					// height: 160rpx;
+					height: fit-content;
 					.pic {
 						position: relative;
 						text-align: center;

@@ -7,9 +7,9 @@
 				推荐店铺
 			</view>
 			<view class="filter-box" v-if="dataConfig.filterBtn.tabVal == 0">
-				<text class="filter-item" :class="{ active: sortType == 0 }" @click="sortType = 0">综合</text>
+				<text class="filter-item" :class="{ active: sortType == 0 }" @click="sortType = 0">ລວມ</text>
 				<text class="filter-item-divider"></text>
-				<text class="filter-item" :class="{ active: sortType == 1 }" @click="sortType = 1">距离</text>
+				<text class="filter-item" :class="{ active: sortType == 1 }" @click="sortType = 1">ໄລຍະຫ່າງ</text>
 			</view>
 		</view>
 		<!-- 样式一 -->
@@ -102,7 +102,7 @@ export default {
 	},
 	data() {
 		return {
-			sortType: this.dataConfig.storeSort.tabVal, // 0:综合 1:距离
+			sortType: this.dataConfig.storeSort.tabVal, // 0:ລວມ 1:ໄລຍະຫ່າງ
 			storeList: [],
 		};
 	},

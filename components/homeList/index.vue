@@ -43,19 +43,19 @@
 							after: 'dialog_after'
 						},
 						{
-							name: '购物车',
+							name: 'ກະຕ່າສິນຄ້າ',
 							icon: 'icon-ic_ShoppingCart1',
 							url: '/pages/order_addcart/order_addcart',
 							after: 'dialog_after'
 						},
 						{
-							name: '我的收藏',
+							name: 'ລາຍການທີ່ເກັບໄວ້',
 							icon: 'icon-ic_star',
 							url: '/pages/users/user_goods_collection/index',
 							after: 'dialog_after'
 						},
 						{
-							name: '个人中心',
+							name: 'ສູນກາງສ່ວນຕົວ',
 							icon: 'icon-ic_user1',
 							url: '/pages/user/index'
 						},

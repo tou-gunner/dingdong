@@ -80,7 +80,7 @@
 			</view>
 		</view>
 		<block v-if="list.length<=0">
-			<emptyPage title="暂无浏览记录~"></emptyPage>
+			<emptyPage title="ບໍ່ມີປະຫວັດການເຂົ້າຊົມ~"></emptyPage>
 		</block>
 	</view>
 </template>
@@ -175,7 +175,7 @@
 			subDel: function(type) {
 				let that = this
 				let type_id
-				let content = (type == 'empty') ? '确定清空浏览记录？' : '确定删除浏览记录？'
+				let content = (type == 'empty') ? 'ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບປະຫວັດທັງໝົດ？' : 'ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບປະຫວັດ？'
 				if(type == 'batch'){
 					type_id = []
 					that.list.forEach(item=>{

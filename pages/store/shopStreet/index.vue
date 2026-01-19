@@ -226,7 +226,7 @@
 						order: ""
 					},
 					{
-						title: '销量',
+						title: 'ຍອດຂາຍ',
 						key: 1,
 						order: 'sales'
 					},
@@ -236,7 +236,7 @@
 						order: 'rate'
 					},
 					{
-						title: '距离',
+						title: 'ໄລຍະຫ່າງ',
 						key: 3,
 						order: 'location'
 					}

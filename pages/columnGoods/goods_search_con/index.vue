@@ -288,7 +288,7 @@
 						order: ""
 					},
 					{
-						title: '销量',
+						title: 'ຍອດຂາຍ',
 						key: 1,
 						order: 'sales'
 					},
@@ -298,7 +298,7 @@
 						order: 'rate'
 					},
 					{
-						title: '距离',
+						title: 'ໄລຍະຫ່າງ',
 						key: 3,
 						order: 'location'
 					}
@@ -328,7 +328,7 @@
 				downStatus: false,
 				// 下拉菜单
 				downMenu: [{
-						title: '综合',
+						title: 'ລວມ',
 						key: 1,
 					},
 					{

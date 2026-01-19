@@ -195,7 +195,7 @@ export default {
 			}
 
 			if (this.where.sort !== 0) {
-				// 非综合类型，需要添加排序条件
+				// Non-comprehensive type, need to add sort condition
 				const sortKeyMap = {
 					1: "distance",
 					2: "sales",
@@ -304,19 +304,19 @@ export default {
 		initWhereConfig() {
 			const whereConfig = [
 				{
-					type: "综合",
+					type: "ລວມ",
 					value: 0
 				},
 				{
-					type: "距离",
+					type: "ໄລຍະຫ່າງ",
 					value: 1,
 				},
 				{
-					type: "销量",
+					type: "ຍອດຂາຍ",
 					value: 2,
 				},
 				{
-					type: "价格",
+					type: "ລາຄາ",
 					value: 3
 				}
 			];

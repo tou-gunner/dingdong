@@ -193,7 +193,7 @@
 				downStatus: false,
 				// 下拉菜单
 				downMenu: [{
-						title: '综合',
+						title: 'ລວມ',
 						key: 1,
 					},
 					{

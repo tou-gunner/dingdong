@@ -7,7 +7,7 @@
           <block>
             <swiper-item v-for="(item, indexw) in menuList" :key="indexw">
               <view class="menu" :id="'nav' + indexw" :style="[gridColumns]">
-                <view class="flex-col flex-center" v-for="(itemn, indexn) in item.list" :key="indexn"
+                <view class="flex-col flex-center height-fit-content" v-for="(itemn, indexn) in item.list" :key="indexn"
                   @click="menusTap(itemn.info[1].value)">
                   <view class="pictrue skeleton-radius" v-if="menuStyleConfig !== 2">
                     <image :src="itemn.img" mode="aspectFill" :style="[imgStyle]" class="easy-loadimage"></image>
@@ -22,7 +22,7 @@
       </view>
       <view v-else>
         <view class="menu" :style="[gridColumns]">
-          <view class="flex-col flex-center" v-for="(item, index) in menus" :key="index"
+          <view class="flex-col flex-center height-fit-content" v-for="(item, index) in menus" :key="index"
             @click="menusTap(item.info[1].value)">
             <view class="pictrue skeleton-radius" v-if="menuStyleConfig !== 2">
               <image :src="item.img" mode="aspectFill" :style="[imgStyle]" class="easy-loadimage"></image>
