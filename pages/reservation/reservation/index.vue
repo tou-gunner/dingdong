@@ -859,7 +859,7 @@ export default {
 		}
 	}
 	.virtual_form .discount {text-align: right;}
-	/deep/.uni-input-input {font-size: 28rpx;}
+	::v-deep .uni-input-input {font-size: 28rpx;}
 	.reservation-bottom {
 		width: 100%;
 		position: fixed;

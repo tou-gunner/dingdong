@@ -335,8 +335,8 @@
 </script>
 
 <style lang="scss" scoped>
-	/deep/radio .wx-radio-input.wx-radio-input-checked,
-	/deep/uni-radio .uni-radio-input.uni-radio-input-checked {
+	::v-deep radio .wx-radio-input.wx-radio-input-checked,
+	::v-deep uni-radio .uni-radio-input.uni-radio-input-checked {
 	 border: 1px solid var(--view-theme)!important;
 	 background-color: var(--view-theme)!important;
 	}

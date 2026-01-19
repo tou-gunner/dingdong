@@ -404,7 +404,7 @@
 		scroll-view{
 			width:100%;
 		}
-		/deep/.uni-scroll-view-content{
+		::v-deep .uni-scroll-view-content{
 			display: flex;
 		}
 	}

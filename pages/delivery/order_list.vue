@@ -343,7 +343,7 @@ $bg-height: calc(238rpx + var(--safe-area-inset-top));
 .nothing {
   margin-top: 0;
 
-  /deep/ .empty-box {
+  ::v-deep  .empty-box {
     margin-top: 0;
   }
 }

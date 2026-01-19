@@ -1459,8 +1459,8 @@ export default {
 		padding: 16rpx 15rpx;
 		margin-right: 30rpx;
 	}
-	/deep/uni-swiper,
-	/deep/swiper {
+	::v-deep uni-swiper,
+	::v-deep swiper {
 		display: block;
 		height: 136rpx !important;
 		.swiper-count {

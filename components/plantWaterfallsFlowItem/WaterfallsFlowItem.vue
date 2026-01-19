@@ -147,7 +147,7 @@ export default {
 	line-height: 1;
 	overflow: hidden;
 	max-height: 500rpx;
-	/deep/image,/deep/.image{
+	::v-deep image,::v-deep .image{
 		width: 100%;
 		max-width: 345rpx;
 		border-radius: 24rpx 24rpx 0 0;

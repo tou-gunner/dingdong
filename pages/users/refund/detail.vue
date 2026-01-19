@@ -366,7 +366,7 @@
 			.time{
 				display: inline-block;
 				width: 600rpx;
-				/deep/ .red{
+				::v-deep  .red{
 					color: #fff;
 				}
 			}
@@ -552,7 +552,7 @@
 		}
 	}
 }
-/deep/.styleAll{
+::v-deep .styleAll{
 	color: #fff;
 }
 </style>

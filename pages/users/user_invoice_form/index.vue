@@ -350,16 +350,16 @@
 </script>
 
 <style lang="scss" scoped>
-	/deep/radio .wx-radio-input.wx-radio-input-checked,
-	/deep/uni-radio .uni-radio-input.uni-radio-input-checked {
+	::v-deep radio .wx-radio-input.wx-radio-input-checked,
+	::v-deep uni-radio .uni-radio-input.uni-radio-input-checked {
 	 border: 1px solid var(--view-theme)!important;
 	 background-color: var(--view-theme)!important;
 	}
-	/deep/uni-checkbox .uni-checkbox-input,/deep/checkbox .wx-checkbox-input{
+	::v-deep uni-checkbox .uni-checkbox-input,::v-deep checkbox .wx-checkbox-input{
 		border-radius: 100%!important;
 	}
-	/deep/checkbox .uni-checkbox-input.uni-checkbox-input-checked,
-	/deep/checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+	::v-deep checkbox .uni-checkbox-input.uni-checkbox-input-checked,
+	::v-deep checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 		border-radius: 100%!important;
 	  color: #fff!important;
 	}

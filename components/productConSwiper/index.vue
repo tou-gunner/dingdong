@@ -243,7 +243,7 @@
 		height: 750rpx;
 		position: relative;
 	}
-	.product-bg swiper,/deep/ .uni-swiper-wrapper {
+	.product-bg swiper,::v-deep  .uni-swiper-wrapper {
 		width: 100%;
 		height: 750rpx;
 		position: relative;
@@ -253,7 +253,7 @@
 		bottom: 2rpx;
 		left: 0;
 	}
-	.product-bg .slide-image,/deep/ uni-swiper-item {
+	.product-bg .slide-image,::v-deep  uni-swiper-item {
 		width: 100%;
 		height: 750rpx;
 		line-height: 1;

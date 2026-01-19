@@ -844,7 +844,7 @@
 			height: 180rpx;
 		}
 	}
-	/deep/.pro_list .picture image{
+	::v-deep .pro_list .picture image{
 		width: 130rpx;
 		height: 130rpx;
 		border-radius: 16rpx;

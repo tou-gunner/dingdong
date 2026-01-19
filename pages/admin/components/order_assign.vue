@@ -241,7 +241,7 @@ export default {
   }
 }
 
-/deep/ .custom-search-bar.custom-search-bar {
+::v-deep  .custom-search-bar.custom-search-bar {
   --content-height: 72rpx;
   --font-size: 28rpx;
   --color: #ccc;

@@ -224,8 +224,8 @@ export default {
 	}
 }
 
-/deep/ radio .wx-radio-input.wx-radio-input-checked,
-/deep/radio .uni-radio-input.uni-radio-input-checked {
+::v-deep  radio .wx-radio-input.wx-radio-input-checked,
+::v-deep radio .uni-radio-input.uni-radio-input-checked {
 	border: 1px solid #2291F8 !important;
 	background-color: #2291F8 !important
 }

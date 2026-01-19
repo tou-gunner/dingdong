@@ -1980,7 +1980,7 @@
 		width: 750px;
 		height: 1190px;
 	}
-	.swiper-item,/deep/uni-swiper-wrapper,/deep/uni-swiper{
+	.swiper-item,::v-deep uni-swiper-wrapper,::v-deep uni-swiper{
 		height: 750rpx;
 	}
 

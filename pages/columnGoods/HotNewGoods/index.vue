@@ -214,7 +214,7 @@ export default {
 };
 </script>
 <style lang="scss">
-	/deep/ .empty-box{
+	::v-deep  .empty-box{
 		background-color: #f5f5f5;
 	}
 	.quality_header{
@@ -240,13 +240,13 @@ export default {
 		border-radius: 16rpx;
 		z-index: 20;
 	}
-	/deep/.swiper .uni-swiper-dot{
+	::v-deep .swiper .uni-swiper-dot{
 		width: 8rpx;
 		height: 8rpx;
 		border-radius: 100%;
 		background-color: rgba(0,0,0,.3)!important;
 	}
-	/deep/.swiper .uni-swiper-dot-active{
+	::v-deep .swiper .uni-swiper-dot-active{
 		width: 18rpx;
 		background-color: #E93323!important;
 		border-radius: 4rpx;

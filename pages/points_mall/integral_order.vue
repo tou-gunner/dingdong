@@ -726,7 +726,7 @@
 
 <style lang="scss" scoped>
 	.sys-title .iconfont{ position: absolute; left: 30rpx; }
-	/deep/uni-checkbox[disabled] .uni-checkbox-input {
+	::v-deep uni-checkbox[disabled] .uni-checkbox-input {
 		background-color: #eee;
 	}
 	.order-header-bg {

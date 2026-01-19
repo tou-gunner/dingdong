@@ -292,7 +292,7 @@ $base-btn-height: 120rpx;
 .booking-form {
   padding: 16rpx 24rpx;
 
-  /deep/ .record-form-container {
+  ::v-deep  .record-form-container {
     --item-min-height: 72rpx;
   }
 }
@@ -300,7 +300,7 @@ $base-btn-height: 120rpx;
 .system-form {
   padding: 0 24rpx 16rpx;
 
-  /deep/ .record-form-container {
+  ::v-deep  .record-form-container {
     --item-min-height: 80rpx;
   }
 

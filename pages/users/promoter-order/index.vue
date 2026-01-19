@@ -241,7 +241,7 @@
 	.main_color{
 		color: var(--view-theme);
 	}
-	/deep/.empty-box {
+	::v-deep .empty-box {
 		margin-top: 300rpx;
 	}
 </style>

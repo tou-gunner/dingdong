@@ -532,7 +532,7 @@
 					&:nth-child(3n){
 						margin-right: 0;
 					}
-					/deep/image,/deep/uni-image {
+					::v-deep image,::v-deep uni-image {
 						width: 212rpx;
 						height: 212rpx;
 						border-radius: 16rpx;
@@ -549,12 +549,12 @@
 					}
 				}
 			}
-			/deep/.uni-swiper-dot,/deep/.wx-swiper-dot{
+			::v-deep .uni-swiper-dot,::v-deep .wx-swiper-dot{
 				width: 8rpx;
 				height: 4rpx;
 				background: rgba(0,0,0,.15);	
 			}
-			/deep/.uni-swiper-dot-active,/deep/.wx-swiper-dot-active{
+			::v-deep .uni-swiper-dot-active,::v-deep .wx-swiper-dot-active{
 				width: 16rpx;
 				background: var(--view-theme);
 			}
@@ -1398,7 +1398,7 @@
 .bg-color-hui {
 	background: #bbb!important
 }
-/deep/.page_content .swiper .uni-swiper-dot-active {
+::v-deep .page_content .swiper .uni-swiper-dot-active {
 	background: #E93323;
 }
 .pictrue_log_xl {
@@ -1731,15 +1731,15 @@
   color: #333;
   padding: 20upx;
 }
-/deep/ .page-footer .uni-badge--x {
+::v-deep  .page-footer .uni-badge--x {
 	position: absolute !important;
 	top: -8rpx;
 }
-/deep/ .page-footer .uni-badge {
+::v-deep  .page-footer .uni-badge {
 	right: unset !important;
 	top: unset !important;
 }
-/deep/ .page-footer .uni-badge-left-margin .uni-badge--error {
+::v-deep  .page-footer .uni-badge-left-margin .uni-badge--error {
 	color: #fff !important;
 	background-color: #E93323 !important;
 	z-index: 8;
@@ -1770,11 +1770,11 @@
 	padding: 52rpx 0;
 	overflow: hidden;
 	.content {
-		/deep/ p {
+		::v-deep  p {
 			font-size: 13px;
 			line-height: 22px;
 		}
-		/deep/ img {
+		::v-deep  img {
 			max-width: 100%;
 		}
 	}
@@ -1811,7 +1811,7 @@
 	font-weight: 500;
 	padding: 27rpx 0;
 }
-/deep/.virtual_form .uni-input-wrapper {
+::v-deep .virtual_form .uni-input-wrapper {
 	text-align: right;
 }
 .virtual_form .item-require{

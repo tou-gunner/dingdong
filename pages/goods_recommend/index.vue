@@ -616,7 +616,7 @@
 		position: relative;
 	}
 
-	/deep/.goods-item{
+	::v-deep .goods-item{
 		margin-bottom: 20rpx;
 		.goods-info{
 			padding: 24rpx;

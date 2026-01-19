@@ -937,13 +937,13 @@
 </script>
 
 <style scoped lang="scss">
-	/deep/radio .wx-radio-input.wx-radio-input-checked,
-	/deep/uni-radio .uni-radio-input.uni-radio-input-checked {
+	::v-deep radio .wx-radio-input.wx-radio-input-checked,
+	::v-deep uni-radio .uni-radio-input.uni-radio-input-checked {
 	 border: 1px solid var(--view-theme)!important;
 	 background-color: var(--view-theme)!important;
 	}
-	/deep/checkbox .uni-checkbox-input.uni-checkbox-input-checked,
-	/deep/checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+	::v-deep checkbox .uni-checkbox-input.uni-checkbox-input-checked,
+	::v-deep checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 	  border: 1px solid var(--view-theme)!important;
 	  background-color: var(--view-theme)!important;
 	  color: #fff!important;
@@ -1094,7 +1094,7 @@
 	  margin: 0 22rpx 0 22rpx;
 	  padding: 10rpx 0;
 	}
-	.personal-data .wrapper .item .discount .radio /deep/uni-checkbox .uni-checkbox-input{
+	.personal-data .wrapper .item .discount .radio ::v-deep uni-checkbox .uni-checkbox-input{
 	  border-radius: 0;
 	}
 	.personal-data .wrapper .item textarea {
@@ -1289,11 +1289,11 @@
 		margin: 0 auto;
 		border-radius: 15rpx;
 	}
-	.distribution-posters /deep/.active {
+	.distribution-posters ::v-deep .active {
 		transform: none;
 		transition: all 0.2s ease-in 0s;
 	}
-	.distribution-posters /deep/ .quiet {
+	.distribution-posters ::v-deep  .quiet {
 		transform: scale(0.8333333);
 		transition: all 0.2s ease-in 0s;
 	}

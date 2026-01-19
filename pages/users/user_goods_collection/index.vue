@@ -444,7 +444,7 @@
 			}
 		}
 	}
-	/deep/.collectionGoods .item .pictrue .image{
+	::v-deep .collectionGoods .item .pictrue .image{
 		width: 100%;
 		height: 100%;
 		border-radius: 16rpx;

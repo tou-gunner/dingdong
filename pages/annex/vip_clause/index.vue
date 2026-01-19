@@ -61,7 +61,7 @@
 	.cont {
 		padding: 50rpx 30rpx;
 	}
-	/deep/img{
+	::v-deep img{
 		max-width: 100%!important;
 	}
 </style>

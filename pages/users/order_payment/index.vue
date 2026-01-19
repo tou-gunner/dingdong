@@ -481,8 +481,8 @@ export default {
 .payment .item .left .text .info .money {
 	color: #ff9900;
 }
-/deep/radio .uni-radio-input.uni-radio-input-checked,
-/deep/radio .wx-radio-input.wx-radio-input-checked {
+::v-deep radio .uni-radio-input.uni-radio-input-checked,
+::v-deep radio .wx-radio-input.wx-radio-input-checked {
 	border: 1px solid var(--view-theme) !important;
 	background-color: var(--view-theme) !important;
 }

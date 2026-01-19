@@ -329,7 +329,7 @@ page{
   }
 }
 
-/deep/.uni-swiper-slides{
+::v-deep .uni-swiper-slides{
 	inset: 0!important;
 }
 uni-swiper,swiper{
@@ -362,14 +362,14 @@ uni-swiper,swiper{
     }
   }
 }
-/deep/.uni-swiper-slides{
+::v-deep .uni-swiper-slides{
 	width: 650rpx;
 }
-/deep/.uni-swiper-dot{
+::v-deep .uni-swiper-dot{
 	width: 15rpx;
 	height: 5rpx;
 }
-/deep/.uni-swiper-dots-horizontal .uni-swiper-dot{
+::v-deep .uni-swiper-dots-horizontal .uni-swiper-dot{
 	margin-right: 0;
 }
 .product_list {

@@ -340,7 +340,7 @@ export default {
 
 <style lang="scss">
 .custom-container {
-  /deep/ .mr10 {
+  ::v-deep  .mr10 {
     margin-right: 10px;
   }
 }

@@ -268,13 +268,13 @@
 	}
 </script>
 <style scoped lang="scss">
-	/deep/radio .wx-radio-input.wx-radio-input-checked,
-	/deep/uni-radio .uni-radio-input.uni-radio-input-checked {
+	::v-deep radio .wx-radio-input.wx-radio-input-checked,
+	::v-deep uni-radio .uni-radio-input.uni-radio-input-checked {
 	 border: 1px solid var(--view-theme)!important;
 	 background-color: var(--view-theme)!important;
 	}
-	/deep/checkbox .uni-checkbox-input.uni-checkbox-input-checked,
-	/deep/checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+	::v-deep checkbox .uni-checkbox-input.uni-checkbox-input-checked,
+	::v-deep checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 	  border: 1px solid var(--view-theme)!important;
 	  background-color: var(--view-theme)!important;
 	  color: #fff!important;
@@ -420,14 +420,14 @@
 		color: #cccccc;
 		margin-left: 10rpx;
 	}
-	/deep/.personal-data .list .item .input .id .uni-input-input,
+	::v-deep .personal-data .list .item .input .id .uni-input-input,
 	.personal-data .list .item .input .icon-ic_lock{
 		color: #282828;
 	}
-	/deep/.personal-data .list .item .input .uni-input-input,.placeholder {
+	::v-deep .personal-data .list .item .input .uni-input-input,.placeholder {
 		color: #cccccc;
 	}
-	/deep/.uni-radio-wrapper {
+	::v-deep .uni-radio-wrapper {
 		color: #666666;
 	}
 	.personal-data .modifyBnt {

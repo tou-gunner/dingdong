@@ -724,7 +724,7 @@
 			line-height: 80rpx;
 			text-align: center;
 			color: #8A602E;
-			border-radius:: 44rpx;
+			border-radius: 44rpx;
 		}
 		.cash {
 			padding-top: 26rpx;

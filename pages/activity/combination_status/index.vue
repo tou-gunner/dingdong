@@ -774,7 +774,7 @@
     margin: 0 14rpx;
   }
 
-  /deep/.group-con .wrapper .styleAll {
+  ::v-deep .group-con .wrapper .styleAll {
     background-color: #ffcfcb;
     text-align: center;
     border-radius: 3rpx;

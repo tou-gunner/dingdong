@@ -602,8 +602,8 @@
 </script>
 
 <style scoped lang="scss">
-	/deep/checkbox .uni-checkbox-input.uni-checkbox-input-checked,
-	/deep/checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+	::v-deep checkbox .uni-checkbox-input.uni-checkbox-input-checked,
+	::v-deep checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 	  border: 1px solid #E93323!important;
 	  background-color: #E93323!important;
 	  color: #fff!important;
@@ -842,8 +842,8 @@
 		color: #999;
 		font-size: 24rpx;
 	}
-	/deep/ uni-checkbox .uni-checkbox-input,
-	/deep/ wx-checkbox .wx-checkbox-input{
+	::v-deep  uni-checkbox .uni-checkbox-input,
+	::v-deep  wx-checkbox .wx-checkbox-input{
 	  border-radius: 100%;
 		width: 32rpx;
 		height: 32rpx;
@@ -900,12 +900,12 @@
 		border: 1px solid #B4B4B4;
 		border-radius: 200px;
 	}
-	/deep/ uni-checkbox .uni-checkbox-input {
+	::v-deep  uni-checkbox .uni-checkbox-input {
 		width: 30rpx;
 		height: 30rpx;
 		position: relative;
 	}
-	/deep/ uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked:before {
+	::v-deep  uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked:before {
 		font-size: 28rpx;
 	}
 	.loadingicon {
@@ -924,12 +924,12 @@
 		font-size: 24rpx;
 	}
 	.setAgCount{
-		/deep/ table{
+		::v-deep  table{
 			border:  1px solid #DDD;
 			border-bottom: none;
 			border-right: none;
 		}
-		/deep/ td, th {
+		::v-deep  td, th {
 			padding: 5rpx 10rpx;
 			border-bottom: 1px solid #DDD;
 			border-right:  1px solid #DDD;

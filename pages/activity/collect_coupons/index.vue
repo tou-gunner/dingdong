@@ -307,7 +307,7 @@
           .info-box {
             margin-right: 25rpx;
             image,
-            /deep/uni-image {
+            ::v-deep uni-image {
               display: inline-block;
               width: 130rpx;
               height: 130rpx;

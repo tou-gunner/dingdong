@@ -304,7 +304,7 @@
 		margin-right: 12rpx;
 	}
 }
-/deep/.verifybox{
+::v-deep .verifybox{
 	margin-top: -380rpx;
 	position: fixed;
 }

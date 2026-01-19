@@ -760,7 +760,7 @@
 		text-align: center;
 		border-radius: 50rpx;
 		line-height: 88rpx;
-		/deep/ &.disabled {
+		::v-deep  &.disabled {
 			background: #E3E3E3!important;
 			pointer-events: none;
 		}
@@ -799,7 +799,7 @@
 			margin-top: 10rpx;
 			color: #999;
 			height: 120rpx;
-			/deep/uni-input,input{
+			::v-deep uni-input,input{
 				height: 120rpx;
 				font-size: 40rpx;
 			}

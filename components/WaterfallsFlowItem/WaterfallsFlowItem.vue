@@ -237,7 +237,7 @@ export default {
 	width: 345rpx;
 	height: 345rpx;
 	width: 100%!important;
-	/deep/.image{
+	::v-deep .image{
 		width: 345rpx;
 		height: 345rpx;
 		border-radius: 24rpx 24rpx 0 0;

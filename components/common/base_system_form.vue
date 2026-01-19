@@ -467,11 +467,11 @@ export default {
 
 
   &.daterange-picker {
-    /deep/.uni-date-x {
+    ::v-deep .uni-date-x {
       color: inherit;
     }
 
-    /deep/.uni-icons.icon-calendar.uniui-calendar {
+    ::v-deep .uni-icons.icon-calendar.uniui-calendar {
       display: none;
     }
   }

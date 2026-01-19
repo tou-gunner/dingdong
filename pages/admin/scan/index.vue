@@ -231,7 +231,7 @@
 				margin-top: 32rpx;
 			}
 		}
-		/deep/.input_photo uni-image,/deep/.input_photo image{
+		::v-deep .input_photo uni-image,::v-deep .input_photo image{
 			width: 230rpx;
 			height: 230rpx;
 			border-radius: 12rpx!important;

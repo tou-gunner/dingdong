@@ -576,7 +576,7 @@
 			padding: 24rpx 0;
 		}
 	}
-  /deep/.input_photo uni-image,/deep/.input_photo image{
+  ::v-deep .input_photo uni-image,::v-deep .input_photo image{
 		width: 202rpx;
 		height: 202rpx;
 		border-radius: 16rpx!important;
@@ -624,7 +624,7 @@
 			color: #fff;
 		}
 	}
-	/deep/.loading-img{
+	::v-deep .loading-img{
 		width: 180rpx;
 		height: 180rpx;
 		border-radius: 12rpx;

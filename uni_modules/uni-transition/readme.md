@@ -77,8 +77,8 @@ export default {
 }
 </style>
 <style lang="scss">
-/* 如果使用 scss 需要使用 /deep/  */
-.content /deep/ .custom-transition {
+/* 如果使用 scss 需要使用 ::v-deep   */
+.content ::v-deep  .custom-transition {
 	width:100px;
 	height:100px;
 	background-color:red;

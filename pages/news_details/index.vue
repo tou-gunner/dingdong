@@ -154,7 +154,7 @@
 		padding: 0 30rpx;
 		font-size: 32rpx;
 		line-height: 1.7;
-		/deep/ img{
+		::v-deep  img{
 			max-width: 100%;
 		}
 	}

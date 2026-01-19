@@ -261,7 +261,7 @@
 	.recommend .recommendList.on{
 		padding: 0;
 	}
-	/deep/.looming-gray{
+	::v-deep .looming-gray{
 		border-radius: 16rpx 16rpx 0 0;
 	}
 </style>

@@ -238,19 +238,19 @@
 		height: 280rpx;
 		border-radius: 16rpx;
 	}
-	/deep/ .uni-swiper-wrapper {
+	::v-deep  .uni-swiper-wrapper {
 		border-radius: 16rpx;
 	}
 	.swiper {
 		padding: 30rpx;
-		/deep/.uni-swiper-dot{
+		::v-deep .uni-swiper-dot{
 			width: 5rpx;
 			height: 5rpx;
 			border-radius: 100%;
 			background-color: rgba(40, 40, 40, .3);
 			margin-right: 8rpx;
 		}
-		/deep/.uni-swiper-dot-active{
+		::v-deep .uni-swiper-dot-active{
 			width: 20rpx;
 			background-color: var(--view-theme);
 		}
@@ -274,16 +274,16 @@
 		swiper{
 			height: 380rpx;
 		}
-		/deep/.uni-swiper-dot{
+		::v-deep .uni-swiper-dot{
 			width: 20rpx;
 			height: 10rpx;
 			border-radius: 8rpx;
 		}
-		/deep/.uni-swiper-dot-active{
+		::v-deep .uni-swiper-dot-active{
 			width: 36rpx;
 			background-color: var(--view-theme);
 		}
-		/deep/.uni-swiper-dots-horizontal{
+		::v-deep .uni-swiper-dots-horizontal{
 			bottom: 0;
 		}
 	}

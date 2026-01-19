@@ -719,7 +719,7 @@
 		.swiper-bg {
 			top: 0;
 		}
-		/deep/.swiper-dot {
+		::v-deep .swiper-dot {
 			bottom: 60rpx;
 		}
 		.noBorder {

@@ -795,7 +795,7 @@
 		color: #E93323;
 		font-weight: bold;
 	}
-	/deep/.bargain .header .time {
+	::v-deep .bargain .header .time {
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
 		width: 480rpx;
