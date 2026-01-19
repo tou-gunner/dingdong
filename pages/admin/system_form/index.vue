@@ -282,7 +282,7 @@
 	}
 	.personal-data{
 		padding-bottom: 150rpx;
-		padding-bottom: calc(150rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding-bottom: calc(150rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding-bottom: calc(150rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		min-height: 100vh;
 	}

@@ -54,7 +54,7 @@
 <style scoped lang="scss">
 	.specs{
 		padding: 36rpx 0 22rpx;
-		padding: 36rpx 0 calc(22rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding: 36rpx 0 calc(22rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding: 36rpx 0 calc(22rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		.title{
 			.iconfont{

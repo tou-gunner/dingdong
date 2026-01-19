@@ -874,7 +874,7 @@
 			left: 0;
 			bottom: 0;
 			height: 90rpx;
-			height: calc(90rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+			height: calc(90rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 			height: calc(90rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		}
 	}

@@ -296,7 +296,7 @@ export default {
 	border-radius: 40rpx 40rpx 0 0;
 	/*#ifdef H5*/
 	padding-bottom: 150rpx;
-	padding-bottom: calc(150rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+	padding-bottom: calc(150rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 	padding-bottom: calc(150rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	/*#endif*/
 	/*#ifdef MP || APP-PLUS*/
@@ -324,7 +324,7 @@ export default {
 
 	&.join {
 		padding-bottom: 30rpx;
-		padding-bottom: calc(30rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding-bottom: calc(30rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding-bottom: calc(30rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	}
 }

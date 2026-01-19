@@ -399,7 +399,7 @@
 	}
 	.search-hot{
 		padding: 0 30rpx 30rpx;
-		padding-bottom: calc(30rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding-bottom: calc(30rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding-bottom: calc(30rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		scroll-view{
 			width:100%;

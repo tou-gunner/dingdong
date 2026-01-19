@@ -226,7 +226,7 @@
 		position: relative;
 		margin-top: -40rpx;
 		padding-bottom: 60rpx;
-		padding-bottom: calc(60rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding-bottom: calc(60rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding-bottom: calc(60rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	}
 	.flash-sale .header .presellBg {

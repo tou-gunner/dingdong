@@ -1340,7 +1340,7 @@ export default {
 	width: 590rpx;
 	position: absolute;
 	bottom: 30rpx;
-	bottom: calc(30rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+	bottom: calc(30rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 	bottom: calc(30rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	padding: 15rpx 0;
 	flex-direction: column;

@@ -926,7 +926,7 @@
 		box-sizing: border-box;
 		position: fixed;
 		bottom: 0;
-		bottom: calc(0rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		bottom: calc(0rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		bottom: calc(0rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		left: 0;
 	}

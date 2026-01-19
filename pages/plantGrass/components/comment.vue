@@ -283,7 +283,7 @@
 	border-radius: 40rpx 40rpx 0 0;
 	position: fixed;
 	bottom: 0;
-	padding-bottom: calc(0rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+	padding-bottom: calc(0rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 	padding-bottom: calc(0rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	width: 100%;
 	left: 0;

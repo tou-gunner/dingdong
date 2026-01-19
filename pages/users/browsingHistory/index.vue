@@ -333,7 +333,7 @@
 	padding-bottom: 96rpx;
 	.history_count{
 		padding: 0 30rpx 0;
-		padding: 0 30rpx calc(0rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding: 0 30rpx calc(0rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding: 0 30rpx calc(0rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	}
 	.history_header{
@@ -432,7 +432,7 @@
 	z-index: 99;
 	width: 100%;
 	height: 100rpx;
-	height: calc(100rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+	height: calc(100rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 	height: calc(100rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	background-color: #ffffff;
 	position: fixed;

@@ -364,7 +364,7 @@
 		position: fixed;
 		right: 30rpx;
 		bottom: 20rpx;
-		bottom: calc(20rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		bottom: calc(20rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		bottom: calc(20rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		left: 30rpx;
 		z-index: 9;

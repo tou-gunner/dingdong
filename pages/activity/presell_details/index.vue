@@ -1611,7 +1611,7 @@
 	}
 	.presell-content-height{
 		height: 160rpx;
-		height: calc(160rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(160rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(160rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	}
 	.mask {

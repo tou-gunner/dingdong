@@ -416,7 +416,7 @@ import { RoleManager } from '@/utils/role';
 	}
 	.personal-data {
 		padding-bottom: 40rpx;
-		padding-bottom: calc(40rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding-bottom: calc(40rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding-bottom: calc(40rpx + env(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 	}
 	.personal-data .wrapper {

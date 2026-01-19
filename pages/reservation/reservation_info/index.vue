@@ -354,7 +354,7 @@ export default {
 	.reservation .footer {
 		width: 100%;
 		height: 100rpx;
-		height: calc(120rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(120rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(120rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		padding: 0 30rpx;
 		font-size: 28rpx;
@@ -406,7 +406,7 @@ export default {
 		}
 	}
 	.heights{
-		height: calc(140rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(140rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(140rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	}
 	.header{

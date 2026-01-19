@@ -276,7 +276,7 @@
 		z-index: 277;
 		border-top: 2rpx solid #f0f0f0;
 		height: 80rpx;
-		height: calc(80rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(80rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(80rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		display: flex;
 		align-items: center;

@@ -737,7 +737,7 @@
 		position: relative;
 		margin-top: -170rpx;
 		padding-bottom: 0;
-		padding-bottom: calc(0rpx+ constant(safe-area-inset-bottom));
+		padding-bottom: calc(0rpx + constant(safe-area-inset-bottom));
 		padding-bottom: calc(0rpx + env(safe-area-inset-bottom));
 	}
 	.my-order .nav {

@@ -175,7 +175,7 @@ export default {
 		color: #fff;
 		position: fixed;
 		bottom: 24rpx;
-		bottom: calc(24rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		bottom: calc(24rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		bottom: calc(24rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		left: 0;
 		padding: 0 20rpx;

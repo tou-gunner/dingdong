@@ -843,7 +843,7 @@
 	}
 	.foot-height {
 		height: 100rpx;
-		height: calc(100rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(100rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(100rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	}
 	.order-details .wrapper .actualPay .money {
@@ -854,7 +854,7 @@
 	.order-details .footer {
 		width: 100%;
 		height: 100rpx;
-		height: calc(100rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(100rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(100rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		position: fixed;
 		bottom: 0;

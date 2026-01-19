@@ -230,7 +230,7 @@
 	.product-window {
 		/*#ifdef H5*/
 		padding-bottom: 130rpx;
-		padding-bottom: calc(130rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding-bottom: calc(130rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding-bottom: calc(130rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		/*#endif*/
 		/*#ifndef H5*/
@@ -243,7 +243,7 @@
 		}
 		&.custom-window {
 			padding-bottom: 120rpx;
-			padding-bottom: calc(120rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+			padding-bottom: calc(120rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 			padding-bottom: calc(120rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		}
 	}

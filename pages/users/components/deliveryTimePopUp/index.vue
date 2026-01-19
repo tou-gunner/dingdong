@@ -304,7 +304,7 @@
 			}
 			.foot{
 				padding: 50rpx 30rpx 20rpx;
-				padding: 50rpx 30rpx calc(20rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+				padding: 50rpx 30rpx calc(20rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 				padding: 50rpx 30rpx calc(20rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 				.btn{
 					width: 100%;

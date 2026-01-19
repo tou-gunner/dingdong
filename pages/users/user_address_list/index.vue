@@ -398,7 +398,7 @@
 		width: 100%;
 		background-color: #fff;
 		bottom: 0;
-		bottom: calc(0rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		bottom: calc(0rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		bottom: calc(0rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		height: 106rpx;
 		padding: 0 30rpx;

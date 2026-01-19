@@ -140,7 +140,7 @@
 		z-index: 320;
 		--pd-bottom: var(--tabbar-height, 140rpx);
 		padding-bottom: var(--pd-bottom);
-		padding-bottom: calc(var(--pd-bottom)+ constant(safe-area-inset-bottom)); /* 兼容 IOS<11.2 */
+		padding-bottom: calc(var(--pd-bottom) + constant(safe-area-inset-bottom)); /* 兼容 IOS<11.2 */
 		padding-bottom: calc(var(--pd-bottom) + env(safe-area-inset-bottom)); /* 兼容 IOS>11.2 */
 	}
 	.product-window .icon-ic_close{

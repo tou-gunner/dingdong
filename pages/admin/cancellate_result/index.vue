@@ -382,7 +382,7 @@
 		z-index: 9;
 		width: 100%;
 		height: 96rpx;
-		height: calc(96rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(96rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(96rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		background-color: #fafafa;
 		position: fixed;

@@ -950,7 +950,7 @@
 	}
 	.personal-data{
 		padding-bottom: 150rpx;
-		padding-bottom: calc(150rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding-bottom: calc(150rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding-bottom: calc(150rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		min-height: 100vh;
 	}
@@ -1117,7 +1117,7 @@
 		background: #ffffff;
 		width: 750rpx;
 		height: 126rpx;
-		height: calc(126rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(126rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(126rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		display: flex;
 		align-items: center;
