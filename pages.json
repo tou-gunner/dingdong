@@ -1,0 +1,1542 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+		  "path": "pages/guide/index",
+		  "style": {
+		    "app-plus": {
+		      "titleNView": false //禁用原生导航栏
+		    },
+				"navigationBarTitleText": "ໂຄສະນາເປີດໜ້າຈໍ",
+		    "navigationStyle": "custom",
+				"disableScroll": true
+		  }
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "ໜ້າຫຼັກ",
+					"navigationStyle": "custom",
+				// #ifdef APP-PLUS	
+					"enablePullDownRefresh": true,
+				// #endif
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}
+		},
+		{
+			"path": "pages/order_addcart/order_addcart",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "ກະຕ່າສິນຄ້າ"
+			}
+		},
+		// {
+		// 	"path": "pages/plant_grass/index",
+		// 	"style": {
+		// 		"navigationStyle": "custom",
+		// 		"navigationBarTitleText": "ຊຸມຊົນແນະນຳ"
+		// 	}
+		// },
+		{
+			"path": "pages/user/index",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "ສູນກາງສ່ວນຕົວ",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/goods_cate/goods_cate",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "ໝວດໝູ່ສິນຄ້າ"
+			}
+		},
+		{
+			"path": "pages/auth/index",
+			"style": {
+				"navigationBarTitleText": "ກຳລັງໂຫລດ"
+			}
+		},	
+		{
+			"path": "pages/error/index",
+			"style": {
+				"navigationBarTitleText": "ເວັບໄຊປິດແລ້ວ"
+			}
+		}
+		
+	],
+	"subPackages": [{
+			"root": "pages/users",
+			"name": "users",
+			"pages": [{
+					"path": "retrievePassword/index",
+					"style": {
+						"navigationBarTitleText": "ລືມລະຫັດຜ່ານ"
+					}
+				},
+				{
+					"path": "user_setting/index",
+					"style": {
+						"navigationBarTitleText": "ການຕັ້ງຄ່າ"
+					}
+				},
+				//协议，关于
+				{
+					"path": "user_about/index",
+					"style": {
+						"navigationBarTitleText": ""
+					}
+				},
+				{
+					"path": "user_info/index",
+					"style": {
+						"navigationBarTitleText": "ການຕັ້ງຄ່າ"
+					}
+				},
+				{
+					"path": "user_info_form/index",
+					"style": {
+						"navigationBarTitleText": "ຂໍ້ມູນສ່ວນຕົວ"
+					}
+				},
+				{
+					"path": "user_nickname/index",
+					"style": {
+						"navigationBarTitleText": "ຊື່ຜູ້ໃຊ້"
+					}
+				},
+				{
+					"path": "user_goods_collection/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍການທີ່ເກັບໄວ້"
+					}
+				},
+				{
+					"path": "user_sgin/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ລາຍລະອຽດເຊັກອິນ"
+					}
+				},
+				{
+					"path": "user_sgin_list/index",
+					"style": {
+						"navigationBarTitleText": "ປະຫວັດເຊັກອິນ"
+					}
+				},
+				{
+					"path": "user_points_list/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດຄະແນນ"
+					}
+				},
+				{
+					"path": "user_money/index",
+					"style": {
+						"navigationBarTitleText": "ບັນຊີຂອງຂ້ອຍ"
+					}
+				},
+				{
+					"path": "user_bill/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດບິນ"
+					}
+				},
+				{
+					"path": "user_integral/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ຄະແນນຂອງຂ້ອຍ"
+					}
+				},
+				{
+					"path": "user_brokerage/index",
+					"style": {
+						"navigationBarTitleText": "ລະດັບການຈຳໜ່າຍ"
+					}
+				},
+				{
+					"path": "user_grade/index",
+					"style": {
+						"navigationBarTitleText": "ລະດັບຂອງຂ້ອຍ",
+						"navigationBarBackgroundColor": "#282828"
+							// #ifdef MP || APP-PLUS
+							,
+						"navigationBarTextStyle": "#fff"
+						// #endif
+					}
+				},
+				{
+					"path": "user_grade_list/index",
+					"style": {
+						"navigationBarTitleText": "ປະຫວັດຄ່າການເຕີບໂຕ",
+						"navigationBarBackgroundColor": "#282828"
+							// #ifdef MP || APP-PLUS
+							,
+						"navigationBarTextStyle": "#fff"
+						// #endif
+					}
+				},
+				{
+					"path": "user_coupon/index",
+					"style": {
+						"navigationBarTitleText": "ຄູປອງຂອງຂ້ອຍ"
+					}
+				},
+				{
+					"path": "user_spread_user/index",
+					"style": {
+						"navigationBarTitleText": "ການສົ່ງເສີມຂອງຂ້ອຍ"
+					}
+				},
+				{
+					"path": "user_spread_code/index",
+					"style": {
+						"navigationBarTitleText": "ໂປສເຕີຈຳໜ່າຍ"
+					}
+				},
+				{
+					"path": "user_spread_money/index",
+					"style": {
+						"navigationBarTitleText": "ປະຫວັດຄ່າຄອມມິດຊັ່ນ"
+					}
+				},
+				{
+					"path": "user_invoice_order/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ລາຍລະອຽດຄໍາສັ່ງຊື້"
+					}
+				},
+				{
+					"path": "user_invoice_form/index",
+					"style": {
+						"navigationBarTitleText": "ເພີ່ມໃບແຈ້ງໜີ້ໃໝ່"
+					}
+				},
+				{
+					"path": "user_invoice_list/index",
+					"style": {
+						"navigationBarTitleText": "ຈັດການໃບແຈ້ງໜີ້"
+					}
+				},
+				{
+					"path": "agreement_rules/index",
+					"style": {
+						"navigationBarTitleText": "ກົດລະບຽບຂໍ້ຕົກລົງ"
+					}
+				},
+				{
+					"path": "user_spread_money/receiving",
+					"style": {
+						"navigationBarTitleText": "ຮັບເງິນ",
+						"app-plus": {
+							// #ifdef APP-PLUS
+							"titleNView": {
+								"type": "default"
+							}
+							// #endif
+						}
+					}
+				},
+				{
+					"path": "user_cash/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ຖອນເງິນ"
+					}
+				},
+				{
+					"path": "user_address_list/index",
+					"style": {
+						"navigationBarTitleText": "ຈັດການທີ່ຢູ່"
+					}
+				},
+				{
+					"path": "user_address/index",
+					"style": {
+						"navigationBarTitleText": "ເພີ່ມທີ່ຢູ່"
+					}
+				},
+				{
+					"path": "user_phone/index",
+					"style": {
+						"navigationBarTitleText": "ຜູກເບີໂທລະສັບ"
+					}
+				},
+				{
+					"path": "user_modify_phone/index",
+					"style": {
+						"navigationBarTitleText": "ແກ້ໄຂເບີໂທລະສັບ"
+					}
+				},
+				{
+					"path": "user_modify_pwd/index",
+					"style": {
+						"navigationBarTitleText": "ແກ້ໄຂລະຫັດຜ່ານ"
+					}
+				},
+				{
+					"path": "user_payment/index",
+					"style": {
+						"navigationBarTitleText": "ເຕີມຍອດເງິນ"
+					}
+				},
+				{
+					"path": "user_pwd_edit/index",
+					"style": {
+						"navigationBarTitleText": "ແກ້ໄຂລະຫັດຜ່ານ"
+							// #ifdef MP || APP-PLUS
+							,
+						"navigationBarTextStyle": "#fff"
+						// #endif
+					}
+				},
+		
+				{
+					"path": "order_payment/index",
+					"style": {
+						"navigationBarTitleText": "ຊຳລະຄໍາສັ່ງຊື້"
+					}
+				},	
+				{
+					"path": "promoter-list/index",
+					"style": {
+						"navigationBarTitleText": "ສະຖິຕິຜູ້ສົ່ງເສີມ"
+					}
+				},
+				{
+					"path": "promoter-order/index",
+					"style": {
+						"navigationBarTitleText": "ຄໍາສັ່ງຊື້ຜູ້ສົ່ງເສີມ"
+					}
+				},
+				{
+					"path": "promoter_rank/index",
+					"style": {
+						"navigationBarTitleText": "ອັນດັບຜູ້ສົ່ງເສີມ"
+					}
+				},
+				{
+					"path": "commission_rank/index",
+					"style": {
+						"navigationBarTitleText": "ອັນດັບຄ່າຄອມມິດຊັ່ນ"
+					}
+				},
+				{
+					"path": "order_list/index",
+					"style": {
+						"navigationBarTitleText": "ຄໍາສັ່ງຊື້ຂອງຂ້ອຍ",
+						"navigationStyle": "custom"
+					
+					}
+				},
+				{
+					"path": "order_list/search",
+					"style": {
+						"navigationBarTitleText": "ຄໍາສັ່ງຊື້ຂອງຂ້ອຍ"
+					}
+				},
+				{
+					"path": "presell_order_list/index",
+					"style": {
+						"navigationBarTitleText": "ຄໍາສັ່ງຊື້ສັ່ງຈອງ"
+					}
+				},
+				{
+					"path": "goods_logistics/index",
+					"style": {
+						"navigationBarTitleText": "ຂໍ້ມູນການຂົນສົ່ງ"
+					}
+				},
+				{
+					"path": "user_return_list/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍການຄືນສິນຄ້າ"
+					}
+				},
+				{
+					"path": "goods_return/index",
+					"style": {
+						"navigationBarTitleText": "ຂໍຄືນສິນຄ້າ"
+					}
+				},
+				{
+					"path": "login/index",
+					"style": {
+						"navigationBarTitleText": "ເຂົ້າສູ່ລະບົບ",
+						"navigationStyle": "custom",
+						"app-plus": {
+							"scrollIndicator": "none"
+						}
+					}
+				},
+				{
+					"path": "wechat_login/index",
+					"style": {
+						"navigationBarTitleText": "",
+						"navigationStyle": "custom",
+						"app-plus": {
+							"scrollIndicator": "none"
+						}
+					}
+				},
+				{
+					"path": "goods_comment_list/index",
+					"style": {
+						"backgroundColor": "#FFFFFF",
+						"navigationBarTitleText": "ຄະແນນສິນຄ້າ"
+					}
+				},
+				{
+					"path": "goods_comment_con/index",
+					"style": {
+						"navigationBarTitleText": "ຣີວິວສິນຄ້າ"
+					}
+				},
+				{
+					"path": "feedback/index",
+					"style": {
+						"navigationBarTitleText": "ຄຳຕິຊົມ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "feedback/list",
+					"style": {
+						"navigationBarTitleText": "ປະຫວັດຄຳຕິຊົມ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "feedback/detail",
+					"style": {
+						"navigationBarTitleText": "ເນື້ອຫາຄຳຕິຊົມ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "refund/index",
+					"style": {
+						"navigationBarTitleText": "ຄືນເງິນຫຼາຍລາຍການ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "refund/confirm",
+					"style": {
+						"navigationBarTitleText": "ຂໍຄືນເງິນ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "refund/detail",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດຄືນເງິນ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "refund/select",
+					"style": {
+						"navigationBarTitleText": "ເລືອກປະເພດບໍລິການ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "refund/goods/index",
+					"style": {
+						"navigationBarTitleText": "ຄືນສິນຄ້າ-ຄືນເງິນ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "refund/list",
+					"style": {
+						"navigationBarTitleText": "ລາຍການຄືນສິນຄ້າ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "refund/logistics",
+					"style": {
+						"navigationBarTitleText": "ຂໍ້ມູນການຂົນສົ່ງ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "browsingHistory/index",
+					"style": {
+						"navigationBarTitleText": "ປະຫວັດການເຂົ້າຊົມ",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "distributor/index",
+					"style": {
+						"navigationBarTitleText": "ກາຍເປັນຜູ້ຈຳໜ່າຍ",
+						"navigationStyle": "custom",
+						"backgroundColor": "#FFFFFF"
+					}
+				},
+			 {
+					"path": "privacy/index",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path": "order_confirm/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ສົ່ງຄໍາສັ່ງຊື້"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/store",
+			"name": "store",
+			"pages": [
+				{
+					"path": "home/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ໜ້າຫຼັກຮ້ານ"
+							// #ifdef MP
+							,
+						"navigationBarTextStyle": "#FFFFFF"
+					 // #endif
+					}
+				},{
+					"path": "home/goods",
+					"style": {
+						"navigationBarTitleText": "ລາຍການສິນຄ້າ",
+						"navigationStyle": "custom"
+					}
+				},{
+					"path": "home/life",
+					"style": {
+						"navigationBarTitleText": "ບໍລິການຊີວິດ",
+						"navigationStyle": "custom"
+					}
+				},{
+					"path": "home/special",
+					"style": {
+						"navigationBarTitleText": "ງານພິເສດ",
+						"navigationStyle": "custom"
+					}
+				},{
+					"path": "home/coupon",
+					"style": {
+						"navigationBarTitleText": "ຄູປອງ",
+						"navigationStyle": "custom"
+					}
+				},{
+					"path": "goods_cate/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ໝວດໝູ່ສິນຄ້າ"
+							// #ifdef MP
+							,
+						"navigationBarTextStyle": "#FFFFFF"
+					 // #endif
+					}
+				},
+				{
+					"path": "detail/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດຮ້ານ"
+					}
+				},
+				{
+					"path": "list/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍການສິນຄ້າ"
+					}
+				},
+				{
+					"path": "settled/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ສະໝັກເປັນຮ້ານຄ້າ"
+					}
+				}, {
+					"path": "applicationRecord/index",
+					"style": {
+						"navigationBarTitleText": "ປະຫວັດການສະໝັກ"
+					}
+				}, {
+					"path": "merchantDetails/index",
+					"style": {
+						"navigationBarTitleText": "ອະນຸມັດແລ້ວ"
+					}
+				},
+				{
+					"path": "shopStreet/index",
+					"style": {
+						"navigationBarTitleText": "ຖະໜົນຮ້ານຄ້າ"
+					}
+				},
+				{
+					"path": "qualifications/index",
+					"style": {
+						"navigationBarTitleText": "ຂໍ້ມູນຄຸນວຸດທິຮ້ານ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/admin",
+			"name": "adminOrder",
+			"pages": [
+				{
+					"path": "storeDiy/index",
+					"style": {
+						"navigationBarTitleText": "ໜ້າຫຼັກຮ້ານ",
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "order/index",
+					"style": {
+						"navigationBarTitleText": "ໜ້າຫຼັກຄໍາສັ່ງຊື້"
+					}
+				},
+				{
+					"path": "orderList/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍການຄໍາສັ່ງຊື້"
+						
+					}
+				},
+				{
+					"path": "orderRefund/index",
+					"style": {
+						"navigationBarTitleText": "ຄືນເງິນທັນທີ"
+					}
+				},
+				{
+					"path": "refundList/index",
+					"style": {
+						"navigationBarTitleText": "ຂໍຄືນເງິນ"
+
+					}
+				},
+				{
+					"path": "business/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ຈັດການຮ້ານຄ້າ"
+					}
+				},
+				{
+					"path": "orderDetail/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດຄໍາສັ່ງຊື້"
+					}
+				},
+				{
+					"path": "refundDetail/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດການຄືນເງິນ"
+					}
+				},
+			  {
+					"path": "delivery/index",
+					"style": {
+						"navigationBarTitleText": "ສົ່ງສິນຄ້າ"
+					}
+				},
+				{
+					"path": "statistics/index",
+					"style": {
+						"navigationBarTitleText": "ສະຖິຕິຂໍ້ມູນຄໍາສັ່ງຊື້"
+					}
+				},
+				{
+					"path": "order_cancellation/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ກວດສອບຄໍາສັ່ງຊື້"
+					}
+				},
+				{
+					"path": "cancellate_result/index",
+					"style": {
+						"navigationBarTitleText": "ຜົນກວດສອບ"
+					}
+				}
+				// #ifdef H5
+				,{
+					"path": "goods_details/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດສິນຄ້າ"				
+					}
+				}
+				,{
+					"path": "system_form/index",
+					"style": {
+						"navigationBarTitleText": "ແບບຟອມລະບົບ"				
+					}
+				}
+				// #endif
+				// #ifdef H5
+				,{
+					"path": "scan/index",
+					"style": {
+						"navigationBarTitleText": "ສະແກນອັບໂຫລດ"
+					}
+				}
+				// #endif
+				,{
+					"path": "booking/detail",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ລາຍລະອຽດການຈອງ"
+					}
+				},{
+					"path": "booking/reschedule",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ປ່ຽນແປງການຈອງ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/goods_details",
+			"name": "goods_details",
+			"pages": [{
+				"path": "index",
+				"style": {
+					"navigationStyle": "custom"
+					// #ifdef MP || APP-PLUS	
+					,
+					"navigationBarBackgroundColor": "#F2F2F2"
+					// #endif
+				}
+			}]
+		},
+		{
+			"root": "pages/order_pay_status",
+			"name": "order_pay_status",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "ສະຖານະຊຳລະເງິນ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/order_details",
+			"name": "order_details",
+			"pages": [{
+				"path": "index",
+				"style": {
+					"navigationStyle": "custom",
+					"navigationBarTitleText": "ລາຍລະອຽດຄໍາສັ່ງຊື້"
+				}
+			},
+			{
+				"path": "stay",
+				"style": {
+					"navigationStyle": "custom",
+					"navigationBarTitleText": "ລາຍລະອຽດຄໍາສັ່ງຊື້"
+				}
+			},
+			{
+				"path": "delivery",
+				"style": {
+					"navigationBarTitleText": "ລາຍລະອຽດການຈັດສົ່ງ"
+				}
+			}]
+		},
+		{
+			"root": "pages/small_page",
+			"name": "small_page",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ໜ້າຍ່ອຍ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/goods_recommend",
+			"name": "goods_recommend",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ແນະນຳສິນຄ້າ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/news_list",
+			"name": "news_list",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "ຂ່າວສານ",
+						"backgroundColor": "#FFFFFF"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/news_details",
+			"name": "news_details",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດຂ່າວ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/order_pay_back",
+			"name": "order_pay_back",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "ແຈ້ງເຕືອນການຊຳລະ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/product",
+			"name": "product",
+			"pages": [{
+					"path": "list/index",
+					"style": {
+						"navigationBarTitleText": "ຈັດການສິນຄ້າ"
+					}
+				},
+				{
+					"path": "goodsOnSale/index",
+					"style": {
+						"onReachBottomDistance": 100,
+						"navigationBarTitleText": "ສິນຄ້າວາງຂາຍ",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path": "soldOutGoods/index",
+					"style": {
+						"onReachBottomDistance": 100,
+						"navigationBarTitleText": "ສິນຄ້າໝົດ",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path": "recycleBin/index",
+					"style": {
+						"onReachBottomDistance": 100,
+						"navigationBarTitleText": "ຖັງຂີ້ເຫຍື້ອ",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path":"storeClassification/index",
+					"style": {
+						"navigationBarTitleText": "ໝວດໝູ່ຮ້ານ"
+					}
+				},
+				{
+					"path":"storeClassification/addStoreClass",
+					"style": {
+						"navigationBarTitleText": "ເພີ່ມໝວດໝູ່ຮ້ານ"
+					}
+				},
+				{
+					"path": "addGoods/index",
+					"style": {
+						"navigationBarTitleText": "ເພີ່ມສິນຄ້າ"
+					}
+				},
+				{
+					"path": "addGoods/secound",
+					"style": {
+						"navigationBarTitleText": "ເພີ່ມສິນຄ້າ"
+					}
+				},
+				{
+					"path":"addGoods/addGoodDetils",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດສິນຄ້າ"
+					}
+				},
+				{
+					"path": "addGoods/singleSpecification",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດດ່ຽວ"
+					}
+				},
+				{
+					"path": "addGoods/mulSpecification",
+					"style": {
+						"navigationBarTitleText": "ຫຼາຍລາຍລະອຽດ"
+					}
+				},
+				{
+					"path": "addGoods/specificationProperties",
+					"style": {
+						"navigationBarTitleText": "ຄຸນສົມບັດລາຍລະອຽດ"
+					}
+				},
+				{
+					"path": "addGoods/freightTemplate",
+					"style": {
+						"navigationBarTitleText": "ແບບຄ່າຂົນສົ່ງ",
+						"onReachBottomDistance": 100,
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path": "addGoods/addFreightTemplate",
+					"style": {
+						"navigationBarTitleText": "ເພີ່ມແບບຄ່າຂົນສົ່ງ"
+					}
+				},
+				{
+					"path": "addGoods/modifyPrice",
+					"style": {
+						"navigationBarTitleText": "ແກ້ໄຂລາຄາ-ຫຼາຍລາຍລະອຽດ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/plantGrass",
+			"name": "plant_grass",
+			"pages": [
+				{
+					"path": "plant_detail/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດເນື້ອຫາ"
+					}
+				},
+				{
+					"path": "plant_release/index",
+					"style": {
+				 	"navigationBarTitleText": "ເຜີຍແຜ່ເນື້ອຫາ"
+					}
+				},
+				{
+					"path": "plant_show/index",
+					"style": {
+						"navigationBarTitleText": "ໂຊວ໌ແນະນຳ"
+					}
+				},
+				{
+					"path": "plant_topic/index",
+					"style": {
+						"navigationBarTitleText": "ກັ່ນຕອງຫົວຂໍ້"
+					}
+				},
+				{
+					"path": "plant_search/index",
+					"style": {
+						"navigationBarTitleText": "ຊອກຫາ"
+					}
+				},
+				{
+					"path": "plant_search_list/index",
+					"style": {
+						"navigationBarTitleText": "ຜົນຄົ້ນຫາ"
+					}
+				},
+				{
+					"path": "plant_featured/index",
+					"style": {
+						"navigationBarTitleText": "ຄັດເລືອກໃຫ້ທ່ານ"
+					}
+				},
+				{
+					"path": "plant_user/index",
+					"style": {
+						"navigationBarTitleText": "ໜ້າສ່ວນຕົວ"
+					}
+				},
+				{
+					"path": "plant_user_attention/index",
+					"style": {
+						"navigationBarTitleText": "ການຕິດຕາມຂອງຂ້ອຍ"
+					}
+				},
+				{
+					"path": "plant_user_fans/index",
+					"style": {
+						"navigationBarTitleText": "ແຟນຂອງຂ້ອຍ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/columnGoods",
+			"name": "columnGoods",
+			"pages": [{
+					"path": "HotNewGoods/index",
+					"style": {
+						"navigationBarTitleText": "ແນະນຳຄຸນນະພາບ"
+					}
+				},
+				{
+					"path": "goods_list/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍການສິນຄ້າ"
+					}
+				},
+				{
+					"path": "goods_coupon_list/index",
+					"style": {
+						"navigationBarTitleText": "ສິນຄ້າຄູປອງ"
+					}
+				},
+				{
+					"path": "goods_search/index",
+					"style": {
+						"navigationBarTitleText": "ຊອກຫາສິນຄ້າ"
+					}
+				},
+				{
+					"path": "goods_search_con/index",
+					"style": {
+						"navigationBarTitleText": "ຊອກຫາສິນຄ້າ"
+					}
+				}
+			]
+			,
+			"plugins": {
+				"live-player-plugin": {
+					"version": "1.3.5",
+					"provider": "wx2b03c6e691cd7370"
+				}
+			}
+		},
+		{
+			"root": "pages/chat",
+			"name": "chat",
+			"pages": [{
+					"path": "customer_list/index",
+					"style": {
+						"navigationBarTitleText": "ສູນຂໍ້ຄວາມ"
+					}
+				},
+				{
+					"path": "customer_list/chat",
+					"style": {
+						"navigationBarTitleText": "ສົນທະນາລູກຄ້າ"
+					}
+				},
+				{
+					"path": "customer_login/index",
+					"style": {
+						"navigationBarTitleText": "ເຂົ້າສູ່ລະບົບຝ່າຍບໍລິການ"
+					}
+				},
+				{
+					"path": "customer_info/index",
+					"style": {
+						"navigationBarTitleText": "ຂໍ້ມູນລູກຄ້າ"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/activity",
+			"name": "activity",
+			"pages": [{
+					"path": "goods_seckill/index",
+					"style": {
+						"enablePullDownRefresh": true,
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ແຟລຊເຊລຈຳກັດເວລາ"
+					}
+				},
+				{
+					"path": "goods_seckill_details/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດແຟລຊເຊລ",
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "liveBroadcast/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍການຖ່າຍທອດສົດ",
+						"navigationBarBackgroundColor": "#F2F2F2"
+					}
+				},
+				{
+					"path": "presell/index",
+					"style": {
+						"enablePullDownRefresh": true,
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ລາຍການສັ່ງຈອງ"
+					}
+				},
+				{
+					"path": "presell_details/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດສິນຄ້າສັ່ງຈອງ",
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "combination/index",
+					"style": {
+						"enablePullDownRefresh": true,
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ຊື້ເປັນກຸ່ມ"
+					}
+				},
+				{
+					"path": "combination_details/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ລາຍລະອຽດຊື້ກຸ່ມ",
+						"navigationStyle": "custom",
+						"navigationBarBackgroundColor": "#F2F2F2"
+					}
+				},
+				{
+					"path": "combination_status/index",
+					"style": {
+						"navigationBarTitleText": "ສະຖານະຊື້ກຸ່ມ"
+					}
+				},
+				{
+					"path": "assist/index",
+					"style": {
+						"enablePullDownRefresh": true,
+						"navigationBarTitleText": "ລາຍການຊ່ວຍເຫຼືອ",
+						"navigationStyle": "custom"
+						// "navigationBarBackgroundColor": "#F2F2F2"
+					}
+				},
+				{
+					"path": "assist_detail/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ເລີ່ມຊ່ວຍເຫຼືອ"
+					}
+				},
+				{
+					"path": "assist_record/index",
+					"style": {
+						"navigationBarTitleText": "ປະຫວັດຊ່ວຍເຫຼືອ"
+					}
+				},
+				{
+					"path": "topic/index",
+					"style": {
+						"navigationBarTitleText": "ງານກິດຈະກຳ"
+					}
+				},
+				{
+					"path": "topic_detail/index",
+					"style": {
+						"navigationBarTitleText": "ກິດຈະກຳຫົວຂໍ້"
+					}
+				},
+				{
+					"path": "lifeService/index",
+					"style": {
+						"navigationBarTitleText": "ບໍລິການທ້ອງຖິ່ນ"
+					}
+				},
+				{
+					"path": "collect_coupons/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ສູນຮັບຄູປອງ"
+					}
+				},
+				{
+					"path": "rank/index",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "ອັນດັບຂາຍດີ"
+					}
+				},
+				{
+					"path": "registrate_activity/index",
+					"style": {
+						"navigationBarTitleText": "ລົງທະບຽນກິດຈະກຳ"
+					}
+				},
+				{
+					"path": "registrate_list/index",
+					"style": {
+						"navigationBarTitleText": "ລາຍການກິດຈະກຳລົງທະບຽນ"
+					}
+				},
+				{
+					"path": "my_registrate/index",
+					"style": {
+						"navigationBarTitleText": "ການລົງທະບຽນຂອງຂ້ອຍ"
+					}
+				}
+				
+			]
+		},
+		{
+		  "root": "pages/reservation",
+		  "name": "reservation",
+		  "pages": [
+				{
+					"path": "reservation/index",
+					"style": {
+						"navigationBarTitleText": "ຈອງດຽວນີ້",
+						"navigationStyle": "custom",
+						"navigationBarTextStyle": "white"
+					}
+				},
+				{
+					"path": "reservation_info/index",
+					"style": {
+						"navigationBarTitleText": "ຂໍ້ມູນການຈອງ",
+						"navigationStyle": "custom",
+						"navigationBarTextStyle": "white"
+					}
+				}
+		  ]
+		},
+		{
+		  "root": "pages/short_video",
+		  "name": "shortVideo",
+		  "pages": [{
+		    "navigationBarTitleText": "ວິດີໂອສັ້ນ",
+		    "enablePullDownRefresh": false,
+		    //#ifdef APP
+		    "path": "appSwiper/index",
+		    //#endif	
+		    //#ifndef APP
+		    "path": "nvueSwiper/index",
+		    //#endif
+		    "style": {
+					"navigationBarTitleText": "ວິດີໂອສັ້ນຊຸມຊົນ",
+					"navigationStyle": "custom",
+		      "app-plus": {
+		        "titleNView": false,
+		        "bounce": "none"
+		      }
+		    }
+		  }]
+		},
+		{
+		  "root": "pages/points_mall",
+		  "pages": [{
+		      "path": "index",
+		      "style": {
+		        "navigationBarTextStyle": "white",
+		        "navigationBarBackgroundColor": "#333333",
+		        "navigationBarTitleText": "ຮ້ານແລກຄະແນນ",
+		        "app-plus": {
+		          // #ifdef APP-PLUS
+		          "titleNView": {
+		            "type": "default"
+		          }
+		          // #endif
+		        }
+		      }
+		    },
+		    {
+		      "path": "integral_goods_list",
+		      "style": {
+		        "navigationBarTitleText": "ລາຍການສິນຄ້າ",
+		        "app-plus": {
+		          // #ifdef APP-PLUS
+		          "titleNView": {
+		            "type": "default"
+		          }
+		          // #endif
+		        }
+		      }
+		    },
+				{
+				  "path": "goods_selection",
+				  "style": {
+				    "navigationBarTitleText": "ຂອງດີຄັດເລືອກ",
+				    "app-plus": {
+				      // #ifdef APP-PLUS
+				      "titleNView": {
+				        "type": "default"
+				      }
+				      // #endif
+				    }
+				  }
+				},
+				{
+		      "path": "integral_goods_details",
+		      "style": {
+		        "navigationBarTitleText": "ລາຍລະອຽດສິນຄ້າ",
+		        "app-plus": {
+		          // #ifdef APP-PLUS
+		          "titleNView": {
+		            "type": "default"
+		          }
+		          // #endif
+		        }
+		    	// #ifdef MP
+		    	,
+		    	"disableScroll": true
+		    	// #endif
+		      }
+		    },
+		    {
+		      "path": "integral_order",
+		      "style": {
+		        "navigationBarTitleText": "ຄໍາສັ່ງຊື້ຄະແນນ",
+						"navigationStyle": "custom",
+		        "app-plus": {
+		          // #ifdef APP-PLUS
+		          "titleNView": {
+		            "type": "default"
+		          }
+		          // #endif
+		        }
+		      }
+		    },
+				{
+				  "path": "exchange_record",
+				  "style": {
+				    "navigationBarTitleText": "ປະຫວັດແລກປ່ຽນ",
+						"app-plus": {
+						  // #ifdef APP-PLUS
+						  "titleNView": {
+						    "type": "default"
+						  }
+						  // #endif
+						}
+				  }
+				},{
+		      "path": "integral_order_details",
+		      "style": {
+		        "navigationBarTitleText": "ລາຍລະອຽດແລກປ່ຽນ"
+		      }
+		    }		
+		  ]
+		},
+		{
+		  "root": "pages/annex",
+			"name": "annx",
+		  "pages": [{
+		      "path": "web_view/index",
+		      "style": {
+		        "navigationBarTitleText": "",
+		        "app-plus": {
+		          // #ifdef APP-PLUS
+		          "titleNView": {
+		            "type": "default"
+		          }
+		          // #endif
+		        }
+		      }
+		    }, {
+		      "path": "vip_paid/index",
+		      "style": {
+						// "navigationStyle": "custom",
+		        "navigationBarTitleText": "ເປີດສະມາຊິກ",
+		        "app-plus": {
+		          // #ifdef APP-PLUS
+		          "titleNView": {
+		            "type": "default"
+		          }
+		          // #endif
+		        }
+		      }
+		    }, {
+		      "path": "vip_center/index",
+		      "style": {
+		        "navigationBarTitleText": "ສູນສະມາຊິກ",
+		        "app-plus": {
+		          // #ifdef APP-PLUS
+		          "titleNView": {
+		            "type": "default"
+		          }
+		          // #endif
+		        }
+		      }
+		    },
+		    {
+		      "path": "vip_clause/index",
+		      "style": {
+		        "navigationBarTitleText": "ຂໍ້ຕົກລົງສະມາຊິກ",
+		        "app-plus": {
+		          // #ifdef APP-PLUS
+		          "titleNView": {
+		            "type": "default"
+		          }
+		          // #endif
+		        }
+		      }
+		    }
+		  ]
+		},
+		{
+			"root": "pages/staff",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "ໜ້າຫຼັກພະນັກງານ",
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "order_list",
+					"style": {
+						"navigationBarTitleText": "ລາຍການຄໍາສັ່ງຊື້",
+						"navigationStyle": "custom",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "order_detail", 
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດຄໍາສັ່ງຊື້",
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "checkin", 
+					"style": {
+						"navigationBarTitleText": "ເຊັກອິນບໍລິການ",
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "service_record",
+					"style": {
+						"navigationBarTitleText": "ປະຫວັດບໍລິການ",
+						"navigationStyle": "custom"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/delivery",
+			"pages": [
+				{
+					"path": "order_list",
+					"style": {
+						"navigationBarTitleText": "ລາຍການຄໍາສັ່ງຊື້",
+						"navigationStyle": "custom",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "order_detail", 
+					"style": {
+						"navigationBarTitleText": "ລາຍລະອຽດຄໍາສັ່ງຊື້",
+						"navigationStyle": "custom"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/plant_grass",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "ຊຸມຊົນແນະນຳ",
+						"navigationStyle": "custom"
+					}
+				}
+			]
+		},
+		{
+			"root": "sub-packages/diy",
+			"pages": [
+				{
+					"path": "index"
+				}
+			]
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "ກຳລັງໂຫລດ...",
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#F8F8F8"
+			//#ifdef APP
+			,
+		"titleNView": true
+			//#endif
+			//#ifdef H5
+			,
+		"titleNView": false
+		//#endif
+	},
+	"tabBar": {
+		"color": "#282828",
+		"selectedColor": "#E93323",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index"
+				,
+				"iconPath": "static/images/1-001.png",
+				"selectedIconPath": "static/images/1-002.png",
+				"text": "ໜ້າຫຼັກ"
+			},
+			{
+				"pagePath": "pages/goods_cate/goods_cate"
+				,
+				"iconPath": "static/images/2-001.png",
+				"selectedIconPath": "static/images/2-002.png",
+				"text": "ໝວດໝູ່"
+			},
+			{
+				"pagePath": "pages/order_addcart/order_addcart",
+				"iconPath": "static/images/3-001.png",
+				"selectedIconPath": "static/images/3-002.png",				
+				"text": "ກະຕ່າ"
+			},
+			{
+				"pagePath": "pages/user/index",
+				"iconPath": "static/images/4-001.png",
+				"selectedIconPath": "static/images/4-002.png",
+				"text": "ຂອງຂ້ອຍ"
+			}
+		]
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	},
+	"sitemapLocation": "sitemap.json",
+	"preloadRule": {
+		"pages/guide/index": {
+			"network": "all",
+			"packages": [
+				"sub-packages/diy"
+			]
+		}
+	}
+}

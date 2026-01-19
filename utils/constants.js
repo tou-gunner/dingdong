@@ -1,0 +1,1 @@
+export const STAFF_CHECKIN_SUCC_EVENT = "staff_checkin_success";
