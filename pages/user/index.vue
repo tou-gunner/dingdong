@@ -9,11 +9,11 @@
 					<!-- #ifdef MP || APP-PLUS -->
 					<view class="sys-head">
 						<view class="sys-bar" :style="{height:sysHeight}"></view>
-						<!-- #ifdef MP -->
-						<view class="sys-title">
-							个人中心
-						</view>
-						<!-- #endif -->
+					<!-- #ifdef MP -->
+					<view class="sys-title">
+						ສູນກາງສ່ວນຕົວ
+					</view>
+					<!-- #endif -->
 						<view class="bg"></view>
 					</view>
 					<!-- #endif -->
@@ -31,22 +31,22 @@
 									</view>
 								</view>
 								<view class="info">
-									<!--#ifdef MP-->
-									<view class="name" v-if="!userInfo.uid" @click="openAuto">
-										请点击授权
-									</view>
-									<!--#endif-->
-									<!--#ifdef APP-PLUS-->
-									<view class="name" v-if="!userInfo.uid" @click="openAuto">
-										请点击登录
-									</view>
-									<!--#endif-->
-									<!--#ifdef H5-->
-									<view  class="name" v-if="!userInfo.uid" @click="openAuto">
-										<text v-if="isWeixin">请点击授权</text>
-										<text v-else>请点击登录</text>
-									</view>
-									<!--#endif-->
+								<!--#ifdef MP-->
+								<view class="name" v-if="!userInfo.uid" @click="openAuto">
+									ກະລຸນາຄລິກເພື່ອອະນຸຍາດ
+								</view>
+								<!--#endif-->
+								<!--#ifdef APP-PLUS-->
+								<view class="name" v-if="!userInfo.uid" @click="openAuto">
+									ກະລຸນາຄລິກເພື່ອເຂົ້າສູ່ລະບົບ
+								</view>
+								<!--#endif-->
+								<!--#ifdef H5-->
+								<view  class="name" v-if="!userInfo.uid" @click="openAuto">
+									<text v-if="isWeixin">ກະລຸນາຄລິກເພື່ອອະນຸຍາດ</text>
+									<text v-else>ກະລຸນາຄລິກເພື່ອເຂົ້າສູ່ລະບົບ</text>
+								</view>
+								<!--#endif-->
 									<view class="name" v-if="userInfo.uid">
 										{{userInfo.nickname}}
 										<image v-if="member_status && userInfo.member_icon" class="level_icon" :src="userInfo.member_icon" alt="" />
@@ -63,37 +63,37 @@
 												<image src="/static/images/edit.png" mode=""></image>
 											</view>
 										</view>
-										<view class="phone" v-if="!userInfo.phone && isLogin" @tap="bindPhone">绑定手机号</view>
+										<view class="phone" v-if="!userInfo.phone && isLogin" @tap="bindPhone">ຜູກມັດເບີໂທລະສັບ</view>
 									</template>
 								</view>
 							</view>
 							<view class="num-wrapper skeleton-rect">
 								<view class="num-item" @click="goMenuPage('/pages/users/user_goods_collection/index')">
 									<text class="num regular">{{userInfo.total_collect_product || 0}}</text>
-									<view class="txt">我的收藏</view>
+									<view class="txt">ການສະສົມຂອງຂ້ອຍ</view>
 								</view>
 								<view v-if="hide_mer_status != 1" class="num-item" @click="goMenuPage('/pages/users/user_goods_collection/index?tab=2')">
 									<text class="num regular">{{userInfo.total_collect_store || 0}}</text>
-									<view class="txt">关注店铺</view>
+									<view class="txt">ຕິດຕາມຮ້ານ</view>
 								</view>
 								<view class="num-item" @click="goMenuPage('/pages/users/browsingHistory/index')">
 									<text class="num regular">{{userInfo.total_visit_product || 0}}</text>
-									<view class="txt">浏览记录</view>
+									<view class="txt">ປະຫວັດການເບິ່ງ</view>
 								</view>
 								<view class="num-item" @click="goMenuPage('/pages/users/user_coupon/index')">
 									<text class="num regular">{{userInfo.total_coupon || 0}}</text>
-									<view class="txt">优惠券</view>
+									<view class="txt">ຄູປອງ</view>
 								</view>
 							</view>
 							<view @click="goSvip" class="cardVipA acea-row row-between-wrapper" v-if="svip_switch_status == 1">
 								<image class="svip_user" :src="`${domain}/static/images/svip_user.png`"></image>
 								<view class="left-box">
-									<view v-if="userInfo.is_svip > 0" class="small">累计为您节省{{userInfo.svip_save_money}}元</view>
-									<view v-else class="small">开通享六大特权，省钱又省心
+									<view v-if="userInfo.is_svip > 0" class="small">ປະຢັດໃຫ້ທ່ານລວມ {{userInfo.svip_save_money}} ກີບ</view>
+									<view v-else class="small">ເປີດໃຊ້ສິດທິພິເສດ 6 ຢ່າງ, ປະຢັດເງິນແລະບໍ່ຕ້ອງກັງວົນ
 									</view>
 								</view>
 								<view class="acea-row row-middle">
-									<view class="btn-open">{{userInfo.is_svip > 0 && userInfo.is_svip != 3  ? '立即续费' : userInfo.is_svip == 3 ? '终身会员' : '立即开通'}}</view>
+									<view class="btn-open">{{userInfo.is_svip > 0 && userInfo.is_svip != 3  ? 'ຕໍ່ອາຍຸດຽວນີ້' : userInfo.is_svip == 3 ? 'ສະມາຊິກຕະຫຼອດຊີວິດ' : 'ເປີດໃຊ້ດຽວນີ້'}}</view>
 								</view>
 							</view>
 							<view class="right-btn">
@@ -108,9 +108,9 @@
 					<view class="wrapper">
 						<view class="order-wrapper">
 							<view class="order-hd flex skeleton-rect">
-								<view class="left">我的订单</view>
+								<view class="left">ຄຳສັ່ງຊື້ຂອງຂ້ອຍ</view>
 								<view class="right flex" @click="authTo('/pages/users/order_list/index?status=-1')" hover-class="none" open-type="navigate">
-									全部订单
+									ຄຳສັ່ງຊື້ທັງໝົດ
 									<text class="iconfont icon-ic_rightarrow"></text>
 								</view>
 							</view>
@@ -141,7 +141,7 @@
 						</view>
 						<!-- 会员菜单 -->
 						<view class="user-menus" style="margin-top: 20rpx;">
-							<view class="title skeleton-rect">我的服务</view>
+							<view class="title skeleton-rect">ບໍລິການຂອງຂ້ອຍ</view>
 							<view class="menu-box">
 								<block v-for="(item,index) in personalMenu" :key="index">
 									<view v-if="item.isShow" class="item">
@@ -155,20 +155,20 @@
 								<view v-if="service_type.sys_service_switch != 0 && service_type.sys_service_switch != 5" class="item">
 									<view @click="customer" class="item-count">
 										<image :src="`${domain}/static/images/user_customer.png`" mode="aspectFit"></image>
-										<text>联系客服</text>
+										<text>ຕິດຕໍ່ຝ່າຍບໍລິການ</text>
 									</view>
 								</view>
 								<!--#ifdef MP-->
 								<button v-if="service_type.sys_service_switch == 5" class="item" open-type='contact' hover-class='none'>
 									<image :src="`${domain}/static/images/user_customer.png`"></image>
-									<text>联系客服</text>
+									<text>ຕິດຕໍ່ຝ່າຍບໍລິການ</text>
 								</button>
 								<!--#endif-->
 							</view>
 						</view>
 						<!-- 商家菜单 -->
 						<view class="user-menus" style="margin-top: 20rpx;" v-if="merchantMenus.length">
-							<view class="title skeleton-rect">商家管理</view>
+							<view class="title skeleton-rect">ການຄຸ້ມຄອງຮ້ານຄ້າ</view>
 							<view class="menu-box">
 								<block v-for="(item,index) in merchantMenus" :key="index">
 									<view class="item">
@@ -271,7 +271,7 @@
 				if (userInfo.service) {
 					menus.push({
 						pic: `${HTTP_REQUEST_URL}/static/images/merchant_manage.png`,
-						name: '商家管理',
+						name: 'ການຄຸ້ມຄອງຮ້ານຄ້າ',
 						url: '/pages/admin/business/index?is_sys=0'
 					});
 				}
@@ -279,21 +279,21 @@
 				if (userInfo.topService) {
 					menus.push({
 						pic: `${HTTP_REQUEST_URL}/static/images/platform_manage.png`,
-						name: '平台管理',
+						name: 'ການຄຸ້ມຄອງແພລດຟອມ',
 						url: '/pages/chat/customer_list/index?type=1&mer_id=0',
 					});
 				}
 				if (userInfo.staffs?.length) {
 					menus.push({
 						pic: `${HTTP_REQUEST_URL}/static/images/ticket_manage.png`,
-						name: '工单管理',
+						name: 'ການຄຸ້ມຄອງໃບສັ່ງວຽກ',
 						url: '/pages/staff/order_list',
 					});
 				}
 				if (userInfo.delivery?.length) {
 					menus.push({
 						pic: `${HTTP_REQUEST_URL}/static/images/delivery_manage.png`,
-						name: '配送管理',
+						name: 'ການຄຸ້ມຄອງການຈັດສົ່ງ',
 						url: '/pages/delivery/order_list',
 					});
 				}
@@ -318,31 +318,31 @@
 				isNodes: 0, //控制什么时候开始抓取元素节点,只要数值改变就重新抓取
 				orderMenu: [{
 					icon: 'icon-ic_daifukuan12',
-					title: '待付款',
+					title: 'ລໍຖ້າຊຳລະເງິນ',
 					url: '/pages/users/order_list/index?status=0',
 					num: 0
 				},
 				{
 					icon: 'icon-ic_daifahuo11',
-					title: '待发货/核销',
+					title: 'ລໍຖ້າສົ່ງ/ກວດສອບ',
 					url: '/pages/users/order_list/index?status=1',
 					num: 0
 				},
 				{
 					icon: 'icon-ic_daishouhuo1',
-					title: '待收货',
+					title: 'ລໍຖ້າຮັບສິນຄ້າ',
 					url: '/pages/users/order_list/index?status=2',
 					num: 0
 				},
 				{
 					icon: 'icon-ic_daipingjia1',
-					title: '待评价',
+					title: 'ລໍຖ້າລີວິວ',
 					url: '/pages/users/order_list/index?status=3',
 					num: 0
 				},
 				{
 					icon: 'icon-ic_daituikuan1',
-					title: '售后/退款',
+					title: 'ບໍລິການຫຼັງການຂາຍ/ຄືນເງິນ',
 					url: '/pages/users/refund/list',
 					num: 0
 				},
@@ -559,19 +559,19 @@
 				}) => {
 					this.orderMenu.forEach((item, index) => {
 						switch (item.title) {
-							case '待付款':
+							case 'ລໍຖ້າຊຳລະເງິນ':
 								item.num = data.noPay
 								break
-							case '待发货/核销':
+							case 'ລໍຖ້າສົ່ງ/ກວດສອບ':
 								item.num = data.noPostage
 								break
-							case '待收货':
+							case 'ລໍຖ້າຮັບສິນຄ້າ':
 								item.num = data.noDeliver
 								break
-							case '待评价':
+							case 'ລໍຖ້າລີວິວ':
 								item.num = data.noComment
 								break
-							case '售后/退款':
+							case 'ບໍລິການຫຼັງການຂາຍ/ຄືນເງິນ':
 								item.num = data.refund
 								break
 						}
