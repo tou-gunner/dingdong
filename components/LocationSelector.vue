@@ -1,7 +1,7 @@
 <template>
   <button class="location-toggle" @click="handlePickerLocation" :class="{ scroll: isScroll }">
     <view class="iconfont icon-ic_location51" />
-    <text class="address">{{ address || '定位中...' }}</text>
+    <text class="address">{{ address || 'ກຳລັງຊອກຫາຕຳແໜ່ງ...' }}</text>
     <view class="iconfont icon-ic_downarrow" />
   </button>
 </template>
@@ -36,11 +36,11 @@ export default {
         if (error) {
           if (error.errMsg.includes('auth deny')) {
             this.$util.Tips({
-              title: '缺少定位权限'
+              title: 'ຂາດສິດການເຂົ້າເຖິງຕຳແໜ່ງ'
             });
             return;
           } else if (error.errMsg.includes('cancel') || error.errMsg === "chooseLocation:fail") {
-            // 取消选择
+            // ຍົກເລີກການເລືອກ
             return;
           }
           throw new Error(error.errMsg);
@@ -53,7 +53,7 @@ export default {
         this.$store.commit('SET_ADDRESS', name);
       } catch (err) {
         uni.showToast({
-          title: `定位失败: ` + (err.message || err),
+          title: `ຊອກຫາຕຳແໜ່ງລົ້ມເຫລວ: ` + (err.message || err),
           icon: 'none',
         });
       }

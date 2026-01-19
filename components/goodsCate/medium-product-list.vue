@@ -1,4 +1,4 @@
-<!-- 包含中图商品的列表 -->
+<!-- ລາຍການສິນຄ້າແບບຮູບຂະໜາດກາງ -->
 <template>
   <scroll-view class="medium-product-list" scroll-y @scrolltolower="handleScrollToLower">
     <view class="product-item" v-for="(item, index) in list" :key="index">
@@ -26,7 +26,7 @@
           </view>
         </view>
         <view class="buy-btn-box flex-center relative" @click="addCart(item)" v-else>
-          加入购物车
+          ເພີ່ມເຂົ້າກະຕ່າ
         </view>
       </view>
     </view>

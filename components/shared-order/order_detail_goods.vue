@@ -28,20 +28,20 @@ export default {
     return {
       tableData: [
         {
-          label: "预约数量",
+          label: "ຈຳນວນການຈອງ",
           value: this.orderInfo.total_num,
         },
         {
-          label: "联系人",
+          label: "ຜູ້ຕິດຕໍ່",
           value: this.orderInfo.real_name,
         },
         {
-          label: "联系电话",
+          label: "ເບີໂທລະສັບ",
           value: this.orderInfo.user_phone,
           isPhone: true,
         },
         {
-          label: "留言",
+          label: "ຂໍ້ຄວາມ",
           value: this.orderInfo.mark,
           overflow: true,
         }

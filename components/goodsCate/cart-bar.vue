@@ -1,4 +1,4 @@
-<!-- 分类页面购物车 bar -->
+<!-- ແຖບກະຕ່າສິນຄ້າໜ້າປະເພດສິນຄ້າ -->
 <template>
   <view>
     <view class="w-710 h-96 cart_box" :style="[cartBarStyle]">
@@ -12,12 +12,12 @@
             <view style="color: #fff;">
               <priceFormat :price="totalPrice" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
             </view>
-            <view class="fs-24 text--w111-fff lh-34rpx pl-16" v-show="totalPrice > 0">查看明细 <text
+            <view class="fs-24 text--w111-fff lh-34rpx pl-16" v-show="totalPrice > 0">ເບິ່ງລາຍລະອຽດ <text
                 class="iconfont icon-ic_uparrow fs-24"></text> </view>
           </view>
         </view>
         <view class="w-186 h-72 rd-40rpx flex-center text--w111-fff fs-26 fw-500 bg-gradient1 mr-12"
-          :class="{ empty: cartCount == 0 }" @tap="subOrder">去结算({{ cartCount || 0 }})</view>
+          :class="{ empty: cartCount == 0 }" @tap="subOrder">ໄປຈ່າຍເງິນ({{ cartCount || 0 }})</view>
       </view>
     </view>
 
@@ -83,7 +83,7 @@ export default {
     this.getCartNum();
   },
   methods: {
-    // 购物车商品
+    // ສິນຄ້າໃນກະຕ່າ
     getCartList() {
       let that = this;
       if (!this.isLogin) return;
@@ -119,7 +119,7 @@ export default {
         this.$store.commit('UPDATE_CARTNUM', count);
       })
     },
-    // 生成订单；
+    // ສ້າງຄຳສັ່ງຊື້
     subOrder() {
       let selectValue = []
       this.cartData.cartList.forEach(el => {
@@ -135,14 +135,14 @@ export default {
         });
       } else {
         return this.$util.Tips({
-          title: '请选择产品'
+          title: 'ກະລຸນາເລືອກສິນຄ້າ'
         });
       }
     },
     openCartList() {
       if (this.cartNum > 0) this.$set(this.cartData, 'iScart', true);
     },
-    // 全选判断
+    // ການກວດສອບເລືອກທັງໝົດ
     cartAllCheck(type) {
       let that = this;
       let allArr = [];
@@ -166,7 +166,7 @@ export default {
           el.allCheck = that.isAllSelect
           if (el.allCheck) allArr.push(el)
         }
-        // 总金额 //总数
+        // ຍອດລວມ //ຈຳນວນທັງໝົດ
         el.list.forEach(e => {
           if (e.check) {
             totalMoney = that.$util.$h.Add(totalMoney, that.$util.$h.Mul(e.productAttr.price, e.cart_num))
@@ -181,12 +181,12 @@ export default {
     closeList() {
       this.$set(this.cartData, 'iScart', false);
     },
-    //清空购物车
+    //ລຶບກະຕ່າສິນຄ້າທັງໝົດ
     changeSubDel() {
       let that = this;
       uni.showModal({
-        title: '提示',
-        content: '确定清空购物车',
+        title: 'ແຈ້ງເຕືອນ',
+        content: 'ແນ່ໃຈທີ່ຈະລຶບກະຕ່າສິນຄ້າທັງໝົດ',
         success: function (res) {
           if (res.confirm) {
             emptyCart().then(res => {
@@ -208,13 +208,13 @@ export default {
             });
           } else if (res.cancel) {
             return that.$util.Tips({
-              title: '已取消'
+              title: 'ຍົກເລີກແລ້ວ'
             });
           }
         }
       });
     },
-    // 更新购物车列表
+    // ອັບເດດລາຍການກະຕ່າສິນຄ້າ
     updateCartList(type, list) {
       this.cartData.cartList = list;
       this.cartAllCheck(type)

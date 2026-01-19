@@ -13,7 +13,7 @@
 							<view class="name">{{ item.mer_name }}</view>
 							<text class="iconfont icon-ic_rightarrow"></text>
 						</navigator>
-						<view class="coupon-btn" v-if="item.hasCoupon > 0 && !isCate" @click="giveCoupon(item)">优惠券</view>
+						<view class="coupon-btn" v-if="item.hasCoupon > 0 && !isCate" @click="giveCoupon(item)">ຄູປ໋ອງ</view>
 					</view>
 					<navigator v-for="goods in item.list" :key="goods.cart_id"
 						:url='"/pages/goods_details/index?id=" + goods.product.product_id' hover-class='none' class='picTxt acea-row'>
@@ -32,8 +32,8 @@
 									<text class="iconfont icon-ic_downarrow"></text>
 								</view>
 								<view v-if="goods.product.once_max_count > 0 && goods.product.once_min_count > 0" class="buy_limit">
-									<text v-if="goods.product.once_min_count > 0">{{ goods.product.once_min_count }}件起购，</text><text
-										v-if="goods.product.once_max_count > 0">最多{{ goods.product.once_max_count }}件</text>
+									<text v-if="goods.product.once_min_count > 0">{{ goods.product.once_min_count }}ຊິ້ນຂັ້ນຕ່ຳ，</text><text
+										v-if="goods.product.once_max_count > 0">ສູງສຸດ{{ goods.product.once_max_count }}ຊິ້ນ</text>
 								</view>
 								<view class="carnum-count acea-row row-between">
 									<view class='money acea-row row-middle'>
@@ -310,11 +310,11 @@ export default {
 				productSelect.stock == 0
 			)
 				return that.$util.Tips({
-					title: "产品库存不足，请选择其它"
+					title: "ສິນຄ້າຄັງບໍ່ພຽງພໍ, ກະລຸນາເລືອກຢ່າງອື່ນ"
 				});
 			if (that.attr.productSelect.cart_num == 0) {
 				return that.$util.Tips({
-					title: '购买个数不能为0！'
+					title: 'ຈຳນວນຊື້ບໍ່ສາມາດເປັນ 0!'
 				})
 			}
 		},
@@ -348,13 +348,13 @@ export default {
 			if (nextCartNum < onceMinCount) {
 				goods.numSub = true; // 禁止减少
 				this.$util.Tips({
-					title: `最少购买${onceMinCount}件`
+					title: `ຊື້ຢ່າງໜ້ອຍ ${onceMinCount} ຊິ້ນ`
 				});
 				return;
 			} else if (nextCartNum > onceMaxCount) {
 				goods.numAdd = true; // 禁止增加
 				this.$util.Tips({
-					title: `最多购买${onceMaxCount}件`
+					title: `ຊື້ສູງສຸດ ${onceMaxCount} ຊິ້ນ`
 				});
 				return;
 			}

@@ -1,5 +1,5 @@
 <template>
-  <!-- 金刚区 -->
+  <!-- ເມນູຫຼັກ -->
   <view v-if="menus.length" :style="[boxStyle]" class="relative menus-box">
     <view :style="[boxContentStyle]">
       <view class="swiper-container" v-if="isShowConfig">
@@ -139,7 +139,7 @@ export default {
         boxShadow: diyUtil.buildShadowStyle(this.dataConfig.imgShadowConfig)
       };
     },
-    //分几行展示，一行展示多少个
+    //ສະແດງຈັກແຖວ, ແຖວລະເທົ່າໃດ
     gridColumns() {
       if (this.dataConfig.number.tabVal == 0) {
         return {
@@ -183,8 +183,8 @@ export default {
   },
   methods: {
     getSwiperCount() {
-      /* rowsNum 显示行数  0: 1行  1: 2行 2: 3行 3 4行 */
-      /* number  单行显示  0: 3个  1: 4个 2: 5个 */
+      /* rowsNum ຈຳນວນແຖວ  0: 1ແຖວ  1: 2ແຖວ 2: 3ແຖວ 3: 4ແຖວ */
+      /* number  ຈຳນວນຕໍ່ແຖວ  0: 3ອັນ  1: 4ອັນ 2: 5ອັນ */
       this.pageNum((this.rowsNum + 1) * (this.number + 3));
     },
     bannerfun(e) {

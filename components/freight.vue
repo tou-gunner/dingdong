@@ -1,7 +1,7 @@
 <template>
 	<view v-if="shipping || shippingValue" class='attribute acea-row row-between-wrapper' @click="showShip">
 		<view class="acea-row row-center-wrapper">
-			<view>运费：</view>
+			<view>ຄ່າຂົນສົ່ງ：</view>
 			<text class='atterTxt'>{{shippingValue}}</text>
 		</view>
 		<view class='iconfont icon-ic_rightarrow'></view>

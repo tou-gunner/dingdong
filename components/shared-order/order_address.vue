@@ -5,7 +5,7 @@
         <text class="order-user-name-text">{{ orderInfo.real_name }}</text>
         <text>{{ orderInfo.user_phone }}</text>
       </view>
-      <view class="order-address">地址：{{ orderInfo.user_address }}</view>
+      <view class="order-address">ທີ່ຢູ່：{{ orderInfo.user_address }}</view>
     </view>
     <button class="contact-action-btn iconfont icon-ic_Phone" @click="handleMakeCallPhone(orderInfo.user_phone)"></button>
     <button class="contact-action-btn iconfont icon-icon_Location" @click="handleOpenLocation(orderInfo.user_address)"></button>

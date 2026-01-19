@@ -1,4 +1,4 @@
-<!-- 商品分类页面，水平方向滚动分类列表组件，仅文字列表，无图片 -->
+<!-- ໜ້າປະເພດສິນຄ້າ, ລາຍການປະເພດເລື່ອນແນວນອນ, ລາຍການຂໍ້ຄວາມເທົ່ານັ້ນ, ບໍ່ມີຮູບພາບ -->
 <template>
   <view class="horizontal-cate-list-wrapper">
     <view class="scroll-wrapper">
@@ -30,7 +30,7 @@
         </view>
         <view class="flex-center">
           <view class="close-btn flex-center text--w111-999 fs-24" @click="handleClosePanel">
-            点击收起
+            ຄລິກເພື່ອປິດ
             <view class="iconfont icon-ic_uparrow pl-4"></view>
           </view>
         </view>
@@ -52,8 +52,8 @@ export default {
       type: String,
       default: "light", // gray, light
     },
-    list: Array, // 分类列表
-    activeIndex: Number // 当前选中的分类索引
+    list: Array, // ລາຍການປະເພດ
+    activeIndex: Number // ດັດຊະນີປະເພດທີ່ເລືອກປະຈຸບັນ
   },
   data() {
     return {

@@ -15,10 +15,10 @@
 				<!-- #endif -->
 			</view>
 			<!-- #ifdef H5 -->
-			<button class="button copy-data" :data-clipboard-text="copyUrl">点击复制口令</button>
+			<button class="button copy-data" :data-clipboard-text="copyUrl">ຄລິກເພື່ອຄັດລອກລະຫັດ</button>
 			<!-- #endif -->
 			<!-- #ifndef H5 -->
-			<button class="button" @click="copyText">点击复制口令</button>
+			<button class="button" @click="copyText">ຄລິກເພື່ອຄັດລອກລະຫັດ</button>
 			<!-- #endif -->
 		</view>
 		<view class='mask' catchtouchmove="true" :hidden='isCopy==false' @click='close'></view>
@@ -53,7 +53,7 @@
 		computed: mapGetters(['viewColor']),
 		data() {
 			return {
-				title: '复制以下口令'
+				title: 'ຄັດລອກລະຫັດຕໍ່ໄປນີ້'
 			};
 		},
 		mounted(){
@@ -63,7 +63,7 @@
 				var clipboard = new ClipboardJS('.copy-data');
 				clipboard.on('success', function(e) {
 					that.$util.Tips({
-						title:'复制成功'
+						title:'ຄັດລອກສຳເລັດ'
 					})
 					setTimeout(()=>{
 						that.$emit('close');
@@ -71,7 +71,7 @@
 				});
 				clipboard.on('error', function(e) {
 					that.$util.Tips({
-						title:'复制失败'
+						title:'ຄັດລອກລົ້ມເຫລວ'
 					})
 				});
 			});

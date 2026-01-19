@@ -1,10 +1,10 @@
-<!-- 商品分类页面顶部搜索组件 -->
+<!-- ສ່ວນຄົ້ນຫາດ້ານເທິງຂອງໜ້າປະເພດສິນຄ້າ -->
 <template>
   <view class="top-search-wrapper flex" :class="theme" :style="[searchWrapperStyle]">
     <slot />
     <navigator class="top-search-btn flex-1" :url="searchUrl" hover-class="none" :style="[searchBtnStyle]">
       <view class="iconfont icon-ic_search"></view>
-      <text>请输入商品名称</text>
+      <text>ກະລຸນາໃສ່ຊື່ສິນຄ້າ</text>
     </navigator>
   </view>
 </template>
@@ -51,9 +51,9 @@ export default {
 
 <style scoped lang="scss">
 .top-search-wrapper {
-  // 默认 gray 主题
-  --top-search-bg-color: #f5f5f5; // 搜索组件背景
-  --top-search-btn-bg-color: #fff; // 搜索框背景
+  // ຫົວຂໍ້ gray ເລີ່ມຕົ້ນ
+  --top-search-bg-color: #f5f5f5; // ພື້ນຫຼັງສ່ວນຄົ້ນຫາ
+  --top-search-btn-bg-color: #fff; // ພື້ນຫຼັງກ່ອງຄົ້ນຫາ
 
   &.light {
     --top-search-bg-color: #fff;

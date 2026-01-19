@@ -1,4 +1,4 @@
-<!-- 商品分类页面左侧垂直分类列表组件 -->
+<!-- ລາຍການປະເພດແນວຕັ້ງດ້ານຊ້າຍຂອງໜ້າປະເພດສິນຄ້າ -->
 <template>
   <scroll-view class="vertical-category-list" :class="theme" scroll-y :scroll-into-view="scrollIntoViewId" scroll-with-animation>
     <view class="category-item" v-for="(item, index) of list" :key="item.store_category_id"
@@ -19,8 +19,8 @@ export default {
       type: String,
       default: "gray", // gray, light
     },
-    list: Array, // 分类列表
-    activeIndex: Number, // 当前选中的分类索引
+    list: Array, // ລາຍການປະເພດ
+    activeIndex: Number, // ດັດຊະນີປະເພດທີ່ເລືອກປະຈຸບັນ
   },
   data() {
     return {

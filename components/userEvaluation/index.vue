@@ -30,7 +30,7 @@
 				</block>
 			</view>
 			<view class="reply" v-if="item.merchant_reply_content">
-				<text>店小二</text>：{{item.merchant_reply_content}}
+				<text>ຜູ້ຂາຍ</text>：{{item.merchant_reply_content}}
 			</view>
 		</view>
 	</view>

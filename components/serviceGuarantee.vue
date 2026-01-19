@@ -1,7 +1,7 @@
 <template>
 	<view v-if="guarantee && guarantee.length" class='attribute acea-row row-between-wrapper' @click="showGuaranee">
 		<view class="acea-row row-center-wrapper">
-			<view>保障：</view>
+			<view>ການຮັບປະກັນ：</view>
 			<view class="guaranteeAttr">
 				<text class='atterTxt' :class="item.guarantee_name ? 'hasAttr' : ''"  v-for="(item,index) in guarantee" :key="index">
 					{{item.guarantee_name ? item.guarantee_name : ''}}

@@ -10,7 +10,7 @@
         <picker v-else-if="item.type === 'selects'" :range="item.range" range-key="val" class="form-item-input"
           @change="handleSelectChange($event, item, index)" :value="item.index">
           <view class="form-item-input-content" :class="{ 'is-empty': !item.value }">
-            {{ item.value || "请选择" }}
+            {{ item.value || "ກະລຸນາເລືອກ" }}
             <text class="iconfont icon-ic_rightarrow"></text>
           </view>
         </picker>
@@ -81,7 +81,7 @@
             v-if="item.value.length < item.maxCount">
             <image :src="`${domain}/static/images/checkin-form-camera.png`" mode="aspectFit"
               class="form-item-image-item__add__image" />
-            <text>上传图片</text>
+            <text>ອັບໂຫລດຮູບພາບ</text>
           </view>
           <view class="form-item-image-item" v-for="(image, index) in item.value" :key="index">
             <image class="form-item-image-item__image" mode="aspectFill" :src="image" />
@@ -395,7 +395,7 @@ export default {
           const isEmpty = Array.isArray(value) ? value.length === 0 : !value;
           if (isEmpty) {
             this.$util.Tips({
-              title: `${item.label}不能为空`,
+              title: `${item.label}ບໍ່ສາມາດປະໄວ້ຫວ່າງເປົ່າໄດ້`,
               icon: "none"
             });
             return;

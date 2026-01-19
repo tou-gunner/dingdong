@@ -3,10 +3,10 @@
 		<view class="Loads acea-row row-center-wrapper" v-if="loading && !loaded" style="margin-top: .2rem;">
 			<view v-if="loading">
 				<view class="iconfont icon-jiazai loading acea-row row-center-wrapper"></view>
-				正在加载中
+				ກຳລັງໂຫລດ
 			</view>
 			<view v-else>
-				上拉加载更多
+				ດຶງຂຶ້ນເພື່ອໂຫລດເພີ່ມ
 			</view>
 		</view>
 	</view>

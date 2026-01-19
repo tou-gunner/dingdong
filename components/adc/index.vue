@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="address-window" :class="address.address==true?'on':''">
-			<view class='title font-500'>选择地址<text class='iconfont icon-ic_close popup-close' @tap='close'></text></view>
+			<view class='title font-500'>ເລືອກທີ່ຢູ່<text class='iconfont icon-ic_close popup-close' @tap='close'></text></view>
 			<view class='list'>
 				<view class='item acea-row row-between-wrapper' :class='active==index?"font-color":""' v-for="(item,index) in addressList"
 				 @tap='tapAddress(index,item.id)' :key='index'>
@@ -17,7 +17,7 @@
 			<view class='pictrue' v-if="!is_loading && !addressList.length">
 				<image :src="`${domain}/static/images/noAddress.png`"></image>
 			</view>
-			<view class='addressBnt bg-color' @tap='goAddressPages'>选择其地址</view>
+			<view class='addressBnt bg-color' @tap='goAddressPages'>ເລືອກທີ່ຢູ່ອື່ນ</view>
 		</view>
 		<view class='mask' catchtouchmove="true" :hidden='address.address==false' @tap='close'></view>
 	</view>

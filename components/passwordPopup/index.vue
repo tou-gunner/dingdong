@@ -5,7 +5,7 @@
 				<view class="title1 acea-row row-between-wrapper">
 					<image v-if="userInfo.avatar" :src="userInfo.avatar" class="picture"></image>
 					<text class="name line1 font-bold">{{userInfo.nickname}}</text>
-					给你分享了宝贝
+					ໄດ້ແບ່ງປັນສິນຄ້າໃຫ້ທ່ານ
 				</view>
 				<view class="banner">
 					<image :src="storeInfo.image" class="banner-img" />
@@ -13,12 +13,12 @@
 				<view class="pro-info">
 					<view class="price acea-row row-middle">
 						<priceFormat :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
-						<text v-if="storeInfo.product_type == 0" class="pro_type" :style="{ 'background-image': `url(${domain}/static/images/password_type.png)`}">普通商品</text>
+						<text v-if="storeInfo.product_type == 0" class="pro_type" :style="{ 'background-image': `url(${domain}/static/images/password_type.png)`}">ສິນຄ້າທົ່ວໄປ</text>
 					</view>
 					<view class="name line1">{{storeInfo.store_name}}</view>
 				</view>
-				<button v-if="storeInfo.product_type != 3" class="go_btn" @click="goDetail(storeInfo)">查看详情</button>
-				<button v-if="storeInfo.product_type == 3" class="go_btn btn1" @click="goDetail(storeInfo)">帮他助力</button>
+				<button v-if="storeInfo.product_type != 3" class="go_btn" @click="goDetail(storeInfo)">ເບິ່ງລາຍລະອຽດ</button>
+				<button v-if="storeInfo.product_type == 3" class="go_btn btn1" @click="goDetail(storeInfo)">ຊ່ວຍເຫຼືອເຂົາ</button>
 			</view>
 			<view class='lid'>
 				<view class='iconfont icon-ic_close1' @click="close"></view>

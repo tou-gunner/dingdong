@@ -1,7 +1,7 @@
 <template>
 	<view v-if="specsInfo.params && specsInfo.params.length>0" class="attribute acea-row row-between-wrapper" @click="seeSpecs">
 		<view class="acea-row row-center-wrapper">
-			<view>参数：</view>
+			<view>ຕົວກໍານົດ：</view>
 			<view class="list line1">
 				<text class="item params" v-for="(item,index) in specsInfo.params" :key="index"
 					v-if="index<2">{{item.label}}</text>

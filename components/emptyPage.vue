@@ -20,7 +20,7 @@
 		props: {
 			title: {
 				type: String,
-				default: '暂无记录',
+				default: 'ບໍ່ມີບັນທຶກ',
 			},
 			noImage: {
 				type: String,

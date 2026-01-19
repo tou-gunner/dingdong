@@ -2,7 +2,7 @@
 	<view :style="viewColor">
 		<view class="guaranee_tel popup-main">
 			<view class="popup bg-f" :class="{ on: isGuarantee }">
-				<view class="title font-500">保障说明<text class="iconfont icon-ic_close popup-close" @click="close"></text></view>
+				<view class="title font-500">ຄຳອະທິບາຍການຮັບປະກັນ<text class="iconfont icon-ic_close popup-close" @click="close"></text></view>
 					<view v-if="guarantee.length" class="content">
 						<view v-for="(item,index) in guarantee" class="item acea-row" :key="index">
 							<image :src='item.image' class="image"></image>
@@ -12,14 +12,14 @@
 							</view>
 						</view>
 					</view>
-				<button @tap="close">确定</button>
+				<button @tap="close">ຢືນຢັນ</button>
 			</view>
 			<view class="popup bg-f" :class="{ on: isShipping }">
-				<view class="title font-500">运费说明<text class="iconfont icon-ic_close popup-close" @click="close"></text></view>
+				<view class="title font-500">ຄຳອະທິບາຍຄ່າຂົນສົ່ງ<text class="iconfont icon-ic_close popup-close" @click="close"></text></view>
 					<view class="content" style="white-space: pre-line;">
 						{{shipping}}
 					</view>
-				<button @tap="close">确定</button>
+				<button @tap="close">ຢືນຢັນ</button>
 			</view>
 		</view>
 		<view class='mask' catchtouchmove="true" :hidden='showMask==false' @tap='close'></view>

@@ -2,7 +2,7 @@
 	<view>
 		<view class="payment popup-main bg-f" :class="pay_close ? 'on' : ''">
 			<view class="title acea-row row-center-wrapper font-500">
-				选择付款方式
+				ເລືອກວິທີຊຳລະເງິນ
 				<text class="iconfont icon-ic_close popup-close" @click="close"></text>
 			</view>
 			<view class="item acea-row row-between-wrapper" @click='goPay(item.number || 0 , item.value)' v-for="(item,index) in payMode" v-if="item.payStatus==1 || item.payStatus==true"
@@ -120,13 +120,13 @@
 					type = 'offline';
 				}
 				if (!that.order_id) return that.$util.Tips({
-					title: '请选择要支付的订单'
+					title: 'ກະລຸນາເລືອກຄຳສັ່ງຊື້ທີ່ຈະຊຳລະເງິນ'
 				});
 				if (paytype == 'balance' && parseFloat(number) < parseFloat(that.totalPrice)) return that.$util.Tips({
-					title: '余额不足！'
+					title: 'ຍອດເງິນບໍ່ພຽງພໍ!'
 				});
 				uni.showLoading({
-					title: '支付中'
+					title: 'ກຳລັງຊຳລະເງິນ'
 				});
 				let orderApi = that.order_type === 1 ? presellOrderPay : that.order_type === 2 ? integralOrderPay : orderPay
 				orderApi(that.order_id, {
@@ -160,11 +160,11 @@
 							});
 							if(paytype == 'offline'){
 								return that.$util.Tips({
-									title: '线下支付请在后台系统确认支付',
+									title: 'ກະລຸນາຢືນຢັນການຊຳລະເງິນອອບລາຍໃນລະບົບຫຼັງບ້ານ',
 								});
 							}else{
 								return that.$util.Tips({
-									title: '支付成功',
+									title: 'ການຊຳລະເງິນສຳເລັດ',
 									icon: 'success'
 								}, {
 									tab: 5,
@@ -196,7 +196,7 @@
 								});
 								uni.hideLoading();
 								return that.$util.Tips({
-									title: '支付成功',
+									title: 'ການຊຳລະເງິນສຳເລັດ',
 									icon: 'success'
 								}, {
 									tab: 5,
@@ -206,11 +206,11 @@
 								if (res.errMsg == 'chooseWXPay:cancel'){
 									if(that.isCall){
 										return that.$util.Tips({
-											title: '取消支付'
+											title: 'ຍົກເລີກການຊຳລະເງິນ'
 										});
 									}else{
 										return that.$util.Tips({
-											title: '取消支付'
+											title: 'ຍົກເລີກການຊຳລະເງິນ'
 										}, {
 											tab: 5,
 											url: goPages + '?status=0'
@@ -234,7 +234,7 @@
 										action: 'payClose'
 									});
 									return that.$util.Tips({
-										title: '支付成功',
+										title: 'ການຊຳລະເງິນສຳເລັດ',
 										icon: 'success'
 									}, {
 										tab: 5,
@@ -244,11 +244,11 @@
 								fail: (e) => {
 									if(that.isCall){
 										return that.$util.Tips({
-											title: '取消支付'
+											title: 'ຍົກເລີກການຊຳລະເງິນ'
 										});
 									}else{
 										return that.$util.Tips({
-											title: '取消支付'
+											title: 'ຍົກເລີກການຊຳລະເງິນ'
 										}, {
 											tab: 5,
 											url: goPages + '?status=0'
@@ -281,14 +281,14 @@
 									});
 									if (that.BargainId || that.combinationId || that.pinkId || that.seckillId)
 										return that.$util.Tips({
-											title: '支付成功',
+											title: 'ການຊຳລະເງິນສຳເລັດ',
 											icon: 'success'
 										}, {
 											tab: 5,
 											url: goPages + '?status=1'
 										});
 									return that.$util.Tips({
-										title: '支付成功',
+										title: 'ການຊຳລະເງິນສຳເລັດ',
 										icon: 'success'
 									}, {
 										tab: 5,
@@ -301,14 +301,14 @@
 										action: 'payClose'
 									});
 									return that.$util.Tips({
-										title: '取消支付'
+										title: 'ຍົກເລີກການຊຳລະເງິນ'
 									});
 								},
 								complete: function(e) {
 									uni.hideLoading();
 									//关闭当前页面跳转至订单状态
 									if (res.errMsg == 'requestPayment:cancel') return that.$util.Tips({
-										title: '取消支付'
+										title: 'ຍົກເລີກການຊຳລະເງິນ'
 									});
 									that.$emit('onChangeFun', {
 										action: 'payClose'
@@ -349,7 +349,7 @@
 										action: 'payClose'
 									});
 									return that.$util.Tips({
-										title: '支付成功',
+										title: 'ການຊຳລະເງິນສຳເລັດ',
 										icon: 'success'
 									}, {
 										tab: 5,
@@ -359,7 +359,7 @@
 								},
 								fail: (e) => {
 									return that.$util.Tips({
-										title: '取消支付'
+										title: 'ຍົກເລີກການຊຳລະເງິນ'
 									});
 								},
 								complete: () => {

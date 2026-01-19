@@ -3,11 +3,11 @@
     <view class="priceChange" :class="change === true ? 'on' : ''">
 			<view class="change-count bg-f">
 				<view class="priceTitle" :style="{ 'background-image': `url(${domain}/static/images/pricetitle.jpg)`}">
-				  {{ status == 0 ? "一键改价" :  status == 1  ?   "订单备注" : "立即退款" }}
+				  {{ status == 0 ? "ປ່ຽນລາຄາ" :  status == 1  ?   "ໝາຍເຫດຄຳສັ່ງຊື້" : "ຄືນເງິນທັນທີ" }}
 				</view>
 				<view class="listChange" v-if="status == 0">
 				  <view class="item acea-row row-between-wrapper">
-				    <view>商品总价(元)</view>
+				    <view>ລາຄາສິນຄ້າລວມ(ກີບ)</view>
 				    <view class="money">
 						<input
 							type="digit"
@@ -18,7 +18,7 @@
 				    </view>
 				  </view>
 				  <view class="item acea-row row-between-wrapper">
-				    <view>实际支付邮费(元)</view>
+				    <view>ຄ່າຂົນສົ່ງຕົວຈິງ(ກີບ)</view>
 				    <view class="money">
 						<input
 							type="digit"
@@ -28,19 +28,19 @@
 				    </view>
 				  </view>
 				  <view class="item acea-row row-between-wrapper">
-				    <view>实际支付金额(元)</view>
+				    <view>ຈຳນວນເງິນຈ່າຍຕົວຈິງ(ກີບ)</view>
 				    <view class="money">
 						{{ Number(orderInfo.total_price) + Number(orderInfo.pay_postage) - Number(orderInfo.coupon_price) - Number(orderInfo.integral_price)- Number(orderInfo.svip_discount)}}<span class="iconfont icon-ic_lock"></span>
 				    </view>
 				  </view>
 					<view v-if="orderInfo.coupon_price>0 || orderInfo.svip_discount>0" class="item acea-row row-between-wrapper">
-						<view>优惠金额(元)</view>
+						<view>ຈຳນວນສ່ວນຫຼຸດ(ກີບ)</view>
 						<view class="money">
 						{{ Number(orderInfo.coupon_price) + Number(orderInfo.svip_discount) }}<span class="iconfont icon-ic_lock"></span>
 						</view>
 					</view>
 					<view v-if="orderInfo.integral_price>0" class="item acea-row row-between-wrapper">
-						<view>积分抵扣(元)</view>
+						<view>ຫັກຄະແນນ(ກີບ)</view>
 						<view class="money">
 						{{ orderInfo.integral_price }}<span class="iconfont icon-ic_lock"></span>
 						</view>
@@ -48,7 +48,7 @@
 				</view>
 				<view class="listChange" v-else>
 				  <textarea
-				    :placeholder="orderInfo.remark ? orderInfo.remark : '请填写备注信息...'"
+				    :placeholder="orderInfo.remark ? orderInfo.remark : 'ກະລຸນາຕື່ມໝາຍເຫດ...'"
 				    v-model="remark"
 				  ></textarea>
 				</view>

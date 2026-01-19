@@ -33,23 +33,23 @@
 			//距离开始提示文字
 			tipText: {
 				type: String,
-				default: "倒计时"
+				default: "ນັບຖອຍຫຼັງ"
 			},
 			dayText: {
 				type: String,
-				default: "天"
+				default: "ມື້"
 			},
 			hourText: {
 				type: String,
-				default: "时"
+				default: "ຊົ່ວໂມງ"
 			},
 			minuteText: {
 				type: String,
-				default: "分"
+				default: "ນາທີ"
 			},
 			secondText: {
 				type: String,
-				default: "秒"
+				default: "ວິນາທີ"
 			},
 			datatime: {
 				type: Number,

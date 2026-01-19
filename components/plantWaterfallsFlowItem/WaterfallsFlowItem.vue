@@ -6,15 +6,15 @@
 				<text class="iconfont icon-ic_right2"></text>
 			</view>
 			<view v-else-if="item.is_type == 1" class="img-count acea-row row-center row-middle">
-				{{item.image.length}}图
+				{{item.image.length}}ຮູບ
 			</view>
 			<view v-if="isAuth && tab == 0 && item.status != 1" class="approval_status acea-row row-middle row-center" :style="'height:'+(item.imageH-(item.imageH*0.03))+'rpx;'">
 				<view>
-					<view v-if="item.status == -1" class="approval_title font-bold">审核未通过</view>
-					<view v-else-if="item.status == -2" class="approval_title font-bold">已下架</view>
-					<view v-else-if="item.status == 0" class="approval_title font-bold">正在审核</view>
-					<text v-if="item.status == -1 || item.status == -2" class="approval_info">查看未通过原因</text>
-					<text v-if="item.status == 0" class="approval_info">通过后将展示在列表</text>
+					<view v-if="item.status == -1" class="approval_title font-bold">ການກວດສອບບໍ່ຜ່ານ</view>
+					<view v-else-if="item.status == -2" class="approval_title font-bold">ຖືກຖອດລົງແລ້ວ</view>
+					<view v-else-if="item.status == 0" class="approval_title font-bold">ກຳລັງກວດສອບ</view>
+					<text v-if="item.status == -1 || item.status == -2" class="approval_info">ເບິ່ງເຫດຜົນທີ່ບໍ່ຜ່ານ</text>
+					<text v-if="item.status == 0" class="approval_info">ຈະສະແດງໃນລາຍການຫຼັງຈາກຜ່ານ</text>
 				</view>
 			</view>
 		</view>

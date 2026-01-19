@@ -2,7 +2,7 @@
 	<view class='attribute acea-row row-between-wrapper skeleton-rect' @click="selecAttr">
 		<view class="acea-row row-center-wrapper">
 			<view>{{attrTxt}}</view>：
-			<text class='atterTxt'>{{attrValue || '默认'}}</text>
+			<text class='atterTxt'>{{attrValue || 'ເລີ່ມຕົ້ນ'}}</text>
 		</view>
 		<view class='iconfont icon-ic_rightarrow'></view>
 	</view>

@@ -2,7 +2,7 @@
 	<view :style="viewColor">
 		<view class="container bg-f" :class="popup.show==true?'on':''">
 			<view class="header">
-				<text class="title">TA提到的宝贝</text>
+				<text class="title">ສິນຄ້າທີ່ກ່າວເຖິງ</text>
 				<text class="iconfont icon-ic_close popup-close" @click="closePopup"></text>
 			</view>
 			<view class="main_count" :class="isHome ? 'mb90' : ''">
@@ -19,7 +19,7 @@
 										<!-- ¥<text>{{item.spu && item.spu.price}}</text> -->
 										<priceFormat :price="item.spu && item.spu.price" weight intSize="36" floatSize="26" labelSize="26"></priceFormat>
 									</view>
-									<view class="buy-btn">立即购买</view>
+									<view class="buy-btn">ຊື້ດຽວນີ້</view>
 								</view>
 							</view>
 						</view>

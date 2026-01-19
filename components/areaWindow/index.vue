@@ -1,7 +1,7 @@
 <template>
 	<view :style="viewColor">
 		<view class="address-window popup-main bg-f" :class="display==true?'on':''">
-			<view class='title font-500'>请选择所在地区<text class='iconfont icon-ic_close popup-close' @tap='close'></text></view>
+			<view class='title font-500'>ກະລຸນາເລືອກພາກພື້ນຂອງທ່ານ<text class='iconfont icon-ic_close popup-close' @tap='close'></text></view>
 			<view class="address-count">
 				<view class="address-selected">
 					<view v-for="(item,index) in selectedArr" :key="index" class="selected-list" :class="{active:index === selectedIndex}" @click="change(item.parent_id, index)">
@@ -10,7 +10,7 @@
 					</view>
 					<view class="selected-list" :class="{active:-1 === selectedIndex}"  v-if="showMore" @click="change(-1, -1)">
 						<text class="iconfont icon-ic_rightarrow"></text>
-						请选择
+						ກະລຸນາເລືອກ
 					</view>
 				</view>
 				<scroll-view scroll-y="true" :scroll-top="scrollTop" class="address-list" @scroll="scroll">

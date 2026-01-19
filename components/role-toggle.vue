@@ -45,28 +45,28 @@ export default {
       const roleList = [
         {
           role: ROLES.NORMAL,
-          name: "商城用户"
+          name: "ຜູ້ໃຊ້ຮ້ານຄ້າ"
         }
       ];
 
       if (this.userInfo.staffs?.length) {
         roleList.unshift({
           role: ROLES.STAFF,
-          name: "服务人员"
+          name: "ພະນັກງານບໍລິການ"
         });
       }
 
       if (this.userInfo.service) {
         roleList.unshift({
           role: ROLES.MERCHANT,
-          name: "商家客服"
+          name: "ບໍລິການລູກຄ້າຮ້ານຄ້າ"
         });
       }
 			
 			if (this.userInfo.delivery?.length) {
 				roleList.unshift({
 				  role: ROLES.DELIVERY_STAFF,
-				  name: "配送人员"
+				  name: "ພະນັກງານຈັດສົ່ງ"
 				});
 			}
       return roleList;

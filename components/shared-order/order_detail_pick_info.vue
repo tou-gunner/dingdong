@@ -1,14 +1,14 @@
 <template>
   <view class="order-pick-info-wrapper">
     <view class="order-pick-info-title">
-     提货点信息
+     ຂໍ້ມູນຈຸດຮັບສິນຄ້າ
     </view>
 		<view class="pick-info-item flex-box">
-			<view class="item-label">提货点名称</view>
+			<view class="item-label">ຊື່ຈຸດຮັບສິນຄ້າ</view>
 			<view class="item-value">{{orderInfo.take.station_name}}</view>
 		</view>
 		<view class="pick-info-item flex-box">
-			<view class="item-label">联系电话</view>
+			<view class="item-label">ເບີໂທລະສັບ</view>
 			<view class="item-value">
 				{{orderInfo.take.phone}}
 				<i class="iconfont icon-ic_phone icon-phone" @click="callPhone(orderInfo.take.phone)"></i>
@@ -16,7 +16,7 @@
 			
 		</view>
 		<view class="pick-info-item flex-box">
-			<view class="item-label">提货地址</view>
+			<view class="item-label">ທີ່ຢູ່ຮັບສິນຄ້າ</view>
 			<view class="item-value">{{orderInfo.take.station_address}}</view>
 		</view>
   </view>

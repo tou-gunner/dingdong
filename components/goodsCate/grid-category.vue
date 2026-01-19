@@ -1,4 +1,4 @@
-<!-- 商品分类页面右侧网格分类组件，展示所有分类 -->
+<!-- ຊ່ອງຂວາໜ້າປະເພດສິນຄ້າແບບຕາຕະລາງ, ສະແດງປະເພດທັງໝົດ -->
 <template>
   <scroll-view class="grid-category" scroll-y :scroll-into-view="scrollIntoViewId" scroll-with-animation
     id="grid-category-scroll" @scroll="handleScroll" :scroll-top="scrollTop">
@@ -37,7 +37,7 @@ export default {
       scrollTop: 0,
       lastEmitIndex: 0,
 
-      scrollContainerHeight: 0, // 滚动容器高度
+      scrollContainerHeight: 0, // ຄວາມສູງຂອງຕູ້ເລື່ອນ
       contentPositions: [],
       lastSetIntoViewIdTime: 0
     }
@@ -82,7 +82,7 @@ export default {
           let topPos = 0;
           const contentPositions = [];
           rectList.forEach((rect, index) => {
-            if (index === 0) {//顶部布局的距离
+            if (index === 0) {//ໄລຍະຫ່າງຈາກດ້ານເທິງ
               topPos = rect.top
             }
             contentPositions[index] = {
@@ -110,10 +110,10 @@ export default {
       return `/pages/columnGoods/goods_list/index?id=${cate.store_category_id}&title=${cate.cate_name}`;
     },
     handleScroll(e) {
-      // 接收到新索引后会通过 scroll-into-view 设置滚动位置，并设置滚动位置
-      // 滚动动画约 400ms 左右，动画结束后会触发滚动事件
-      // 为了防止滚动事件被 props 更新索引时重复触发，需要设置一个时间间隔
-      // 只有滚动动画结束后，才允许触发滚动事件
+      // ຫຼັງຈາກໄດ້ຮັບດັດຊະນີໃໝ່ ຈະຕັ້ງຕຳແໜ່ງເລື່ອນຜ່ານ scroll-into-view
+      // ອະນິເມຊັນເລື່ອນປະມານ 400ms, ຫຼັງຈາກອະນິເມຊັນສິ້ນສຸດຈະເກີດເຫດການເລື່ອນ
+      // ເພື່ອປ້ອງກັນເຫດການເລື່ອນຖືກກະຕຸ້ນຊ້ຳເມື່ອອັບເດດດັດຊະນີ props, ຕ້ອງຕັ້ງໄລຍະເວລາ
+      // ສະເພາະຫຼັງຈາກອະນິເມຊັນສິ້ນສຸດ, ຈຶ່ງອະນຸຍາດໃຫ້ກະຕຸ້ນເຫດການເລື່ອນ
       const allowScroll = Date.now() - this.lastSetIntoViewIdTime > 500;
       if (!allowScroll) return;
 

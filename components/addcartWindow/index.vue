@@ -11,12 +11,12 @@
 					</view>
 					<view v-if="isPresell" class="money presell_price">
 						<view>
-							预售价
+							ລາຄາຂາຍລ່ວງໜ້າ
 							¥<text class="num">{{ attr.productSelect.price }}</text>
-							<text v-if="presell_type === 2">定金¥<text class="num">{{ attr.productSelect.down_price }}</text></text>
+							<text v-if="presell_type === 2">ເງິນມັດຈຳ¥<text class="num">{{ attr.productSelect.down_price }}</text></text>
 						</view>
-						<text class="stock" v-if='isShow'>库存: {{ attr.productSelect.stock }}</text>
-						<text class='stock' v-if="limitNum">限量: {{attr.productSelect.quota_show}}</text>
+						<text class="stock" v-if='isShow'>ຄັງສິນຄ້າ: {{ attr.productSelect.stock }}</text>
+						<text class='stock' v-if="limitNum">ຈຳກັດ: {{attr.productSelect.quota_show}}</text>
 					</view>
 					<view v-else class="money">
 						<view class="acea-row row-middle">
@@ -31,8 +31,8 @@
 							</view>
 						</view>
 						<view class="stock_count">
-							<text class="stock" v-if='isShow'>库存: {{ attr.productSelect.stock }}</text>
-							<text class='stock' v-if="limitNum">限量: {{attr.productSelect.quota_show}}</text>
+							<text class="stock" v-if='isShow'>ຄັງສິນຄ້າ: {{ attr.productSelect.stock }}</text>
+							<text class='stock' v-if="limitNum">ຈຳກັດ: {{attr.productSelect.quota_show}}</text>
 						</view>
 					</view>
 				</view>
@@ -50,10 +50,10 @@
 				</view>
 			</view>
 			<view v-if="isRecommend" class="cart acea-row row-between">
-				<view class="title">数量</view>
+				<view class="title">ຈຳນວນ</view>
 				<view class="carnum acea-row row-left">
 					<view class="buy_limit" v-if="minCount>0 || maxCount>0">
-						(<text v-if="minCount>0">{{minCount}}件起购<text v-if="minCount>0 && maxCount>0">，</text></text><text v-if="maxCount>0">最多{{maxCount}}件</text>)
+						(<text v-if="minCount>0">{{minCount}}ຊິ້ນຂັ້ນຕ່ຳ<text v-if="minCount>0 && maxCount>0">，</text></text><text v-if="maxCount>0">ສູງສຸດ{{maxCount}}ຊິ້ນ</text>)
 					</view>
 					<view class="item reduce" :class="(attr.productSelect.cart_num <= 1 || (minCount>0 && attr.productSelect.cart_num<=minCount)) ? 'on' : ''" @click="CartNumDes">
 						<text class="iconfont icon-ic_Reduce"></text>
@@ -69,9 +69,9 @@
 					 <text class="iconfont icon-ic_increase"></text></view>
 				</view>
 			</view>
-			<view class="joinBnt b-color" v-if="destri && attr.productSelect.stock>0" @click="goCat">确定</view>
-			<view class="joinBnt on" v-else-if="destri && attr.productSelect.stock<=0">已售罄</view>
-			<view class="joinBnt on" v-else-if="(iSbnt && attr.productSelect.stock<=0)">已售罄</view>
+			<view class="joinBnt b-color" v-if="destri && attr.productSelect.stock>0" @click="goCat">ຢືນຢັນ</view>
+			<view class="joinBnt on" v-else-if="destri && attr.productSelect.stock<=0">ຂາຍໝົດແລ້ວ</view>
+			<view class="joinBnt on" v-else-if="(iSbnt && attr.productSelect.stock<=0)">ຂາຍໝົດແລ້ວ</view>
 		</view>
 		<view class="mask" @touchmove.prevent :hidden="attr.cartAttr === false" @click="closeAttr"></view>
 	</view>

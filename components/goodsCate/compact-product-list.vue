@@ -1,4 +1,4 @@
-<!-- 包含紧凑小图商品的列表 -->
+<!-- ລາຍການສິນຄ້າແບບຮູບນ້ອຍແບບກະທັດຮັດ -->
 <template>
   <scroll-view class="compact-product-list" scroll-y @scrolltolower="handleScrollToLower">
     <view class="product-item" v-for="(item, index) in list" :key="index">
@@ -56,35 +56,35 @@ export default {
       const deliveryWay = goods.delivery_way.split(",");
       const tagList = [
         {
-          text: "自营",
+          text: "ດຳເນີນການເອງ",
           isVisible: goods.merchant && goods.merchant.is_trader === 1
         },
         {
-          text: "包邮",
+          text: "ຟຣີຄ່າຂົນສົ່ງ",
           isVisible: goods.delivery_free === 1
         },
         {
-          text: "秒杀",
+          text: "ຂາຍດ່ວນ",
           isVisible: goods.product_type === 1
         },
         {
-          text: "预售",
+          text: "ຂາຍກ່ອນ",
           isVisible: goods.product_type === 2
         },
         {
-          text: "助力",
+          text: "ຊ່ວຍເຫຼືອ",
           isVisible: goods.product_type === 3
         },
         {
-          text: "拼团",
+          text: "ຊື້ເປັນກຸ່ມ",
           isVisible: goods.product_type === 4
         },
         {
-          text: "上门",
+          text: "ມາສົ່ງເຖິງບ້ານ",
           isVisible: deliveryWay.includes("3")
         },
         {
-          text: "同城",
+          text: "ພາຍໃນເມືອງ",
           isVisible: deliveryWay.includes("4")
         }
       ];
@@ -92,7 +92,7 @@ export default {
       return tagList.filter(item => item.isVisible);
     },
     checkShowVipPrice(item) {
-      // 如果购物车输入框存在，由于容器宽度限制，不显示SVIP价格
+      // ຖ້າມີຊ່ອງໃສ່ກະຕ່າ, ເນື່ອງຈາກຂອບເຂດກວ້າງຈຳກັດ, ບໍ່ສະແດງລາຄາ SVIP
       const isCartInputVisible = item.cart && item.cart.cart_id;
       const isVipPriceVisible = item.show_svip_info && item.show_svip_info.show_svip_price && item.svip_price;
 

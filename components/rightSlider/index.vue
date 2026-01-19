@@ -5,9 +5,9 @@
 			<view class="wrapper-count">
 				<view class="content-box">
 						<view class="content-title">
-							<view class="title">店铺类型</view>
+							<view class="title">ປະເພດຮ້ານ</view>
 							<view v-if="list.length>20">
-								<view class="btns" @click="isShowType = !isShowType">{{isShowType?'收起':'展开'}}<text class="iconfont" :class="isShowType ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
+								<view class="btns" @click="isShowType = !isShowType">{{isShowType?'ຫຍໍ້ລົງ':'ຂະຫຍາຍ'}}<text class="iconfont" :class="isShowType ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
 							</view>
 						</view>
 						<view class="brand-wrapper">
@@ -23,9 +23,9 @@
 					</view>
 					<view class="content-box">
 						<view class="content-title">
-							<view class="title">商户分类</view>
+							<view class="title">ໝວດໝູ່ຮ້ານຄ້າ</view>
 							<view v-if="merCate.length>20">
-								<view class="btns" @click="isShowCate = !isShowCate">{{isShowCate?'收起':'展开'}}<text class="iconfont" :class="isShowCate ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
+								<view class="btns" @click="isShowCate = !isShowCate">{{isShowCate?'ຫຍໍ້ລົງ':'ຂະຫຍາຍ'}}<text class="iconfont" :class="isShowCate ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
 							</view>
 						</view>
 						<view class="brand-wrapper">
@@ -41,8 +41,8 @@
 					</view>
 				</view>
 				<view class="foot-btn">
-					<view class="btn-item" @click="reset">重置</view>
-					<view class="btn-item confirm" @click="confirm">确定</view>
+					<view class="btn-item" @click="reset">ຣີເຊັດ</view>
+					<view class="btn-item confirm" @click="confirm">ຢືນຢັນ</view>
 				</view>
 			</view>
 		<view class="right-bg" @click="close"></view>

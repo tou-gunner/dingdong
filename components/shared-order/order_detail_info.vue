@@ -2,50 +2,50 @@
   <view>
     <view class="order-detail-info">
       <view class="info-item">
-        <view class="info-key">订单编号：</view>
+        <view class="info-key">ເລກທີ່ຄຳສັ່ງຊື້：</view>
         <view class="info-value">
           {{ orderInfo.order_sn }}
-          <button class="copy-btn" @click="handleSetClipboard">复制</button>
+          <button class="copy-btn" @click="handleSetClipboard">ຄັດລອກ</button>
         </view>
       </view>
       <view class="info-item">
-        <view class="info-key">下单时间：</view>
+        <view class="info-key">ເວລາສັ່ງຊື້：</view>
         <view class="info-value">{{ orderInfo.create_time }}</view>
       </view>
       <view class="info-item">
-        <view class="info-key">支付时间：</view>
+        <view class="info-key">ເວລາຊຳລະເງິນ：</view>
         <view class="info-value">{{ orderInfo.pay_time || "-" }}</view>
       </view>
       <view class="info-item">
-        <view class="info-key">支付方式：</view>
+        <view class="info-key">ວິທີຊຳລະເງິນ：</view>
         <view class="info-value">{{ getPayType(orderInfo) }}</view>
       </view>
     </view>
 
     <view class="order-detail-price">
       <view class="info-item">
-        <view class="info-key">商品总价:</view>
+        <view class="info-key">ລາຄາສິນຄ້າລວມ:</view>
         <view class="info-value">¥{{ orderInfo.total_price }}</view>
       </view>
       <view v-if='orderInfo.svip_discount > 0' class="info-item">
-        <view class="info-key">会员商品优惠：</view>
+        <view class="info-key">ສ່ວນຫຼຸດສະມາຊິກ：</view>
 				{{orderInfo.svip_discount > 0}}
         <view class="info-value">-¥{{ orderInfo.svip_discount }}</view>
       </view>
       <view v-if='orderInfo.coupon_price > 0' class="info-item">
-        <view class="info-key">优惠券优惠：</view>
+        <view class="info-key">ສ່ວນຫຼຸດຄູປ໋ອງ：</view>
         <view class="info-value">-¥{{ orderInfo.coupon_price }}</view>
       </view>
     	<view v-if='orderInfo.integral_price > 0' class="info-item">
-    	  <view class="info-key">积分抵扣：</view>
+    	  <view class="info-key">ຫັກຄະແນນ：</view>
     	  <view class="info-value">-¥{{ orderInfo.integral_price }}</view>
     	</view>
     	<view v-if='orderInfo.pay_postage > 0' class="info-item">
-    	  <view class="info-key">运费：</view>
+    	  <view class="info-key">ຄ່າຂົນສົ່ງ：</view>
     	  <view class="info-value">+¥{{ orderInfo.pay_postage }}</view>
     	</view>
       <view class="price-total__wrapper">
-        实付款：
+        ຈ່າຍຕົວຈິງ：
         <text class="price-total__value">
           <text class="price-total__integer">{{ getPriceInteger(orderInfo.pay_price) }}</text>
           <text class="price-total__float">.{{ getPriceFloat(orderInfo.pay_price) }}</text>
@@ -71,18 +71,18 @@ export default {
       return price.toString().split('.')[1]
     },
     getPayType(orderInfo) {
-      if (!orderInfo.paid) return "待支付";
+      if (!orderInfo.paid) return "ລໍຖ້າຊຳລະເງິນ";
       if (orderInfo.pay_type === 0) {
-        return '余额支付'
+        return 'ຊຳລະດ້ວຍຍອດເງິນ'
       }
       if (orderInfo.pay_type === 7) {
-        return '线下支付'
+        return 'ຊຳລະແບບອອບລາຍ'
       }
       if (orderInfo.pay_type === 4 || orderInfo.pay_type === 5) {
-        return '支付宝支付'
+        return 'Alipay'
       }
       if (orderInfo.pay_type === 1 || orderInfo.pay_type === 2 || orderInfo.pay_type === 3) {
-        return '微信支付'
+        return 'WeChat Pay'
       }
       
     },
@@ -90,7 +90,7 @@ export default {
       uni.setClipboardData({
         data: this.orderInfo.order_sn,
         success: () => {
-          uni.showToast({ title: '复制成功' });
+          uni.showToast({ title: 'ຄັດລອກສຳເລັດ' });
         }
       });
     }

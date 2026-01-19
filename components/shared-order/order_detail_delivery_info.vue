@@ -1,14 +1,14 @@
 <template>
   <view class="order-info-wrapper">
     <view class="order-info-title">
-     送货信息
+     ຂໍ້ມູນການຈັດສົ່ງ
     </view>
 		<view class="info-item flex-box">
-			<view class="item-label">配送员</view>
+			<view class="item-label">ພະນັກງານຈັດສົ່ງ</view>
 			<view class="item-value">{{orderInfo.deliveryOrder.deliveryService.name}}</view>
 		</view>
 		<view class="info-item flex-box">
-			<view class="item-label">联系电话</view>
+			<view class="item-label">ເບີໂທລະສັບ</view>
 			<view class="item-value">
 				{{orderInfo.deliveryOrder.deliveryService.phone}}
 				<i class="iconfont icon-ic_phone icon-phone" @click="callPhone(orderInfo.take.phone)"></i>
@@ -16,7 +16,7 @@
 			
 		</view>
 		<view class="info-item flex-box">
-			<view class="item-label">送达时间</view>
+			<view class="item-label">ເວລາສົ່ງຮອດ</view>
 			<view class="item-value">{{setDeliveryTimeText}}</view>
 		</view>
   </view>

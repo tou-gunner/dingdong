@@ -1,5 +1,5 @@
 <template>
-	<!-- 顶部下拉导航 -->
+	<!-- ເມນູເລື່ອນລົງດ້ານເທິງ -->
 	<view class="animated dialog_nav dialogIndex" 
 		:style="{ top: navH + 'rpx' }" v-show="currentPage">
 		<view class="dialog_nav_item" :class="item.after" 
@@ -31,13 +31,13 @@
 			return {
 				selectNavList:[
 					{
-							name: '首页',
+							name: 'ໜ້າຫຼັກ',
 							icon: 'icon-ic_home',
 							url: '/pages/index/index',
 							after: 'dialog_after'
 						},
 						{
-							name: '搜索',
+							name: 'ຄົ້ນຫາ',
 							icon: 'icon-ic_search',
 							url: '/pages/columnGoods/goods_search_con/index',
 							after: 'dialog_after'
@@ -110,7 +110,7 @@
 			top: -9px;
 			border-bottom: 26rpx solid #FFFFFF;
 			border-left: 26rpx solid transparent;
-			/*transparent 表示透明*/
+			/*transparent ໝາຍເຖິງໂປ່ງໃສ*/
 			border-right: 26rpx solid transparent;
 		}
 	}

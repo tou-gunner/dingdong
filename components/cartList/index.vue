@@ -3,9 +3,9 @@
 		<!-- 分类购物车下拉列表 -->
 		<view class="cartList" :class="{'on':cartData.iScart,'no-foot': !isFooter, 'is-open': isOpen}" @touchmove.stop.prevent="moveHandle">
 			<view class="title acea-row row-between-wrapper">
-				<view class="name">购物车 <text class="fs-24 text--w111-999 pl-8">(共{{productNumber}}件商品)</text> </view>
+				<view class="name">ກະຕ່າສິນຄ້າ <text class="fs-24 text--w111-999 pl-8">(ລວມ{{productNumber}}ລາຍການ)</text> </view>
 				<view class="del acea-row row-middle" @click="subDel">
-					<view class="iconfont icon-ic_delete"></view>清空
+					<view class="iconfont icon-ic_delete"></view>ລ້າງ
 				</view>
 			</view>
 			<view class="lists">

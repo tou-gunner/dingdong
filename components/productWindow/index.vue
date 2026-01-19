@@ -13,23 +13,23 @@
 					</view>
 					<view v-if="isPresell" class="money presell_price">
 						<view>
-							<text style="margin-right: 2rpx;">预售价</text>
+							<text style="margin-right: 2rpx;">ລາຄາຂາຍລ່ວງໜ້າ</text>
 							<priceFormat :price="attr.productSelect.price" weight intSize="40" floatSize="26" labelSize="26">
 							</priceFormat>
-							<text v-if="presell_type === 2" style="margin-left:10rpx;">定金¥<text class="num semiBold">{{
+							<text v-if="presell_type === 2" style="margin-left:10rpx;">ເງິນມັດຈຳ¥<text class="num semiBold">{{
 								attr.productSelect.down_price }}</text></text>
 						</view>
-						<text class="stock" v-if='isShow'>库存: {{ attr.productSelect.stock }}</text>
-						<text class='stock' v-if="limitNum">限量: {{ attr.productSelect.limitNum }}</text>
+						<text class="stock" v-if='isShow'>ຄັງສິນຄ້າ: {{ attr.productSelect.stock }}</text>
+						<text class='stock' v-if="limitNum">ຈຳກັດ: {{ attr.productSelect.limitNum }}</text>
 					</view>
 					<view v-else class="money" :class="[isShow ? '' : 'mini-margin-top']">
 						<view class="acea-row row-middle">
 							<view class="acea-row row-bottom">
 								<view v-if="type == 'points'" class="points_money">
 									<image :src="`${domain}/static/images/jf-point.png`" mode="" class="point-img"></image>
-									<text class="points-num">{{ attr.productSelect.ot_price }}</text>积分 <text
-										v-if="attr.productSelect.price > 0">+{{ attr.productSelect.price }}元</text>
-									<text v-if="limitCount > 0" class="points-limit">限购{{ limitCount }}件</text>
+									<text class="points-num">{{ attr.productSelect.ot_price }}</text>ຄະແນນ <text
+										v-if="attr.productSelect.price > 0">+{{ attr.productSelect.price }}ກີບ</text>
+									<text v-if="limitCount > 0" class="points-limit">ຈຳກັດ{{ limitCount }}ຊິ້ນ</text>
 								</view>
 								<view v-else>
 									<priceFormat :price="attr.productSelect.price" weight intSize="40" floatSize="26" labelSize="26">
@@ -44,8 +44,8 @@
 							</view>
 						</view>
 						<view class="stock_count">
-							<text class="stock" v-if='isShow'>库存: {{ attr.productSelect.stock }}</text>
-							<text class='stock' v-if="limitNum">限量: {{ attr.productSelect.quota_show }}</text>
+							<text class="stock" v-if='isShow'>ຄັງສິນຄ້າ: {{ attr.productSelect.stock }}</text>
+							<text class='stock' v-if="limitNum">ຈຳກັດ: {{ attr.productSelect.quota_show }}</text>
 						</view>
 					</view>
 				</view>
@@ -63,11 +63,11 @@
 				</view>
 			</view>
 			<view v-if="productType != 3" class="cart acea-row row-between-wrapper">
-				<view class="title">数量</view>
+				<view class="title">ຈຳນວນ</view>
 				<view class="carnum acea-row row-left">
 					<view class="buy_limit" v-if="minCount > 0 || maxCount > 0">
-						(<text v-if="minCount > 0">{{ minCount }}件起购<text v-if="minCount > 0 && maxCount > 0">，</text></text><text
-							v-if="maxCount > 0">最多{{ maxCount }}件</text>)
+						(<text v-if="minCount > 0">{{ minCount }}ຊິ້ນຂັ້ນຕ່ຳ<text v-if="minCount > 0 && maxCount > 0">，</text></text><text
+							v-if="maxCount > 0">ສູງສຸດ{{ maxCount }}ຊິ້ນ</text>)
 					</view>
 					<view class="item reduce"
 						:class="(attr.productSelect.cart_num <= 1 || (minCount > 0 && attr.productSelect.cart_num <= minCount)) ? 'on' : ''"
@@ -87,10 +87,10 @@
 						@click='CartNumAdd'><text class="iconfont icon-ic_increase"></text></view>
 				</view>
 			</view>
-			<view class="joinBnt b-color" v-if="(destri || iSbnt) && attr.productSelect.stock > 0" @click="goCat">立即购买</view>
-			<view class="joinBnt on" v-else-if="destri && attr.productSelect.stock <= 0">已售罄</view>
-			<view class="joinBnt b-color" v-else-if="isList && attr.productSelect.stock > 0" @click="goCat">立即加购</view>
-			<view class="joinBnt on" v-else-if="(iSbnt && attr.productSelect.stock <= 0)">已售罄</view>
+			<view class="joinBnt b-color" v-if="(destri || iSbnt) && attr.productSelect.stock > 0" @click="goCat">ຊື້ດຽວນີ້</view>
+			<view class="joinBnt on" v-else-if="destri && attr.productSelect.stock <= 0">ຂາຍໝົດແລ້ວ</view>
+			<view class="joinBnt b-color" v-else-if="isList && attr.productSelect.stock > 0" @click="goCat">ເພີ່ມເຂົ້າກະຕ່າ</view>
+			<view class="joinBnt on" v-else-if="(iSbnt && attr.productSelect.stock <= 0)">ຂາຍໝົດແລ້ວ</view>
 		</view>
 		<view class="mask" @touchmove.prevent :hidden="attr.cartAttr === false" @click="closeAttr"></view>
 	</view>

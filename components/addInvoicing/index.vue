@@ -1,59 +1,59 @@
 <template>
 	<view :style="viewColor">
 		<view class="add_invoicing popup-main bg-f" :class="invoice.invoice==true?'on':''">
-			<view class='title font-500'>选择发票<text class='iconfont icon-ic_close popup-close' @tap='close'></text></view>
+			<view class='title font-500'>ເລືອກໃບແຈ້ງໜີ້<text class='iconfont icon-ic_close popup-close' @tap='close'></text></view>
 			<form @submit="formSubmit" report-submit="true">
 				<view class="panel">
 					<view v-if="receipt_title_type == '1'" class="acea-row row-middle">
-						<view>发票类型</view>
+						<view>ປະເພດໃບແຈ້ງໜີ້</view>
 						<input name="receipt_type" :value="typeName" disabled="true" />
 					</view>
 					<view v-if="receipt_title_type == '2'" class="acea-row row-middle">
-						<view>发票类型</view>
+						<view>ປະເພດໃບແຈ້ງໜີ້</view>
 						<input name="receipt_type" :value="typeName" disabled="true" />
 						<text class="iconfont icon-ic_rightarrow" @click.stop="callType"></text>
 					</view>
 					<view class="acea-row row-middle">
-						<view>抬头类型</view>
+						<view>ປະເພດຫົວຂໍ້</view>
 						<radio-group name="receipt_title_type" @change="changeHeader">
 							<label>
-								<radio value="1" :checked="receipt_title_type == '1' ? true : false" /><text>个人</text>
+								<radio value="1" :checked="receipt_title_type == '1' ? true : false" /><text>ສ່ວນບຸກຄົນ</text>
 							</label>
 							<label>
-								<radio value="2" :checked="receipt_title_type == '2' ? true : false" /><text>企业</text>
+								<radio value="2" :checked="receipt_title_type == '2' ? true : false" /><text>ບໍລິສັດ</text>
 							</label>
 						</radio-group>
 					</view>
 					<view class="acea-row row-middle">
-						<view>发票抬头</view>
-						<input name="receipt_title" :value="receipt_title" :maxlength="20" placeholder="需要开具发票的企业名称"/>
+						<view>ຫົວຂໍ້ໃບແຈ້ງໜີ້</view>
+						<input name="receipt_title" :value="receipt_title" :maxlength="20" placeholder="ຊື່ບໍລິສັດທີ່ຕ້ອງການອອກໃບແຈ້ງໜີ້"/>
 						<text class="iconfont icon-ic_rightarrow" @click="callTitle" ></text>
 					</view>
 					<view v-show="receipt_title_type == '2'" class="acea-row row-middle">
-						<view>税号</view>
-						<input name="duty_paragraph" :value="duty_paragraph"  placeholder="纳税人识别号" />
+						<view>ເລກປະຈຳຕົວຜູ້ເສຍພາສີ</view>
+						<input name="duty_paragraph" :value="duty_paragraph"  placeholder="ເລກປະຈຳຕົວຜູ້ເສຍພາສີ" />
 					</view>
 					<view class="acea-row row-middle">
-						<view>邮箱</view>
-						<input name="email" :value="email"  placeholder="您的联系邮箱" />
+						<view>ອີເມວ</view>
+						<input name="email" :value="email"  placeholder="ອີເມວຕິດຕໍ່ຂອງທ່ານ" />
 					</view>
 				</view>
 				<view v-show="receipt_title_type == '2' && receipt_type == '2'" class="panel">
 					<view class="acea-row row-middle">
-						<view>开户银行</view>
-						<input name="bank_name" :value="bank_name"  placeholder="您的开户银行" />
+						<view>ທະນາຄານ</view>
+						<input name="bank_name" :value="bank_name"  placeholder="ທະນາຄານຂອງທ່ານ" />
 					</view>
 					<view class="acea-row row-middle">
-						<view>银行账号</view>
-						<input name="bank_code" :value="bank_code"  placeholder="您的银行账号" />
+						<view>ເລກບັນຊີທະນາຄານ</view>
+						<input name="bank_code" :value="bank_code"  placeholder="ເລກບັນຊີທະນາຄານຂອງທ່ານ" />
 					</view>
 					<view class="acea-row row-middle">
-						<view>企业地址</view>
-						<input name="address" :value="address"  placeholder="您所在的企业地址" />
+						<view>ທີ່ຢູ່ບໍລິສັດ</view>
+						<input name="address" :value="address"  placeholder="ທີ່ຢູ່ບໍລິສັດຂອງທ່ານ" />
 					</view>
 					<view class="acea-row row-middle">
-						<view>企业电话</view>
-						<input name="tel" :value="tel"  placeholder="您的企业电话" />
+						<view>ໂທລະສັບບໍລິສັດ</view>
+						<input name="tel" :value="tel"  placeholder="ໂທລະສັບບໍລິສັດຂອງທ່ານ" />
 					</view>
 				</view>
 				<view class="btn-wrap">
@@ -63,7 +63,7 @@
 			</form>
 			<view :class="{ mask: popupType || popupTitle }"></view>
 			<view class="popup popup-main" :class="{ on: popupType }">
-				<view class="title font-500">发票类型选择<text class="iconfont icon-ic_close popup-close" @click="closeType"></text></view>
+				<view class="title font-500">ເລືອກປະເພດໃບແຈ້ງໜີ້<text class="iconfont icon-ic_close popup-close" @click="closeType"></text></view>
 				<scroll-view scroll-y="true">
 					<radio-group name="invoice-type" @change="changeType">
 						<label v-for="item in invoiceTypeList" :key="item.type" class="acea-row row-middle bg-f boder-24">
@@ -75,10 +75,10 @@
 						</label>
 					</radio-group>
 				</scroll-view>
-				<button class="acea-row row-center row-middle" @tap="closeType">确定</button>
+				<button class="acea-row row-center row-middle" @tap="closeType">ຢືນຢັນ</button>
 			</view>
 			<view class="popup popup-main" :class="{ on: popupTitle }">
-				<view class="title font-500">抬头选择<text class="iconfont icon-ic_close popup-close" @click="closeTitle"></text></view>
+				<view class="title font-500">ເລືອກຫົວຂໍ້<text class="iconfont icon-ic_close popup-close" @click="closeTitle"></text></view>
 				<scroll-view v-if="invoiceList.length > 0" scroll-y="true">
 					<radio-group name="invoice-title" @change="changeTitle">
 						<template v-for="item in invoiceList">
@@ -86,9 +86,9 @@
 								<view class="text">
 									<view class="acea-row row-middle">
 										<view class="name">{{ item.receipt_title }}</view>
-										<view v-if="item.is_default" class="label">默认</view>
+										<view v-if="item.is_default" class="label">ເລີ່ມຕົ້ນ</view>
 									</view>
-									<view class="type" :class="{ special: item.receipt_type == '2'}">{{ item.receipt_type == 1 ? '普通发票' : '专用发票'}}</view>
+									<view class="type" :class="{ special: item.receipt_type == '2'}">{{ item.receipt_type == 1 ? 'ໃບແຈ້ງໜີ້ທົ່ວໄປ' : 'ໃບແຈ້ງໜີ້ສະເພາະ'}}</view>
 								</view>
 								<radio :value="item.user_receipt_id" :checked="item.user_receipt_id == invoice_id ? true : false" />
 							</label>
@@ -97,9 +97,9 @@
 				</scroll-view>
 				<view v-else class="nothing">
 					<image class="picture" :src="`${domain}/static/images/noInvoice.png`"></image>
-					<view class="nothing_text">您还没有添加发票信息哟~</view>
+					<view class="nothing_text">ທ່ານຍັງບໍ່ໄດ້ເພີ່ມຂໍ້ມູນໃບແຈ້ງໜີ້ເທື່ອ~</view>
 				</view>
-				<button class="acea-row row-center row-middle" v-if="invoice.add" @tap="addTitle"><text class="iconfont icon-ic_sort2"></text><text>添加新的抬头</text></button>
+				<button class="acea-row row-center row-middle" v-if="invoice.add" @tap="addTitle"><text class="iconfont icon-ic_sort2"></text><text>ເພີ່ມຫົວຂໍ້ໃໝ່</text></button>
 				<!-- <button v-else class="acea-row row-center row-middle btn-default" @tap="close">不开发票</button> -->
 			</view>
 		</view>
@@ -149,18 +149,18 @@
 				is_default: 0,
 				email: '',
 				isDefault: [],
-				typeName: '增值税电子普通发票',
+				typeName: 'ໃບແຈ້ງໜີ້ອີເລັກໂທຣນິກທົ່ວໄປ',
 				popupType: false,
 				popupTitle: false,
 				invoiceTypeList: [{
 						type: '1',
-						name: '增值税电子普通发票',
-						info: '默认发送至所提供的电子邮件'
+						name: 'ໃບແຈ້ງໜີ້ອີເລັກໂທຣນິກທົ່ວໄປ',
+						info: 'ສົ່ງໄປທີ່ອີເມວທີ່ໃຫ້ໄວ້ເລີ່ມຕົ້ນ'
 					},
 					{
 						type: '2',
-						name: '增值税专用发票',
-						info: '纸质发票开出后将以邮寄形式交付'
+						name: 'ໃບແຈ້ງໜີ້ພາສີມູນຄ່າເພີ່ມສະເພາະ',
+						info: 'ໃບແຈ້ງໜີ້ເຈ້ຍຈະສົ່ງທາງໄປສະນີ'
 					}
 				],
 				special_invoice: true,
@@ -216,7 +216,7 @@
 				}
 				invoice(params).then(res => {
 					let data = res.data[0];
-					this.typeName = data.receipt_type == '1' ? '增值税电子普通发票' : '增值税专用发票'
+					this.typeName = data.receipt_type == '1' ? 'ໃບແຈ້ງໜີ້ອີເລັກໂທຣນິກທົ່ວໄປ' : 'ໃບແຈ້ງໜີ້ພາສີມູນຄ່າເພີ່ມສະເພາະ'
 					this.receipt_title_type = data.receipt_title_type;
 					this.receipt_type = data.receipt_type ;
 					this.receipt_title = data.receipt_title;
@@ -235,7 +235,7 @@
 					uni.hideLoading();
 					this.receipt_title_type = res.data.receipt_title_type;
 					this.receipt_type = res.data.receipt_type;
-					this.typeName = this.receipt_type == '1' ? '增值税电子普通发票' : '增值税专用发票'
+					this.typeName = this.receipt_type == '1' ? 'ໃບແຈ້ງໜີ້ອີເລັກໂທຣນິກທົ່ວໄປ' : 'ໃບແຈ້ງໜີ້ພາສີມູນຄ່າເພີ່ມສະເພາະ'
 					this.receipt_title = res.data.receipt_title;
 					this.email = res.data.email;
 					this.duty_paragraph = res.data.duty_paragraph;
@@ -296,7 +296,7 @@
 				this.receipt_title_type = e.detail.value;
 				if(e.detail.value == 1){
 					this.receipt_type = 1;
-					this.typeName = '增值税电子普通发票'
+					this.typeName = 'ໃບແຈ້ງໜີ້ອີເລັກໂທຣນິກທົ່ວໄປ'
 				}
 				this.receipt_type
 			},
@@ -308,39 +308,39 @@
 				let that = this,
 					value = e.detail.value;
 				if (!value.receipt_title_type) return that.$util.Tips({
-					title: '请填写发票抬头'
+					title: 'ກະລຸນາຕື່ມຫົວຂໍ້ໃບແຈ້ງໜີ້'
 				});
 				if (!value.email) return that.$util.Tips({
-					title: '请填写邮箱'
+					title: 'ກະລຸນາຕື່ມອີເມວ'
 				});
 				if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value.email)) return that.$util.Tips({
-					title: '请输入正确的邮箱'
+					title: 'ກະລຸນາໃສ່ອີເມວທີ່ຖືກຕ້ອງ'
 				});
 				if(value.receipt_title_type == 2){
 					if (!value.duty_paragraph) return that.$util.Tips({
-						title: '请填写税号'
+						title: 'ກະລຸນາຕື່ມເລກປະຈຳຕົວຜູ້ເສຍພາສີ'
 					});
-					if(value.receipt_type == '增值税专用发票'){
+					if(value.receipt_type == 'ໃບແຈ້ງໜີ້ພາສີມູນຄ່າເພີ່ມສະເພາະ'){
 						if (!value.bank_name) return that.$util.Tips({
-							title: '请填写开户行'
+							title: 'ກະລຸນາຕື່ມທະນາຄານ'
 						});
 						if (!value.bank_code) return that.$util.Tips({
-							title: '请填写银行账号'
+							title: 'ກະລຸນາຕື່ມເລກບັນຊີທະນາຄານ'
 						});
 						if (!value.address) return that.$util.Tips({
-							title: '请填写企业地址'
+							title: 'ກະລຸນາຕື່ມທີ່ຢູ່ບໍລິສັດ'
 						});
 						if (!value.tel) return that.$util.Tips({
-							title: '请填写企业电话'
+							title: 'ກະລຸນາຕື່ມໂທລະສັບບໍລິສັດ'
 						});
 						if(!/^(\d{9}|\d{14}|\d{18})$/.test(value.bank_code)){
 							return this.$util.Tips({
-								title: '请输入正确的银行账号'
+								title: 'ກະລຸນາໃສ່ເລກບັນຊີທະນາຄານທີ່ຖືກຕ້ອງ'
 							});
 						}
 						if(!/(^(\d{3,4})?\d{7,8})$|(13[0-9]{9})/.test(value.tel)){
 							return this.$util.Tips({
-								title: '请输入正确的电话号码'
+								title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 							});
 						}
 					}

@@ -2,7 +2,7 @@
   <view v-if="type == 0" class="wf-item-page wf-page0" :style="viewColor">
 		<view class='pictrue'>
 			<image class="image" :src="item.image"></image>
-			<view v-if="item.stock == 0" class="sell_out">已售罄</view>
+			<view v-if="item.stock == 0" class="sell_out">ຂາຍໝົດແລ້ວ</view>
 			<view v-if="item.border_pic" :style="{ backgroundImage: `url(${item.border_pic})` }" class="border-picture"></view>
 		</view>
 		<view class="text">
@@ -32,7 +32,7 @@
 	<view v-else-if="type == 1" class="wf-page1" :style="viewColor">
 		<view class='pictrue'>
 			<image class="image" :src="item.image"></image>
-			<view v-if="item.stock == 0" class="sell_out">已售罄</view>
+			<view v-if="item.stock == 0" class="sell_out">ຂາຍໝົດແລ້ວ</view>
 			<view v-if="item.border_pic" :style="{ backgroundImage: `url(${item.border_pic})` }" class="border-picture"></view>
 		</view>
 		<view class='text'>
@@ -52,11 +52,11 @@
 					<image :src="`${domain}/static/images/svip.png`" class="vip-img"></image>
 				</view>
 			</view>
-			<view class="score">{{item.rate}}评分 {{item.reply_count}}条评论</view>
+			<view class="score">{{item.rate}}ຄະແນນ {{item.reply_count}}ຄຳຄິດເຫັນ</view>
 			<view class="company" v-if="item.merchant" @click.stop="goShop(item.merchant.mer_id)">
 				<text class="line1">{{item.merchant.mer_name}}</text>
 				<view class="flex" v-if="isStore != '1'">
-					进店
+					ເຂົ້າຮ້ານ
 					<text class="iconfont icon-ic_rightarrow"></text>
 				</view>
 			</view>

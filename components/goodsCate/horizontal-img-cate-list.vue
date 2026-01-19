@@ -1,4 +1,4 @@
-<!-- 商品分类页面，水平方向滚动分类列表组件，包含图片和文字 -->
+<!-- ໜ້າປະເພດສິນຄ້າ, ລາຍການປະເພດເລື່ອນແນວນອນ, ມີທັງຮູບພາບ ແລະ ຂໍ້ຄວາມ -->
 <template>
   <view class="horizontal-img-cate-list-wrapper">
     <view class="scroll-wrapper">
@@ -17,8 +17,8 @@
     </view>
 
     <view class="show-all-btn flex-center flex-col relative" @click="handleOpenPanel">
-      <view>全</view>
-      <view>部</view>
+      <view>ທັງ</view>
+      <view>ໝົດ</view>
       <image src="@/static/images/all_pic.png" mode="aspectFill" class="all-pic" />
     </view>
 
@@ -37,7 +37,7 @@
         </view>
         <view class="flex-center">
           <view class="close-btn flex-center text--w111-999 fs-24" @click="handleClosePanel">
-            点击收起
+            ຄລິກເພື່ອປິດ
             <view class="iconfont icon-ic_uparrow pl-4"></view>
           </view>
         </view>
@@ -54,8 +54,8 @@ export default {
     TopSearch
   },
   props: {
-    list: Array, // 分类列表
-    activeIndex: Number // 当前选中的分类索引
+    list: Array, // ລາຍການປະເພດ
+    activeIndex: Number // ດັດຊະນີປະເພດທີ່ເລືອກປະຈຸບັນ
   },
   data() {
     return {

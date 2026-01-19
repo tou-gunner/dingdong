@@ -11,14 +11,14 @@
 			<view v-else class="order-reserve-date">
         {{ orderInfo.orderProduct[0].reservation_date }}
         {{ orderInfo.orderProduct[0].reservation_time_part }}
-        {{ orderInfo.is_instore_order ? "到店服务" : "上门服务" }}
+        {{ orderInfo.is_instore_order ? "ບໍລິການຢູ່ຮ້ານ" : "ບໍລິການຮອດບ້ານ" }}
       </view>
     </view>
 
     <view class="order-remark-wrapper" v-if="orderInfo.order_type != 0">
       <view class="iconfont icon-ic_notes" />
       <view class="order-remark" @click="$emit('remark')" :class="{ empty: !!orderInfo.remark }">
-        {{ orderInfo.remark || "订单未备注，点击添加备注信息" }}
+        {{ orderInfo.remark || "ຄຳສັ່ງຊື້ບໍ່ມີໝາຍເຫດ, ຄລິກເພື່ອເພີ່ມໝາຍເຫດ" }}
       </view>
     </view>
 
@@ -50,11 +50,11 @@ export default {
 			const remarks = this.orderInfo.merchant_take_info[merId].remarks
 			let deliveryTimeText = ''
 			if (remarks) {
-				deliveryTimeText = '预期时间: '+remarks
+				deliveryTimeText = 'ເວລາຄາດໝາຍ: '+remarks
 			} else {
 				const date = this.orderInfo.merchant_take_info[merId].date
 				const time = this.orderInfo.merchant_take_info[merId].time
-				deliveryTimeText = '预期时间: '+date+' '+time+' 送达'
+				deliveryTimeText = 'ເວລາຄາດໝາຍ: '+date+' '+time+' ສົ່ງຮອດ'
 			}
 			return deliveryTimeText
 		},
