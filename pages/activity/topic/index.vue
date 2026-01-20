@@ -15,7 +15,7 @@
 				<block v-else>
 					<view class='empty-box'>
 						<image :src="`${domain}/static/images/no-topic.jpg`"></image>
-						<view class="txt">暂无活动专场哦~</view>
+						<view class="txt">ຍັງບໍ່ມີກິດຈະກຳພິເສດ~</view>
 					</view>
 				</block>
 			</view>

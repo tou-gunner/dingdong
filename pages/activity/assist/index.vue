@@ -6,7 +6,7 @@
 				<!-- #ifdef MP || APP-PLUS -->
 				<view class="sys-title">
 					<view class='iconfont icon-ic_leftarrow' :style="{top:sysHeight}" @tap='goBack'></view>
-					<text v-show="isFixed">助力列表</text>
+					<text v-show="isFixed">ລາຍການຊ່ວຍເຫຼືອ</text>
 				</view>
 				<!-- #endif -->
 				<view v-if="isFixed" class="bg"></view>
@@ -21,14 +21,14 @@
 							<view class='name line2'>{{item.store_name}}</view>
 							<view class="num acea-row row-middle">
 								<text class='iconfont icon-ic_fire'></text>
-								<text class="font-bold">{{item.user_count}}人正在参与</text>
+								<text class="font-bold">{{item.user_count}}ຄົນກຳລັງເຂົ້າຮ່ວມ</text>
 							</view>
-							<view class='money font-bold'>最低：
+							<view class='money font-bold'>ຕ່ຳສຸດ:
 								<priceFormat :price="item.assistSku && item.assistSku[0].assist_price" weight intSize="40" floatSize="24" labelSize="24"></priceFormat>
 							</view>
 							<view class="price regular">¥{{item.product.price}}</view>
 						</view>
-						<view class='cutBnt'></text>发起助力</view>
+						<view class='cutBnt'></text>ເລີ່ມຊ່ວຍເຫຼືອ</view>
 					</view>
 				</block>
 			</view>
@@ -98,13 +98,13 @@
 				menus: ['shareAppMessage', 'shareTimeline']
 			})
 			return {
-				title: '助力活动',
+				title: 'ກິດຈະກຳຊ່ວຍເຫຼືອ',
 				path: 'pages/activity/assist/index',
 			}
 		},
 		onShareTimeline: function() {
 			return {
-				title: '助力活动',
+				title: 'ກິດຈະກຳຊ່ວຍເຫຼືອ',
 				  query: {
 				    key: ''
 				  },

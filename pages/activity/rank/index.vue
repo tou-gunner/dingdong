@@ -11,7 +11,7 @@
 			<!--#endif-->
 			<view class="cate_name acea-row row-center row-middle">
 				<text class="title_icon icon_left" :style="{ 'background-image': `url(${domain}/static/images/rank-title.png)`}"></text>
-				<text class="line1 name">{{(active == 0 || !cate_name) ? '热销TOP总榜单' : `${cate_name}热卖榜`}}</text>
+				<text class="line1 name">{{(active == 0 || !cate_name) ? 'ລາຍການຂາຍດີສຸດ TOP' : `${cate_name}ອັນດັບຂາຍດີ`}}</text>
 				<text class="title_icon icon_right" :style="{ 'background-image': `url(${domain}/static/images/rank-title.png)`}"></text>
 			</view>
 			<view class="scroll_box">
@@ -44,7 +44,7 @@
 								</view>
 								<view class='goods-msg pad16 acea-row row-column row-between'>
 									<text class="name line2">{{itm.store_name}}</text>
-									<view v-if="itm.sales>0" class="list"><text class="iconfont icon-a-icon_ShoppingBag"></text>{{itm.sales>10000 ? (itm.sales/10000).toFixed(2)+'万' : itm.sales}}人买过</view>
+									<view v-if="itm.sales>0" class="list"><text class="iconfont icon-a-icon_ShoppingBag"></text>{{itm.sales>10000 ? (itm.sales/10000).toFixed(2)+'ໝື່ນ' : itm.sales}}ຄົນຊື້ແລ້ວ</view>
 									<view class="list-price acea-row">
 										<view class="item-price">
 											<priceFormat weight :price="itm.price" intSize="40" floatSize="26" labelSize="26"></priceFormat>
@@ -83,7 +83,7 @@
 				sysHeight: sysHeight,
 				categoryList: [{
 					store_category_id: 0,
-					cate_name: '总榜'
+					cate_name: 'ທັງໝົດ'
 				}],
 				cate_name: "",
 				spuTopList: [],

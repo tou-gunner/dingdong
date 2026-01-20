@@ -5,8 +5,8 @@
 				<navigator v-if="item.activity" :url="`/pages/activity/registrate_activity/index?id=${item.activity_id}`" hover-class='none' class="card-list bg-f boder-24">
 					<view class="card-top">
 						<view class="card-wrapper">
-							<view class="card-status" :class="'status'+item.activity.time_status">{{item.activity.time_status==0?'未开始' : item.activity.time_status==1?'正在进行' : '已结束'}}</view>
-							<view class="btn">详情<text class='iconfont icon-ic_rightarrow'></text></view>
+							<view class="card-status" :class="'status'+item.activity.time_status">{{item.activity.time_status==0?'ຍັງບໍ່ເລີ່ມ' : item.activity.time_status==1?'ກຳລັງດຳເນີນ' : 'ສິ້ນສຸດແລ້ວ'}}</view>
+							<view class="btn">ລາຍລະອຽດ<text class='iconfont icon-ic_rightarrow'></text></view>
 						</view>
 					</view>
 					<view class="card-bottom">
@@ -57,7 +57,7 @@
 			getListData() {
 				this.loading = true
 				uni.showLoading({
-					title: '数据加载中',
+					title: 'ກຳລັງໂຫຼດຂໍ້ມູນ',
 				});
 				getRechargeRecordList(this.pageData).then(res => {
 					this.count = res.data.count
@@ -71,7 +71,7 @@
 		onReachBottom() {
 			if (this.count == this.listData.length) {
 				uni.showToast({
-					title: '没有更多啦',
+					title: 'ບໍ່ມີຂໍ້ມູນເພີ່ມ',
 					icon: 'none',
 					duration: 1000
 				});

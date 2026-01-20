@@ -13,7 +13,7 @@
 								<view class="title line2">{{activityData.activity_name}}</view>
 								<view class="share" @click="listenerActionSheet">
 									<i class="iconfont icon-ic_transmit1"></i>
-									分享
+									ແບ່ງປັນ
 								</view>
 							</view>
 							<view class="activity-item">
@@ -24,13 +24,13 @@
 							</view>
 								<view class="activity-item">
 									<view class="iconfont icon-ic_user"></view>
-									<view class="info">总人数：{{activityData.count == 0 ? '不限人数' : activityData.count+'人'}}</view>
+									<view class="info">ຈຳນວນລວມ: {{activityData.count == 0 ? 'ບໍ່ຈຳກັດ' : activityData.count+'ຄົນ'}}</view>
 								</view>
 								<view class="activity-item">
 									<view class="iconfont icon-ic_user"></view>
 									<view class="info ">
-										已报人数：
-										<text class="info-theme">{{activityData.total}}人</text>
+										ຄົນລົງທະບຽນແລ້ວ:
+										<text class="info-theme">{{activityData.total}}ຄົນ</text>
 									</view>
 								</view>
 								<view class="acea-row">
@@ -128,7 +128,7 @@
 								<picker :value="item.value" :range="item.wordsConfig.list" @change="bindSelectChange($event,index,item)" range-key="val" :class="disabled ? 'disabled' : ''">
 									<view class="acea-row row-between-wrapper">
 										<view v-if="item.value">{{item.value}}</view>
-										<view v-else class="placeholder">请选择</view>
+										<view v-else class="placeholder">ກະລຸນາເລືອກ</view>
 										<text class='iconfont icon-ic_rightarrow'></text>
 									</view>
 								</picker>
@@ -161,7 +161,7 @@
 									<view class='pictrue acea-row row-center-wrapper row-column' @tap.stop='uploadpic(index)'
 										v-if="item.value.length < item.numConfig.val && !disabled">
 										<text class='iconfont icon-ic_camera1'></text>
-										<view>上传图片</view>
+										<view>ອັບໂຫຼດຮູບ</view>
 									</view>
 								</view>
 							</view>
@@ -169,9 +169,9 @@
 					</view>
 				</view>
 				<view class="footer">
-					<button v-if="activityData.time_status==-1" class='modifyBnt disabled'>已结束</button>
-					<button v-else-if="activityData.count==activityData.total && activityData.count!=0" class='modifyBnt disabled'>已报满</button>
-					<button v-else-if="disabled && activityData.time_status==1" class='modifyBnt' @click="listenerActionSheet">分享好友</button>
+					<button v-if="activityData.time_status==-1" class='modifyBnt disabled'>ສິ້ນສຸດແລ້ວ</button>
+					<button v-else-if="activityData.count==activityData.total && activityData.count!=0" class='modifyBnt disabled'>ເຕັມແລ້ວ</button>
+					<button v-else-if="disabled && activityData.time_status==1" class='modifyBnt' @click="listenerActionSheet">ແບ່ງປັນກັບໝູ່</button>
 				<block v-else>
 						<button v-if="activityData.time_status==1" class='modifyBnt' formType="submit">ສົ່ງການລົງທະບຽນ</button>
 						<button v-else-if="activityData.time_status==0" class='modifyBnt disabled'>ຍັງບໍ່ເລີ່ມ</button>
@@ -185,11 +185,11 @@
 			<view class="bg" @click="isShowbox=false"></view>
 			<view class="con bg-f boder-24">
 				<image :src="domain+'/static/images/sign_success.png'" mode=""></image>
-				<view class="title">报名成功</view>
-				<view class="text">感谢参与，您已完成报名！</view>
+				<view class="title">ລົງທະບຽນສຳເລັດ</view>
+				<view class="text">ຂອບໃຈທີ່ເຂົ້າຮ່ວມ, ທ່ານໄດ້ລົງທະບຽນສຳເລັດແລ້ວ!</view>
 				<view class="foot">
-					<navigator url="/pages/activity/my_registrate/index" hover-class='none' class="btn">查看详情</navigator>
-					<view class="btn" @click="listenerActionSheet">分享报名</view>
+					<navigator url="/pages/activity/my_registrate/index" hover-class='none' class="btn">ເບິ່ງລາຍລະອຽດ</navigator>
+					<view class="btn" @click="listenerActionSheet">ແບ່ງປັນການລົງທະບຽນ</view>
 				</view>
 			</view>
 		</view>
@@ -198,18 +198,18 @@
 			<!-- #ifndef MP -->
 			<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' v-if="weixinStatus === true" @click="H5ShareBox=true;posters=false;">
 				<view class="iconfont icon-ic_wechat"></view>
-				<view class="">发送给朋友</view>
+				<view class="">ສົ່ງໃຫ້ໝູ່</view>
 			</button>
 			<!-- #endif -->
 			<!-- #ifdef MP -->
 			<button class="item" :class="weixinStatus ? 'item3' : ''" open-type="share" hover-class='none' @click="goFriend">
 				<view class="iconfont icon-ic_wechat"></view>
-				<view class="">发送给朋友</view>
+				<view class="">ສົ່ງໃຫ້ໝູ່</view>
 			</button>
 			<!-- #endif -->
 			<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @tap="goPoster">
 				<view class="iconfont icon-a-ic_picture1"></view>
-				<view class="">生成海报</view>
+				<view class="">ສ້າງໂປສເຕີ</view>
 			</button>
 		</view>
 		<view class="mask" v-if="posters" @click="listenerActionClose"></view>
@@ -239,7 +239,7 @@
 				</block>
 			</swiper>
 			<!-- #ifndef H5  -->
-			<view class='keep b-color' @click='savePosterPath(posterImage[swiperIndex])' :style="viewColor">保存海报</view>
+			<view class='keep b-color' @click='savePosterPath(posterImage[swiperIndex])' :style="viewColor">ບັນທຶກໂປສເຕີ</view>
 			<!-- #endif -->
 		</view>
 	</view>
@@ -423,7 +423,7 @@
 						that.disabled = that.compareTime(data.end_time) ? false : true
 						if(that.disabled){
 							return this.$util.Tips({
-								title: '活动已结束'
+								title: 'ກິດຈະກຳສິ້ນສຸດແລ້ວ'
 							}, {
 								tab: 3,
 								url: 1
@@ -434,7 +434,7 @@
 							that.filterData(formData)
 						}else{
 							return this.$util.Tips({
-								title: '关联表单已被删除'
+								title: 'ແບບຟອມຖືກລຶບແລ້ວ'
 							}, {
 								tab: 3,
 								url: 1
@@ -655,42 +655,42 @@
 					    if ((data.name === 'texts' && data.valConfig.tabVal == 0) || ['dates','times','selects','citys','checkboxs'].indexOf(data.name) != -1) {
 								if (!data.value || (data.value && !data.value.trim())) {
 					        return that.$util.Tips({
-					          title: `请选择${data.titleConfig.value}`
+					          title: `ກະລຸນາເລືອກ${data.titleConfig.value}`
 					        });
 					      }
 					    }
 						if(data.name === 'timeranges'){
 							if(!data.value){
 								return that.$util.Tips({
-								  title: `请选择${data.titleConfig.value}`
+								  title: `ກະລຸນາເລືອກ${data.titleConfig.value}`
 								});
 							}
 						}
 						if (data.name === 'dateranges') {
 						  if (!data.value.length) {
 						    return that.$util.Tips({
-						      title: `请选择${data.titleConfig.value}`
+						      title: `ກະລຸນາເລືອກ${data.titleConfig.value}`
 						    });
 						  }
 						}
 					    if (data.name === 'texts' && data.valConfig.tabVal == 4) {
 					      if (data.value <= 0) {
 					        return that.$util.Tips({
-					          title: `请填写大于0的${data.titleConfig.value}`
+					          title: `ກະລຸນາປ້ອນ${data.titleConfig.value}ທີ່ຫຼາຍກວ່າ0`
 					        });
 					      }
 					    }
 					    if (data.name === 'texts' && data.valConfig.tabVal == 3) {
 					      if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(data.value)) {
 					        return that.$util.Tips({
-					          title: `请填写正确的${data.titleConfig.value}`
+					          title: `ກະລຸນາປ້ອນ${data.titleConfig.value}ທີ່ຖືກຕ້ອງ`
 					        });
 					      }
 					    }
 					    if (data.name === 'texts' && data.valConfig.tabVal == 1) {
 					      if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(data.value)) {
 					        return that.$util.Tips({
-					          title: `请填写正确的${data.titleConfig.value}`
+					          title: `ກະລຸນາປ້ອນ${data.titleConfig.value}ທີ່ຖືກຕ້ອງ`
 					        });
 					      }
 					    }
@@ -699,14 +699,14 @@
 					        /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/i
 					        .test(data.value)) {
 					        return that.$util.Tips({
-					          title: `请填写正确的${data.titleConfig.value}`
+					          title: `ກະລຸນາປ້ອນ${data.titleConfig.value}ທີ່ຖືກຕ້ອງ`
 					        });
 					      }
 					    }
 					    if (data.name === 'uploadPicture') {
 					      if (!data.value.length) {
 					        return that.$util.Tips({
-					          title: `请上传${data.titleConfig.value}`
+					          title: `ກະລຸນາອັບໂຫຼດ${data.titleConfig.value}`
 					        });
 					      }
 					    }
@@ -715,7 +715,7 @@
 					}
 				}
 				uni.showLoading({
-					title: '提交中',
+					title: 'ກຳລັງສົ່ງ',
 					mask: true
 				});
 				registrateCreate(that.activity_id,parmas).then(res => {
@@ -790,7 +790,7 @@
 				let qrCode = await that.imgToBase(res.data.qrcode)
 				// #endif
 				uni.showLoading({
-					title: '海报生成中',
+					title: 'ກຳລັງສ້າງໂປສເຕີ',
 					mask: true
 				});
 				for (let i = 0; i < res.data.poster.length; i++) {
@@ -844,13 +844,13 @@
 										filePath: url,
 										success: function(res) {
 											that.$util.Tips({
-												title: '保存成功',
+												title: 'ບັນທຶກສຳເລັດ',
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: '保存失败'
+												title: 'ບັນທຶກບໍ່ສຳເລັດ'
 											});
 										}
 									});
@@ -861,13 +861,13 @@
 								filePath: url,
 								success: function(res) {
 									that.$util.Tips({
-										title: '保存成功',
+										title: 'ບັນທຶກສຳເລັດ',
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: '保存失败'
+										title: 'ບັນທຶກບໍ່ສຳເລັດ'
 									});
 								}
 							});
@@ -880,13 +880,13 @@
 					filePath: url,
 					success: function(res) {
 						that.$util.Tips({
-							title: '保存成功',
+							title: 'ບັນທຶກສຳເລັດ',
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: '保存失败'
+							title: 'ບັນທຶກບໍ່ສຳເລັດ'
 						});
 					}
 				});

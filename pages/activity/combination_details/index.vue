@@ -27,7 +27,7 @@
 						<view class="swiper-bg pos-rel">
 							<view class='nav acea-row row-between-wrapper boder-44 pos-rel' :style="{ 'background-image': `url(${domain}/static/images/combination-price-bg.png)`}">
 								<view class='money skeleton-rect acea-row row-bottom' style="min-width: 10rpx;">
-									<view class="text">拼团价</view>
+									<view class="text">ລາຄາກຸ່ມ</view>
 									<view v-if="combinationInfo.price" class="price">
 										<priceFormat :price="combinationInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 									</view>
@@ -36,7 +36,7 @@
 									</text>
 								</view>
 								<view class="combin-people">
-									{{combinationInfo.buying_count_num}}人团
+									{{combinationInfo.buying_count_num}}ຄົນຕໍ່ກຸ່ມ
 								</view>
 							</view>
 							<view class="detail-count pos-rel pad30">
@@ -54,15 +54,15 @@
 										</view>
 									</view>
 									<view class='label acea-row row-between-wrapper'>
-										<view class="skeleton-rect">拼团人数:{{combinationInfo.buying_count_num ? combinationInfo.buying_count_num : 0}}人团</view>
-										<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">库存:{{combinationInfo.stock ? combinationInfo.stock : 0}}</view>
-										<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">已拼:{{combinationInfo.sales ? combinationInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
+										<view class="skeleton-rect">ຈຳນວນຄົນ:{{combinationInfo.buying_count_num ? combinationInfo.buying_count_num : 0}}ຄົນຕໍ່ກຸ່ມ</view>
+										<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">ສາງ:{{combinationInfo.stock ? combinationInfo.stock : 0}}</view>
+										<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">ສັ່ງແລ້ວ:{{combinationInfo.sales ? combinationInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
 									</view>
 								</view>
 								<view class='notice acea-row row-middle' v-if="itemNew.length">
 									<view class='num t-color'>
 										<text class='iconfont icon-ic_promotion'></text>
-										已拼{{combinationInfo.sales ? combinationInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}<text
+										ສັ່ງແລ້ວ{{combinationInfo.sales ? combinationInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}<text
 										 class='line'>|</text>
 									</view>
 									<view class='swiper'>
@@ -70,7 +70,7 @@
 										 circular="true">
 											<block v-for="(item,index) in itemNew" :key='index'>
 												<swiper-item>
-													<view class='line1'>{{item.nickname ? item.nickname : ''}}拼团成功</view>
+													<view class='line1'>{{item.nickname ? item.nickname : ''}}ສັ່ງກຸ່ມສຳເລັດ</view>
 												</swiper-item>
 											</block>
 										</swiper>
@@ -88,44 +88,44 @@
 										</view>
 										<view class='right acea-row row-middle'>
 											<view>
-												<view class='lack'>还差<text class='t-color'>{{item.buying_count_num - item.yet_buying_num}}</text>人成团</view>
+												<view class='lack'>ຍັງຂາດ<text class='t-color'>{{item.buying_count_num - item.yet_buying_num}}</text>ຄົນຈະສຳເລັດ</view>
 												<view class='time'>
-													<text style="margin-right:4px;">剩余</text>
+													<text style="margin-right:4px;">ເຫຼືອ</text>
 													<count-down :justifyLeft="justifyLeft" :is-day="false" :tip-text="' '" :day-text="' '" :hour-text="':'"
 													 :minute-text="':'" :second-text="' '" :datatime="item.end_time" :regular="false"></count-down>
 												</view>
 											</view>
 											<navigator hover-class='none' :url="'/pages/activity/combination_status/index?id='+item.group_buying_id" class='spellBnt'>
-												去拼单
+												ໄປສັ່ງກຸ່ມ
 												<text class='iconfont icon-ic_rightarrow'></text>
 											</navigator>
 										</view>
 									</view>
 									<template v-if="pink.length > 2">
-										<view class='more' @tap='AllIndex = pink.length' v-if="pink.length > AllIndex">查看更多<text class='iconfont icon-ic_downarrow'></text></view>
-										<view class='more' @tap='AllIndex = 2' v-else-if="AllIndex == pink.length">收起<text
+										<view class='more' @tap='AllIndex = pink.length' v-if="pink.length > AllIndex">ເບິ່ງເພີ່ມ<text class='iconfont icon-ic_downarrow'></text></view>
+										<view class='more' @tap='AllIndex = 2' v-else-if="AllIndex == pink.length">ຫຍໍ້<text
 											class='iconfont icon-ic_uparrow'></text></view>
 									</template>
 								</view>
 								<view class='playWay skeleton-rect bg-f boder-24 mt20'>
 									<view class='title acea-row row-between-wrapper'>
-										<view>拼团玩法</view>
+										<view>ວິທີຊື້ກຸ່ມ</view>
 									</view>
 									<view class='way acea-row row-middle'>
 										<view class='item acea-row row-middle'>
 											<text class='num'>①</text>
-											<text class="way_text">开团/参团</text>
+											<text class="way_text">ເປີດກຸ່ມ/ເຂົ້າກຸ່ມ</text>
 										</view>
 										<view class='iconfont icon-a-jiantou11'></view>
 										<view class='item acea-row row-middle'>
 											<text class='num'>②</text>
-											<text class="way_text">邀请好友</text>
+											<text class="way_text">ເຊີນໝູ່</text>
 										</view>
 										<view class='iconfont icon-a-jiantou11'></view>
 										<view class='item'>
 											<view class="acea-row row-middle">
 												<text class='num'>③</text>
-												<text class="way_text">满员发货</text>
+												<text class="way_text">ຄົບກຸ່ມສົ່ງເຄື່ອງ</text>
 											</view>
 										</view>
 									</view>
@@ -140,9 +140,9 @@
 								</view>
 								<view class='userEvaluation boder-24' id="past1" v-if="replyCount && replyCount>0 && diyProduct.showReply==1">
 									<view class='title acea-row row-between-wrapper'>
-										<view>用户评价({{replyCount}})</view>
+										<view>ຄຳເຫັນຜູ້ໃຊ້({{replyCount}})</view>
 										<navigator class='praise' hover-class='none' :url='"/pages/users/goods_comment_list/index?product_id="+storeInfo.product_id'>
-											<text class='t-color'>{{replyChance}}</text>好评率
+											<text class='t-color'>{{replyChance}}</text>ອັດຕາຄຳຊົມ
 											<text class='iconfont icon-ic_rightarrow'></text>
 										</navigator>
 									</view>
@@ -182,22 +182,22 @@
 												{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}人关注
 												</view>
 											</navigator>
-											<navigator :url="'/pages/store/home/index?id='+storeInfo.mer_id" class="link" hover-class="none">进店</navigator>
+											<navigator :url="'/pages/store/home/index?id='+storeInfo.mer_id" class="link" hover-class="none">ເຂົ້າຮ້ານ</navigator>
 										</view>
 										<view class="score-wrapper">
 											<view class="item">
-												商品描述<text>{{storeInfo.merchant.product_score}}</text>
+												ລາຍລະອຽດສິນຄ້າ<text>{{storeInfo.merchant.product_score}}</text>
 											</view>
 											<view class="item">
-												卖家服务<text>{{storeInfo.merchant.service_score}}</text>
+												ບໍລິການຜູ້ຂາຍ<text>{{storeInfo.merchant.service_score}}</text>
 											</view>
 											<view class="item">
-												物流服务<text>{{storeInfo.merchant.postage_score}}</text>
+												ບໍລິການຂົນສົ່ງ<text>{{storeInfo.merchant.postage_score}}</text>
 											</view>
 										</view>
 									</view>
 									<view v-if="storeInfo.merchant.recommend && storeInfo.merchant.recommend.length > 0 && diyProduct.showRecommend==1" class="con-box">
-										<view class="title">店铺推荐</view>
+										<view class="title">ແນະນຳຈາກຮ້ານ</view>
 										<view class="swiper page_swiper" :style="'height:'+swiperHeight+'rpx'">
 											<swiper
 											 indicator-dots="true"
@@ -229,13 +229,13 @@
 									</view>
 								</view>
 								<view class='product-intro' id="past3">
-									<view class='title'>产品介绍</view>
+									<view class='title'>ແນະນຳສິນຄ້າ</view>
 									<view class='conter' v-if="description">
 										<jyf-parser :domain="domain" :html="description.content" ref="article" :tag-style="tagStyle"></jyf-parser>
 									</view>
 									<!-- 价格说明 -->
 									<view v-if="priceRule.content" class="price-info">
-										<view class="price-title">价格说明</view>
+										<view class="price-title">ອະທິບາຍລາຄາ</view>
 										<!-- #ifndef APP-PLUS -->
 										<jyf-parser :domain='domain' :html="priceRule.content.replace(/<br\/>/ig, '')" ref="article" :tag-style="tagStyle"></jyf-parser>
 										<!-- #endif -->
@@ -264,11 +264,11 @@
 					</block>
 					<view class='bnt acea-row'>
 						<form @submit="joinCart" report-submit='true'>
-							<button class='joinCart bnts skeleton-rect' :class="'w_buy'+diyProduct.menuList.length" @tap="openAlone">单独购买</button>
+							<button class='joinCart bnts skeleton-rect' :class="'w_buy'+diyProduct.menuList.length" @tap="openAlone">ຊື້ແຍກ</button>
 						</form>
 						<form @submit="goBuy" report-submit='true' v-if="attr.productSelect ">
-							<button v-if="attr.productSelect.stock == 0" class='buy bnts skeleton-rect' :class="'w_buy'+diyProduct.menuList.length" form-type="submit" disabled>已售罄</button>
-							<button v-else class='buy bnts skeleton-rect' :class="'w_buy'+diyProduct.menuList.length" form-type="submit">立即开团</button>
+							<button v-if="attr.productSelect.stock == 0" class='buy bnts skeleton-rect' :class="'w_buy'+diyProduct.menuList.length" form-type="submit" disabled>ໝົດແລ້ວ</button>
+							<button v-else class='buy bnts skeleton-rect' :class="'w_buy'+diyProduct.menuList.length" form-type="submit">ເປີດກຸ່ມດຽວນີ້</button>
 						</form>
 					</view>
 				</view>
@@ -287,22 +287,22 @@
 				<!-- #ifndef MP -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' v-if="weixinStatus === true" @click="H5ShareBox = true">
 					<view class="iconfont icon-ic_wechat"></view>
-					<view class="">发送给朋友</view>
+					<view class="">ສົ່ງໃຫ້ໝູ່</view>
 				</button>
 				<!-- #endif -->
 				<!-- #ifdef MP -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" open-type="share" hover-class='none' @click="goFriend">
 					<view class="iconfont icon-ic_wechat"></view>
-					<view class="">发送给朋友</view>
+					<view class="">ສົ່ງໃຫ້ໝູ່</view>
 				</button>
 				<!-- #endif -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @click="downloadFilePromotionCode">
 					<view class="iconfont icon-a-ic_picture1"></view>
-					<view class="">生成海报</view>
+					<view class="">ສ້າງໂປສເຕີ</view>
 				</button>
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @click="copyPwd">
 					<view class="iconfont icon-ic_key"></view>
-					<view>生成口令</view>
+					<view>ສ້າງລະຫັດ</view>
 				</button>
 			</view>
 			<view class="mask" v-if="posters" @click="listenerActionClose"></view>
@@ -314,10 +314,10 @@
 				<image src='../../../static/images/poster-close.png' class='close' @click="posterImageClose"></image>
 				<image :src='posterImage'></image>
 				<!-- #ifndef H5  -->
-				<view class='save-poster' @click="savePosterPath">保存到手机</view>
+				<view class='save-poster' @click="savePosterPath">ບັນທຶກໃສ່ໂທລະສັບ</view>
 				<!-- #endif -->
 				<!-- #ifdef H5 -->
-				<view class="keep">长按图片可以保存到手机</view>
+				<view class="keep">ກົດຄ້າງຮູບເພື່ອບັນທຶກໃສ່ໂທລະສັບ</view>
 				<!-- #endif -->
 			</view>
 			<view class='mask' v-if="posterImageStatus"></view>
@@ -531,7 +531,7 @@
 			}
 			if (!options.id && !options.scene) {
 				return this.$util.Tips({
-					title: '缺少参数无法查看商品'
+					title: 'ຂາດຂໍ້ມູນ, ບໍ່ສາມາດເບິ່ງສິນຄ້າໄດ້'
 				}, {
 					tab: 3,
 					url: 1
@@ -765,7 +765,7 @@
 						this.$set(this.attr.productSelect, "cart_num", stock);
 						this.$set(this, "cart_num", stock);
 						uni.showToast({
-							title: `购买数量不能超过库存`,
+							title: `ຈຳນວນຊື້ບໍ່ສາມາດເກີນສາງໄດ້`,
 							icon: 'none'
 						})
 					}
@@ -793,7 +793,7 @@
 					this.$set(this.attr.productSelect, "unique", productSelect.unique);
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", res);
-					this.$set(this, "attrTxt", "已选择");
+					this.$set(this, "attrTxt", "ເລືອກແລ້ວ");
 				} else {
 					this.$set(this.attr.productSelect, "image", this.storeInfo.image);
 					this.$set(this.attr.productSelect, "price", this.storeInfo.price);
@@ -801,7 +801,7 @@
 					this.$set(this.attr.productSelect, "unique", "");
 					this.$set(this.attr.productSelect, "cart_num", 0);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "请选择");
+					this.$set(this, "attrTxt", "ກະລຸນາເລືອກ");
 				}
 			},
 			setClientHeight: function() {
@@ -942,7 +942,7 @@
 					this.$set(this.attr.productSelect, "stock", productSelect.stock);
 					this.$set(this.attr.productSelect, "unique", productSelect.unique);
 					this.$set(this, "attrValue", value.join(","));
-					this.$set(this, "attrTxt", "已选择");
+					this.$set(this, "attrTxt", "ເລືອກແລ້ວ");
 					if (productSelect.stock == 0) {
 						this.$set(this.attr.productSelect, "cart_num", 0);
 					} else {
@@ -960,7 +960,7 @@
 					this.$set(this.attr.productSelect, "unique", "");
 					this.$set(this.attr.productSelect, "cart_num", 0);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "请选择");
+					this.$set(this, "attrTxt", "ກະລຸນາເລືອກ");
 				} else if (!productSelect && !productAttr.length) {
 					this.$set(
 						this.attr.productSelect,
@@ -977,7 +977,7 @@
 					);
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "请选择");
+					this.$set(this, "attrTxt", "ກະລຸນາເລືອກ");
 				} else if (productSelect && !productAttr.length) {
 					this.$set(
 						this.attr.productSelect,
@@ -989,7 +989,7 @@
 					this.$set(this.attr.productSelect, "stock", productSelect.stock);
 					this.$set(this.attr.productSelect, "unique", productSelect.unique);
 					this.$set(this, "attrValue", value.join(","));
-					this.$set(this, "attrTxt", "已选择");
+					this.$set(this, "attrTxt", "ເລືອກແລ້ວ");
 					if (productSelect.stock == 0) {
 						this.$set(this.attr.productSelect, "cart_num", 0);
 					} else {
@@ -1239,7 +1239,7 @@
 				that.posters = false;
 				that.$set(that, 'canvasStatus', true);
 				uni.showLoading({
-					title: '海报生成中',
+					title: 'ກຳລັງສ້າງໂປສເຕີ',
 					mask: true
 				});
 				// #ifdef MP || APP-PLUS
@@ -1276,13 +1276,13 @@
 										success: function(res) {
 											that.posterImageClose();
 											that.$util.Tips({
-												title: '保存成功',
+												title: 'ບັນທຶກສຳເລັດ',
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: '保存失败'
+												title: 'ບັນທຶກບໍ່ສຳເລັດ'
 											});
 										}
 									})
@@ -1294,13 +1294,13 @@
 								success: function(res) {
 									that.posterImageClose();
 									that.$util.Tips({
-										title: '保存成功',
+										title: 'ບັນທຶກສຳເລັດ',
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: '保存失败'
+										title: 'ບັນທຶກບໍ່ສຳເລັດ'
 									});
 								},
 							})
@@ -1314,13 +1314,13 @@
 					success: function(res) {
 						that.posterImageClose();
 						that.$util.Tips({
-							title: '保存成功',
+							title: 'ບັນທຶກສຳເລັດ',
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: '保存失败'
+							title: 'ບັນທຶກບໍ່ສຳເລັດ'
 						});
 					},
 				})

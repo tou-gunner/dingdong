@@ -8,7 +8,7 @@
 				</view>
 				<!--#endif-->
 				<view class='input acea-row row-between-wrapper'><text class='iconfont icon-ic_search'></text>
-					<input placeholder='搜索店铺名称' placeholder-class='placeholder' confirm-type='search' name="search" :value='sotreParam.keyword'
+					<input placeholder='ຄົ້ນຫາຊື່ຮ້ານ' placeholder-class='placeholder' confirm-type='search' name="search" :value='sotreParam.keyword'
 					 @confirm="searchSubmit"></input>
 				</view>
 				<view v-if="mer_location == 1" style="text-align: right;" class='iconfont search-right' @click='showMaoLocation(latitude,longitude)'>
@@ -46,7 +46,7 @@
 									</view>
 									<view class="mer-btn">
 										<view class="">
-											{{item.care_count<10000 ? item.care_count : (item.care_count/10000).toFixed(2)+'万'}}人关注
+											{{item.care_count<10000 ? item.care_count : (item.care_count/10000).toFixed(2)+'ໝື່ນ'}}ຄົນຕິດຕາມ
 										</view>
 										<view class="line" v-if="item.distance"></view>
 										<view class="distance" v-if="item.distance" @click.stop="showStoreLocation(item)">
@@ -76,7 +76,7 @@
 				<view class='no-shop' v-if="!storeList.length && !loading && !loadingIcon">
 					<view class='pictrue' style="margin: 0 auto;">
 						<image :src="`${domain}/static/images/no_thing.png`"></image>
-						<text>暂无店铺，快去搜索其他店铺吧</text>
+						<text>ບໍ່ມີຮ້ານ, ໄປຄົ້ນຫາຮ້ານອື່ນເບິ່ງ</text>
 					</view>
 				</view>
 			</block>
@@ -109,7 +109,7 @@
 				nows: false,
 				loading: false,
 				loadingIcon: true,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				title: '',
 				hotPage: 1,
 				hotLimit: 10,
@@ -122,7 +122,7 @@
 				downStatus: false,
 				// 下拉菜单
 				downMenu: [{
-						title: '默认',
+						title: 'ເລີ່ມຕົ້ນ',
 						key: 0,
 						order: ""
 					},
@@ -132,7 +132,7 @@
 						order: 'sales'
 					},
 					{
-						title: '好评',
+						title: 'ຄຳຊົມ',
 						key: 2,
 						order: 'rate'
 					},
@@ -202,7 +202,7 @@
 			// 打开地图
 			showMaoLocation(lat, long) {
 				if (!lat || !long) return this.$util.Tips({
-					title: '请设置允许商城访问您的位置！'
+					title: 'ກະລຸນາອະນຸຍາດໃຫ້ຮ້ານເຂົ້າເຖິງຕຳແໜ່ງຂອງທ່ານ!'
 				});
 				//#ifdef H5
 				if (this.$wechat.isWeixin() === true) {
@@ -233,7 +233,7 @@
 			},
 			showStoreLocation(item) {
 				if (!item.lat || !item.long) return this.$util.Tips({
-					title: '请设置允许商城访问您的位置！'
+					title: 'ກະລຸນາອະນຸຍາດໃຫ້ຮ້ານເຂົ້າເຖິງຕຳແໜ່ງຂອງທ່ານ!'
 				});
 				//#ifdef H5
 				if (this.$wechat.isWeixin() === true) {
@@ -350,7 +350,7 @@
 					return
 				}
 				uni.showToast({
-					title: '已加载全部',
+					title: 'ໂຫຼດທັງໝົດແລ້ວ',
 					icon: 'none',
 					duration: 1000
 				});

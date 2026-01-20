@@ -8,7 +8,7 @@
         <!-- #ifdef MP -->
         <view class="sys-title">
           <view class='iconfont icon-ic_leftarrow' @tap='goBack'></view>
-          领券中心
+          ສູນຮັບຄູປອງ
         </view>
         <!-- #endif -->
         <view class="bg"></view>
@@ -18,19 +18,19 @@
     <view class='header' :style="{marginTop:topHeight}">
       <view class='nav acea-row row-around' :style="{top:topHeight}">
         <view class='item' :class='type==-1 ? "on": ""' @click="statusClick(-1)">
-          <view>全部</view>
+          <view>ທັງໝົດ</view>
         </view>
         <view class='item' :class='type==10 ? "on": ""' @click="statusClick(10)">
-          <view>通用券</view>
+          <view>ຄູປອງທົ່ວໄປ</view>
         </view>
         <view class='item' :class='type==11 ? "on": ""' @click="statusClick(11)">
-          <view>品类券</view>
+          <view>ຄູປອງປະເພດ</view>
         </view>
         <view class='item' :class='type==12 ? "on": ""' @click="statusClick(12)">
-          <view>跨店券</view>
+          <view>ຄູປອງຂ້າມຮ້ານ</view>
         </view>
         <view class='item' :class='type==0 ? "on": ""' @click="statusClick(0)">
-          <view>店铺券</view>
+          <view>ຄູປອງຮ້ານ</view>
         </view>
       </view>
     </view>
@@ -61,13 +61,13 @@
           </view>
           <view class="right">
             <view class="couponlogo" v-if="item.type == 10"
-              :style="{ 'background-image': `url(${domain}/static/images/couponlogo.png)`}">通用券</view>
+              :style="{ 'background-image': `url(${domain}/static/images/couponlogo.png)`}">ຄູປອງທົ່ວໄປ</view>
             <view class="couponlogo" v-if="item.type == 11"
-              :style="{ 'background-image': `url(${domain}/static/images/couponlogo.png)`}">品类券</view>
+              :style="{ 'background-image': `url(${domain}/static/images/couponlogo.png)`}">ຄູປອງປະເພດ</view>
             <view class="couponlogo" v-if="item.type == 12"
-              :style="{ 'background-image': `url(${domain}/static/images/couponlogo.png)`}">跨店券</view>
+              :style="{ 'background-image': `url(${domain}/static/images/couponlogo.png)`}">ຄູປອງຂ້າມຮ້ານ</view>
             <view class="couponlogo" v-if="item.type == 0"
-              :style="{ 'background-image': `url(${domain}/static/images/couponlogo.png)`}">店铺券</view>
+              :style="{ 'background-image': `url(${domain}/static/images/couponlogo.png)`}">ຄູປອງຮ້ານ</view>
             <view class="title" :class="{'disabled' : item.ProductLst.length<=0}">
               <view>
                 <p>
@@ -75,19 +75,19 @@
                   </priceFormat>
                 </p>
                 <p>
-                  <text class='font3' v-if="item.use_min_price == 0">领券立减{{item.coupon_price}}元</text>
-                  <text class='font3' v-else>满{{parsePrice(item.use_min_price)}}元可用</text>
+                  <text class='font3' v-if="item.use_min_price == 0">ຮັບຄູປອງຫຼຸດທັນທີ{{item.coupon_price}}ກີບ</text>
+                  <text class='font3' v-else>ໃຊ້ໄດ້ເມື່ອຊື້{{parsePrice(item.use_min_price)}}ກີບຂຶ້ນໄປ</text>
                 </p>
               </view>
               <view class="btn acea-row row-middle row-center" :class="item.ProductLst.length == 0 ? 'disabled' : ''"
-                v-if="!item.issue" @click="receiveCoupon(item)">{{item.ProductLst.length == 0 ? '暂无法使用' : '立即领取'}}
+                v-if="!item.issue" @click="receiveCoupon(item)">{{item.ProductLst.length == 0 ? 'ບໍ່ສາມາດໃຊ້ໄດ້' : 'ຮັບດຽວນີ້'}}
               </view>
               <navigator :url="'/pages/columnGoods/goods_coupon_list/index?coupon_id='+item.coupon_id"
                 class='btn shiyong acea-row row-middle row-center' hover-class="none"
                 v-if="item.issue && item.ProductLst.length > 0">
-                去使用
+                ໄປໃຊ້
               </navigator>
-              <view v-if="item.issue && item.ProductLst.length == 0" class='btn shiyong disabled'>暂无法使用</view>
+              <view v-if="item.issue && item.ProductLst.length == 0" class='btn shiyong disabled'>ບໍ່ສາມາດໃຊ້ໄດ້</view>
             </view>
           </view>
         </view>
@@ -99,7 +99,7 @@
     <view class='noCommodity' v-if="!list.length && loaded">
       <view class='pictrue'>
         <image :src="`${domain}/static/images/noCoupon.png`"></image>
-        <view>暂无商品，去看点什么吧</view>
+        <view>ຍັງບໍ່ມີສິນຄ້າ, ໄປເບິ່ງອັນອື່ນກ່ອນ</view>
       </view>
     </view>
   </view>

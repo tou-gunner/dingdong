@@ -16,7 +16,7 @@
 			<view class="tabs-box" v-if="tabsOpen">
 				<view class="box-top">
 					<view class="">
-						切换分类
+						ປ່ຽນປະເພດ
 					</view>
 					<view class="">
 						<view class='iconfont icon-ic_uparrow' @click="tabsOpen = false"></view>

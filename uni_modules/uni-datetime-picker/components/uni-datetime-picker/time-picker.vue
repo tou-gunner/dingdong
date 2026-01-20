@@ -114,7 +114,7 @@
 				fixNvueBug: {},
 				dateShow: true,
 				timeShow: true,
-				title: '日期和时间',
+				title: 'ວັນທີ ແລະ ເວລາ',
 				// 输入框当前时间
 				time: '',
 				// 当前的年月日时分秒
@@ -220,15 +220,15 @@
 					if (newValue === 'date') {
 						this.dateShow = true
 						this.timeShow = false
-						this.title = '日期'
+						this.title = 'ວັນທີ'
 					} else if (newValue === 'time') {
 						this.dateShow = false
 						this.timeShow = true
-						this.title = '时间'
+						this.title = 'ເວລາ'
 					} else {
 						this.dateShow = true
 						this.timeShow = true
-						this.title = '日期和时间'
+						this.title = 'ວັນທີ ແລະ ເວລາ'
 					}
 				},
 				immediate: true

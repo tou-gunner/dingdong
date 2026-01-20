@@ -36,12 +36,12 @@
 									<view :class="{ atmosphere: storeInfo.atmosphere_pic }" class='share acea-row row-between row-bottom' style="margin: 0;">
 										<view v-if="storeInfo.atmosphere_pic" class='introduce skeleton-rect'>
 											<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red">{{storeInfo.merchant.type_name}}</text>
-											<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">自营</text>
+											<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">ສິນຄ້າຕົນເອງ</text>
 											{{presellInfo.store_name}}
 										</view>
 										<view v-else class='money p-color skeleton-rect'>
 											<priceFormat :price="presellInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
-											<text class="price_text" :style="{ backgroundImage: `url(${domain}/static/images/price_text.png)` }">预售价</text>
+											<text class="price_text" :style="{ backgroundImage: `url(${domain}/static/images/price_text.png)` }">ລາຄາລ່ວງໜ້າ</text>
 										</view>
 										<view v-if="diyProduct.shareList.length>0" class="fenxiang_btn">
 											<block v-for="(item,index) in diyProduct.shareList" :key="index">
@@ -51,15 +51,15 @@
 									</view>
 									<view class='label acea-row skeleton-rect'>
 										<view v-show="diyProduct.isOpen.includes(0)" class="line-through">¥{{storeInfo.price || ''}}</view>
-										<view v-show="diyProduct.isOpen.includes(1)" style="margin-left: 30rpx;">已预定:{{presellInfo.seles}}{{ storeInfo.unit_name }}</view>
+										<view v-show="diyProduct.isOpen.includes(1)" style="margin-left: 30rpx;">ຈອງແລ້ວ:{{presellInfo.seles}}{{ storeInfo.unit_name }}</view>
 									</view>
 									<view v-if="!storeInfo.atmosphere_pic" class='introduce skeleton-rect'>
 										<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red">{{storeInfo.merchant.type_name}}</text>
-										<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">自营</text>
+										<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">ສິນຄ້າຕົນເອງ</text>
 										{{presellInfo.store_name}}</view>
 									<view class="presell_count">
 										<view class="acea-row row-middle">
-											<view>预售活动时间：</view>
+											<view>ເວລາກິດຈະກຳຂາຍລ່ວງໜ້າ:</view>
 											<view v-if="presellInfo.start_time && presellInfo.end_time" class="presell_time">
 												{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getDate() }}日{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getHours() }}时{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getMinutes()}}分
 												<span class='area_line'>~</span>
@@ -67,7 +67,7 @@
 											</view>
 										</view>
 										<view v-if="presellInfo.presell_type === 2" class="acea-row row-middle">
-											<view>支付尾款时间：</view>
+											<view>ເວລາຊຳລະສ່ວນທີ່ເຫຼືອ:</view>
 											<view v-if="presellInfo.final_start_time && presellInfo.final_end_time" class="presell_time">
 												{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getDate() }}日{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getHours() }}时{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getMinutes()}}分
 												<span class='area_line'>~</span>
@@ -76,12 +76,12 @@
 										</view>
 										<view v-if="presellInfo.delivery_type == 1" class="acea-row row-middle">
 											<text class="iconfont icon-icon_clock-2"></text>
-											<view v-if="presellInfo.presell_type==1" class="presell_time">支付成功后{{ presellInfo.delivery_day }}天内发货</view>
-											<view v-if="presellInfo.presell_type==2" class="presell_time">付尾款成功后{{ presellInfo.delivery_day }}天内发货</view>
+											<view v-if="presellInfo.presell_type==1" class="presell_time">ສົ່ງພາຍໃນ{{ presellInfo.delivery_day }}ມື້ຫຼັງຈາກຊຳລະສຳເລັດ</view>
+											<view v-if="presellInfo.presell_type==2" class="presell_time">ສົ່ງພາຍໃນ{{ presellInfo.delivery_day }}ມື້ຫຼັງຊຳລະສ່ວນທີ່ເຫຼືອ</view>
 										</view>
 										<view v-if="presellInfo.delivery_type == 2">
-											<view>预计发货时间：</view>
-											<view class="presell_time">预售结束后{{ presellInfo.delivery_day }}天内发货</view>
+											<view>ເວລາສົ່ງສິນຄ້າ:</view>
+											<view class="presell_time">ສົ່ງພາຍໃນ{{ presellInfo.delivery_day }}ມື້ຫຼັງສິ້ນສຸດຂາຍລ່ວງໜ້າ</view>
 										</view>
 									</view>
 								</view>
@@ -89,8 +89,8 @@
 							<view v-if="(diyProduct.showCoupon==1 && coupon.list.length > 0) || diyProduct.serviceList.length>0" class="pad20">
 								<view v-if="diyProduct.showCoupon==1 && coupon.list.length > 0" class='coupon acea-row row-between-wrapper skeleton-rect boder-24 bg-f' @click='couponTap'>
 									<view class='hide line1 acea-row'>
-										优惠券：
-										<view class='activity' v-for="(item,index) in coupon.list" :key="index">满{{item.use_min_price}}减{{item.coupon_price}}</view>
+										ຄູປອງ:
+										<view class='activity' v-for="(item,index) in coupon.list" :key="index">ໃຊ້{{item.use_min_price}}ລົດ{{item.coupon_price}}</view>
 									</view>
 									<view class='iconfont icon-ic_rightarrow'></view>
 								</view>
@@ -105,20 +105,20 @@
 								</view>
 								<!--定金预售流程-->
 								<view v-if="presellInfo.presell_type === 2" class='acea-row row-between-wrapper wrapper presell_process bg-f boder-24'>
-									<view>流程：
+									<view>ຂັ້ນຕອນ:
 										<view class='process_count'>
 											<view class="process_line"></view>
-											<span class="text_line text_line1"><text>定金</text></span>
-											<span class="text_line text_line2"><text>尾款</text></span>
-											<span class="text_line text_line3"><text>发货</text></span>
+											<span class="text_line text_line1"><text>ມັດຈຳ</text></span>
+											<span class="text_line text_line2"><text>ສ່ວນທີ່ເຫຼືອ</text></span>
+											<span class="text_line text_line3"><text>ສົ່ງເຄື່ອງ</text></span>
 										</view>
 									</view>
 								</view>
 								<view class='userEvaluation boder-24' id="past1" v-if="replyCount && replyCount>0 && diyProduct.showReply==1">
 									<view class='title acea-row row-between-wrapper'>
-										<view>用户评价({{replyCount}})</view>
+										<view>ຄຳເຫັນຜູ້ໃຊ້({{replyCount}})</view>
 										<navigator class='praise' hover-class='none' :url='"/pages/users/goods_comment_list/index?product_id="+storeInfo.product_id'>
-											<text class='t-color'>{{replyChance}}</text>好评率
+											<text class='t-color'>{{replyChance}}</text>ອັດຕາຄຳຊົມ
 											<text class='iconfont icon-ic_rightarrow'></text>
 										</navigator>
 									</view>
@@ -139,26 +139,26 @@
 												<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red ml8">自营</text>
 												</view>
 												<view class="txt">
-												{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}人关注
+												{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'ໝື່ນ'}}ຄົນຕິດຕາມ
 												</view>
 											</navigator>
-											<navigator :url="'/pages/store/home/index?id='+storeInfo.mer_id" class="link" hover-class="none">进店</navigator>
+											<navigator :url="'/pages/store/home/index?id='+storeInfo.mer_id" class="link" hover-class="none">ເຂົ້າຮ້ານ</navigator>
 										</view>
 										<view class="score-wrapper">
 											<view class="item">
-												商品描述<text>{{storeInfo.merchant.product_score}}</text>
+												ລາຍລະອຽດສິນຄ້າ<text>{{storeInfo.merchant.product_score}}</text>
 											</view>
 											<view class="item">
-												卖家服务<text>{{storeInfo.merchant.service_score}}</text>
+												ບໍລິການຜູ້ຂາຍ<text>{{storeInfo.merchant.service_score}}</text>
 											</view>
 											<view class="item">
-												物流服务<text>{{storeInfo.merchant.postage_score}}</text>
+												ບໍລິການຂົນສົ່ງ<text>{{storeInfo.merchant.postage_score}}</text>
 											</view>
 										</view>
 									</view>
 									<view v-if="recommend && recommend.length > 0 && diyProduct.showRecommend==1" class="con-box">
 										<view class="acea-row row-between">
-											<view class="title">店铺推荐</view>
+											<view class="title">ແນະນຳຈາກຮ້ານ</view>
 										</view>
 										<view class="swiper page_swiper">
 											<swiper
@@ -190,13 +190,13 @@
 									</view>
 								</view>
 								<view class='product-intro' id="past3">
-									<view class='title'>产品介绍</view>
+									<view class='title'>ແນະນຳສິນຄ້າ</view>
 									<view class='conter' v-if="description">
 										<jyf-parser :domain="domain" :html="description.content" ref="article" :tag-style="tagStyle"></jyf-parser>
 									</view>
 									<!-- 价格说明 -->
 									<view v-if="priceRule.content" class="price-info">
-										<view class="price-title">价格说明</view>
+										<view class="price-title">ອະທິບາຍລາຄາ</view>
 										<!-- #ifndef APP-PLUS -->
 										<jyf-parser :domain='domain' :html="priceRule.content.replace(/<br\/>/ig, '')" ref="article" :tag-style="tagStyle"></jyf-parser>
 										<!-- #endif -->
@@ -215,8 +215,8 @@
 			<view class='footer_count'>
 				<view v-if="presellInfo && presellInfo.presell_type === 2 && presellInfo.final_end_time" class="presell_desc">
 					<text v-if="presellInfo.end_time" class='iconfont icon-icon_tip'></text>
-					定金支付时间{{new Date(presellInfo.end_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getDate() }}日{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getHours() }}时{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getMinutes()}}分结束
-					<text>{{ presellInfo.delivery_type === 1 ? '   付尾款后' : '   活动结束后' }}{{ presellInfo.delivery_day }}天内发货</text>
+					ເວລາຊຳລະເງິນມັດຈຳ{{new Date(presellInfo.end_time.replace(/-/g,"/")).getMonth()+1 }}/{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getDate() }} {{ new Date(presellInfo.end_time.replace(/-/g,"/")).getHours() }}:{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getMinutes()}}ສິ້ນສຸດ
+					<text>{{ presellInfo.delivery_type === 1 ? '   ຫຼັງຊຳລະສ່ວນທີ່ເຫຼືອ' : '   ຫຼັງກິດຈະກຳສິ້ນສຸດ' }}{{ presellInfo.delivery_day }}ມື້ຈະສົ່ງເຄື່ອງ</text>
 				</view>
 				<view class="acea-row row-between-wrapper footer" :class="{'noborder' : presellInfo.presell_type === 2, 'footpl':hide_mer_status==1}">
 					<block v-if="diyProduct.footerList.length>0">
@@ -231,14 +231,14 @@
 					</block>
 					<view class='bnt acea-row skeleton-rect'>
 						<form @submit="goBuy" report-submit='true' v-if="attr.productSelect && presellInfo.presell_status == 1">
-							<button v-if="attr.productSelect.stock == 0" class='buy bnts' :class="'virtual_buy virtual_buy'+diyProduct.menuList.length" form-type="submit" disabled>商品已售罄</button>
-							<button v-else class='buy bnts' :class="'virtual_buy virtual_buy'+diyProduct.menuList.length" form-type="submit">{{ presellInfo.presell_type === 1 ? "立即支付" : "立即支付定金："+minNum+'元起'  }}</button>
+							<button v-if="attr.productSelect.stock == 0" class='buy bnts' :class="'virtual_buy virtual_buy'+diyProduct.menuList.length" form-type="submit" disabled>ສິນຄ້າໝົດແລ້ວ</button>
+							<button v-else class='buy bnts' :class="'virtual_buy virtual_buy'+diyProduct.menuList.length" form-type="submit">{{ presellInfo.presell_type === 1 ? "ຊຳລະເງິນດຽວນີ້" : "ຊຳລະເງິນມັດຈຳດຽວນີ້:"+minNum+'ກີບຂຶ້ນໄປ'  }}</button>
 						</form>
 						<form @submit="goBuy" report-submit='true' v-if="attr.productSelect && presellInfo.presell_status == 2">
-							<button class='buy bnts' :class="'virtual_buy virtual_buy'+diyProduct.menuList.length" form-type="submit" disabled>已结束</button>
+							<button class='buy bnts' :class="'virtual_buy virtual_buy'+diyProduct.menuList.length" form-type="submit" disabled>ສິ້ນສຸດແລ້ວ</button>
 						</form>
 						<form @submit="goBuy" report-submit='true' v-if="attr.productSelect && presellInfo.presell_status == 0">
-							<button class='buy bnts' :class="'virtual_buy virtual_buy'+diyProduct.menuList.length" form-type="submit" disabled>未开始</button>
+							<button class='buy bnts' :class="'virtual_buy virtual_buy'+diyProduct.menuList.length" form-type="submit" disabled>ຍັງບໍ່ເລີ່ມ</button>
 						</form>
 					</view>
 				</view>
@@ -271,22 +271,22 @@
 				<!-- #ifndef MP -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' v-if="weixinStatus === true" @click="H5ShareBox = true">
 					<view class="iconfont icon-ic_wechat"></view>
-					<view class="">发送给朋友</view>
+					<view class="">ສົ່ງໃຫ້ໝູ່</view>
 				</button>
 				<!-- #endif -->
 				<!-- #ifdef MP -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" open-type="share" hover-class='none' @click="goFriend">
 					<view class="iconfont icon-ic_wechat"></view>
-					<view class="">发送给朋友</view>
+					<view class="">ສົ່ງໃຫ້ໝູ່</view>
 				</button>
 				<!-- #endif -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @click="downloadFilePromotionCode">
 					<view class="iconfont icon-a-ic_picture1"></view>
-					<view class="">生成海报</view>
+					<view class="">ສ້າງໂປສເຕີ</view>
 				</button>
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @click="copyPwd">
 					<view class="iconfont icon-ic_key"></view>
-					<view>生成口令</view>
+					<view>ສ້າງລະຫັດ</view>
 				</button>
 			</view>
 			<view class="mask" v-if="posters" @click="listenerActionClose"></view>
@@ -298,10 +298,10 @@
 				<image src='../../../static/images/poster-close.png' class='close' @click="posterImageClose"></image>
 				<image :src='posterImage'></image>
 				<!-- #ifndef H5  -->
-				<view class='save-poster' @click="savePosterPath">保存到手机</view>
+				<view class='save-poster' @click="savePosterPath">ບັນທຶກໃສ່ໂທລະສັບ</view>
 				<!-- #endif -->
 				<!-- #ifdef H5 -->
-				<view class="keep">长按图片可以保存到手机</view>
+				<view class="keep">ກົດຄ້າງຮູບເພື່ອບັນທຶກໃສ່ໂທລະສັບ</view>
 				<!-- #endif -->
 			</view>
 			<view class='mask' v-if="posterImageStatus"></view>
@@ -398,7 +398,7 @@
 					'coupon': false,
 					list: [],
 				},
-				attrTxt: '选择', //属性页面提示
+				attrTxt: 'ເລືອກ', //属性页面提示
 				attrValue: '', //已选属性
 				animated: false, //购物车动画
 				id: 0, //商品id
@@ -521,7 +521,7 @@
 			}
 			if (!options.id && !options.scene) {
 				return this.$util.Tips({
-					title: '缺少参数无法查看商品'
+					title: 'ຂາດຂໍ້ມູນ, ບໍ່ສາມາດເບິ່ງສິນຄ້າໄດ້'
 				}, {
 					tab: 3,
 					url: 1
@@ -847,7 +847,7 @@
 						this.$set(this.attr.productSelect, "cart_num", stock);
 						this.$set(this, "cart_num", stock);
 						uni.showToast({
-							title: `购买数量不能超过库存`,
+							title: `ຈຳນວນຊື້ບໍ່ສາມາດເກີນສາງໄດ້`,
 							icon: 'none'
 						})
 					}
@@ -876,7 +876,7 @@
 					this.$set(this.attr.productSelect, "unique", productSelect.unique);
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", res);
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 				} else {
 					this.$set(this.attr.productSelect, "image", this.storeInfo.image);
 					this.$set(this.attr.productSelect, "price", this.storeInfo.price);
@@ -885,7 +885,7 @@
 					this.$set(this.attr.productSelect, "unique", "");
 					this.$set(this.attr.productSelect, "cart_num", 0);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 				}
 			},
 			/**
@@ -903,7 +903,7 @@
 			 */
 			getGoodsDetails: function() {
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ',
 					mask: true
 				});
 				let that = this;
@@ -1031,7 +1031,7 @@
 					this.$set(this.attr.productSelect, "stock", productSelect.stock);
 					this.$set(this.attr.productSelect, "unique", productSelect.unique);
 					this.$set(this, "attrValue", value.join(","));
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 					if (productSelect.stock == 0) {
 						this.$set(this.attr.productSelect, "cart_num", 0);
 					} else {
@@ -1050,7 +1050,7 @@
 					this.$set(this.attr.productSelect, "unique", "");
 					this.$set(this.attr.productSelect, "cart_num", 0);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 				} else if (!productSelect && !productAttr.length) {
 					this.$set(
 						this.attr.productSelect,
@@ -1067,7 +1067,7 @@
 					);
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 				} else if (productSelect && !productAttr.length) {
 					this.$set(
 						this.attr.productSelect,
@@ -1080,7 +1080,7 @@
 					this.$set(this.attr.productSelect, "unique", productSelect.unique);
 					if (this.presellInfo.presell_type === 2) this.$set(this.attr.productSelect, "down_price", productSelect.down_price);
 					this.$set(this, "attrValue", value.join(","));
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 					if (productSelect.stock == 0) {
 						this.$set(this.attr.productSelect, "cart_num", 0);
 					} else {
@@ -1112,7 +1112,7 @@
 							type_id: this.presellInfo.product_presell_id
 						}).then(res => {
 							that.$util.Tips({
-								title: '已取消收藏'
+								title: 'ຍົກເລີກການຕິດຕາມແລ້ວ'
 							});
 							that.$set(that.storeInfo, 'isRelation', !that.storeInfo.isRelation);
 						})
@@ -1122,7 +1122,7 @@
 							type: 2
 						}).then(res => {
 							that.$util.Tips({
-								title: '收藏成功'
+								title: 'ຕິດຕາມສຳເລັດ'
 							});
 							that.$set(that.storeInfo, 'isRelation', !that.storeInfo.isRelation);
 						})
@@ -1164,7 +1164,7 @@
 					productSelect.stock == 0
 				)
 					return that.$util.Tips({
-						title: "产品库存不足，请选择其它"
+						title: "ສິນຄ້າໝົດສາງ, ກະລຸນາເລືອກອັນອື່ນ"
 					});
 				let q = {
 					is_new: 1,
@@ -1184,7 +1184,7 @@
 							});
 						} else {
 							that.$util.Tips({
-								title: "添加购物车成功",
+								title: "ເພີ່ມໃສ່ກະຕ່າສຳເລັດ",
 							});
 						}
 					})
@@ -1286,7 +1286,7 @@
 				that.posters = false;
 				that.$set(that, 'canvasStatus', true);
 				uni.showLoading({
-					title: '海报生成中',
+					title: 'ກຳລັງສ້າງໂປສເຕີ',
 					mask: true
 				});
 				// #ifdef MP || APP-PLUS
@@ -1326,13 +1326,13 @@
 										success: function(res) {
 											that.posterImageClose();
 											that.$util.Tips({
-												title: '保存成功',
+												title: 'ບັນທຶກສຳເລັດ',
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: '保存失败'
+												title: 'ບັນທຶກບໍ່ສຳເລັດ'
 											});
 										}
 									})
@@ -1344,13 +1344,13 @@
 								success: function(res) {
 									that.posterImageClose();
 									that.$util.Tips({
-										title: '保存成功',
+										title: 'ບັນທຶກສຳເລັດ',
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: '保存失败'
+										title: 'ບັນທຶກບໍ່ສຳເລັດ'
 									});
 								},
 							})
@@ -1364,13 +1364,13 @@
 					success: function(res) {
 						that.posterImageClose();
 						that.$util.Tips({
-							title: '保存成功',
+							title: 'ບັນທຶກສຳເລັດ',
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: '保存失败'
+							title: 'ບັນທຶກບໍ່ສຳເລັດ'
 						});
 					},
 				})
@@ -1424,7 +1424,7 @@
 							},
 							fail: function(error) {
 								return that.$util.Tips({
-									title: '请检查图片地址是否在合法域名内'
+									title: 'ກະລຸນາກວດສອບທີ່ຢູ່ຮູບພາບວ່າມີຢູ່ໃນໂດເມນທີ່ຖືກຕ້ອງຫຼືບໍ່'
 								});
 							}
 						});

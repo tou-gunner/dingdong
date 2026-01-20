@@ -10,19 +10,19 @@
 								<view class="live-top" :class="item.live_status == 102 ? 'playRadius' : 'notPlayRadius'" :style="'background:' + (item.live_status == 101 ? playBg : (item.live_status != 101 && item.live_status != 102) ? endBg : notBg) + ';'">
 									<block v-if="item.live_status == 101">
 										<image :src="`${domain}/static/images/live-01.png`" mode=""></image>
-										<text>直播中</text>
+										<text>ກຳລັງຖ່າຍທອດ</text>
 									</block>
 									<block v-if="item.live_status == 103 && item.replay_status === 1">
 										<image :src="`${domain}/static/images/live-02.png`" mode=""></image>
-										<text>回放</text>
+										<text>ເບິ່ງຄືນ</text>
 									</block>
 									<block v-if="(item.live_status != 101 && item.live_status != 102 && item.live_status != 103) ||  (item.live_status == 103 && item.replay_status == 0)">
 										<image :src="`${domain}/static/images/live-02.png`" mode=""></image>
-										<text>已结束</text>
+										<text>ສິ້ນສຸດແລ້ວ</text>
 									</block>
 									<block v-if="item.live_status == 102">
 										<image :src="`${domain}/static/images/live-03.png`" mode=""></image>
-										<text>预告</text>
+										<text>ລ່ວງໜ້າ</text>
 									</block>
 								</view>
 								<view v-if="item.live_status == 101 || item.live_status == 102" class="broadcast-time">{{ item.show_time }}</view>
@@ -75,7 +75,7 @@
 			return {
 				topImage: '',
 				broadcastList: [],
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				scrollLeft: 0,
 				interval: 0,
 				status: 1,
@@ -100,13 +100,13 @@
 				menus: ['shareAppMessage', 'shareTimeline']
 			})
 			return {
-				title: '直播',
+				title: 'ຖ່າຍທອດສົດ',
 				path: 'pages/activity/liveBroadcast/index',
 			}
 		},
 		onShareTimeline: function() {
 			return {
-				title: '直播',
+				title: 'ຖ່າຍທອດສົດ',
 				  query: {
 				    key: ''
 				  },
@@ -135,10 +135,10 @@
 					that.page = that.page;
 					that.pageloading = false;
 					that.loadend = loadend;
-					that.loadTitle = loadend ? '我也是有底线的' : '加载更多';
+					that.loadTitle = loadend ? 'ບໍ່ມີຂໍ້ມູນເພີ່ມ' : 'ໂຫຼດເພີ່ມ';
 				}).catch(err => {
 					that.pageloading = false
-					that.loadTitle = '我也是有底线的'
+					that.loadTitle = 'ບໍ່ມີຂໍ້ມູນເພີ່ມ'
 				});
 			},
 		},

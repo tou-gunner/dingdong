@@ -3,7 +3,7 @@
 		<view class="box" id="box" :style="{marginLeft: `${distance}px`}">
 			<view class="user-list" v-for="(item,index) in combinationUserList" :key="index">
 				<image v-show="init" class="header-img" :src="item.avatar ? item.avatar : '/static/images/f.png'" mode=""></image>
-				<text v-show="init" class="user-name">***** 拼团成功</text>
+				<text v-show="init" class="user-name">***** ສັ່ງກຸ່ມສຳເລັດ</text>
 			</view>
 		</view>
 	</view>

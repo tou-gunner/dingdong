@@ -136,7 +136,7 @@ export default {
 						this.animation[i](obj[i])
 					}
 				} catch (e) {
-					console.error(`方法 ${i} 不存在`)
+					console.error(`ວິທີການ ${i} ບໍ່ມີ`)
 				}
 			}
 			this.animation.step(config)

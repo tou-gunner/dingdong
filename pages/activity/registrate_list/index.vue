@@ -8,20 +8,20 @@
 					<view class="bottom acea-row">
 						<view>
 							<view class="item">
-								<view class="name">已报名人数：</view>
+								<view class="name">ຄົນລົງທະບຽນແລ້ວ:</view>
 								<view class="count">
-									{{item.total}}人
+									{{item.total}}ຄົນ
 								</view>
 							</view>
 							<view class="item">
-								<view class="name">报名截止时间：</view>
+								<view class="name">ປິດລົງທະບຽນ:</view>
 								<view class="count">
 									{{formatDate(new Date(item.end_time))}}
 								</view>
 							</view>
 						</view>
-						<view v-if="item.total==item.count && item.count!=0" class="go-sign disabled">已报满</view>
-						<view v-else class="go-sign" :class="{'disabled' : item.time_status!=1}">{{item.time_status==-1?'已结束' : item.time_status==0?'未开始':'去报名'}}</view>
+						<view v-if="item.total==item.count && item.count!=0" class="go-sign disabled">ເຕັມແລ້ວ</view>
+						<view v-else class="go-sign" :class="{'disabled' : item.time_status!=1}">{{item.time_status==-1?'ສິ້ນສຸດແລ້ວ' : item.time_status==0?'ຍັງບໍ່ເລີ່ມ':'ໄປລົງທະບຽນ'}}</view>
 					</view>
 				</view>
 			</view>
@@ -29,7 +29,7 @@
 		<view class='no-shop' v-if="!listData.length && !loading">
 			<view class='pictrue' style="margin: 0 auto;">
 				<image :src="`${domain}/static/images/no_thing.png`"></image>
-				<text>暂无数据!</text>
+				<text>ຍັງບໍ່ມີຂໍ້ມູນ!</text>
 			</view>
 		</view>
 	</view>
@@ -72,7 +72,7 @@
 			getListData() {
 				this.loading = true
 				uni.showLoading({
-					title: '数据加载中',
+					title: 'ກຳລັງໂຫຼດຂໍ້ມູນ',
 				});
 				getRechargeList(this.pageData).then(res => {
 					this.count = res.data.count
@@ -104,7 +104,7 @@
 		onReachBottom() {
 			if (this.count == this.listData.length) {
 				uni.showToast({
-					title: '没有更多啦',
+					title: 'ບໍ່ມີຂໍ້ມູນເພີ່ມ',
 					icon: 'none',
 					duration: 1000
 				});

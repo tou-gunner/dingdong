@@ -1,0 +1,22 @@
+{
+	"uni-datetime-picker.selectDate": "ເລືອກວັນທີ",
+	"uni-datetime-picker.selectTime": "ເລືອກເວລາ",
+	"uni-datetime-picker.selectDateTime": "ເລືອກວັນທີ ແລະ ເວລາ",
+	"uni-datetime-picker.startDate": "ວັນທີເລີ່ມຕົ້ນ",
+	"uni-datetime-picker.endDate": "ວັນທີສິ້ນສຸດ",
+	"uni-datetime-picker.startTime": "ເວລາເລີ່ມຕົ້ນ",
+	"uni-datetime-picker.endTime": "ເວລາສິ້ນສຸດ",
+	"uni-datetime-picker.ok": "ຕົກລົງ",
+	"uni-datetime-picker.clear": "ລຶບລ້າງ",
+	"uni-datetime-picker.cancel": "ຍົກເລີກ",
+	"uni-datetime-picker.year": "ປີ",
+	"uni-datetime-picker.month": "ເດືອນ",
+	"uni-calender.SUN": "ອາ",
+	"uni-calender.MON": "ຈ",
+	"uni-calender.TUE": "ອ",
+	"uni-calender.WED": "ພ",
+	"uni-calender.THU": "ພຫ",
+	"uni-calender.FRI": "ສ",
+	"uni-calender.SAT": "ສ",
+	"uni-calender.confirm": "ຢືນຢັນ"
+}

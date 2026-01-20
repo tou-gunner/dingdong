@@ -11,13 +11,13 @@
 				<view class="header">
 					<view class="sys-head" :style="{height:sysHeight}"></view>
 					<view class='people'>
-						{{bargainInfo.view_num || 0}}人查看 丨 {{bargainInfo.share_num || 0}}人分享 丨 {{bargainInfo.user_count_all || 0}}人参与
+						{{bargainInfo.view_num || 0}}ຄົນເບິ່ງ 丨 {{bargainInfo.share_num || 0}}ຄົນແບ່ງປັນ 丨 {{bargainInfo.user_count_all || 0}}ຄົນເຂົ້າຮ່ວມ
 					</view>
 				</view>
 			</view>
 			<view class="pad20 assist-wrapper">
 				<view v-if="bargainInfo.relation == 10" class='pictime' :style="{ 'background-image': `url(${domain}/static/images/assist-time.png)`}">
-					<countDown :tipText="'倒计时'" :dayText="'天'" :hourText="':'" :minuteText="':'" :secondText="' '" :datatime="datatime" :colorTheme="true" :noTheme="true" :isDay="true"></countDown>
+					<countDown :tipText="'ນັບຖອຍຫຼັງ'" :dayText="'ມື້'" :hourText="':'" :minuteText="':'" :secondText="' '" :datatime="datatime" :colorTheme="true" :noTheme="true" :isDay="true"></countDown>
 				</view>
 				<view v-if="bargainInfo.relation == 1 || bargainInfo.relation == -2" class='pictxt' :style="{ 'background-image': `url(${domain}/static/images/assist-time.png)`}">
 					<view class="picheight acea-row row-center-wrapper">
@@ -26,7 +26,7 @@
 						</view>
 						<view class='text'>
 							<text>{{userInfo.nickname || ''}}</text>
-							邀请您助力加油
+							ເຊີນທ່ານມາຊ່ວຍເຫຼືອ
 						</view>
 					</view>
 				</view>
@@ -39,11 +39,11 @@
 							<view class='text acea-row row-column-between'>
 								<view>
 									<view class='line2'>{{bargainData.store_name}}</view>
-									<view class='successNum'>已有<text>{{bargainInfo.user_count_product}}</text>人助力成功</view>
+									<view class='successNum'>ມີແລ້ວ<text>{{bargainInfo.user_count_product}}</text>ຄົນຊ່ວຍເຫຼືອສຳເລັດ</view>
 								</view>
 								<view>
 									<view class='money'>
-										<text class="money-text">当前</text>
+										<text class="money-text">ປັດຈຸບັນ</text>
 										<priceFormat :price="bargainPrice" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 									</view>
 								</view>
@@ -57,10 +57,10 @@
 							<view class="acea-row row-between-wrapper">
 								<view class="assist-schedule" :style="'left:'+ (bargainInfo.yet_assist_count/bargainInfo.assist_count*100).toFixed(2) +'%;'">
 									<image class="chopper" :src="`${domain}/static/images/assist_chopper.png`"></image>
-									<view class="assist-count" :class="bargainInfo.yet_assist_count<=0 ? 'opacity0' : ''">{{bargainInfo.yet_assist_count}}人已助力</view>
+									<view class="assist-count" :class="bargainInfo.yet_assist_count<=0 ? 'opacity0' : ''">{{bargainInfo.yet_assist_count}}ຄົນຊ່ວຍແລ້ວ</view>
 								</view>
 								<view class='money'>
-									<view v-if="bargainInfo.yet_assist_count != bargainInfo.assist_count">还差{{bargainInfo.assist_count-bargainInfo.yet_assist_count}}人</view>
+									<view v-if="bargainInfo.yet_assist_count != bargainInfo.assist_count">ຍັງຂາດ{{bargainInfo.assist_count-bargainInfo.yet_assist_count}}ຄົນ</view>
 								</view>
 							</view>
 						</block>
@@ -69,43 +69,43 @@
 							<view v-if="bargainInfo.yet_assist_count == bargainInfo.assist_count">
 								<view class='bargainSuccess acea-row row-middle row-center'>
 									<text class='iconfont icon-a-ic_CompleteSelect'></text>
-									<view class="red">恭喜您助力成功，快去支付</view>
+									<view class="red">ຍິນດີດ້ວຍ, ທ່ານຊ່ວຍເຫຼືອສຳເລັດແລ້ວ, ໄປຊຳລະເງິນດຽວນີ້</view>
 								</view>
-								<view v-if="bargainInfo.order.paid != 0 && bargainInfo.order.paid != 1" class='bargainBnt' @tap='goPay'>立即支付</view>
-								<view v-else class='bargainBnt' @tap='goOrderDetail(bargainInfo.order)'>查看订单</view>
-								<view class='bargainBnt on' @tap='goBargainList'>抢更多商品</view>
+								<view v-if="bargainInfo.order.paid != 0 && bargainInfo.order.paid != 1" class='bargainBnt' @tap='goPay'>ຊຳລະເງິນດຽວນີ້</view>
+								<view v-else class='bargainBnt' @tap='goOrderDetail(bargainInfo.order)'>ເບິ່ງຄຳສັ່ງຊື້</view>
+								<view class='bargainBnt on' @tap='goBargainList'>ຊື້ສິນຄ້າເພີ່ມເຕີມ</view>
 							</view>
 							<view v-else>
 								<!-- #ifdef H5 -->
-								<button class='bargainBnt' v-if="$wechat.isWeixin()" @click="H5ShareBox = true">邀请好友助力</button>
+								<button class='bargainBnt' v-if="$wechat.isWeixin()" @click="H5ShareBox = true">ເຊີນໝູ່ເພື່ອນມາຊ່ວຍເຫຼືອ</button>
 								<button v-else class='bargainBnt copy-data' :data-clipboard-text="protocol +
 									'//' +
 									host +
 									'/pages/activity/assist_detail/index?id='+
-									id+'&spid='+uid">邀请好友助力</button>
+									id+'&spid='+uid">ເຊີນໝູ່ເພື່ອນມາຊ່ວຍເຫຼືອ</button>
 								<!-- #endif -->
 								<!-- #ifdef MP-->
-								<button open-type='share' class='bargainBnt'>邀请好友助力</button>
+								<button open-type='share' class='bargainBnt'>ເຊີນໝູ່ເພື່ອນມາຊ່ວຍເຫຼືອ</button>
 								<!-- #endif -->
 								<!-- #ifdef APP-PLUS -->
-								  <button class='bargainBnt' @click="listenerActionSheet">邀请好友助力</button>
+								  <button class='bargainBnt' @click="listenerActionSheet">ເຊີນໝູ່ເພື່ອນມາຊ່ວຍເຫຼືອ</button>
 								<!-- #endif -->
 							</view>
 						</view>
 						<view v-if="bargainInfo.relation == 1">
-							<view class='bargainBnt' @tap='setBargainHelp' :class="load ? 'disabled' : ''">为好友助力</view>
+							<view class='bargainBnt' @tap='setBargainHelp' :class="load ? 'disabled' : ''">ຊ່ວຍເພື່ອນ</view>
 						</view>
 						<view v-if="bargainInfo.relation == -1 || bargainInfo.relation == -2">
 							<view>
 								<view v-if="bargainInfo.relation == -2" class='bargainSuccess  acea-row row-middle row-center'>
 									<text class='iconfont icon-a-ic_CompleteSelect'></text>
-									<view>已成功助力好友</view>
+									<view>ຊ່ວຍເພື່ອນສຳເລັດແລ້ວ</view>
 								</view>
 								<view v-else class='bargainSuccess acea-row row-middle row-center'>
 									<text class='iconfont icon-a-ic_CompleteSelect' style="color: #999999;"></text>
-									<view>商品助力次数上限</view>
+									<view>ເກີນຈຳນວນຄັ້ງຊ່ວຍເຫຼືອສິນຄ້າ</view>
 								</view>
-								<view class='bargainBnt' @tap='currentBargainUser'>我也要发起助力</view>
+								<view class='bargainBnt' @tap='currentBargainUser'>ຂ້ອຍກໍຢາກເລີ່ມຊ່ວຍເຫຼືອ</view>
 							</view>
 						</view>
 					</view>
@@ -127,12 +127,12 @@
 										</view>
 									</view>
 									<view class='money t-color'>
-										已助力
+										ຊ່ວຍແລ້ວ
 									</view>
 								</view>
 							</block>
 						</view>
-						<view class='load font-color' v-if="!limitStatus" @tap='getBargainUser'>点击加载更多</view>
+						<view class='load font-color' v-if="!limitStatus" @tap='getBargainUser'>ກົດເພື່ອໂຫຼດເພີ່ມ</view>
 					</view>
 				</view>
 				<view class='goodsDetails boder-24 mt20'>
@@ -153,11 +153,11 @@
 		<view class="generate-posters acea-row row-middle" :class="posters ? 'on' : ''">
 			<button class="item" hover-class='none' @tap="downloadFilePromotionCode">
 				<view class="iconfont icon-a-ic_picture1"></view>
-				<view class="">生成海报</view>
+				<view class="">ສ້າງໂປສເຕີ</view>
 			</button>
 			<button class="item" hover-class='none' @click="copyPwd">
 				<view class="iconfont icon-ic_key"></view>
-				<view>生成口令</view>
+				<view>ສ້າງລະຫັດ</view>
 			</button>
 		</view>
 		<view class="mask" v-if="posters || posterImageStatus" @click="listenerActionClose"></view>
@@ -168,10 +168,10 @@
 			<image src='../../../static/images/poster-close.png' class='close' @click="posterImageClose"></image>
 			<image class="poster-image" :src='posterImage'></image>
 			<!-- #ifndef H5  -->
-			<view class='save-poster' @click="savePosterPath">保存到手机</view>
+			<view class='save-poster' @click="savePosterPath">ບັນທຶກໃສ່ໂທລະສັບ</view>
 			<!-- #endif -->
 			<!-- #ifdef H5 -->
-			<view class="keep">长按图片可以保存到手机</view>
+			<view class="keep">ກົດຄ້າງຮູບເພື່ອບັນທຶກໃສ່ໂທລະສັບ</view>
 			<!-- #endif -->
 		</view>
 		<canvas class="canvas" canvas-id='myCanvas' v-if="canvasStatus"></canvas>
@@ -361,7 +361,7 @@
 			}
 			shareScence(that.currSpid,that.isLogin)
 			uni.setNavigationBarTitle({
-				title: '助力详情'
+				title: 'ລາຍລະອຽດການຊ່ວຍເຫຼືອ'
 			})
 		},
 		onShow: function(){
@@ -376,7 +376,7 @@
 				const clipboard = new ClipboardJS(".copy-data");
 				clipboard.on("success", () => {
 					this.$util.Tips({
-						title: '链接已复制成功，请粘贴分享'
+						title: 'ຄັດລອກລິ້ງສຳເລັດແລ້ວ, ກະລຸນາວາງເພື່ອແບ່ງປັນ'
 					});
 				});
 			});
@@ -408,7 +408,7 @@
 				that.posters = false;
 				that.$set(that, 'canvasStatus', true);
 				uni.showLoading({
-					title: '海报生成中',
+					title: 'ກຳລັງສ້າງໂປສເຕີ',
 					mask: true
 				});
 				// #ifdef H5
@@ -509,13 +509,13 @@
 					success: function(res) {
 						that.posterImageClose();
 						that.$util.Tips({
-							title: '保存成功',
+							title: 'ບັນທຶກສຳເລັດ',
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: '保存失败'
+							title: 'ບັນທຶກບໍ່ສຳເລັດ'
 						});
 					},
 				})
@@ -660,9 +660,9 @@
 			setOpenShare() {
 				let that = this;
 				let configTimeline = {
-					title: "您的好友" +
+					title: "ໝູ່ຂອງທ່ານ " +
 						that.userInfo.nickname +
-						"邀请您助力" +
+						" ເຊີນທ່ານມາຊ່ວຍເຫຼືອ " +
 						that.bargainInfo.product.store_name,
 					desc: that.bargainInfo.product.store_name,
 					link: window.location.protocol +
@@ -714,7 +714,7 @@
 		onShareAppMessage: function() {
 			let that = this,
 				share = {
-					title: '您的好友' + that.userInfo.nickname + '邀请您帮他助力' + that.bargainInfo.product.store_name + ' 快去帮忙吧！',
+					title: 'ໝູ່ຂອງທ່ານ ' + that.userInfo.nickname + ' ເຊີນທ່ານມາຊ່ວຍເຫຼືອ ' + that.bargainInfo.product.store_name + ' ໄປຊ່ວຍດຽວນີ້!',
 					path: '/pages/activity/assist_detail/index?id=' + this.id+'&spread='+that.uid,
 					imageUrl: that.bargainInfo.product.image,
 				};

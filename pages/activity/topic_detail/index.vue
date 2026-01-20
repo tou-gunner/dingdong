@@ -43,7 +43,7 @@
 								<view class="acea-row row-middle">
 									<view class='money'>¥<text class='num'>{{item.price}}</text></view>
 								</view>
-								<view v-if="theme != 1" class="score">{{item.rate}}评分 {{item.reply_count}}条评论</view>
+								<view v-if="theme != 1" class="score">{{item.rate}}ຄະແນນ {{item.reply_count}}ຄຳເຫັນ</view>
 							</view>
 						</view>
 					</view>

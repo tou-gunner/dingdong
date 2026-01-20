@@ -3,7 +3,7 @@
 			<view class="poster-bg" v-if="posterStatus">
 				<view class="poster-tip acea-row row-middle row-center">
 					<text class="iconfont icon-a-ic_tanhao1"></text>
-					<text>提示：点击图片即可保存至手机相册</text>
+					<text>ຄຳແນະນຳ: ກົດຮູບເພື່ອບັນທຶກໃສ່ອັນລະບັ້ມ</text>
 				</view>
 				<view class='poster-pop'>
 					<image src='../../../static/images/poster-close.png' class='close' @click="posterImageClose"></image>
@@ -12,10 +12,10 @@
 						<canvas class="canvas" :style="{width:wd+'px',height:hg+'px'}" canvas-id="myCanvas" v-else></canvas>
 					</view>
 					<!-- #ifndef H5  -->
-					<view v-if="posterImage" class='save-poster' @click="savePosterPath(posterImage)">保存到手机</view>
+					<view v-if="posterImage" class='save-poster' @click="savePosterPath(posterImage)">ບັນທຶກໃສ່ໂທລະສັບ</view>
 					<!-- #endif -->
 					<!-- #ifdef H5 -->
-					<view v-if="posterImage" class="keep">长按图片可以保存到手机</view>
+					<view v-if="posterImage" class="keep">ກົດຄ້າງຮູບເພື່ອບັນທຶກໃສ່ໂທລະສັບ</view>
 					<!-- #endif -->
 				</view>
 			</view>
@@ -66,7 +66,7 @@
 			async posterShow() {
 				let that = this;
 				uni.showLoading({
-					title: '海报生成中',
+					title: 'ກຳລັງສ້າງໂປສເຕີ',
 					mask: true
 				});
 				let arr, bag_pic, goods_img, mp_code
@@ -105,13 +105,13 @@
 										filePath: url,
 										success: function(res) {
 											that.$util.Tips({
-												title: '保存成功',
+												title: 'ບັນທຶກສຳເລັດ',
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: '保存失败'
+												title: 'ບັນທຶກບໍ່ສຳເລັດ'
 											});
 										}
 									});
@@ -122,13 +122,13 @@
 								filePath: url,
 								success: function(res) {
 									that.$util.Tips({
-										title: '保存成功',
+										title: 'ບັນທຶກສຳເລັດ',
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: '保存失败'
+										title: 'ບັນທຶກບໍ່ສຳເລັດ'
 									});
 								}
 							});
@@ -142,13 +142,13 @@
 					success: function(res) {
 						that.posterImageClose();
 						that.$util.Tips({
-							title: '保存成功',
+							title: 'ບັນທຶກສຳເລັດ',
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: '保存失败'
+							title: 'ບັນທຶກບໍ່ສຳເລັດ'
 						});
 					},
 				})
@@ -275,7 +275,7 @@
 					fail: function(err) {
 						uni.hideLoading();
 						that.Tips({
-							title: '无法获取图片信息'
+							title: 'ບໍ່ສາມາດດຶງຂໍ້ມູນຮູບໄດ້'
 						});
 					}
 				})

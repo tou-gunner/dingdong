@@ -228,7 +228,7 @@
 						}
 						this.$emit('load')
 					}).catch(err=>{
-						console.error('失败信息',err)
+						console.error('ຂໍ້ມູນຄວາມລົ້ມເຫລວ',err)
 						this.$emit('loadFail',err)
 					})
 				},
@@ -354,7 +354,7 @@
 			},
 			async getImageInfo(imageSrc) {
 				uni.showLoading({
-					title: "获取图片信息"
+					title: "ກຳລັງໂຫລດຮູບພາບ"
 				})
 				return uni.getImageInfo({
 					src: imageSrc
@@ -399,7 +399,7 @@
 				}).catch(err => {
 					uni.hideLoading()
 					uni.showToast({
-						title: "图片加载失败",
+						title: "ໂຫລດຮູບພາບລົ້ມເຫລວ",
 						icon: "none"
 					})
 					throw Error(err)
@@ -656,9 +656,9 @@
 				// }
 				if (!this.imageInfo) {
 					uni.showToast({
-						title: "图片尚未载入完成"
+						title: "ຮູບພາບຍັງບໍ່ໄດ້ໂຫລດສຳເລັດ"
 					})
-					return [new Error("图片尚未载入完成"), null]
+					return [new Error("ຮູບພາບຍັງບໍ່ໄດ້ໂຫລດສຳເລັດ"), null]
 				}
 				this.showCanvas = true
 				this.$emit('cropStart')
@@ -734,11 +734,11 @@
 						destHeight: this.dSize.height,
 						quality: this.quality,
 						success(res) {
-							console.log("裁剪成功")
+							console.log("ຕັດຮູບສຳເລັດ")
 							resolve([null, res])
 						},
 						fail(err) {
-							console.log("裁剪失败", err)
+							console.log("ຕັດຮູບລົ້ມເຫລວ", err)
 							resolve([err, null])
 						},
 						complete: () => {

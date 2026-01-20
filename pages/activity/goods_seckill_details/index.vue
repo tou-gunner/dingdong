@@ -31,7 +31,7 @@
 									<text class='y-money regular'>¥{{storeInfo.ot_price}}</text></view>
 								<view class='acea-row row-middle skeleton-rect' v-if="storeInfo.seckill_status == '1'">
 									<view class='time'>
-										<view>距秒杀结束仅剩</view>
+										<view>ເຫຼືອເວລາ</view>
 										<countDown :is-day="false" :tip-text="' '" :day-text="' '" :hour-text="' : '" :minute-text="' : '" :second-text="' '" :colorTheme="true" :noBorder="true" :datatime="datatime"></countDown>
 									</view>
 								</view>
@@ -126,7 +126,7 @@
 										</view>
 									</view>
 									<view v-if="storeInfo.merchant.recommend && storeInfo.merchant.recommend.length > 0 && diyProduct.showRecommend==1" class="con-box">
-										<view class="title">店铺推荐</view>
+										<view class="title">ແນະນຳຈາກຮ້ານ</view>
 										<view class="swiper page_swiper" :style="'height:'+swiperHeight+'rpx'">
 											<swiper
 												indicator-dots="true"
@@ -157,7 +157,7 @@
 									</view>
 								</view>
 								<view class='product-intro' id="past3">
-									<view class='title'>产品介绍</view>
+									<view class='title'>ແນະນຳສິນຄ້າ</view>
 									<view class='conter' v-if="description">
 										<jyf-parser :domain='domain' :html="description.content" ref="article" :tag-style="tagStyle"></jyf-parser>
 									</view>
@@ -1446,3 +1446,5 @@
 		height: 1190px;
 	}
 </style>
+/style>
+>

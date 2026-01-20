@@ -13,7 +13,7 @@
 				<view v-if="isFixed" class="mp-height" :style="{height:topHeight}">
 					<view class="mp-top acea-row row-middle row-center" :style="{top:sysHeight,height:sysHeight}">
 						<view class='iconfont icon-ic_leftarrow' @tap='goBack'></view>
-						<view>限时秒杀</view>
+						<view>ຂາຍແຟຣສ</view>
 					</view>
 				</view>
 				<!--#endif-->
@@ -41,7 +41,7 @@
 								</view>
 								<view>
 									<view class='money'>
-										<text>秒杀价：</text>
+										<text>ລາຄາແຟຣສ:</text>
 										<priceFormat :price="item.price" weight intSize="40" floatSize="26" labelSize="26"></priceFormat>
 										<text class="y_money">¥{{item.ot_price}}</text>
 									</view>
@@ -138,13 +138,13 @@
 				menus: ['shareAppMessage', 'shareTimeline']
 			})
 			return {
-				title: '秒杀活动',
+				title: 'ກິດຈະກຳແຟຣສເຊວ',
 				path: 'pages/activity/goods_seckill/index',
 			}
 		},
 		onShareTimeline: function() {
 			return {
-				title: '秒杀活动',
+				title: 'ກິດຈະກຳແຟຣສເຊວ',
 				  query: {
 				    key: ''
 				  },
@@ -463,3 +463,10 @@
 		background-repeat: no-repeat;
 	}
 </style>
+}
+</style>
+
+t;
+	}
+</style>
+

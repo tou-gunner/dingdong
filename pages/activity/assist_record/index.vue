@@ -9,11 +9,11 @@
 						</div>
 						<div class="text acea-row row-column-around">
 							<div v-if="item.product" class="line1" style="width: 100%;">{{ item.product.store_name }}</div>
-							<count-down :justify-left="'justify-content:left'" :is-day="true" :tip-text="'倒计时 '" :day-text="' 天 '" :hour-text="' 时 '" :minute-text="' 分 '"
-							 :second-text="' 秒'" :datatime="item.stop_time" :isView="true" v-if="item.status === 1" :id="item.product_assist_set_id"></count-down>
+							<count-down :justify-left="'justify-content:left'" :is-day="true" :tip-text="'ນັບຖອຍຫຼັງ '" :day-text="' ມື້ '" :hour-text="' ຊມ '" :minute-text="' ນທ '"
+							 :second-text="' ວິ'" :datatime="item.stop_time" :isView="true" v-if="item.status === 1" :id="item.product_assist_set_id"></count-down>
 							 <view class="acea-row price_count acea-row row-bottom">
 								 <view class='money t-color acea-row row-bottom'>
-								 	<view>助力价:</view>
+								 	<view>ລາຄາຊ່ວຍເຫຼືອ:</view>
 								 	<view class='num' v-if="item.assistSku && item.assistSku[0]">
 										<priceFormat :price="item.assistSku[0].assist_price" weight intSize="40" floatSize="26" labelSize="26"></priceFormat>
 									</view>
@@ -25,21 +25,21 @@
 						</div>
 					</div>
 					<div class="bottom acea-row row-between-wrapper">
-						<div class="purple" v-if="item.status === 1 || item.status === 0">活动进行中</div>
-						<div class="success" v-if="item.status === 10 || item.status === 20">助力成功</div>
-						<div class="end" v-if="item.status === -1">活动已结束</div>
+						<div class="purple" v-if="item.status === 1 || item.status === 0">ກິດຈະກຳກຳລັງດຳເນີນ</div>
+						<div class="success" v-if="item.status === 10 || item.status === 20">ຊ່ວຍເຫຼືອສຳເລັດ</div>
+						<div class="end" v-if="item.status === -1">ກິດຈະກຳສິ້ນສຸດແລ້ວ</div>
 						<div class="acea-row row-middle row-right">
 							<div v-if="item.status === 1 || item.status === 0">
-								<div class="bnt cancel" @click="getBargainUserCancel(item.product_assist_set_id)">
-									取消活动
-								</div>
-								<div class="bnt b-color" @click="getInvitation(item.product_assist_set_id)">
-									邀请助力
-								</div>
+<div class="bnt cancel" @click="getBargainUserCancel(item.product_assist_set_id)">
+								ຍົກເລີກກິດຈະກຳ
+							</div>
+<div class="bnt b-color" @click="getInvitation(item.product_assist_set_id)">
+								ເຊີນຊ່ວຍເຫຼືອ
+							</div>
 							</div>
 							<div v-if="item.status === 10 || item.status === 20">
-								<view v-if="(item.order.paid == 0 || item.order.paid == 1) && item.status === 20"class="bnt b-color" @click="goOrderDetail(item.order)">查看详情</view>
-								<view v-else  class="bnt b-color" @click="goPay(item)">立即付款</view>
+								<view v-if="(item.order.paid == 0 || item.order.paid == 1) && item.status === 20"class="bnt b-color" @click="goOrderDetail(item.order)">ເບິ່ງລາຍລະອຽດ</view>
+								<view v-else  class="bnt b-color" @click="goPay(item)">ຊຳລະເງິນດຽວນີ້</view>
 							</div>
 						</div>
 					</div>
@@ -48,7 +48,7 @@
 			</div>
 		</block>
 		<block v-if="bargain.length == 0">
-			<emptyPage title="暂无记录～" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
+			<emptyPage title="ຍັງບໍ່ມີບັນທຶກ~" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
 		</block>
 		<home></home>
 	</view>

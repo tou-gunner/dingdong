@@ -9,7 +9,7 @@
         <view class="money">
           <priceFormat :price="storeCombination.price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
           <text class="team sColor"
-            v-text="(combinationData.buying_count_num ? combinationData.buying_count_num : '') + '人拼'"></text>
+            v-text="(combinationData.buying_count_num ? combinationData.buying_count_num : '') + 'ຄົນຕໍ່ກຸ່ມ'"></text>
         </view>
       </view>
       <view v-if="pinkBool === -1" class="iconfont icon-pintuanshibai"></view>
@@ -19,17 +19,17 @@
       <view class="title acea-row row-center-wrapper" v-if="pinkBool === 0">
         <view class="line"></view>
         <view class="name acea-row row-center-wrapper">
-          剩余
+          ເຫຼືອ
           <CountDown :justifyLeft="justifyLeft" :is-day="false" :tip-text="' '" :day-text="' '" :hour-text="' : '"
             :minute-text="' : '" :second-text="' '" :isTheme="true" :isBold="true" :datatime="combinationData.end_time">
           </CountDown>
-          结束
+          ສິ້ນສຸດ
         </view>
         <view class="line"></view>
       </view>
-      <view class="tips t-color" v-if="pinkBool === 10">恭喜您拼团成功</view>
-      <view class="tips" v-else-if="pinkBool === -1">还差{{ count }}人，拼团失败</view>
-      <view class="tips t-color" v-else-if="pinkBool === 0">拼团中，还差{{ count }}人拼团成功</view>
+      <view class="tips t-color" v-if="pinkBool === 10">ຍິນດີດ້ວຍ, ສັ່ງກຸ່ມສຳເລັດ</view>
+      <view class="tips" v-else-if="pinkBool === -1">ຍັງຂາດ{{ count }}ຄົນ, ສັ່ງກຸ່ມບໍ່ສຳເລັດ</view>
+      <view class="tips t-color" v-else-if="pinkBool === 0">ກຳລັງສັ່ງກຸ່ມ, ຍັງຂາດ{{ count }}ຄົນຈະສຳເລັດ</view>
       <view class="list acea-row row-middle" :class="iShidden ? 'on' : 'result'">
         <view class="acea-row row-middle" v-if="pinkAll.length > 0">
           <view class="pictrue" v-for="(item, index) in pinkAll" :key="index">
@@ -41,30 +41,30 @@
         </view>
       </view>
       <view v-if="count > 9" class="lookAll acea-row row-center-wrapper" @click="lookAll">
-        {{ iShidden ? '收起' : '查看全部' }}
+        {{ iShidden ? 'ຫຍໍ້' : 'ເບິ່ງທັງໝົດ' }}
         <text class="iconfont" :class="iShidden ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text>
       </view>
       <view v-if="userBool !== 0 && pinkBool === 0">
-        <view class="teamBnt" @click="listenerActionSheet">邀请好友参团</view>
+        <view class="teamBnt" @click="listenerActionSheet">ເຊີນໝູ່ເຂົ້າກຸ່ມ</view>
       </view>
-      <view class="teamBnt" v-else-if="userBool === 0 && pinkBool === 0 && count > 0" @click="pay">我要参团</view>
+      <view class="teamBnt" v-else-if="userBool === 0 && pinkBool === 0 && count > 0" @click="pay">ຂ້ອຍຢາກເຂົ້າກຸ່ມ</view>
       <view class="teamBnt" v-if="pinkBool === 10 || pinkBool === -1"
-        @click="goDetail(combinationData.product_group_id)">再次开团</view>
+        @click="goDetail(combinationData.product_group_id)">ເປີດກຸ່ມໃໝ່</view>
       <view class="cancel acea-row row-center row-middle" @click="getCombinationRemove"
         v-if="pinkBool === 0 && userBool !== 0">
         <text class="iconfont icon-ic_close1"></text>
-        取消开团
+        ຍົກເລີກກຸ່ມ
       </view>
       <view class="lookOrder" v-if="pinkBool === 10" @click="goOrder">
-        查看订单信息
+        ເບິ່ງຂໍ້ມູນຄຳສັ່ງຊື້
         <text class="iconfont icon-ic_rightarrow"></text>
       </view>
     </view>
     <view class="group-recommend bg-f boder-24">
       <view class="title acea-row row-between-wrapper">
-        <view>大家都在拼</view>
+        <view>ທຸກຄົນກຳລັງສັ່ງກຸ່ມ</view>
         <view class="more" @click="goList">
-          更多拼团
+          ເພີ່ມເຕີມ
           <text class="iconfont icon-ic_rightarrow"></text>
         </view>
       </view>
@@ -73,7 +73,7 @@
           @click="goDetail(item.product_group_id)">
           <view class="pictrue">
             <image :src="item.product.image" />
-            <view class="team" v-text="item.buying_count_num + '人团'"></view>
+            <view class="team" v-text="item.buying_count_num + 'ຄົນຕໍ່ກຸ່ມ'"></view>
           </view>
           <view class="name line1" v-text="item.product.store_name"></view>
           <view class="money">
@@ -91,22 +91,22 @@
         @click="H5ShareBox = true">
         <!-- <button class="item" hover-class='none' v-if="weixinStatus === true" @click="setShareInfoStatus"> -->
         <view class="iconfont icon-ic_wechat"></view>
-        <view class="">发送给朋友</view>
+        <view class="">ສົ່ງໃຫ້ໝູ່</view>
       </button>
       <!-- #endif -->
       <!-- #ifdef MP -->
       <button class="item" :class="weixinStatus ? 'item3' : ''" open-type="share" hover-class='none' @click="goFriend">
         <view class="iconfont icon-ic_wechat"></view>
-        <view class="">发送给朋友</view>
+        <view class="">ສົ່ງໃຫ້ໝູ່</view>
       </button>
       <!-- #endif -->
       <button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @tap="goPoster">
         <view class="iconfont icon-a-ic_picture1"></view>
-        <view class="">生成海报</view>
+        <view class="">ສ້າງໂປສເຕີ</view>
       </button>
       <button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @click="copyPwd">
         <view class="iconfont icon-ic_key"></view>
-        <view>生成口令</view>
+        <view>ສ້າງລະຫັດ</view>
       </button>
     </view>
     <view class="mask" v-if="posters" @click="listenerActionClose"></view>
@@ -329,7 +329,7 @@
           this.$set(this.attr.productSelect, 'product_stock', productSelect.stock);
           this.$set(this.attr.productSelect, 'quota_show', productSelect.stock);
           this.$set(this, 'attrValue', res);
-          this.$set(this, 'attrTxt', '已选择');
+          this.$set(this, 'attrTxt', 'ເລືອກແລ້ວ');
         } else {
           this.$set(this.attr.productSelect, 'image', this.storeCombination.image);
           this.$set(this.attr.productSelect, 'price', this.storeCombination.price);
@@ -340,7 +340,7 @@
           this.$set(this.attr.productSelect, 'stock', 0);
           this.$set(this.attr.productSelect, 'product_stock', 0);
           this.$set(this, 'attrValue', '');
-          this.$set(this, 'attrTxt', '请选择');
+          this.$set(this, 'attrTxt', 'ກະລຸນາເລືອກ');
         }
       },
       ChangeCartNum: function(changeValue) {
@@ -394,7 +394,7 @@
           this.$set(this.attr.productSelect, 'quota_show', productSelect.stock);
           this.$set(this, 'attrValue', value.join(','));
           this.attrValue = value.join(',');
-          this.$set(this, 'attrTxt', '已选择');
+          this.$set(this, 'attrTxt', 'ເລືອກແລ້ວ');
         } else if (!productSelect && productAttr.length) {
           this.$set(this.attr.productSelect, 'store_name', this.storeCombination.store_name);
           this.$set(this.attr.productSelect, 'image', this.storeCombination.image);
@@ -405,7 +405,7 @@
           this.$set(this.attr.productSelect, 'product_stock', 0);
           this.$set(this.attr.productSelect, 'quota_show', 0);
           this.$set(this, 'attrValue', '');
-          this.$set(this, 'attrTxt', '请选择');
+          this.$set(this, 'attrTxt', 'ກະລຸນາເລືອກ');
         } else if (!productSelect && !productAttr.length) {
           this.$set(this.attr.productSelect, 'store_name', this.storeCombination.store_name);
           this.$set(this.attr.productSelect, 'image', this.storeCombination.image);
@@ -416,7 +416,7 @@
           this.$set(this.attr.productSelect, 'quota_show', 0);
           this.$set(this.attr.productSelect, 'product_stock', 0);
           this.$set(this, 'attrValue', '');
-          this.$set(this, 'attrTxt', '请选择');
+          this.$set(this, 'attrTxt', 'ກະລຸນາເລືອກ');
         } else if (productSelect && !productAttr.length) {
           this.$set(
             this.attr.productSelect,
@@ -635,7 +635,7 @@
         var that = this;
         uni.showModal({
           title: '提示',
-          content: '确定取消拼团？',
+          content: 'ແນ່ໃຈບໍ່ວ່າຈະຍົກເລີກການສັ່ງກຸ່ມ?',
           success: function(res) {
             if (res.confirm) {
               postCombinationRemove({
@@ -655,7 +655,7 @@
                 });
             } else if (res.cancel) {
               return that.$util.Tips({
-                title: '已取消'
+                title: 'ຍົກເລີກແລ້ວ'
               });
             }
           }

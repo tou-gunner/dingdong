@@ -13,7 +13,7 @@
 				<view class="tool-bar"></view>
 				<view class='header'>
 					<view class="success_per">
-						<view class="success_num">{{combinationUserCount}}人已参与拼团</view>
+						<view class="success_num">{{combinationUserCount}}ຄົນເຂົ້າຮ່ວມຊື້ເປັນກຸ່ມແລ້ວ</view>
 						<view class="activity_pic" v-if="combinationUserList.length > 0">
 							<view v-for="(item,index) in combinationUserList.slice(0,10)" class="picture" :key="index">
 								<image v-if="index != 9" class="avatar" :src='item.avatar ? item.avatar : "/static/images/f.png"'></image>
@@ -37,18 +37,18 @@
 									<view class='booking'>
 										<text class="count">
 											<text class="iconfont icon-icon_team"></text>
-											{{item.buying_count_num}}人团 <text class="line"></text>
-											已拼{{item.sales ? item.sales : 0}}件
+											{{item.buying_count_num}}ຄົນຕໍ່ກຸ່ມ <text class="line"></text>
+											ສັ່ງແລ້ວ{{item.sales ? item.sales : 0}}ອັນ
 										</text>
 									</view>
 									<view class="progress">
 										<view class='combination_price acea-row row-center'>
-											<text class="combination_text">拼团价</text>
+											<text class="combination_text">ລາຄາກຸ່ມ</text>
 											<view class="price">
 												<priceFormat :price="item.price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
 											</view>
 										</view>
-										<view class='order_btn' :style="{ 'background-image': `url(${domain}/static/diy/pink_btn${keyColor}.png)` }">去拼团</view>
+										<view class='order_btn' :style="{ 'background-image': `url(${domain}/static/diy/pink_btn${keyColor}.png)` }">ໄປຊື້ກຸ່ມ</view>
 									</view>
 								</view>
 							</view>
@@ -106,7 +106,7 @@
 				combinationUserList: [],
 				combinationUserCount: 0,
 				navTop: [{
-					'cate_name': '精选',
+					'cate_name': 'ແນະນຳ',
 					store_category_id: ''
 				}],
 				active: 1,
@@ -133,13 +133,13 @@
 				menus: ['shareAppMessage', 'shareTimeline']
 			})
 			return {
-				title: '拼团',
+				title: 'ຊື້ເປັນກຸ່ມ',
 				path: 'pages/activity/combination/index',
 			}
 		},
 		onShareTimeline: function() {
 			return {
-				title: '拼团活动',
+				title: 'ກິດຈະກຳຊື້ເປັນກຸ່ມ',
 				query: {
 					key: ''
 				},

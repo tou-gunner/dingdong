@@ -6,7 +6,7 @@
 				<!-- #ifdef MP  || APP-PLUS -->
 				<view class="sys-title">
 					<view class='iconfont icon-ic_leftarrow' :style="{top:sysHeight}" @tap='goBack'></view>
-					<text v-show="isFixed">预售列表</text>
+					<text v-show="isFixed">ລາຍການຂາຍລ່ວງໜ້າ</text>
 				</view>
 				<!-- #endif -->
 				<view v-if="isFixed" class="bg"></view>
@@ -33,12 +33,12 @@
 							<view class='text acea-row row-column-between'>
 								<view class='name line2'>{{item.store_name}}</view>
 								<view class="item_tags acea-row row-middle">
-									<text v-if="item.coupon" class='font-bg-red'>领券</text>
-									<text class="tags_item" v-if="item.product.delivery_free == 1">包邮</text>
+									<text v-if="item.coupon" class='font-bg-red'>ຮັບຄູປອງ</text>
+									<text class="tags_item" v-if="item.product.delivery_free == 1">ສົ່ງຟຣີ</text>
 								</view>
 								<view class="progress" :class="active==1 ? '' : 'progress-gray'" :style="'background-image:url('+domain+'/static/images/presell_buy_btn'+active+'.png'">
 									<view class='presell_price acea-row'>
-										<text class="presell_text">预售:</text>
+										<text class="presell_text">ລ່ວງໜ້າ:</text>
 										<view class="price">
 											<priceFormat :price="item.price" weight intSize="40" floatSize="26" labelSize="28"></priceFormat>
 										</view>
@@ -50,7 +50,7 @@
 					<block v-if="presellList.length == 0">
 						<view class="empty-box">
 							<image :src="domain+'/static/images/empty-box.png'"></image>
-							<view class="txt">暂无预售商品,去看看其他商品吧～</view>
+							<view class="txt">ຍັງບໍ່ມີສິນຄ້າຂາຍລ່ວງໜ້າ, ໄປເບິ່ງອັນອື່ນກ່ອນ~</view>
 						</view>
 					</block>
 				</view>
@@ -100,9 +100,9 @@
 				nav_bg: HTTP_REQUEST_URL+"/static/images/presell_nav_current1.png",
 				presellList: [],
 				timeList: [
-					'未开始',
-					'正在进行',
-					'已结束'
+					'ຍັງບໍ່ເລີ່ມ',
+					'ກຳລັງດຳເນີນ',
+					'ສິ້ນສຸດແລ້ວ'
 				],
 				active: 1,
 				type: 0,
@@ -127,13 +127,13 @@
 				menus: ['shareAppMessage', 'shareTimeline']
 			})
 			return {
-				title: '预售活动',
+				title: 'ກິດຈະກຳຂາຍລ່ວງໜ້າ',
 				path: 'pages/activity/presell/index',
 			}
 		},
 		onShareTimeline: function() {
 			return {
-				title: '预售活动',
+				title: 'ກິດຈະກຳຂາຍລ່ວງໜ້າ',
 				  query: {
 				    key: ''
 				  },
