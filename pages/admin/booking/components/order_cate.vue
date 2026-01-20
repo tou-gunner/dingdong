@@ -26,27 +26,27 @@ export default {
       cateList: [
         {
           status: 0,
-          label: "待付款"
+          label: "ລໍຖ້າຊຳລະ"
         },
         {
           status: 1,
-          label: "待核销"
+          label: "ລໍຖ້າກວດສອບ"
         },
         {
           status: 2,
-          label: "待发货"
+          label: "ລໍຖ້າສົ່ງ"
         },
         {
           status: 3,
-          label: "待收货"
+          label: "ລໍຖ້າຮັບ"
         },
         {
           status: 4,
-          label: "待评价"
+          label: "ລໍຖ້າລີວິວ"
         },
         {
           status: 5,
-          label: "已完成"
+          label: "ສຳເລັດແລ້ວ"
         }
       ]
     }

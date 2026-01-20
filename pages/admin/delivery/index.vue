@@ -2,7 +2,7 @@
 	<view class="deliver-goods pad20 mt20">
 		<header class="bg-f boder-24">
 			<view class="order-num acea-row row-between-wrapper">
-				<view class="num line1">订单号：{{ delivery.order_sn }}</view>
+				<view class="num line1">ເລກທີ່ອໍເດີ：{{ delivery.order_sn }}</view>
 				<view class="name acea-row row-middle">
 					<text class="iconfont icon-ic_user2"></text>
 					<text class="line1">{{ delivery.user && delivery.user.nickname }}</text>
@@ -20,7 +20,7 @@
 		</header>
 		<view class="wrapper mt20 boder-24">
 			<view class="item acea-row row-between">
-				<view>发货方式</view>
+				<view>ວິທີສົ່ງ</view>
 				<view class="mode acea-row row-middle row-right">
 					<view class="goods acea-row row-middle row-center" :class="active === index ? 'on' : ''" v-for="(item, index) in types" :key="index" @click="changeType(item, index)">
 						<text class="iconfont" :class="active === index ? 'icon-ic_Selected' : 'icon-ic_unselect'"></text>
@@ -29,16 +29,16 @@
 				</view>
 			</view>
 			<view v-if="active == 0" class="item acea-row row-between">
-				<view>发货类型</view>
+				<view>ປະເພດການສົ່ງ</view>
 				<view class="mode acea-row row-middle row-right">
 					<block v-if="active == 0">
 						<view class="goods acea-row row-middle row-center" :class="delivery_type === 1 ? 'on' : ''"  @click="getShipmentType(1)">
 							<text class="iconfont" :class="delivery_type === 1 ? 'icon-ic_Selected' : 'icon-ic_unselect'"></text>
-							<text>手动填写</text>
+							<text>ຕື່ມດ້ວຍຕົນເອງ</text>
 						</view>
 						<view v-if="crmeb_serve_dump == 1" class="goods acea-row row-middle row-center" :class="delivery_type === 4 ? 'on' : ''"  @click="getShipmentType(4)">
 							<text class="iconfont" :class="delivery_type === 4 ? 'icon-ic_Selected' : 'icon-ic_unselect'"></text>
-							<text>电子面单打印</text>
+							<text>ພິມໃບປະກາສອີເລັກໂທຣນິກ</text>
 						</view>
 					</block>
 					<!-- <block v-else-if="active == 1">
@@ -57,7 +57,7 @@
 				<view class="list">
 					<block v-if="delivery_type == 1">
 						<view class="item acea-row row-between-wrapper">
-							<view>快递公司</view>
+							<view>ບໍລິສັດຂົນສົ່ງ</view>
 							<view class="select-box">
 								<picker class="pickerBox" @change="bindPickerChange" :value="seIndex" :range="logistics" range-key="label">
 									<view class="uni-input">{{logistics[seIndex].label}}</view>
@@ -65,8 +65,8 @@
 							</view>
 						</view>
 						<view class="item acea-row row-between-wrapper">
-							<view>快递单号</view>
-							<input type="text" placeholder="填写快递单号" v-model="delivery_id" class="mode" />
+							<view>ເລກທີ່ການຂົນສົ່ງ</view>
+							<input type="text" placeholder="ຕື່ມເລກທີ່ການຂົນສົ່ງ" v-model="delivery_id" class="mode" />
 							<!-- #ifdef MP -->
 							<text class="iconfont icon-ic_camera2" @click="scanCode"></text>
 							<!-- #endif -->
@@ -77,7 +77,7 @@
 					</block>
 					<block v-if="delivery_type == 4">
 						<view class="item acea-row row-between-wrapper">
-							<view>快递公司</view>
+							<view>ບໍລິສັດຂົນສົ່ງ</view>
 							<view class="select-box">
 								<picker class="pickerBox" @change="bindPickerChange" :value="seIndex" :range="logistics" range-key="label">
 									<view class="uni-input">{{logistics[seIndex].label}}</view>
@@ -85,47 +85,47 @@
 							</view>
 						</view>
 						<view class="item acea-row row-between-wrapper" v-if="expTemp.length > 0 && delivery_type == 4">
-							<view>电子面单</view>
+							<view>ໃບປະກາສອີເລັກໂທຣນິກ</view>
 							<div style="display: flex;align-items: center;">
 								<picker class="pickerBox" @change="bindTempChange" :value="expIndex" :range="expTemp" range-key="title">
 									<view class="uni-input input-inline">{{expTemp[expIndex].title}}</view>
 								</picker>
-								<div class="look" @click="previewImage">预览</div>
+								<div class="look" @click="previewImage">ເບິ່ງລ່ວງໜ້າ</div>
 							</div>
 						</view>
 						<view class="item acea-row row-between-wrapper">
-							<view>寄件人姓名</view>
-							<input type="text" placeholder="填写寄件人姓名" v-model="from_name" class="mode" />
+							<view>ຊື່ຜູ້ສົ່ງ</view>
+							<input type="text" placeholder="ຕື່ມຊື່ຜູ້ສົ່ງ" v-model="from_name" class="mode" />
 						</view>
 						<view class="item acea-row row-between-wrapper">
-							<view>寄件人电话</view>
-							<input type="text" placeholder="填写寄件人电话" v-model="from_tel" class="mode" />
+							<view>ເບີຜູ້ສົ່ງ</view>
+							<input type="text" placeholder="ຕື່ມເບີຜູ້ສົ່ງ" v-model="from_tel" class="mode" />
 						</view>
 						<view class="item acea-row row-between-wrapper">
-							<view>寄件人地址</view>
-							<input type="text" placeholder="填写寄件人地址" v-model="from_addr" class="mode" />
+							<view>ທີ່ຢູ່ຜູ້ສົ່ງ</view>
+							<input type="text" placeholder="ຕື່ມທີ່ຢູ່ຜູ້ສົ່ງ" v-model="from_addr" class="mode" />
 						</view>
 					</block>
 				</view>
 			</block>
 			<view class="list" v-if="delivery_type == 2">
 				<view class="item acea-row row-between-wrapper">
-					<view>送货人姓名</view>
+					<view>ຊື່ຜູ້ສົ່ງສິນຄ້າ</view>
 					<view v-if="deliveryList.length>0" class="select-box">
 						<picker class="pickerBox" @change="deliveryPickerChange" :value="deIndex" :range="deliveryList" range-key="name">
 							<view class="uni-input">{{deliveryList[deIndex].name}}</view>
 						</picker>
 					</view>
-					<input v-else type="text" placeholder="填写送货人姓名" maxlength="10" v-model="to_name" class="mode" />
+					<input v-else type="text" placeholder="ຕື່ມຊື່ຜູ້ສົ່ງສິນຄ້າ" maxlength="10" v-model="to_name" class="mode" />
 				</view>
 				<view class="item acea-row row-between-wrapper">
-					<view>送货人电话</view>
-					<input type="text" placeholder="填写送货人电话" v-model="to_phone" class="mode" />
+					<view>ເບີຜູ້ສົ່ງສິນຄ້າ</view>
+					<input type="text" placeholder="ຕື່ມເບີຜູ້ສົ່ງສິນຄ້າ" v-model="to_phone" class="mode" />
 				</view>
 			</view>
 			<block v-if="delivery_type == 5">
 				<view class="item acea-row row-between-wrapper">
-					<view>发货点</view>
+					<view>ຈຸດສົ່ງ</view>
 					<view class="select-box">
 						<picker class="pickerBox" @change="bindStoreChange" :value="storeIndex" :range="storeList" range-key="label">
 							<view class="uni-input">{{storeList[storeIndex] && storeList[storeIndex].label}}</view>
@@ -133,25 +133,25 @@
 					</view>
 				</view>
 				<view class="item acea-row row-between-wrapper">
-					<view>包裹重量</view>
-					<input type="number" placeholder="填写包裹重量" v-model="cargo_weight" class="mode" />
+					<view>ນ້ຳໜັກພັດສະດຸ</view>
+					<input type="number" placeholder="ຕື່ມນ້ຳໜັກພັດສະດຸ" v-model="cargo_weight" class="mode" />
 				</view>
 				<view class="item acea-row row-between-wrapper">
-					<view>配送备注</view>
-					<input type="textarea" placeholder="填写配送备注" v-model="mark" class="mode textarea" />
+					<view>ໝາຍເຫດການສົ່ງ</view>
+					<input type="textarea" placeholder="ຕື່ມໝາຍເຫດການສົ່ງ" v-model="mark" class="mode textarea" />
 				</view>
 			</block>
 			<view class="list">
 				<view class="item acea-row row-between-wrapper">
-					<view>发货备注</view>
-					<input type="textarea" placeholder="填写发货备注" v-model="remark" class="mode textarea" />
+					<view>ໝາຍເຫດສົ່ງສິນຄ້າ</view>
+					<input type="textarea" placeholder="ຕື່ມໝາຍເຫດສົ່ງສິນຄ້າ" v-model="remark" class="mode textarea" />
 				</view>
 			</view>
 		</view>
 		<view class="bg-f boder-24 mt20">
 			<block v-if="(delivery.orderProduct) && ((delivery.orderProduct.length > 1) || (delivery.orderProduct.length==1 && delivery.orderProduct[0]['refund_num']>1)) && activity_type != 2">
 				<view class="shipment-title item acea-row row-between-wrapper">
-					<view>分单发货</view>
+					<view>ສົ່ງແຍກ</view>
 					<view class="mode acea-row row-middle row-right">
 						<view class="goods" :class="curSplit === item.key ? 'on' : ''" v-for="(item, index) in splitList" :key="index" @click="changeSplit(item, index)">
 							<text class="iconfont"  :class="curSplit === item.key ? 'icon-ic_Selected' : 'icon-ic_unselect'"></text>{{ item.title }}
@@ -192,7 +192,7 @@
 			</block>
 			<block v-if="!curSplit">
 				<view class="pro_count" v-if="delivery.orderProduct">
-					<view class="title">共{{delivery.total_num}}件商品</view>
+					<view class="title">ລວມ{{delivery.total_num}}ລາຍການ</view>
 					<view v-for="(item, index) in delivery.orderProduct" :key="index">
 						<view class="pro_list acea-row row-between">
 							<view v-if="item.cart_info && item.cart_info.product" class="picture">
@@ -207,14 +207,14 @@
 									<priceFormat :price="item.cart_info.productAttr.price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
 								</view>
 								<view class="info_num">x{{item.product_num}}</view>
-								<view class="refund_num" v-if="item.product_num-item.refund_num>0">{{item.product_num-item.refund_num}}件{{item.is_refund==1?'退款中' : item.is_refund==2 ? '已退款' : item.is_refund==3?'全部退款':''}}</view>
+								<view class="refund_num" v-if="item.product_num-item.refund_num>0">{{item.product_num-item.refund_num}}ລາຍການ{{item.is_refund==1?'ກຳລັງຄືນເງິນ' : item.is_refund==2 ? 'ຄືນເງິນແລ້ວ' : item.is_refund==3?'ຄືນເງິນທັງໝົດ':''}}</view>
 							</view>
 						</view>
 					</view>
-					<view class="footer">
-						共{{delivery.total_num}}件商品，已支付
+<view class="footer">
+								ລວມ{{delivery.total_num}}ລາຍການ, ຊຳລະແລ້ວ
 						<priceFormat :price="delivery.pay_price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
-					（ 运费¥{{delivery.pay_postage}} ）
+					（ ຄ່າຂົນສົ່ງ¥{{delivery.pay_postage}} ）
 					</view>
 				</view>
 			</block>
@@ -253,30 +253,30 @@
 			return {
 				types: [{
 						type: 1,
-						title: "发货"
+						title: "ສົ່ງສິນຄ້າ"
 					},
 					// {
 					// 	type: 2,
-					// 	title: "送货"
+					// 	title: "ສົ່ງເຖິງບ້ານ"
 					// },
 					{
 						type: 3,
-						title: "无需物流"
+						title: "ບໍ່ຕ້ອງການຂົນສົ່ງ"
 					}
 				],
 				deliveryTypes: [
 					{
 						type: 1,
-						title: "手动填写"
+						title: "ຕື່ມດ້ວຍຕົນເອງ"
 						}
 				],
 				splitList: [
 					{
-						title: '开启',
+						title: 'ເປີດ',
 						key: 1
 					},
 					{
-						title: '关闭',
+						title: 'ປິດ',
 						key: 0
 					}
 				],
@@ -511,7 +511,7 @@
 					that.splitProducts = that.getSplitProduct()
 					if(that.splitProducts.length == 0){
 						return this.$util.Tips({
-							title: '请选择分单商品'
+							title: 'ກະລຸນາເລືອກສິນຄ້າສົ່ງແຍກ'
 						})
 					}
 				}
@@ -519,7 +519,7 @@
 				if(delivery_type==1){
 					if (!delivery_id) {
 						return this.$util.Tips({
-							title: '请填写快递单号'
+							title: 'ກະລຸນາຕື່ມເລກທີ່ຂົນສົ່ງ'
 						})
 					}
 					save.delivery_id = delivery_id
@@ -529,17 +529,17 @@
 					that.to_name = that.deliveryList.length> 0 ? that.deliveryList[that.deIndex]['name'] : that.to_name
 					if (!that.to_name) {
 						return this.$util.Tips({
-							title: '请填写送货人姓名'
+							title: 'ກະລຸນາຕື່ມຊື່ຜູ້ສົ່ງສິນຄ້າ'
 						})
 					}
 					if (!that.to_phone) {
 						return this.$util.Tips({
-							title: '请填写送货人手机号码'
+							title: 'ກະລຸນາຕື່ມເບີໂທຜູ້ສົ່ງສິນຄ້າ'
 						})
 					}
 					if (!(/^1[3456789]\d{9}$/.test(that.to_phone))) {
 						return this.$util.Tips({
-							title: '请填写正确的手机号码'
+							title: 'ກະລຸນາຕື່ມເບີໂທທີ່ຖືກຕ້ອງ'
 						})
 					}
 					save.delivery_name = that.to_name;
@@ -553,27 +553,27 @@
 				if(delivery_type==4){
 					if (!that.from_name) {
 						return this.$util.Tips({
-							title: '请填写寄件人姓名'
+							title: 'ກະລຸນາຕື່ມຊື່ຜູ້ສົ່ງ'
 						})
 					}
 					if (!that.from_tel) {
 						return this.$util.Tips({
-							title: '请填写寄件人手机号码'
+							title: 'ກະລຸນາຕື່ມເບີໂທຜູ້ສົ່ງ'
 						})
 					}
 					if (!(/^1[3456789]\d{9}$/.test(that.from_tel))) {
 						return this.$util.Tips({
-							title: '请填写正确的手机号码'
+							title: 'ກະລຸນາຕື່ມເບີໂທທີ່ຖືກຕ້ອງ'
 						})
 					}
 					if (!that.from_addr) {
 						return this.$util.Tips({
-							title: '请填写寄件人地址'
+							title: 'ກະລຸນາຕື່ມທີ່ຢູ່ຜູ້ສົ່ງ'
 						})
 					}
 					if(that.expTemp.length==0){
 						return this.$util.Tips({
-							title: '请选择电子面单'
+							title: 'ກະລຸນາເລືອກໃບປະກາສອີເລັກໂທຣນິກ'
 						})
 					}
 					save.from_name = that.from_name
@@ -584,7 +584,7 @@
 				}
 				if(delivery_type == 5){
 					if(!that.storeList[that.storeIndex])return this.$util.Tips({
-						title: '请选择发货点'
+						title: 'ກະລຸນາເລືອກຈຸດສົ່ງ'
 					})
 					save.station_id = that.storeList[that.storeIndex].value
 					save.cargo_weight = that.cargo_weight;

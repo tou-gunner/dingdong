@@ -1,12 +1,12 @@
 <template>
 	<view class="order-details pos-order-details">
 		<view class="header acea-row row-middle">
-			<view class="state" v-if="orderInfo.status == 0">待审核</view>
-			<view class="state" v-else-if="orderInfo.status == -1">审核未通过</view>
-			<view class="state" v-else-if="orderInfo.status == 1">待退货</view>
-			<view class="state" v-else-if="orderInfo.status == 2">待收货</view>
-			<view class="state" v-else-if="orderInfo.status == 3">已退款</view>
-			<view class="state" v-else-if="orderInfo.status == -2">已取消</view>
+			<view class="state" v-if="orderInfo.status == 0">ລໍຖ້າກວດສອບ</view>
+			<view class="state" v-else-if="orderInfo.status == -1">ບໍ່ຜ່ານການກວດສອບ</view>
+			<view class="state" v-else-if="orderInfo.status == 1">ລໍຖ້າສົ່ງຄືນ</view>
+			<view class="state" v-else-if="orderInfo.status == 2">ລໍຖ້າຮັບຄືນ</view>
+			<view class="state" v-else-if="orderInfo.status == 3">ຄືນເງິນແລ້ວ</view>
+			<view class="state" v-else-if="orderInfo.status == -2">ຍົກເລີກແລ້ວ</view>
 		</view>
 		<view class="pad20">
 			<view v-if="orderInfo.refund_type == 2 && orderInfo.status > 0" class="oder-user-info bg-f boder-24 mt20">
@@ -21,10 +21,10 @@
 						<view>{{ orderInfo.mer_delivery_address }}</view>
 					</view>
 					<!-- #ifdef H5 -->
-					<button class="copy copy-data" :data-clipboard-text="'收货人姓名：'+orderInfo.mer_delivery_user+'\n收货人电话：'+ orderInfo.phone+'\n收货人地址：'+orderInfo.mer_delivery_address">复制</button>
+					<button class="copy copy-data" :data-clipboard-text="'ຊື່ຜູ້ຮັບ：'+orderInfo.mer_delivery_user+'\nເບີໂທຜູ້ຮັບ：'+ orderInfo.phone+'\nທີ່ຢູ່ຜູ້ຮັບ：'+orderInfo.mer_delivery_address">ສຳເນົາ</button>
 					<!-- #endif -->
 					<!-- #ifdef MP -->
-					<button class="copy" @tap="copyText">复制</button>
+					<button class="copy" @tap="copyText">ສຳເນົາ</button>
 					<!-- #endif -->
 				</view>
 			</view>
@@ -56,43 +56,43 @@
 			</view>
 			<view class="wrapper bg-f boder-24 mt20">
 				<view class="item acea-row row-between">
-					<view>退款单编号：</view>
+					<view>ເລກຄືນເງິນ：</view>
 					<view class="conter acea-row row-middle row-right">
 						{{ orderInfo.refund_order_sn }}
 						<!-- #ifdef H5 -->
-						<button class="copy copy-data" :data-clipboard-text="orderInfo.refund_order_sn">复制</button>
+						<button class="copy copy-data" :data-clipboard-text="orderInfo.refund_order_sn">ສຳເນົາ</button>
 						<!-- #endif -->
 						<!-- #ifdef MP -->
-						<span class="copy copy-data" @click="copyNum(orderInfo.refund_order_sn)">复制</span>
+						<span class="copy copy-data" @click="copyNum(orderInfo.refund_order_sn)">ສຳເນົາ</span>
 						<!-- #endif -->
 					</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>退款金额：</view>
+					<view>ຈຳນວນເງິນຄືນ：</view>
 					<view class="conter">{{ orderInfo.refund_price }}</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>申请件数：</view>
+					<view>ຈຳນວນລາຍການຂໍ：</view>
 					<view class="conter">{{ orderInfo.refund_num }}</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>申请时间：</view>
+					<view>ເວລາຂໍ：</view>
 					<view class="conter">{{ orderInfo.create_time }}</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>退款原因：</view>
+					<view>ເຫດຜົນຄືນເງິນ：</view>
 					<view class="conter">{{ orderInfo.refund_message }}</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>备注信息：</view>
+					<view>ຂໍ້ມູນໝາຍເຫດ：</view>
 					<view class="conter">{{ orderInfo.mark }}</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>商家备注：</view>
+					<view>ໝາຍເຫດຮ້ານຄ້າ：</view>
 					<view class="conter">{{ orderInfo.mer_mark }}</view>
 				</view>
 				<view class="item">
-					<view>退款凭证：</view>
+					<view>ຫຼັກຖານຄືນເງິນ：</view>
 					<view class="upload-img">
 						<view class="img-item" v-for="(item,index) in orderInfo.pics" :key="index">
 							<image :src="item" mode="" @click="loookImg(item,index)"></image>
@@ -198,12 +198,12 @@
 				var clipboard = new ClipboardJS('.copy-data');
 				clipboard.on('success', function(e) {
 					self.$util.Tips({
-						title:'复制成功'
+						title:'ສຳເນົາສຳເລັດ'
 					})
 				});
 				clipboard.on('error', function(e) {
 					self.$util.Tips({
-						title:'复制失败'
+						title:'ສຳເນົາບໍ່ສຳເລັດ'
 					})
 				});
 			});
@@ -284,8 +284,8 @@
 			confirmOrder: function() {
 				let that = this;
 				uni.showModal({
-					title: '确认收货',
-					content: '为保障权益，请收到货确认无误后，再确认收货',
+					title: 'ຢືນຢັນຮັບສິນຄ້າ',
+					content: 'ເພື່ອປົກປ້ອງສິດທິຂອງທ່ານ, ກະລຸນາກວດສອບສິນຄ້າກ່ອນຢືນຢັນ',
 					success: function(res) {
 						if (res.confirm) {
 							refundOrderReceive(that.mer_id,that.orderInfo.refund_order_id).then(res => {
@@ -309,7 +309,7 @@
 				let that = this;
 				if (!that.orderInfo.mer_mark) {
 					return this.$util.Tips({
-						title: '请输入备注'
+						title: 'ກະລຸນາໃສ່ໝາຍເຫດ'
 					})
 				}
 				setRefundMark(that.mer_id,that.orderInfo.refund_order_id,{ mer_mark: that.orderInfo.mer_mark }).then(

@@ -18,12 +18,12 @@
 					<!--秒杀-->
 					<view v-if="storeInfo.product_type == 1" class='nav seckillnav acea-row row-between-wrapper boder-44 pos-rel' :style="{ 'background-image': `url(${domain}/static/images/seckill-bg.png)`}">
 						<view class='money skeleton-rect'>
-							<text class="money-text">秒杀价</text>
+							<text class="money-text">ລາຄາ Flash Sale</text>
 							<priceFormat :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 							<text class='y-money regular'>¥{{storeInfo.ot_price}}</text></view>
 							<view class='acea-row row-middle skeleton-rect' v-if="storeInfo.seckill_status == '1'">
 								<view class='time'>
-									<view>距秒杀结束仅剩</view>
+									<view>ເວລາທີ່ເຫຼືອ</view>
 									<countDown :is-day="false" :tip-text="' '" :day-text="' '" :hour-text="' : '" :minute-text="' : '" :second-text="' '" :colorTheme="true" :noBorder="true" :datatime="datatime"></countDown>
 								</view>
 							</view>
@@ -33,7 +33,7 @@
 							<view class='introduce skeleton-rect acea-row row-between'>
 								<view class="title line2">
 									<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red">{{storeInfo.merchant.type_name}}</text>
-									<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">自营</text>
+									<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">ແບຣນຕົນເອງ</text>
 									{{storeInfo.store_name}}
 								</view>
 								<view v-if="diyProduct.shareList.length>0" class="fenxiang_btn">
@@ -44,8 +44,8 @@
 							</view>
 							<view class='label acea-row row-between-wrapper'>
 								<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">¥{{storeInfo.ot_price || 0}}</view>
-								<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">库存:{{storeInfo.stock || 0}}{{storeInfo.unit_name || ''}}</view>
-								<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">已售:{{storeInfo.sales || 0}}{{storeInfo.unit_name || ''}}</view>
+								<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">ສາງ:{{storeInfo.stock || 0}}{{storeInfo.unit_name || ''}}</view>
+								<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">ຂາຍແລ້ວ:{{storeInfo.sales || 0}}{{storeInfo.unit_name || ''}}</view>
 							</view>
 						</view>
 					</view>
@@ -56,21 +56,21 @@
 								<view class='share acea-row row-between row-bottom' style="padding-top: 20rpx;">
 									<view class='money p-color'>
 										<priceFormat :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
-										<text class="price_text" :style="{ backgroundImage: `url(${domain}/static/images/price_text.png)` }">预售价</text>
+										<text class="price_text" :style="{ backgroundImage: `url(${domain}/static/images/price_text.png)` }">ລາຄາຈອງລ່ວງໜ້າ</text>
 									</view>
 									<view class='iconfont icon-fenxiang' v-if="comForm != 'admin'"></view>
 								</view>
 								<view class='label acea-row' :class="'label'+product_type">
 									<view class="line-through">¥{{storeInfo.ot_price || ''}}</view>
-									<view style="margin-left: 30rpx;">已预定:0{{ storeInfo.unit_name }}</view>
+									<view style="margin-left: 30rpx;">ຈອງແລ້ວ:0{{ storeInfo.unit_name }}</view>
 								</view>
 								<view class='introduce line2'>
 									<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red">{{storeInfo.merchant.type_name}}</text>
-									<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">自营</text>
+									<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">ແບຣນຕົນເອງ</text>
 									{{storeInfo.store_name}}</view>
 								<view class="presell_count">
 									<view>
-										<view>预售活动时间：</view>
+										<view>ເວລາຂາຍລ່ວງໜ້າ：</view>
 										<view v-if="storeInfo.start_time && storeInfo.p_end_time" class="presell_time">
 											<view class='iconfont icon-icon_clock-2'></view>
 											{{ new Date(storeInfo.start_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(storeInfo.start_time.replace(/-/g,"/")).getDate() }}日{{ new Date(storeInfo.start_time.replace(/-/g,"/")).getHours() }}时{{ new Date(storeInfo.start_time.replace(/-/g,"/")).getMinutes()}}分
@@ -80,7 +80,7 @@
 										</view>
 									</view>
 									<view v-if="storeInfo.presell_type == 2">
-										<view>支付尾款时间：</view>
+										<view>ເວລາຊຳລະຍອດທີ່ເຫຼືອ：</view>
 										<view v-if="storeInfo.start_time && storeInfo.p_end_time" class="presell_time">
 											<view class='iconfont icon-icon_clock-2'></view>
 											{{ new Date(storeInfo.start_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(storeInfo.start_time.replace(/-/g,"/")).getDate() }}日{{ new Date(storeInfo.start_time.replace(/-/g,"/")).getHours() }}时{{ new Date(storeInfo.start_time.replace(/-/g,"/")).getMinutes()}}分
@@ -90,7 +90,7 @@
 										</view>
 									</view>
 									<view>
-										<view v-if="storeInfo.presell_type==2">付尾款成功后10天内发货</view>
+										<view v-if="storeInfo.presell_type==2">ສົ່ງພາຍໃນ10ມື້ຫຼັງຊຳລະຍອດທີ່ເຫຼືອ</view>
 									</view>
 								</view>
 							</view>
@@ -106,7 +106,7 @@
 									</view>
 									<view v-if="specsInfo.params && specsInfo.params.length>0" class="attribute acea-row row-between-wrapper" @click="seeSpecs">
 										<view class="acea-row row-middle">
-											参数：
+											ພາຣາມິເຕີ：
 											<view class="list line1">
 												<text class="item params" v-for="(item,index) in specsInfo.params" :key="index"
 													v-if="index<2">{{item.name}}</text>
@@ -117,14 +117,14 @@
 									</view>
 									<!--运费-->
 									<view v-if="shippingValue" class='attribute acea-row row-between-wrapper'>
-										<view class="acea-row row-between-wrapper">运费：
+										<view class="acea-row row-between-wrapper">ຄ່າຂົນສົ່ງ：
 											<text class='atterTxt'>{{shippingValue}}</text>
 										</view>
 										<view class='iconfont icon-ic_rightarrow'></view>
 									</view>
 									<!--保障-->
 									<view v-if="guarantee && guarantee.length" class='attribute acea-row row-between-wrapper'>
-										<view class="acea-row row-between-wrapper">保障：
+										<view class="acea-row row-between-wrapper">ການຮັບປະກັນ：
 											<view class="guaranteeAttr">
 												<text class='atterTxt1' :class="item.guarantee_name ? 'hasAttr' : ''"  v-for="(item,index) in guarantee" :key="index">
 													{{item.guarantee_name ? item.guarantee_name : ''}}
@@ -136,12 +136,12 @@
 							  </view>
 								<!--定金预售流程-->
 								<view v-if="storeInfo.presell_type === 2" class='acea-row row-between-wrapper wrapper presell_process bg-f boder-24'>
-									<view>流程：
+									<view>ຂັ້ນຕອນ：
 										<view class='process_count'>
 											<view class="process_line"></view>
-											<span class="text_line text_line1"><text>定金</text></span>
-											<span class="text_line text_line2"><text>尾款</text></span>
-											<span class="text_line text_line3"><text>发货</text></span>
+											<span class="text_line text_line1"><text>ເງິນມັດຈຳ</text></span>
+											<span class="text_line text_line2"><text>ຍອດທີ່ເຫຼືອ</text></span>
+											<span class="text_line text_line3"><text>ສົ່ງສິນຄ້າ</text></span>
 										</view>
 									</view>
 								</view>
@@ -158,26 +158,26 @@
 													<text v-else-if="storeInfo.merchant.is_trader" class="font-bg-red ml8 bt-color">自营</text>
 												</view>
 												<view v-if="storeInfo.merchant.care_count" class="txt">
-													{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}人关注
+													{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}ຄົນຕິດຕາມ
 												</view>
-												<view v-else class="txt">0人关注</view>
+												<view v-else class="txt">0ຄົນຕິດຕາມ</view>
 											</view>
 										</view>
 										<view class="score-wrapper">
 											<view class="item">
-												商品描述<text>{{storeInfo.merchant.product_score}}</text>
+												ລາຍລະອຽດສິນຄ້າ<text>{{storeInfo.merchant.product_score}}</text>
 											</view>
 											<view class="item">
-												卖家服务<text>{{storeInfo.merchant.service_score}}</text>
+												ບໍລິການຮ້ານຄ້າ<text>{{storeInfo.merchant.service_score}}</text>
 											</view>
 											<view class="item">
-												物流服务<text>{{storeInfo.merchant.postage_score}}</text>
+												ບໍລິການຂົນສົ່ງ<text>{{storeInfo.merchant.postage_score}}</text>
 											</view>
 										</view>
 									</view>
 								</view>
 								<view class='product-intro' id="past3">
-									<view class='title'>产品介绍</view>
+									<view class='title'>ແນະນຳສິນຄ້າ</view>
 									<jyf-parser v-if="description.type == 0" :domain='domain' :html="description.content.replace(/<br\/>/ig, '')" ref="article" :tag-style="tagStyle"></jyf-parser>
 									<view v-else class="product_content">
 										<view v-if="description.content && description.content.title" class="title">{{description.content.title}}</view>
@@ -193,7 +193,7 @@
 					<view v-if="storeInfo.product_type == 4" class="swiper-bg pos-rel">
 						<view class='navs acea-row row-between-wrapper boder-44 pos-rel' :style="{ 'background-image': `url(${domain}/static/images/combination-price-bg.png)`}">
 							<view class='money skeleton-rect acea-row row-bottom' style="min-width: 10rpx;">
-								<view class="text">拼团价</view>
+								<view class="text">ລາຄາກຸ່ມຊື້</view>
 								<view v-if="storeInfo.price" class="price">
 									<priceFormat :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 								</view>
@@ -202,7 +202,7 @@
 								</text>
 							</view>
 							<view class="combin-people">
-								2人团
+								2ຄົນ
 							</view>
 						</view>
 						<view class="detail-count pos-rel" :class="{ 'mt-40' : !storeInfo.atmosphere_pic }" style="padding-bottom: 20rpx; background:#f5f5f5;">
@@ -213,20 +213,20 @@
 								</view>
 								<view class='introduce line2'>
 									<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red">{{storeInfo.merchant.type_name}}</text>
-									<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">自营</text>
+									<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">ແບຣນຕົນເອງ</text>
 									{{storeInfo.store_name}}
 								</view>
 								<view class='label acea-row row-between-wrapper'>
-									<view>拼团人数:{{storeInfo.buying_count_num ? storeInfo.buying_count_num : 0}}人团</view>
-									<view>库存:{{storeInfo.stock ? storeInfo.stock : 0}}</view>
-									<view>已拼:{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
+									<view>ຈຳນວນຄົນ:{{storeInfo.buying_count_num ? storeInfo.buying_count_num : 0}}ຄົນ</view>
+									<view>ສາງ:{{storeInfo.stock ? storeInfo.stock : 0}}</view>
+									<view>ຊື້ແລ້ວ:{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
 								</view>
 							</view>
 							<view v-if="storeInfo.product_type == 4" class="combination_wrapper">
 								<view class='notice acea-row row-middle' v-if="itemNew.length">
 									<view class='num font-color'>
 										<text class='iconfont icon-ic_promotion'></text>
-										已拼{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}<text
+										ຊື້ແລ້ວ{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}<text
 										 class='line'>|</text>
 									</view>
 									<view class='swiper'>
@@ -234,7 +234,7 @@
 										 circular="true">
 											<block v-for="(item,index) in itemNew" :key='index'>
 												<swiper-item>
-													<view class='line1'>{{item.nickname ? item.nickname : ''}}拼团成功</view>
+													<view class='line1'>{{item.nickname ? item.nickname : ''}}ກຸ່ມຊື້ສຳເລັດ</view>
 												</swiper-item>
 											</block>
 										</swiper>
@@ -251,44 +251,44 @@
 											</view>
 											<view class='right acea-row row-middle'>
 												<view>
-													<view class='lack'>还差<text class='font-color'>{{item.buying_count_num - item.yet_buying_num}}</text>人成团</view>
+													<view class='lack'>ຕ້ອງການອີກ<text class='font-color'>{{item.buying_count_num - item.yet_buying_num}}</text>ຄົນ</view>
 													<view class='time'>
-														剩余
+														ເຫຼືອ
 														<count-down :justifyLeft="justifyLeft" :is-day="false" :tip-text="' '" :day-text="' '" :hour-text="':'"
 														 :minute-text="':'" :second-text="' '" :datatime="item.end_time"></count-down>
 													</view>
 												</view>
 												<navigator hover-class='none' :url="'/pages/activity/combination_status/index?id='+item.group_buying_id" class='spellBnt'>
-													去拼单
+													ໄປກຸ່ມຊື້
 													<text class='iconfont icon-ic_rightarrow'></text>
 												</navigator>
 											</view>
 										</view>
 										<template v-if="pink.length">
-											<view class='more' v-if="pink.length > AllIndex">查看更多<text class='iconfont icon-ic_downarrow'></text></view>
-											<view class='more' v-else-if="pink.length === AllIndex && pink.length !== AllIndexDefault">收起<text
+											<view class='more' v-if="pink.length > AllIndex">ເບິ່ງເພີ່ມ<text class='iconfont icon-ic_downarrow'></text></view>
+											<view class='more' v-else-if="pink.length === AllIndex && pink.length !== AllIndexDefault">ຫຍໍ້<text
 											 class='iconfont icon-ic_uparrow'></text></view>
 										</template>
 									</view>
 									<view class='playWay boder-24 bg-f'>
 										<view class='title acea-row row-between-wrapper'>
-											<view>拼团玩法</view>
+											<view>ວິທີກຸ່ມຊື້</view>
 										</view>
 										<view class='way acea-row row-middle'>
 											<view class='item'>
 												<text class='num'>①</text>
-												<text class="way_text">开团/参团</text>
+												<text class="way_text">ເປີດ/ຮ່ວມກຸ່ມ</text>
 											</view>
 											<view class='iconfont icon-a-jiantou11'></view>
 											<view class='item'>
 												<text class='num'>②</text>
-												<text class="way_text">邀请好友</text>
+												<text class="way_text">ເຊີນໝູ່</text>
 											</view>
 											<view class='iconfont icon-a-jiantou11'></view>
 											<view class='item'>
 												<view>
 													<text class='num'>③</text>
-													<text class="way_text">满员发货</text>
+													<text class="way_text">ຄົບແລ້ວສົ່ງ</text>
 												</view>
 											</view>
 										</view>
@@ -313,8 +313,8 @@
 							</view>
 						</view>
 						<view v-if="storeInfo.atmosphere_pic" class='integral_count skeleton-rect'>
-							<text v-if="storeInfo.max_integral > 0" class='integral'>积分最高可抵扣{{storeInfo.max_integral}}元</text>
-							<text v-if="storeInfo.delivery_free == 1" class='integral'>包邮</text>
+							<text v-if="storeInfo.max_integral > 0" class='integral'>ຄະແນນສູງສຸດຫັກໄດ້{{storeInfo.max_integral}}ກີບ</text>
+							<text v-if="storeInfo.delivery_free == 1" class='integral'>ຟຣີຄ່າສົ່ງ</text>
 						</view>
 						<!--无氛围图-->
 						<view v-else class='share acea-row row-between row-bottom'>
@@ -336,19 +336,19 @@
 							class="svipCon acea-row row-between-wrapper skeleton-rect" style="margin-top: 20rpx;">
 							<view class="acea-row row-between-wrapper">
 								<image :src="`${domain}/static/images/svip_user.png`"></image>
-								<view class="">开通 SVIP会员
-									<block v-if="svipData.show_svip_price">立省<text>{{svipData.save_money}}元</text></block>
-									<block v-else><text>省钱多多，权益多多</text></block>
+								<view class="">ເປີດນຳໃຊ້ SVIP
+									<block v-if="svipData.show_svip_price">ປະຢັດ<text>{{svipData.save_money}}ກີບ</text></block>
+									<block v-else><text>ປະຢັດຫຼາຍ, ສິດທິຫຼາຍ</text></block>
 								</view>
 							</view>
 							<navigator class="svipBtn" url="/pages/annex/vip_paid/index">
-								立即开通
+								ເປີດນຳໃຊ້ທັນທີ
 								<text class="iconfont icon-ic_rightarrow"></text>
 							</navigator>
 						</view>
 						<view v-if="!storeInfo.atmosphere_pic" class='integral_count skeleton-rect'>
-							<text v-if="storeInfo.max_integral > 0" class='integral'>积分最高可抵扣{{storeInfo.max_integral}}元</text>
-							<text v-if="storeInfo.delivery_free == 1" class='integral'>包邮</text>
+							<text v-if="storeInfo.max_integral > 0" class='integral'>ຄະແນນສູງສຸດຫັກໄດ້{{storeInfo.max_integral}}ກີບ</text>
+							<text v-if="storeInfo.delivery_free == 1" class='integral'>ຟຣີຄ່າສົ່ງ</text>
 						</view>
 						<view v-if="!storeInfo.atmosphere_pic" class='introduce skeleton-rect'>
 							<text v-if="storeInfo.merchant.type_name" class="font-bg-red bt-color">{{storeInfo.merchant.type_name}}</text>
@@ -357,22 +357,22 @@
 						</view>
 						<view class='label acea-row row-between-wrapper' style="padding-bottom:10px;">
 							<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">¥{{storeInfo.ot_price || 0}}</view>
-							<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">库存:{{storeInfo.stock ? storeInfo.stock : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
-							<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">销量:{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
+							<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">ສາງ:{{storeInfo.stock ? storeInfo.stock : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
+							<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">ຂາຍໄດ້:{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
 						</view>
 					</view>
 					<view>
 						<view class="bg-f boder-24">
 							<view v-if="storeInfo.product_type != 2" class='attribute acea-row row-between-wrapper'>
-								<view class="acea-row row-between-wrapper">选择：
-									<text class='atterTxt'>默认</text>
+								<view class="acea-row row-between-wrapper">ເລືອກ：
+									<text class='atterTxt'>ຄ່າເລີ່ມຕົ້ນ</text>
 								</view>
 								<view class='iconfont icon-ic_rightarrow'></view>
 							</view>
 							<block v-if="storeInfo.product_type != 2">
 								<view v-if="specsInfo.params && specsInfo.params.length>0" class="attribute acea-row row-between-wrapper" @click="seeSpecs">
 									<view class="acea-row row-middle">
-										参数：
+										ພາຣາມິເຕີ：
 										<view class="list line1">
 											<text class="item params" v-for="(item,index) in specsInfo.params" :key="index"
 												v-if="index<2">{{item.name}}</text>
@@ -383,14 +383,14 @@
 								</view>
 								<!--运费-->
 								<view v-if="shippingValue" class='attribute acea-row row-between-wrapper'>
-									<view class="acea-row row-between-wrapper">运费：
+									<view class="acea-row row-between-wrapper">ຄ່າຂົນສົ່ງ：
 										<text class='atterTxt'>{{shippingValue}}</text>
 									</view>
 									<view class='iconfont icon-ic_rightarrow'></view>
 								</view>
 								<!--保障-->
 								<view v-if="guarantee && guarantee.length" class='attribute acea-row row-between-wrapper'>
-									<view class="acea-row row-between-wrapper">保障：
+									<view class="acea-row row-between-wrapper">ການຮັບປະກັນ：
 										<view class="guaranteeAttr">
 											<text class='atterTxt1' :class="item.guarantee_name ? 'hasAttr' : ''"  v-for="(item,index) in guarantee" :key="index">
 												{{item.guarantee_name ? item.guarantee_name : ''}}
@@ -414,26 +414,26 @@
 											<text v-else-if="storeInfo.merchant.is_trader" class="font-bg-red ml8 bt-color">自营</text>
 										</view>
 										<view v-if="storeInfo.merchant.care_count" class="txt">
-											{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}人关注
+											{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}ຄົນຕິດຕາມ
 										</view>
-										<view v-else class="txt">0人关注</view>
+										<view v-else class="txt">0ຄົນຕິດຕາມ</view>
 									</view>
 								</view>
 								<view class="score-wrapper">
 									<view class="item">
-										商品描述<text>{{storeInfo.merchant.product_score}}</text>
+										ລາຍລະອຽດສິນຄ້າ<text>{{storeInfo.merchant.product_score}}</text>
 									</view>
 									<view class="item">
-										卖家服务<text>{{storeInfo.merchant.service_score}}</text>
+										ບໍລິການຮ້ານຄ້າ<text>{{storeInfo.merchant.service_score}}</text>
 									</view>
 									<view class="item">
-										物流服务<text>{{storeInfo.merchant.postage_score}}</text>
+										ບໍລິການຂົນສົ່ງ<text>{{storeInfo.merchant.postage_score}}</text>
 									</view>
 								</view>
 							</view>
 						</view>
 						<view class='product-intro' id="past3">
-							<view class='title'>产品介绍</view>
+							<view class='title'>ແນະນຳສິນຄ້າ</view>
 							<jyf-parser v-if="description.type == 0" :domain='domain' :html="description.content.replace(/<br\/>/ig, '')" ref="article" :tag-style="tagStyle"></jyf-parser>
 							<view v-else class="product_content">
 								<view v-if="description.content && description.content.title" class="title">{{description.content.title}}</view>
@@ -481,7 +481,7 @@
 			let that = this;
 			return {
 				statusBarHeight: statusBarHeight, //系统导航条高度
-				attrTxt: '请选择', //属性页面提示
+				attrTxt: 'ກະລຸນາເລືອກ', //属性页面提示
 				attrValue: '', //已选属性
 				animated: false, //购物车动画
 				product_id: 0, //商品id
@@ -570,7 +570,7 @@
 			/*获取预览商品详情*/
 			getPreviewDetails(){
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ',
 					mask: true
 				});
 				let that = this;
@@ -611,7 +611,7 @@
 				})
 			},
 			/**
-			 * 默认选中属性
+			 * ຄ່າເລີ່ມຕົ້ນ选中属性
 			 *
 			 */
 			DefaultSelect: function() {
@@ -642,7 +642,7 @@
 					this.$set(this.attr.productSelect, "marketPrice", productSelect.ot_price);
 					this.$set(this, "uniqueValue", productSelect.unique);
 					this.$set(this, "attrValue", value.join(","));
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 					if (productSelect.stock == 0) {
 						this.$set(this.attr.productSelect, "cart_num", 0);
 					} else {
@@ -662,7 +662,7 @@
 					this.$set(this, "uniqueValue", "");
 					this.$set(this.attr.productSelect, "cart_num", 0);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "请选择");
+					this.$set(this, "attrTxt", "ກະລຸນາເລືອກ");
 				} else if (!productSelect && !productAttr.length) {
 					this.$set(
 						this.attr.productSelect,
@@ -677,7 +677,7 @@
 					this.$set(this, "uniqueValue", this.storeInfo.unique || "");
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "请选择");
+					this.$set(this, "attrTxt", "ກະລຸນາເລືອກ");
 				} else if (productSelect && !productAttr.length) {
 					this.$set(this.attr.productSelect, "store_name", this.storeInfo.store_name);
 					this.$set(this.attr.productSelect, "image", productSelect.image);
@@ -687,7 +687,7 @@
 					this.$set(this.attr.productSelect, "marketPrice", productSelect.ot_price);
 					this.$set(this, "uniqueValue", productSelect.unique);
 					this.$set(this, "attrValue", value.join(","));
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 					if (productSelect.stock == 0) {
 						this.$set(this.attr.productSelect, "cart_num", 0);
 					} else {

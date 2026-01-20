@@ -3,46 +3,46 @@
 		<view class="refund-wrapper pad20">
 			<view class="form-box bg-f boder-24">
 				<view class="form-item item-txt">
-					<text class="label">审核</text>
+					<text class="label">ກວດສອບ</text>
 					<view class="picker acea-row">
 						<view class="agree-count" :class="status == 1 ? 'on' : ''" @click="status = 1">
 							<text class="iconfont" :class="status == 1 ? 'icon-ic_Selected' : 'icon-ic_unselect'"></text>
-							<text class="icon-agree"></text>同意
+							<text class="icon-agree"></text>ຍິນຍອມ
 						</view>
 						<view class="agree-count" :class="status == -1 ? 'on' : ''" @click="status = -1">
 							<text class="iconfont" :class="status == -1 ? 'icon-ic_Selected' : 'icon-ic_unselect'"></text>
-							<text class="icon-agree"></text>拒绝
+							<text class="icon-agree"></text>ປະຕິເສດ
 						</view>
 					</view>
 				</view>
 			</view>
 			<view v-if="status == 1" class="form-box bg-f boder-24">
 				<view class="form-item item-txt">
-					<text class="label">商品实际支付(元)</text>
+					<text class="label">ຊຳລະຕົວຈິງ(ກີບ)</text>
 					<view class="picker">
 						{{orderInfo.total_price}}
 					</view>
 				</view>
 				<view class="form-item item-txt">
-					<text class="label">运费实际支付(元)</text>
+					<text class="label">ຄ່າຂົນສົ່ງຕົວຈິງ(ກີບ)</text>
 					<view class="picker">
 						{{orderInfo.total_postage}}
 					</view>
 				</view>
 				<view class="form-item item-txt">
-					<text class="label">商品购买数量(件)</text>
+					<text class="label">ຈຳນວນສິນຄ້າ(ລາຍການ)</text>
 					<view class="picker">
 						{{orderInfo.total_num}}
 					</view>
 				</view>
 				<view class="form-item item-txt">
-					<text class="label">申请退款金额(元)</text>
+					<text class="label">ຈຳນວນເງິນຂໍຄືນ(ກີບ)</text>
 					<view class="picker">
 						{{orderInfo.refund_price}}
 					</view>
 				</view>
 				<view class="form-item item-txt">
-					<text class="label">申请退款数量(件)</text>
+					<text class="label">ຈຳນວນຂໍຄືນ(ລາຍການ)</text>
 					<view class="picker">
 						{{orderInfo.refund_num}}
 					</view>
@@ -50,26 +50,26 @@
 			</view>
 			<view v-if="orderInfo.refund_type == 2 && status == 1" class="form-box bg-f boder-24">
 				<view class="form-item item-txt">
-					<text class="label">收货人</text>
+					<text class="label">ຜູ້ຮັບ</text>
 					<view class="picker">
-						<input style="text-align: right;" maxlength="10" class="p-color" type="text" placeholder="请输入姓名" v-model="refundInfo.mer_delivery_user">
+						<input style="text-align: right;" maxlength="10" class="p-color" type="text" placeholder="ກະລຸນາໃສ່ຊື່" v-model="refundInfo.mer_delivery_user">
 					</view>
 				</view>
 				<view class="form-item item-txtarea">
-					<text class="label">收货地址</text>
-					<view class="txtarea"><textarea  v-model="refundInfo.mer_delivery_address" value="" placeholder="请输入地址" /></view>
+					<text class="label">ທີ່ຢູ່ຮັບສິນຄ້າ</text>
+					<view class="txtarea"><textarea  v-model="refundInfo.mer_delivery_address" value="" placeholder="ກະລຸນາໃສ່ທີ່ຢູ່" /></view>
 				</view>
 				<view class="form-item item-txt">
-					<text class="label">手机号</text>
+					<text class="label">ເບີໂທ</text>
 					<view class="picker">
-						<input style="text-align: right;" class="p-color" type="text" placeholder="请输入手机号" v-model="refundInfo.phone">
+						<input style="text-align: right;" class="p-color" type="text" placeholder="ກະລຸນາໃສ່ເບີໂທ" v-model="refundInfo.phone">
 					</view>
 				</view>
 			</view>
 			<view v-if="status == -1" class="form-box bg-f boder-24">
 				<view class="form-item item-txtarea">
-					<text class="label">拒绝理由</text>
-					<view class="txtarea"><textarea v-model="fail_message" value="" placeholder-class="coarea" placeholder="请填写拒绝退款的理由" /></view>
+					<text class="label">ເຫດຜົນປະຕິເສດ</text>
+					<view class="txtarea"><textarea v-model="fail_message" value="" placeholder-class="coarea" placeholder="ກະລຸນາໃສ່ເຫດຜົນປະຕິເສດການຄືນເງິນ" /></view>
 				</view>
 			</view>
 			<view class="confirm-btn">
@@ -139,7 +139,7 @@
 				if(that.status == -1){
 					if (!that.fail_message) {
 						return that.$util.Tips({
-							title: '请填写拒绝理由'
+							title: 'ກະລຸນາໃສ່ເຫດຜົນປະຕິເສດ'
 						})
 					}
 				}
@@ -150,21 +150,21 @@
 				if(that.orderInfo.refund_type == 2){
 					if (!that.refundInfo.mer_delivery_user) {
 						return that.$util.Tips({
-							title: '请填写收货人姓名'
+							title: 'ກະລຸນາໃສ່ຊື່ຜູ້ຮັບ'
 						})
 					}
 					if (!that.refundInfo.mer_delivery_address) {
 						return that.$util.Tips({
-							title: '请填写收货地址'
+							title: 'ກະລຸນາໃສ່ທີ່ຢູ່ຮັບ'
 						})
 					}
 					if (!that.refundInfo.phone) {
 						return that.$util.Tips({
-							title: '请填写手机号'
+							title: 'ກະລຸນາໃສ່ເບີໂທ'
 						})
 					}else if(!(/^1[3456789]\d{9}$/.test(that.refundInfo.phone))){
 						return that.$util.Tips({
-							title: '请填写正确的手机号码'
+							title: 'ກະລຸນາໃສ່ເບີໂທທີ່ຖືກຕ້ອງ'
 						})
 					}
 					params.mer_delivery_user = that.refundInfo.mer_delivery_user

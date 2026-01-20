@@ -8,7 +8,7 @@
 					<view>
 						<span class="create-time">
 							{{ orderInfo.create_time }}
-							{{ orderInfo.order_type == 2 ? "同城配送" : orderInfo.order_type == 1 ? "到店自提" : "快递配送" }}
+							{{ orderInfo.order_type == 2 ? "ສົ່ງພາຍໃນເມືອງ" : orderInfo.order_type == 1 ? "ຮັບເອງທີ່ຮ້ານ" : "ສົ່ງດ່ວນ" }}
 						</span>
 					</view>
 				</view>
@@ -18,7 +18,7 @@
 					<span class="iconfont icon-ic_notes"></span>
 					<view class="line1" style="text-align: left; flex: 1; margin-left: 10rpx;" @click="modify('1')">
 						 <text v-if="orderInfo.remark">{{orderInfo.remark}}</text>
-						 <text v-else style="color: #ccc;">订单未备注，点击添加备注信息</text>
+						 <text v-else style="color: #ccc;">ບໍ່ມີໝາຍເຫດ, ກົດເພື່ອເພີ່ມໝາຍເຫດ</text>
 					</view>
 				</view>
 				<view class="bg-f boder-24 mt20 oder-user-info">
@@ -33,10 +33,10 @@
 							<view>{{ orderInfo.user_address }}</view>
 						</view>
 						<!-- #ifdef H5 -->
-						<button class="copy copy-data" :data-clipboard-text="'收货人姓名：'+orderInfo.real_name+'\n收货人电话：'+ orderInfo.user_phone+'\n收货人地址：'+orderInfo.user_address">复制</button>
+						<button class="copy copy-data" :data-clipboard-text="'ຊື່ຜູ້ຮັບ：'+orderInfo.real_name+'\nເບີໂທຜູ້ຮັບ：'+ orderInfo.user_phone+'\nທີ່ຢູ່ຜູ້ຮັບ：'+orderInfo.user_address">ສຳເນົາ</button>
 						<!-- #endif -->
 						<!-- #ifdef MP || APP-PLUS -->
-						<button class="copy" @tap="copyText">复制</button>
+						<button class="copy" @tap="copyText">ສຳເນົາ</button>
 						<!-- #endif -->
 					</view>
 				</view>
@@ -72,10 +72,10 @@
 						</view>
 					</navigator>
 					<view class="public-total acea-row row-right">
-						共{{ orderInfo.total_num }}件商品，已支付
+						ລວມ{{ orderInfo.total_num }}ລາຍການ, ຊຳລະແລ້ວ
 						<view class="money">
 							<priceFormat :price="orderInfo.pay_price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
-						</view> ( 运费 ¥{{orderInfo.pay_postage}} )
+						</view> ( ຄ່າຂົນສົ່ງ ¥{{orderInfo.pay_postage}} )
 					</view>
 				</view>
 				<!-- 提货点信息 -->
@@ -84,40 +84,40 @@
 				<DeliveryInfo v-if="orderInfo.deliveryOrder" :orderInfo="orderInfo"/>
 				<view class="wrapper mt20 boder-24 bg-f">
 					<view class="item acea-row row-between">
-						<view>订单编号：</view>
+						<view>ເລກທີ່ອໍເດີ：</view>
 						<view class="conter acea-row row-middle row-right">
 							<view>{{ orderInfo.order_sn }}</view>
 							<!-- #ifdef H5 -->
-							<button class="copy copy-data" :data-clipboard-text="orderInfo.order_sn">复制</button>
+							<button class="copy copy-data" :data-clipboard-text="orderInfo.order_sn">ສຳເນົາ</button>
 							<!-- #endif -->
 							<!-- #ifdef MP || APP-PLUS -->
-							<span class="copy copy-data" @click="copyNum(orderInfo.order_sn)">复制</span>
+							<span class="copy copy-data" @click="copyNum(orderInfo.order_sn)">ສຳເນົາ</span>
 							<!-- #endif -->
 						</view>
 					</view>
 					<view class="item acea-row row-between">
-						<view>下单时间：</view>
+						<view>ເວລາສັ່ງຊື້：</view>
 						<view class="conter">{{ orderInfo.create_time }}</view>
 					</view>
 					<view class="item acea-row row-between">
-						<view>支付状态：</view>
+						<view>ສະຖານະການຊຳລະ：</view>
 						<view class="conter">
-							{{ orderInfo.paid == 1 ? "已支付" : "未支付" }}
+							{{ orderInfo.paid == 1 ? "ຊຳລະແລ້ວ" : "ຍັງບໍ່ຊຳລະ" }}
 						</view>
 					</view>
 					<view class="item acea-row row-between">
-						<view>支付方式：</view>
-						<view class="conter">{{ orderInfo.pay_type == 0 ? "余额支付" : (orderInfo.pay_type == 1 || orderInfo.pay_type == 2 || orderInfo.pay_type == 3) ? "微信支付" : orderInfo.pay_type == 7 ? '线下支付' : "支付宝支付" }}</view>
+						<view>ວິທີຊຳລະ：</view>
+						<view class="conter">{{ orderInfo.pay_type == 0 ? "ຊຳລະດ້ວຍຍອດເງິນ" : (orderInfo.pay_type == 1 || orderInfo.pay_type == 2 || orderInfo.pay_type == 3) ? "WeChat Pay" : orderInfo.pay_type == 7 ? 'ຊຳລະອອບໄລນ໌' : "Alipay" }}</view>
 					</view>
 					<view v-if="orderInfo.mark" class="item acea-row row-between">
-						<view>买家留言：</view>
+						<view>ຂໍ້ຄວາມຈາກຜູ້ຊື້：</view>
 						<view class="conter acea-row row-middle row-right">
 							<view>{{ orderInfo.mark }}</view>
 							<!-- #ifdef H5 -->
-							<button class="copy copy-data" :data-clipboard-text="orderInfo.mark">复制</button>
+							<button class="copy copy-data" :data-clipboard-text="orderInfo.mark">ສຳເນົາ</button>
 							<!-- #endif -->
 							<!-- #ifdef MP || APP-PLUS -->
-							<span class="copy copy-data" @click="copyNum(orderInfo.mark)">复制</span>
+							<span class="copy copy-data" @click="copyNum(orderInfo.mark)">ສຳເນົາ</span>
 							<!-- #endif -->
 						</view>
 					</view>
@@ -142,27 +142,27 @@
 				</block>
 				<view class="wrapper mt20 boder-24 bg-f">
 					<view class="item acea-row row-between">
-						<view>商品总价：</view>
+						<view>ລາຄາລວມສິນຄ້າ：</view>
 						<view class="conter">¥{{ orderInfo.total_price }}</view>
 					</view>
 					<view v-if="orderInfo.coupon_price > 0" class="item acea-row row-between">
-						<view>优惠券抵扣：</view>
+						<view>ສ່ວນຫຼຸດຄູປອງ：</view>
 						<view class="conter">-¥{{ orderInfo.coupon_price }}</view>
 					</view>
 					<view v-if="orderInfo.svip_discount > 0" class="item acea-row row-between">
-					  <view>会员商品优惠：</view>
+					  <view>ສ່ວນຫຼຸດສະມາຊິກ：</view>
 					  <view class="conter">-¥{{ orderInfo.svip_discount }}</view>
 					</view>
 					<view v-if="orderInfo.integral_price > 0" class="item acea-row row-between">
-						<view>积分抵扣：</view>
+						<view>ສ່ວນຫຼຸດຄະແນນ：</view>
 						<view class="conter">-¥{{ orderInfo.integral_price }}</view>
 					</view>
 					<view v-if="orderInfo.pay_postage > 0" class="item acea-row row-between">
-						<view>运费：</view>
+						<view>ຄ່າຂົນສົ່ງ：</view>
 						<view class="conter">¥{{ orderInfo.pay_postage }}</view>
 					</view>
 					<view class="actualPay acea-row row-right">
-						实付款：
+						ຊຳລະຕົວຈິງ：
 						<view class="money">
 							<priceFormat :price="orderInfo.pay_price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
 						</view>
@@ -170,29 +170,29 @@
 				</view>
 				<view class="wrapper mt20 boder-24 bg-f" v-if="orderInfo.delivery_type != '3' && orderInfo.order_type === 0 && orderInfo.delivery_type">
 					<view v-if="orderInfo.delivery_type != '6'" class="item acea-row row-between">
-						<view>配送方式：</view>
+						<view>ວິທີສົ່ງ：</view>
 						<view class="conter" v-if="orderInfo.delivery_type === '1' || orderInfo.delivery_type === '4'">
-							快递
+							ສົ່ງດ່ວນ
 						</view>
-						<view class="conter" v-if="orderInfo.delivery_type === '2'">送货</view>
+						<view class="conter" v-if="orderInfo.delivery_type === '2'">ສົ່ງເຖິງບ້ານ</view>
 					</view>
 					<view class="item acea-row row-between">
-						<view v-if="orderInfo.delivery_type === '1' || orderInfo.delivery_type === '4'">快递公司：</view>
-						<view v-if="orderInfo.delivery_type === '2'">送货人：</view>
-						<view v-if="orderInfo.delivery_type === '6'">发货方式：</view>
+						<view v-if="orderInfo.delivery_type === '1' || orderInfo.delivery_type === '4'">ບໍລິສັດຂົນສົ່ງ：</view>
+						<view v-if="orderInfo.delivery_type === '2'">ຜູ້ສົ່ງ：</view>
+						<view v-if="orderInfo.delivery_type === '6'">ວິທີສົ່ງ：</view>
 						<view class="conter line1">{{ orderInfo.delivery_name ? orderInfo.delivery_name : '' }}</view>
 					</view>
 					<view class="item acea-row row-between">
-						<view v-if="orderInfo.delivery_type === '1' || orderInfo.delivery_type === '4'">快递单号：</view>
-						<view v-if="orderInfo.delivery_type === '2'">送货人电话：</view>
-						<view v-if="orderInfo.delivery_type === '6'">卡密信息：</view>
+						<view v-if="orderInfo.delivery_type === '1' || orderInfo.delivery_type === '4'">ເລກຂົນສົ່ງ：</view>
+						<view v-if="orderInfo.delivery_type === '2'">ເບີໂທຜູ້ສົ່ງ：</view>
+						<view v-if="orderInfo.delivery_type === '6'">ຂໍ້ມູນລະຫັດ：</view>
 						<view class="conter" style="display: flex;">
 							<text>{{ orderInfo.delivery_id ? orderInfo.delivery_id : ''}}</text>
 							<!-- #ifndef H5 -->
-							<text class='copy' @tap='copyKm'>复制</text>
+							<text class='copy' @tap='copyKm'>ສຳເນົາ</text>
 							<!-- #endif -->
 							<!-- #ifdef H5 -->
-							<text class="copy copy-data" :data-clipboard-text="orderInfo.delivery_id">复制</text>
+							<text class="copy copy-data" :data-clipboard-text="orderInfo.delivery_id">ສຳເນົາ</text>
 							<!-- #endif -->
 						</view>
 					</view>
@@ -201,20 +201,20 @@
 				<view class="footer-btn-box footer acea-row row-right row-middle" v-if="goname != 'looks'">
 					<!-- <view class="more"></view> -->
 					<view class="bnt cancel" @click="modify('0')" v-if="orderInfo.paid == 0">
-						一键改价
+						ປ່ຽນລາຄາ
 					</view>
 					<navigator v-if="orderInfo.status!=-1&&orderInfo.status<9&&orderInfo.paid == 1" class="bnt cancel" :url="'/pages/admin/refundList/index?mer_id='+mer_id+'&order_id='+orderInfo.order_id">
-						立即退款
+						ຄືນເງິນທັນທີ
 					</navigator>
-					<view class="bnt cancel" @click="modify('1')">订单备注</view>
+					<view class="bnt cancel" @click="modify('1')">ໝາຍເຫດອໍເດີ</view>
 					<view class="bnt cancel" v-if="orderInfo.pay_type === 'offline' && orderInfo.paid === 0" @click="offlinePay">
-						确认付款
+						ຢືນຢັນການຊຳລະ
 					</view>
 					<view class="bnt cancel" v-if="orderInfo.order_type == 2 && (orderInfo.status == 0 || orderInfo.status == 1)" @click="confirmService">确认送达</view>
-					<navigator class="bnt delivery" v-if="orderInfo.paid == 1 && orderInfo.status == 0 && orderInfo.order_type == 0" :url="'/pages/admin/delivery/index?id='+orderInfo.order_id+'&merId='+mer_id">去发货</navigator>
-					<view class="bnt delivery" v-if="orderInfo.paid == 1 && (orderInfo.status == 0 || orderInfo.status == 9) && orderInfo.order_type == 1" @click="goCancellation">去核销</view>
-					<view class="bnt delivery" v-if="orderInfo.order_type == 2 && orderInfo.status == 0" @click="cityAssign()">派单</view>
-					<view class="bnt delivery" v-if="orderInfo.order_type == 2 && orderInfo.status == 1" @click="cityAssign(true)">改派</view>
+					<navigator class="bnt delivery" v-if="orderInfo.paid == 1 && orderInfo.status == 0 && orderInfo.order_type == 0" :url="'/pages/admin/delivery/index?id='+orderInfo.order_id+'&merId='+mer_id">ໄປສົ່ງ</navigator>
+					<view class="bnt delivery" v-if="orderInfo.paid == 1 && (orderInfo.status == 0 || orderInfo.status == 9) && orderInfo.order_type == 1" @click="goCancellation">ໄປກວດສອບ</view>
+					<view class="bnt delivery" v-if="orderInfo.order_type == 2 && orderInfo.status == 0" @click="cityAssign()">ມອບໝາຍ</view>
+					<view class="bnt delivery" v-if="orderInfo.order_type == 2 && orderInfo.status == 1" @click="cityAssign(true)">ມອບໝາຍໃໝ່</view>
 				</view>
 			</view>
 			<PriceChange :change="change" :orderInfo="orderInfo" v-on:closechange="changeclose($event)" v-on:savePrice="savePrice"
@@ -314,12 +314,12 @@
 				var clipboard = new ClipboardJS('.copy-data');
 				clipboard.on('success', function(e) {
 					self.$util.Tips({
-						title:'复制成功'
+						title:'ສຳເນົາສຳເລັດ'
 					})
 				});
 				clipboard.on('error', function(e) {
 					self.$util.Tips({
-						title:'复制失败'
+						title:'ສຳເນົາບໍ່ສຳເລັດ'
 					})
 				});
 			});
@@ -361,15 +361,15 @@
 			copyText: function (e) {
 			    let arr = [
 			      {
-			        name: "收货人姓名",
+			        name: "ຊື່ຜູ້ຮັບ",
 			        value: this.orderInfo.real_name
 			      },
 			      {
-			        name: "收货人电话",
+			        name: "ເບີໂທຜູ້ຮັບ",
 			        value: this.orderInfo.user_phone
 			      },
 			      {
-			        name: "收货人地址",
+			        name: "ທີ່ຢູ່ຜູ້ຮັບ",
 			        value: this.orderInfo.user_address
 			      }
 			    ]
@@ -428,7 +428,7 @@
 						res => {
 							that.change = false;
 							that.$util.Tips({
-								title: '改价成功',
+								title: 'ປ່ຽນລາຄາສຳເລັດ',
 								icon: 'success'
 							})
 							that.getIndex();
@@ -444,7 +444,7 @@
 				} else if (that.status == 0 && refund_status === 1) {
 					if (!isMoney(refund_price)) {
 						return that.$util.Tips({
-							title: '请输入正确的金额'
+							title: 'ກະລຸນາໃສ່ຈຳນວນເງິນທີ່ຖືກຕ້ອງ'
 						});
 					}
 					data.price = refund_price;
@@ -468,7 +468,7 @@
 				} else {
 					if (!remark) {
 						return this.$util.Tips({
-							title: '请输入备注'
+							title: 'ກະລຸນາໃສ່ໝາຍເຫດ'
 						})
 					}
 					// data.remark = remark;
@@ -550,8 +550,8 @@
 			// 确认送达
 			async confirmService() {
 				const [err, { confirm }] = await uni.showModal({
-				  title: "提示",
-				  content: `确定要确认送达吗？`,
+				  title: "ແຈ້ງເຕືອນ",
+				  content: `ແນ່ໃຈບໍວ່າຕ້ອງການຢືນຢັນການສົ່ງ?`,
 				});
 				if (err || !confirm) return;
 				uni.showLoading({

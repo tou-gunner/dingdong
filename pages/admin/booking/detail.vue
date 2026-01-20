@@ -2,7 +2,7 @@
   <BaseContainer>
     <!-- #ifdef MP || APP-PLUS -->
     <view class="nav-bar-wrapper">
-      <BaseNavBar title="订单详情" lightText />
+      <BaseNavBar title="ລາຍລະອຽດການສັ່ງຊື້" lightText />
     </view>
     <!-- #endif -->
     <view class="order-body">
@@ -82,7 +82,7 @@ export default {
 
       const config = [
         {
-          text: "订单备注",
+          text: "ໝາຍເຫດການສັ່ງຊື້",
           type: "plain",
           event: EVENT_TYPE.REMARK
         }
@@ -92,7 +92,7 @@ export default {
 
       if (this.orderInfo.status === 0) {
         config.push({
-          text: "改约",
+          text: "ປ່ຽນນັດໝາຍ",
           type: "plain",
           event: EVENT_TYPE.RESCHEDULE
         });
@@ -101,13 +101,13 @@ export default {
       if (!this.orderInfo.is_instore_order) {
         if (this.orderInfo.status === 0) {
           config.push({
-            text: "派单",
+            text: "ມອບໝາຍ",
             type: "primary",
             event: EVENT_TYPE.ASSIGN
           });
         } else if (this.orderInfo.status === 1) {
           config.push({
-            text: "改派",
+            text: "ມອບໝາຍໃໝ່",
             type: "plain",
             event: EVENT_TYPE.REASSIGN
           });
@@ -162,7 +162,7 @@ export default {
     async handleSaveRemark({ remark }) {
       if (!remark) {
         this.$util.Tips({
-          title: "请输入备注信息",
+          title: "ກະລຸນາໃສ່ຂໍ້ມູນໝາຍເຫດ",
           icon: "none"
         });
         return;

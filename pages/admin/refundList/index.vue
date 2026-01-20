@@ -40,11 +40,11 @@
 					</view>
 					<view class="form-box">
 						<view class="form-item item-txt">
-							<text class="label">退款金额</text>
-							<input style="text-align: right;" class="p-color" type="text" placeholder="请输入金额" placeholder-class="holder-color" v-model="rerundPrice" @blur="checkMaxPrice">
+							<text class="label">ຈຳນວນເງິນຄືນ</text>
+							<input style="text-align: right;" class="p-color" type="text" placeholder="ກະລຸນາໃສ່ຈຳນວນ" placeholder-class="holder-color" v-model="rerundPrice" @blur="checkMaxPrice">
 						</view>
 						<view class="form-item item-txt">
-							<text class="label">退款原因</text>
+							<text class="label">ເຫດຜົນຄືນເງິນ</text>
 							<view class="picker">
 								<picker @change="bindPickerChange" :value="qsIndex" :range="qsArray">
 									<view class="picker-box">
@@ -55,16 +55,16 @@
 							</view>
 						</view>
 						<view class="form-item item-txtarea">
-							<text class="label">备注说明</text>
-							<view class="txtarea"><textarea v-model="con" placeholder-class="holder-color" placeholder="请填写备注信息，100字以内" /></view>
+							<text class="label">ໝາຍເຫດ</text>
+							<view class="txtarea"><textarea v-model="con" placeholder-class="holder-color" placeholder="ກະລຸນາຕື່ມໝາຍເຫດ, ບໍ່ເກີນ100ຕົວອັກສອນ" /></view>
 						</view>
 					</view>
 				</view>
-				<button class="btn-box" @click="confirmRefund" :disabled="disabled" :class="{'disabled' : disabled}">确认退款</button>
+				<button class="btn-box" @click="confirmRefund" :disabled="disabled" :class="{'disabled' : disabled}">ຢືນຢັນຄືນເງິນ</button>
 			</view>
 		</view>
 		<view v-else>
-			<emptyPage title="暂无订单信息~"  :noImage="`${domain}/static/images/noRefund.png`"></emptyPage>
+			<emptyPage title="ບໍ່ມີຂໍ້ມູນອໍເດີ~"  :noImage="`${domain}/static/images/noRefund.png`"></emptyPage>
 		</view>
 
 	</view>
@@ -195,12 +195,12 @@
 				let arr = Object.keys(refundData);
 				if(arr.length == 0){
 					return that.$util.Tips({
-						title: '请选择商品'
+						title: 'ກະລຸນາເລືອກສິນຄ້າ'
 					});
 				}
 				if(that.maxRefundPrice == undefined){
 					return that.$util.Tips({
-						title: '请输入退款金额'
+						title: 'ກະລຸນາໃສ່ຈຳນວນເງິນຄືນ'
 					});
 				}
 				let data = {
@@ -212,7 +212,7 @@
 				}
 				that.disabled = true
 				uni.showLoading({
-					title: "退款中"
+					title: "ກຳລັງຄືນເງິນ"
 				})
 				confirmRefundApi(that.mer_id, data)
 					.then(res => {

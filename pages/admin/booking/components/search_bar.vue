@@ -2,7 +2,7 @@
   <view class="search-bar">
     <view class="input-wrapper">
       <view class="iconfont icon-ic_search" />
-      <input class="search-input" placeholder="搜索订单" :value="value"
+      <input class="search-input" placeholder="ຄົ້ນຫາການສັ່ງຊື້" :value="value"
         @input="$emit('change', $event.target.value)" @confirm="$emit('confirm', $event.target.value)"
         confirm-type="search" />
     </view>

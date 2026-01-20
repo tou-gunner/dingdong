@@ -1,7 +1,7 @@
 <template>
 	<BaseContainer>
 		<view class="base-bg"></view>
-		<BaseNavBar title="扫码核销" />
+		<BaseNavBar title="ສະແກນກວດສອບ" />
 		<view class="scan-container flex-center">
 			<button class="scan-btn flex-center" v-if="redeemType === REDEEM_TYPE.SCAN" @click="scanCode">
 				<text class="iconfont icon-ic_Scan"></text>
@@ -18,12 +18,12 @@
 			<button class="type-btn" :class="{ active: redeemType === REDEEM_TYPE.SCAN }" 
 				@click="handleChangeRedeemType(REDEEM_TYPE.SCAN)" :style="leftRectVar">
 				<text class="iconfont icon-ic_Scan" />
-				扫码核销
+				ສະແກນກວດສອບ
 			</button>
 			<button class="type-btn" :class="{ active: redeemType === REDEEM_TYPE.INPUT }" :style="rightRectVar"
 				@click="handleChangeRedeemType(REDEEM_TYPE.INPUT)">
 				<text class="iconfont icon-ic_edit" />
-				手动输入
+				ໃສ່ດ້ວຍຕົນເອງ
 			</button>
 		</view>
 		<!-- #ifdef H5 -->
@@ -117,10 +117,10 @@ export default {
 			let self = this
 			let ref = /[0-9]/;
 			if (!this.verifyCode) return self.$util.Tips({
-				title: '请输入核销码'
+				title: 'ກະລຸນາໃສ່ລະຫັດກວດສອບ'
 			});
 			if (!ref.test(this.verifyCode)) return self.$util.Tips({
-				title: '请输入正确的核销码'
+				title: 'ກະລຸນາໃສ່ລະຫັດກວດສອບທີ່ຖືກຕ້ອງ'
 			});
 			uni.navigateTo({
 				url: '/pages/admin/cancellate_result/index?cal_code=' + this.verifyCode + '&mer_id=' + this.merId
@@ -163,7 +163,7 @@ export default {
 			const params = this.getDataBetweenStrings(str);
 			if (!params || !params.cal_code || !params.mer_id) {
 				this.$util.Tips({
-					title: "核销码不正确"
+					title: "ລະຫັດກວດສອບບໍ່ຖືກຕ້ອງ"
 				});
 				return;
 			}

@@ -5,31 +5,31 @@
 				<view class="search">
 					<view class="search-content acea-row row-middle">
 						<text class="iconfont icon-ic_search"></text>
-						<input v-model="where.store_name" confirm-type="search" placeholder="请输收货人手机号或退款订单号搜索" class="input" @confirm="handleSearch" />
+						<input v-model="where.store_name" confirm-type="search" placeholder="ຄົ້ນຫາດ້ວຍເບີໂທ ຫຼື ເລກອໍເດີ" class="input" @confirm="handleSearch" />
 					</view>
 				</view>
 				<view>
 					<scroll-view class="nav acea-row" scroll-x="true" style="white-space: nowrap; display: flex;" scroll-with-animation show-scrollbar="true">
 						<view class="item" :class="where.status == 1 ? 'on' : ''" @click="changeStatus(1)">
-							待付款
+							ລໍຖ້າຊຳລະ
 						</view>
 						<view class="item" :class="where.is_verify == 1 ? 'on' : ''" @click="changeStatus('verify')">
-							待核销
+							ລໍຖ້າກວດສອບ
 						</view>
 						<view class="item" :class="where.status == 2 ? 'on' : ''" @click="changeStatus(2)">
-							待发货
+							ລໍຖ້າສົ່ງ
 						</view>
 						<view class="item" :class="where.status == 3 ? 'on' : ''" @click="changeStatus(3)">
-							待收货
+							ລໍຖ້າຮັບ
 						</view>
 						<view class="item" :class="where.status == 4 ? 'on' : ''" @click="changeStatus(4)">
-							待评价
+							ລໍຖ້າລີວິວ
 						</view>
 						<view class="item" :class="where.status == 5 ? 'on' : ''" @click="changeStatus(5)">
-							已完成
+							ສຳເລັດແລ້ວ
 						</view>
 						<view class="item" :class="where.status == 6 ? 'on' : ''" @click="changeStatus(6)">
-							退款
+							ຄືນເງິນ
 						</view>
 					</scroll-view>
 				</view>
@@ -39,10 +39,10 @@
 					<view class="item bg-f boder-24" v-for="(item, index) in list" :key="index">
 						<view class="order-num order-num-refund acea-row row-middle">
 							<view v-if="item.order && item.order.activity_type != 0" class="activity_type">
-								{{ item.order.activity_type == 1 ? '秒杀' : item.order.activity_type == 2 ? '预售' : item.order.activity_type == 3 ? '助力' : item.order.activity_type == 4 ? '拼团' : item.order.activity_type == 10 ? '套餐' :'' }}
+								{{ item.order.activity_type == 1 ? 'Flash Sale' : item.order.activity_type == 2 ? 'ຈອງລ່ວງໜ້າ' : item.order.activity_type == 3 ? 'ຊ່ວຍເຫຼືອ' : item.order.activity_type == 4 ? 'ກຸ່ມຊື້' : item.order.activity_type == 10 ? 'ແພັກເກັດ' :'' }}
 							</view>
-							退款单号：{{ item.refund_order_sn }}
-							<view class="time">申请时间：{{ item.create_time }}</view>
+							ເລກຄືນເງິນ：{{ item.refund_order_sn }}
+							<view class="time">ເວລາຂໍ：{{ item.create_time }}</view>
 						</view>
 						<view class="pos-order-goods order-refund" v-for="(val, key) in item.refundProduct" :key="key" @click="toRefundDetail(item)">
 							<view class="goods acea-row row-between">
@@ -58,7 +58,7 @@
 											{{ val.product.cart_info.productAttr&&val.product.cart_info.productAttr.sku || "默认" }}
 										</view>
 										<view class="y-money refund-y-money">
-											退款：<priceFormat :price="val.refund_price" weight intSize="28" floatSize="20" labelSize="20"></priceFormat>
+											ຄືນເງິນ：<priceFormat :price="val.refund_price" weight intSize="28" floatSize="20" labelSize="20"></priceFormat>
 										</view>
 									</view>
 								</view>
@@ -78,10 +78,10 @@
 							<view class="more">
 							</view>
 							<view class="acea-row row-middle">
-								<view class="bnt" @click="refundModify(item, 1)">订单备注</view>
-								<navigator class="bnt bnt_color" v-if="item.status == 0" :url="'/pages/admin/orderRefund/index?id='+item.refund_order_id+'&merId='+merId">立即退款</navigator>
-								<navigator class="bnt" v-if="item.status == 2" :url="'/pages/users/goods_logistics/index?refundId='+item.refund_order_id+'&merId='+merId">查看物流</navigator>
-								<view class="bnt bnt_color" v-if="item.status == 2" @tap='confirmOrder(item)'>确认收货</view>
+								<view class="bnt" @click="refundModify(item, 1)">ໝາຍເຫດອໍເດີ</view>
+								<navigator class="bnt bnt_color" v-if="item.status == 0" :url="'/pages/admin/orderRefund/index?id='+item.refund_order_id+'&merId='+merId">ຄືນເງິນທັນທີ</navigator>
+								<navigator class="bnt" v-if="item.status == 2" :url="'/pages/users/goods_logistics/index?refundId='+item.refund_order_id+'&merId='+merId">ເບິ່ງການຂົນສົ່ງ</navigator>
+								<view class="bnt bnt_color" v-if="item.status == 2" @tap='confirmOrder(item)'>ຢືນຢັນຮັບສິນຄ້າ</view>
 							</view>
 						</view>
 					</view>
@@ -92,11 +92,11 @@
 							<view>
 								<view class="acea-row row-middle">
 									<view v-if="item.activity_type != 0" class="activity_type">
-										{{ item.activity_type == 1 ? '秒杀' : item.activity_type == 2 ? '预售' : item.activity_type == 3 ? '助力' : item.activity_type == 4 ? '拼团' : item.activity_type == 10 ? '套餐' :'' }}
+										{{ item.activity_type == 1 ? 'Flash Sale' : item.activity_type == 2 ? 'ຈອງລ່ວງໜ້າ' : item.activity_type == 3 ? 'ຊ່ວຍເຫຼືອ' : item.activity_type == 4 ? 'ກຸ່ມຊື້' : item.activity_type == 10 ? 'ແພັກເກັດ' :'' }}
 									</view>
-									订单号：{{ item.order_sn }}
+									ເລກອໍເດີ：{{ item.order_sn }}
 								</view>
-								<view class="time">下单时间：{{ item.create_time }}</view>
+								<view class="time">ເວລາສັ່ງຊື້：{{ item.create_time }}</view>
 							</view>
 							<text class="order-status">
 								{{getOrderStatus(item)}}
@@ -123,45 +123,45 @@
 											<priceFormat :price="val.cart_info.productAttr.price" weight intSize="32" floatSize="22" labelSize="20"></priceFormat>
 										</view>
 										<view class="num">x{{ val.product_num }}</view>
-										<view class="refund-num" v-if="val.product_num-val.refund_num>0">{{val.product_num-val.refund_num}}件{{val.is_refund==1?'退款中' : val.is_refund==2 ? '已退款' : val.is_refund==3?'全部退款':''}}</view>
+										<view class="refund-num" v-if="val.product_num-val.refund_num>0">{{val.product_num-val.refund_num}}ລາຍການ{{val.is_refund==1?'ກຳລັງຄືນເງິນ' : val.is_refund==2 ? 'ຄືນເງິນແລ້ວ' : val.is_refund==3?'ຄືນເງິນທັງໝົດ':''}}</view>
 									</view>
 								</view>
 							</view>
 						</view>
 						<view class="public-total acea-row row-right">
-							共{{ item.total_num }}件商品，
-							<text v-if="where.status <= 1">应</text>
-							<text v-else>已</text>
-							支付
+							ລວມ{{ item.total_num }}ລາຍການ,
+							<text v-if="where.status <= 1">ຕ້ອງ</text>
+							<text v-else>ໄດ້</text>
+							ຊຳລະ
 							<view class="money">
 								<priceFormat :price="item.pay_price" weight intSize="32" floatSize="22" labelSize="20"></priceFormat>
 							</view>
-							( 运费 ¥{{ item.pay_postage}} )
+							( ຄ່າຂົນສົ່ງ ¥{{ item.pay_postage}} )
 						</view>
 						<view class="operation acea-row row-between-wrapper">
 							<view class="more">
 							</view>
 							<view class="acea-row row-middle">
 								<view class="bnt" @click="modify(item, 0)" v-if="where.status == 1 && item.activity_type != 2">
-									一键改价
+									ປ່ຽນລາຄາ
 								</view>
-								<view class="bnt" @click="modify(item, 1)">订单备注</view>
-								<view class="bnt bnt_color" v-if="where.status == 2 && item.order_type == 0 && !item.is_booking_order" @click="toPostage(item)">去发货</view>
-								<view class="bnt bnt_color" v-if="((where.status == 2 && item.order_type == 1) || where.is_verify == 1) && item.order_type != 2 && !item.is_booking_order" @click="toDetail(item)">核销</view>
+								<view class="bnt" @click="modify(item, 1)">ໝາຍເຫດອໍເດີ</view>
+								<view class="bnt bnt_color" v-if="where.status == 2 && item.order_type == 0 && !item.is_booking_order" @click="toPostage(item)">ໄປສົ່ງ</view>
+								<view class="bnt bnt_color" v-if="((where.status == 2 && item.order_type == 1) || where.is_verify == 1) && item.order_type != 2 && !item.is_booking_order" @click="toDetail(item)">ກວດສອບ</view>
 								<!-- 同城配送派单 -->
 								<template v-if="item.order_type == 2 && where.is_verify == 1">
-									<view class="bnt" @click="confirmService(item)">确认送达</view>
-									<view class="bnt bnt_color" v-if="item.status" @click="cityAssign(item, true)">改派</view>
-									<view class="bnt bnt_color" v-else @click="cityAssign(item)">派单</view>
+									<view class="bnt" @click="confirmService(item)">ຢືນຢັນການສົ່ງ</view>
+									<view class="bnt bnt_color" v-if="item.status" @click="cityAssign(item, true)">ມອບໝາຍໃໝ່</view>
+									<view class="bnt bnt_color" v-else @click="cityAssign(item)">ມອບໝາຍ</view>
 								</template>
 								<template v-if="item.paid && item.is_booking_order">
 									<!-- 上门订单指派 -->
 									<template v-if="!item.is_instore_order && item.status === 0">
-										<view class="bnt bnt_color" v-if="item.staffs_id" @click="handleOpenAssignPage(item.order_id, true)">改派</view>
-										<view class="bnt bnt_color" v-else @click="handleOpenAssignPage(item.order_id)">派单</view>
+										<view class="bnt bnt_color" v-if="item.staffs_id" @click="handleOpenAssignPage(item.order_id, true)">ມອບໝາຍໃໝ່</view>
+										<view class="bnt bnt_color" v-else @click="handleOpenAssignPage(item.order_id)">ມອບໝາຍ</view>
 									</template>
-									<view class="bnt bnt_color" v-if="item.is_instore_order && item.status === 0" @click="handleReedeemBookingOrder(item)">核销</view>
-									<view class="bnt bnt_color" v-else-if="!item.is_instore_order && item.status === 20" @click="handleReedeemBookingOrder">核销</view>
+									<view class="bnt bnt_color" v-if="item.is_instore_order && item.status === 0" @click="handleReedeemBookingOrder(item)">ກວດສອບ</view>
+									<view class="bnt bnt_color" v-else-if="!item.is_instore_order && item.status === 20" @click="handleReedeemBookingOrder">ກວດສອບ</view>
 								</template>
 							</view>
 						</view>
@@ -169,7 +169,7 @@
 				</view>
 				<Loading :loaded="loaded" :loading="loading"></Loading>
 				<view v-if="!loading && list.length <= 0" class="nothing">
-					<emptyPage title="暂无订单~" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
+					<emptyPage title="ບໍ່ມີອໍເດີ~" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
 				</view>
 			</view>
 			<PriceChange :change="change" :orderInfo="orderInfo" v-on:closechange="changeclose($event)" v-on:savePrice="savePrice"
@@ -178,16 +178,16 @@
 				<view class="priceChange" :class="refundMark === true ? 'on' : ''">
 					<view class="change-count bg-f">
 						<view class="priceTitle" :style="{ 'background-image': `url(${domain}/static/images/pricetitle.jpg)`}">
-							订单备注
+							ໝາຍເຫດອໍເດີ
 						</view>
 						<view class="listChange">
 							<textarea
-								placeholder="请填写备注信息..."
+								placeholder="ກະລຸນາຕື່ມຂໍ້ມູນໝາຍເຫດ..."
 								v-model="refundInfo.mer_mark"
 							></textarea>
 						</view>
 						<view class="modify" @click="save">
-							确认提交
+							ຢືນຢັນສົ່ງ
 						</view>
 					</view>
 					<view class="close">
@@ -296,8 +296,8 @@
 		methods: {
 			async handleReedeemBookingOrder(order) {
 				const [err, { confirm }] = await uni.showModal({
-					title: "提示",
-					content: `确定要核销该订单吗？`,
+					title: "ແຈ້ງເຕືອນ",
+					content: `ແນ່ໃຈບໍວ່າຕ້ອງການກວດສອບອໍເດີນີ້?`,
 				});
 				if (err || !confirm) return;
 				uni.showLoading({
@@ -350,7 +350,7 @@
 					return getCityDeliveryOrderAdminStatus(order)
 				}
 				if (order.refunding != 0 && this.where.status != 1) {
-					return order.refunding==1 ? '退款中' : order.refunding==2 ? '部分退款' : '全部退款';
+					return order.refunding==1 ? 'ກຳລັງຄືນເງິນ' : order.refunding==2 ? 'ຄືນເງິນບາງສ່ວນ' : 'ຄືນເງິນທັງໝົດ';
 				}
 
 				return "";
@@ -434,7 +434,7 @@
 				let that = this;
 				if (!that.refundInfo.mer_mark) {
 					return this.$util.Tips({
-						title: '请输入备注'
+						title: 'ກະລຸນາໃສ່ໝາຍເຫດ'
 					})
 				}
 				setRefundMark(that.merId,that.refundInfo.refund_order_id,{ mer_mark: that.refundInfo.mer_mark }).then(
@@ -460,13 +460,13 @@
 			confirmOrder: function(item) {
 				let that = this;
 				uni.showModal({
-					title: '确认收货',
-					content: '为保障权益，请收到货确认无误后，再确认收货',
+					title: 'ຢືນຢັນຮັບສິນຄ້າ',
+					content: 'ເພື່ອປົກປ້ອງສິດທິຂອງທ່ານ, ກະລຸນາກວດສອບສິນຄ້າກ່ອນຢືນຢັນ',
 					success: function(res) {
 						if (res.confirm) {
 							refundOrderReceive(that.merId,item.refund_order_id).then(res => {
 								return that.$util.Tips({
-									title: '操作成功',
+									title: 'ດຳເນີນການສຳເລັດ',
 									icon: 'success'
 								}, function() {
 									item.status = 3;
@@ -484,8 +484,8 @@
 				let that = this;
 				if(item.refunding != 0){
 					uni.showModal({
-						title: '标题',
-						content: '该订单有售后申请，请确认已处理！',
+						title: 'ແຈ້ງເຕືອນ',
+						content: 'ອໍເດີນີ້ມີການຂໍຄືນເງິນ, ກະລຸນາຢືນຢັນວ່າໄດ້ດຳເນີນການແລ້ວ!',
 						success: function(res) {
 							if (res.confirm) {
 								uni.navigateTo({
@@ -515,14 +515,14 @@
 				let id = that.orderInfo.order_id;
 				if (that.status == 0) {
 					if(!isMoney(opt.orderInfo.pay_postage || opt.orderInfo.total_price)){
-						return that.$util.Tips({title: '请输入正确的金额'});
+						return that.$util.Tips({title: 'ກະລຸນາໃສ່ຈຳນວນເງິນທີ່ຖືກຕ້ອງ'});
 					}
 					data.pay_price = price;
 					setAdminOrderPrice(this.merId,id,parmas).then(
 						function() {
 							that.change = false;
 							that.$util.Tips({
-								title:'改价成功',
+								title:'ປ່ຽນລາຄາສຳເລັດ',
 								icon:'success'
 							})
 							that.init();
@@ -573,7 +573,7 @@
 			async confirmService(item) {
 				const [err, { confirm }] = await uni.showModal({
 				  title: "提示",
-				  content: `确定要确认送达吗？`,
+				  content: `ແນ່ໃຈບໍວ່າຕ້ອງການຢືນຢັນການສົ່ງ?`,
 				});
 				if (err || !confirm) return;
 				uni.showLoading({

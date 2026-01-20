@@ -10,7 +10,7 @@
 				</view>
 				<view v-if="!imgList.length" class="acea-row row-center-wrapper row-column add" @click="add">
 					<view><text class='iconfont icon-a-guanzhu'></text></view>
-					<view class="text">点击选择图片</view>
+					<view class="text">ກົດເພື່ອເລືອກຮູບ</view>
 				</view>
 			</view>
 			<view class='footer acea-row row-between-wrapper'>
@@ -19,8 +19,8 @@
 				</view>
 				<view v-else></view>
 				<view class="upload-btn acea-row row-between-wrapper">
-					<button v-if="imgList.length < limit" class="btn" @click="add"> {{ imgList.length ? '继续选择' : '选择图片' }}</button>
-					<button class="btn upload" :class="{ 'no-pic': !imgList.length }" @click="submitUpload">确认上传</button>
+					<button v-if="imgList.length < limit" class="btn" @click="add"> {{ imgList.length ? 'ເລືອກຕໍ່' : 'ເລືອກຮູບ' }}</button>
+					<button class="btn upload" :class="{ 'no-pic': !imgList.length }" @click="submitUpload">ຢືນຢັນອັບໂຫຼດ</button>
 				</view>
 			</view>
 		</block>
@@ -29,8 +29,8 @@
 				<view class="success">
 					<img class="image" :src="domain+'/static/images/success.jpg'" alt="" />
 				</view>
-				<view class="text">图片上传成功</view>
-				<view class="again" @click="again">继续上传</view>
+				<view class="text">ອັບໂຫຼດຮູບສຳເລັດ</view>
+				<view class="again" @click="again">ອັບໂຫຼດຕໍ່</view>
 			</view>
 		</block>
 	</view>
@@ -135,7 +135,7 @@
 				return new Promise(async (resolve) => {
 					//启动上传等待中...
 					uni.showLoading({
-						title: '上传中...',
+						title: 'ກຳລັງອັບໂຫຼດ...',
 					});
 					uni.uploadFile({
 						url: HTTP_REQUEST_URL + '/api/scan_upload/image/field/' + that.token,

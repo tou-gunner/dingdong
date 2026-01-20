@@ -4,13 +4,13 @@
 			<view class='cancellate'>
 				<view>
 					<view class="order acea-row row-between">
-						<view class="order_sn">订单号：{{orderData.order_sn}}</view>
-						<view class="btn" @click="goBack">上一步</view>
+						<view class="order_sn">ເລກທີ່ອໍເດີ：{{orderData.order_sn}}</view>
+						<view class="btn" @click="goBack">ກັບຄືນ</view>
 					</view>
 					<view class='list bg-f boder-24 mt20'>
 						<view class="acea-row row-between header">
 							<view class="info">
-								<view class="name">共{{orderData.total_num}}件</view>
+								<view class="name">ລວມ{{orderData.total_num}}ລາຍການ</view>
 							</view>
 							<!-- <navigator url="" hover-class='none' class="coupon-btn">查看	<text class="iconfont icon-ic_rightarrow"></text></navigator> -->
 						</view>
@@ -54,12 +54,12 @@
 					<view class="allcheckbox" @click.stop="checkboxAllChange">
 						<text v-if="!isAllSelect" class="iconfont icon-ic_unselect"></text>
 						<text v-else class="iconfont icon-a-ic_CompleteSelect"></text>
-						全选
+						ເລືອກທັງໝົດ
 					</view>
 				</view>
 				<view class='money acea-row row-middle'>
 					<form @submit="goCallate" report-submit='true'>
-						<button class='placeOrder' formType="submit">立即核销</button>
+						<button class='placeOrder' formType="submit">ກວດສອບທັນທີ</button>
 					</form>
 				</view>
 			</view>
@@ -67,7 +67,7 @@
 		<view v-else class="pad20 mt20">
 			<view class="empty-box bg-f boder-24 ">
 				<image :src="domain+'/static/images/empty-box.png'"></image>
-				<view class="txt">暂无订单信息~</view>
+				<view class="txt">ບໍ່ມີຂໍ້ມູນການສັ່ງຊື້~</view>
 			</view>
 		</view>
 	</view>
@@ -198,7 +198,7 @@
 				let products = that.getSelectedProduct();
 				if(products.length == 0){
 					that.$util.Tips({
-						title: '请勾选商品'
+						title: 'ກະລຸນາເລືອກສິນຄ້າ'
 					});
 					// uni.navigateTo({
 					// 	url: '/pages/admin/order_cancellation/index?mer_id='+that.mer_id

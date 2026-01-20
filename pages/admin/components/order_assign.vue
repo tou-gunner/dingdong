@@ -5,9 +5,9 @@
         <text class="iconfont icon-ic_close" />
       </button>
       <view class="popup-title">
-        派单
+        ມອບໝາຍອໍເດີ
       </view>
-      <SearchBar placeholder="请输入用户昵称/ID" custom-class="custom-search-bar" @confirm="handleConfirm" />
+      <SearchBar placeholder="ໃສ່ຊື່ຜູ້ໃຊ້/ID" custom-class="custom-search-bar" @confirm="handleConfirm" />
       <view class="assign-user-list-scroll">
         <view class="scroll-inner-wrapper">
           <scroll-view scroll-y style="height: 100%;" @scrolltolower="handleScrollToBottom">
@@ -114,8 +114,8 @@ export default {
     },
     async handleAssign(item) {
       const [err, { confirm }] = await uni.showModal({
-        title: "提示",
-        content: `确定${this.isReassign ? "改派" : "派单"}给${item.name}吗？`,
+        title: "ແຈ້ງເຕືອນ",
+        content: `ແນ່ໃຈບໍ${this.isReassign ? "ມອບໝາຍໃໝ່" : "ມອບໝາຍ"}ໃຫ້${item.name}?`,
       });
       if (err || !confirm) return;
       uni.showLoading({

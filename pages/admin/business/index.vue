@@ -1,14 +1,14 @@
 <template>
 	<BaseContainer class="business">
 		<view class="business-bg" />
-		<BaseNavBar :title="service && service.merchant ? service.merchant.mer_name : '商家管理'" lightText />
+		<BaseNavBar :title="service && service.merchant ? service.merchant.mer_name : 'ການຈັດການຮ້ານຄ້າ'" lightText />
 		<view class="merchant-info">
 			<view class="merchant-info-wrapper">
 				<image :src="userInfo.avatar" class="merchant-user-avatar" />
 				<view class="merchant-user-name overflow-text">{{ userInfo.nickname }}</view>
 				<RoleToggle />
 				<button class="merchant-select-btn" @click="changeTips">
-					切换店铺
+					ປ່ຽນຮ້ານ
 					<text class="iconfont icon-icon_sort"></text>
 				</button>
 			</view>
@@ -62,27 +62,27 @@ export default {
 			const list = [];
 			if (this.service.is_verify) {
 				list.push({
-					title: '订单核销',
+					title: 'ກວດສອບອໍເດີ',
 					url: '/pages/admin/order_cancellation/index?mer_id=' + merId,
 					icon: 'iconfont icon-dingdanhexiao'
 				});
 			}
 			list.push({
 				type: 'customer',
-				title: '客服记录',
+				title: 'ບັນທຶກບໍລິການລູກຄ້າ',
 				url: '/pages/chat/customer_list/index?type=1&mer_id=' + merId,
 				icon: 'iconfont icon-kefujilu'
 			});
 			if (this.service.customer) {
 				list.push({
-					title: '订单管理',
+					title: 'ການຈັດການອໍເດີ',
 					url: '/pages/admin/order/index?mer_id=' + merId,
 					icon: 'iconfont icon-dingdanguanli'
 				});
 			}
 			if (this.service.is_goods) {
 				list.push({
-					title: '商品管理',
+					title: 'ການຈັດການສິນຄ້າ',
 					url: '/pages/product/list/index?mer_id=' + merId,
 					icon: 'iconfont icon-shangjiaguanli'
 				});
@@ -95,7 +95,7 @@ export default {
 		this.is_sys = options.is_sys;
 		this.getStoreList({ is_sys: this.is_sys });
 		uni.setNavigationBarTitle({
-			title: this.is_sys ? '平台管理' : '商家管理'
+			title: this.is_sys ? 'ການຈັດການແພລດຟອມ' : 'ການຈັດການຮ້ານຄ້າ'
 		})
 	},
 	methods: {
@@ -114,7 +114,7 @@ export default {
 		goNext(item) {
 			if (item.type == 'customer' && this.service.status == 0) {
 				return this.$util.Tips({
-					title: '客服已离线，请开启客服状态！'
+					title: 'ບໍລິການລູກຄ້າອອບໄລນ໌, ກະລຸນາເປີດສະຖານະ!'
 				});
 			} else {
 				uni.navigateTo({

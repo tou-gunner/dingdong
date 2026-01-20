@@ -4,31 +4,31 @@
 			<div class="navs">
 				<div class="list">
 					<div class="item" :class="time == 'today' ? 'on' : ''" @click="setTime('today')">
-						今天
+						ມື້ນີ້
 					</div>
 					<div class="item" :class="time == 'yesterday' ? 'on' : ''" @click="setTime('yesterday')">
-						昨天
+						ມື້ວານ
 					</div>
 					<div class="item" :class="time == 'seven' ? 'on' : ''" @click="setTime('seven')">
-						最近7天
+						7ມື້ທີ່ຜ່ານມາ
 					</div>
 					<div class="item" :class="time == 'month' ? 'on' : ''" @click="setTime('month')">
-						本月
+						ເດືອນນີ້
 					</div>
 					<div class="item" :class="time == 'date' ? 'on' : ''" @click="dateTitle">
-						自定义
+						ກຳນົດເອງ
 					</div>
 				</div>
 			</div>
 			<div class="wrapper bg-f boder-24">
 				<div class="title">
-					{{ title }}{{ where.type == 1 ? "营业额（元）" : "订单量（份）" }}
+					{{ title }}{{ where.type == 1 ? "ລາຍຮັບ（ກີບ）" : "ຈຳນວນອໍເດີ（ລາຍການ）" }}
 				</div>
 				<div v-if="where.type == 1" class="money">{{ time_price }}</div>
 				<div v-else class="money">{{ time_price }}</div>
 				<div class="increase acea-row row-between-wrapper">
 					<div>
-						{{ title }}增长率：<span :class="increase_time_status === 1 ? 'red' : 'green'">{{ increase_time_status === 1 ? "" : "-" }}{{ growth_rate }}%
+						{{ title }}ອັດຕາການເຕີບໂຕ：<span :class="increase_time_status === 1 ? 'red' : 'green'">{{ increase_time_status === 1 ? "" : "-" }}{{ growth_rate }}%
 							<span class="iconfont" :class="
 			            increase_time_status === 1
 			              ? 'icon-ic_uparrow'
@@ -36,7 +36,7 @@
 			          "></span></span>
 					</div>
 					<div>
-						{{ title }}增长：<span :class="increase_time_status === 1 ? 'red' : 'green'">{{ increase_time_status === 1 ? "" : "-" }}{{ increase_time }}
+						{{ title }}ການເຕີບໂຕ：<span :class="increase_time_status === 1 ? 'red' : 'green'">{{ increase_time_status === 1 ? "" : "-" }}{{ increase_time }}
 							<span class="iconfont" :class="
 			            increase_time_status === 1
 			              ? 'icon-ic_uparrow'
@@ -47,19 +47,19 @@
 			</div>
 			<div class="chart" v-if="showChart">
 				<div class="chart-title">
-					单位（{{where.type == 1?'元':'份'}}）
+					ຫົວໜ່ວຍ（{{where.type == 1?'ກີບ':'ລາຍການ'}}）
 				</div>
 				<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" disable-scroll=true @touchstart="touchLineA"
 				 @touchmove="moveLineA" @touchend="touchEndLineA"></canvas>
 			</div>
 			<div class="public-wrapper boder-24 bg-f">
 				<div class="title">
-					<span class="iconfont icon-xiangxishuju"></span>详细数据
+					<span class="iconfont icon-xiangxishuju"></span>ຂໍ້ມູນລະອຽດ
 				</div>
 				<div class="nav acea-row row-between-wrapper">
-					<div class="data">日期</div>
-					<div class="browse">订单量</div>
-					<div class="turnover">成交额</div>
+					<div class="data">ວັນທີ</div>
+					<div class="browse">ຈຳນວນອໍເດີ</div>
+					<div class="turnover">ຍອດຂາຍ</div>
 				</div>
 				<div class="conter">
 					<div class="item acea-row row-between-wrapper" v-for="(item, index) in list" :key="index">
@@ -265,7 +265,7 @@
 								24 * 60 * 60 -
 								1;
 							this.where.month = 0
-							this.title = "今日";
+							this.title = "ມື້ນີ້";
 							this.getIndex();
 							this.getInfo();
 							break;
@@ -280,7 +280,7 @@
 								1000 -
 								1;
 							this.where.month = 0
-							this.title = "昨日";
+							this.title = "ມື້ວານ";
 							this.getIndex();
 							this.getInfo();
 							break;
@@ -289,7 +289,7 @@
 							this.where.start =
 								new Date(year, new Date().getMonth(), 1).getTime() / 1000;
 							this.where.stop = new Date(year, month, 1).getTime() / 1000 - 1;
-							this.title = "本月";
+							this.title = "ເດືອນນີ້";
 							this.where.month = 1
 							this.getIndex();
 							this.getInfo();
@@ -305,7 +305,7 @@
 								1000 +
 								24 * 60 * 60 -
 								1;
-							this.title = "七日";
+							this.title = "7ມື້";
 							this.where.month = 0
 							this.getIndex();
 							this.getInfo();
@@ -326,7 +326,7 @@
 					this.isShowBox = false
 					this.$refs.calendar.open()
 					this.time = 'date'
-					this.title = "自定义";
+					this.title = "ກຳນົດເອງ";
 					this.where.month = 0;
 					// this.current = true;
 				},

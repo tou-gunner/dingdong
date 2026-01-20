@@ -97,7 +97,7 @@
 									<picker :value="item.value" :range="item.wordsConfig.list" range-key="val" >
 										<view class="acea-row row-between-wrapper">
 											<view v-if="item.value">{{item.value}}</view>
-											<view v-else class="placeholder">请选择</view>
+											<view v-else class="placeholder">ກະລຸນາເລືອກ</view>
 											<text class='iconfont icon-ic_rightarrow'></text>
 										</view>
 									</picker>
@@ -130,7 +130,7 @@
 										<view class='pictrue acea-row row-center-wrapper row-column'
 											v-if="item.value.length < item.numConfig.val">
 											<text class='iconfont icon-ic_camera1'></text>
-											<view>上传图片</view>
+											<view>ອັບໂຫຼດຮູບ</view>
 										</view>
 									</view>
 								</view>

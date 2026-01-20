@@ -4,64 +4,64 @@
       <view class="header acea-row" :style="{ 'background-image': `url(${domain}/static/images/order_header.png)`}">
         <navigator class="item" :url="`/pages/admin/orderList/index?types=1&merId=${mer_id}`" hover-class="none">
           <view class="num">{{ census.unpaid }}</view>
-          <view>待付款</view>
+          <view>ລໍຖ້າຊຳລະ</view>
         </navigator>
         <navigator class="item" :url="`/pages/admin/orderList/index?types=2&merId=${mer_id}`" hover-class="none">
           <view class="num">{{ census.unshipped }}</view>
-          <view>待发货</view>
+          <view>ລໍຖ້າສົ່ງ</view>
         </navigator>
         <navigator class="item" :url="`/pages/admin/orderList/index?types=3&merId=${mer_id}`" hover-class="none">
           <view class="num">{{ census.untake }}</view>
-          <view>待收货</view>
+          <view>ລໍຖ້າຮັບ</view>
         </navigator>
         <navigator class="item" :url="`/pages/admin/orderList/index?types=4&merId=${mer_id}`" hover-class="none">
           <view class="num">{{ census.unevaluate }}</view>
-          <view>待评价</view>
+          <view>ລໍຖ້າລີວິວ</view>
         </navigator>
         <navigator class="item" :url="`/pages/admin/orderList/index?types=6&merId=${mer_id}`" hover-class="none">
           <view class="num">{{ census.refund }}</view>
-          <view>退款</view>
+          <view>ຄືນເງິນ</view>
         </navigator>
       </view>
       <view class="wrapper bg-f boder-24">
         <view class="title">
-          <span class="iconfont icon-icon_statistics"></span>数据统计
+          <span class="iconfont icon-icon_statistics"></span>ສະຖິຕິຂໍ້ມູນ
         </view>
         <view class="list acea-row" v-if="orderData">
           <navigator class="item" :url="`/pages/admin/statistics/index?type=price&time=today&merId=${mer_id}`" hover-class="none">
             <view class="num">{{ orderData.today.payPrice }}</view>
-            <view>今日成交额</view>
+            <view>ຍອດຂາຍມື້ນີ້</view>
           </navigator>
           <navigator class="item" :url="`/pages/admin/statistics/index?type=price&time=yesterday&merId=${mer_id}`" hover-class="none">
             <view class="num">{{ orderData.yesterday.payPrice }}</view>
-            <view>昨日成交额</view>
+            <view>ຍອດຂາຍມື້ວານ</view>
           </navigator>
           <navigator class="item" :url="`/pages/admin/statistics/index?type=price&time=month&merId=${mer_id}`" hover-class="none">
             <view class="num">{{ orderData.month.payPrice  }}</view>
-            <view>本月成交额</view>
+            <view>ຍອດຂາຍເດືອນນີ້</view>
           </navigator>
           <navigator class="item" :url="`/pages/admin/statistics/index?type=order&time=today&merId=${mer_id}`" hover-class="none">
             <view class="num">{{ orderData.today.orderNum}}</view>
-            <view>今日订单数</view>
+            <view>ຈຳນວນອໍເດີມື້ນີ້</view>
           </navigator>
           <navigator class="item" :url="`/pages/admin/statistics/index?type=order&time=yesterday&merId=${mer_id}`" hover-class="none">
             <view class="num">{{ orderData.yesterday.orderNum }}</view>
-            <view>昨日订单数</view>
+            <view>ຈຳນວນອໍເດີມື້ວານ</view>
           </navigator>
           <navigator class="item" :url="`/pages/admin/statistics/index?type=order&time=month&merId=${mer_id}`" hover-class="none">
             <view class="num">{{ orderData.month.orderNum}}</view>
-            <view>本月订单数</view>
+            <view>ຈຳນວນອໍເດີເດືອນນີ້</view>
           </navigator>
         </view>
       </view>
       <view class="public-wrapper bg-f boder-24">
         <view class="title">
-          <span class="iconfont icon-icon_date"></span>详细数据
+          <span class="iconfont icon-icon_date"></span>ຂໍ້ມູນລະອຽດ
         </view>
         <view class="nav acea-row row-between-wrapper">
-          <view class="data">日期</view>
-          <view class="browse">订单数</view>
-          <view class="turnover">成交额</view>
+          <view class="data">ວັນທີ</view>
+          <view class="browse">ຈຳນວນອໍເດີ</view>
+          <view class="turnover">ຍອດຂາຍ</view>
         </view>
         <view class="conter">
           <view class="item acea-row row-between-wrapper" v-for="(item, index) in list" :key="index">

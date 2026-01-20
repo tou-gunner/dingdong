@@ -1,7 +1,7 @@
 <template>
   <BaseContainer>
     <view class="nav-bar-wrapper">
-      <BaseNavBar title="订单改约" />
+      <BaseNavBar title="ປ່ຽນນັດໝາຍການສັ່ງຊື້" />
     </view>
     <template v-if="orderInfo">
       <view class="card good-card" v-for="product of orderInfo.orderProduct" :key="product.order_product_id">
@@ -25,7 +25,7 @@
 
       <template v-if="orderInfo.order_extend">
         <view class="card system-form" v-for="(formValue, index) of orderInfo.order_extend" :key="index">
-          <view class="card-title">{{ formData ? formData.name : "表单信息" }}</view>
+          <view class="card-title">{{ formData ? formData.name : "ຂໍ້ມູນແບບຟອມ" }}</view>
           <BaseSystemForm ref="systemForm" :formId="orderInfo.orderProduct[0].cart_info.product.mer_form_id"
           @metadata="handleFormMetadata" :defaultValues="formValue" />
         </view>
@@ -34,7 +34,7 @@
       <view class="safe-placeholder"></view>
 
       <view class="form-btn-group">
-        <button class="form-btn-group__btn confirm" @click="handleConfirm">确定</button>
+        <button class="form-btn-group__btn confirm" @click="handleConfirm">ຢືນຢັນ</button>
       </view>
     </template>
   </BaseContainer>
@@ -87,54 +87,54 @@ export default {
       this.bookingForm = [
         {
           key: "order_type",
-          label: "预约方式",
+          label: "ວິທີການຈອງ",
           type: "selects",
           index: this.orderInfo.is_instore_order ? 1 : 0,
-          value: this.orderInfo.is_instore_order ? "到店服务" : "上门服务",
+          value: this.orderInfo.is_instore_order ? "ບໍລິການທີ່ຮ້ານ" : "ບໍລິການເຖິງບ້ານ",
           range: [
             {
-              val: "上门服务"
+              val: "ບໍລິການເຖິງບ້ານ"
             },
             {
-              val: "到店服务"
+              val: "ບໍລິການທີ່ຮ້ານ"
             }
           ]
         },
         {
           key: "reservation_datetimerange",
-          label: "预约日期",
+          label: "ວັນທີຈອງ",
           start: dayjsMin().format("YYYY-MM-DD"),
           type: "dates",
           value: this.orderInfo.orderProduct[0].reservation_date,
-          placeholder: "请选择"
+          placeholder: "ກະລຸນາເລືອກ"
         },
         {
           key: "reservation_time_range",
-          label: "预约时间",
+          label: "ເວລານັດໝາຍ",
           type: "timeranges",
           indexValue: buildTimeRangeIndex(this.orderInfo.orderProduct[0].reservation_time_part),
           value: this.orderInfo.orderProduct[0].reservation_time_part.split("-"),
-          placeholder: "请选择"
+          placeholder: "ກະລຸນາເລືອກ"
         },
         {
           key: "real_name",
-          label: "联系人",
+          label: "ຜູ້ຕິດຕໍ່",
           type: "texts",
-          placeholder: "请输入姓名",
+          placeholder: "ກະລຸນາໃສ່ຊື່",
           value: this.orderInfo.real_name
         },
         {
           key: "user_phone",
-          label: "联系电话",
+          label: "ເບີໂທລະສັບ",
           type: "texts",
-          placeholder: "请输入联系电话",
+          placeholder: "ກະລຸນາໃສ່ເບີໂທລະສັບ",
           value: this.orderInfo.user_phone
         },
         {
           key: "user_address",
-          label: "详细地址",
+          label: "ທີ່ຢູ່ລະອຽດ",
           type: "textarea",
-          placeholder: "请输入详细地址",
+          placeholder: "ກະລຸນາໃສ່ທີ່ຢູ່ລະອຽດ",
           value: this.orderInfo.user_address
         }
       ];
@@ -175,7 +175,7 @@ export default {
 
 
       const rescheduleData = {
-        order_type: rescheduleDataMap.order_type === "上门服务" ? 0 : 1,
+        order_type: rescheduleDataMap.order_type === "ບໍລິການເຖິງບ້ານ" ? 0 : 1,
         reservation_date: rescheduleDataMap.reservation_datetimerange,
         part_start: timePart[0],
         part_end: timePart[1],
