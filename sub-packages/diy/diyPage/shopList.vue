@@ -4,7 +4,7 @@
 			<image v-if="dataConfig.titleType.tabVal == 0" mode="aspectFill" :src="dataConfig.titleImg.url"
 				class="title-img" />
 			<view v-else class="title-text">
-				推荐店铺
+				ຮ້ານແນະນຳ
 			</view>
 			<view class="filter-box" v-if="dataConfig.filterBtn.tabVal == 0">
 				<text class="filter-item" :class="{ active: sortType == 0 }" @click="sortType = 0">ລວມ</text>
@@ -48,7 +48,7 @@
 						</view>
 						<view class="store-desc">
 							<text class="store-follow-text">
-								{{ store.care_count | formatCareCount }}人关注
+								{{ store.care_count | formatCareCount }} ຄົນຕິດຕາມ
 							</text>
 							<text class="store-divider"></text>
 							<text class="store-distance">
@@ -76,7 +76,7 @@
 		</view>
 		<navigator class="more-btn" v-if="dataConfig.moreBtn.tabVal == 0 && storeList.length"
 			:url="linkUrl">
-			更多店铺
+			ຮ້ານເພີ່ມເຕີມ
 			<text class="iconfont icon-ic_rightarrow" />
 		</navigator>
 	</view>
@@ -118,7 +118,7 @@ export default {
 	filters: {
 		formatCareCount(count) {
       if (count < 10000) return count;
-      return parseInt(count / 10000) + "万";
+      return parseInt(count / 10000) + "ໝື່ນ";
     }
 	},
 	computed: {

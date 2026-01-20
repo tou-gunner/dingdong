@@ -8,7 +8,7 @@
             {{ storeInfo.type_name }}
           </view>
           <view class="store-type" v-else-if="storeInfo.is_trader">
-            自营
+            ທາງການ
           </view>
           {{ storeInfo.mer_name }}
         </view>
@@ -24,7 +24,7 @@
       <i class="iconfont icon-ic_customerservice customer-btn" @click="goCustomer"></i>
       <button class="store-follow-btn" @click="handleToggleFollow(storeInfo)">
         <i class="iconfont icon-ic_love" v-if="!storeInfo.care"></i>
-        {{ storeInfo.care ? '已关注' : '关注' }}
+        {{ storeInfo.care ? 'ຕິດຕາມແລ້ວ' : 'ຕິດຕາມ' }}
       </button>
     </view>
   </view>

@@ -16,7 +16,7 @@ export default {
       if (storeInfo) {
         storeInfo.care = is_follow;
       } else {
-        console.warn(`店铺信息不存在: ${id}`);
+        console.warn(`ຂໍ້ມູນຮ້ານຄ້າບໍ່ມີຢູ່: ${id}`);
       }
     }
   },
@@ -31,7 +31,7 @@ export default {
           commit("SET_STORE_INFO", { id: res.data.mer_id, data: res.data });
           return res.data;
         } else {
-          throw new Error("获取店铺信息失败");
+          throw new Error("ການດຶງຂໍ້ມູນຮ້ານຄ້າລົ້ມເຫລວ");
         }
       } catch (error) {
         throw error;

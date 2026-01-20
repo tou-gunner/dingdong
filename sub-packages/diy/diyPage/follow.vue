@@ -12,24 +12,24 @@
           </view>
         </view>
         <view :style="[buttonStyle]" class="notes acea-row row-center-wrapper" @click="followTap">
-          关注
+          ຕິດຕາມ
         </view>
         <view class="iconfont icon-ic_close" @click="handleCloseComp"></view>
       </view>
     </view>
     <view class="followCode" v-if="followCode">
       <view class="pictrue">
-        <view class="title">关注公众号</view>
-        <view class="tips">活动福利，第一时间了解</view>
+        <view class="title">ຕິດຕາມບັນຊີທາງການ</view>
+        <view class="tips">ກິດຈະກຳ ແລະ ຂ່າວສານ ທັນທີ</view>
         <view class="code-bg">
           <image class="imgs" :src="dataConfig.codeConfig.url" mode=""></image>
         </view>
         <!-- #ifdef MP || APP-PLUS -->
-        <view class="btn" @tap="savePic">保存图片</view>
+        <view class="btn" @tap="savePic">ບັນທຶກຮູບພາບ</view>
         <!-- #endif -->
         <!-- #ifdef H5 -->
-        <view class="btn" v-show="isWeixin" @tap="savePic">长按保存图片</view>
-        <view class="btn" v-show="!isWeixin" @tap="savePic">保存图片</view>
+        <view class="btn" v-show="isWeixin" @tap="savePic">ກົດຄ້າງເພື່ອບັນທຶກຮູບ</view>
+        <view class="btn" v-show="!isWeixin" @tap="savePic">ບັນທຶກຮູບພາບ</view>
         <!-- #endif -->
         <view class="close acea-row row-center-wrapper" @click="closeFollowCode">
           <text class="iconfont icon-ic_close1"></text>
@@ -142,13 +142,13 @@ export default {
                       success: function(res) {
                         that.closeFollowCode();
                         that.$util.Tips({
-                          title: '保存成功',
+                          title: 'ບັນທຶກສຳເລັດ',
                           icon: 'success'
                         });
                       },
                       fail: function(res) {
                         that.$util.Tips({
-                          title: '保存失败'
+                          title: 'ບັນທຶກລົ້ມເຫລວ'
                         });
                       }
                     });
@@ -160,13 +160,13 @@ export default {
                   success: function(res) {
                     that.closeFollowCode();
                     that.$util.Tips({
-                      title: '保存成功',
+                      title: 'ບັນທຶກສຳເລັດ',
                       icon: 'success'
                     });
                   },
                   fail: function(res) {
                     that.$util.Tips({
-                      title: '保存失败'
+                      title: 'ບັນທຶກລົ້ມເຫລວ'
                     });
                   }
                 });
@@ -186,13 +186,13 @@ export default {
             success: function(res) {
               that.posterImageClose();
               that.$util.Tips({
-                title: '保存成功',
+                title: 'ບັນທຶກສຳເລັດ',
                 icon: 'success'
               });
             },
             fail: function(res) {
               that.$util.Tips({
-                title: '保存失败'
+                title: 'ບັນທຶກລົ້ມເຫລວ'
               });
             }
           });

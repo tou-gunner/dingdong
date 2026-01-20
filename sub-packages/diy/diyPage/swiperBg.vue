@@ -13,7 +13,7 @@
 						</view>
 					</swiper-item>
 				</swiper>
-				<view class="noPic" v-else>图片加载中...</view>
+				<view class="noPic" v-else>ກຳລັງໂຫຼດຮູບ...</view>
 				<view class="dot acea-row" :style="[dotStyle]">
 					<view class="progress" v-if="dataConfig.docConfig.tabVal == 2" :style="[progressWidth, dotItemStyle]">
 						<view class="inner" :style="[progressValue, dotItemActiveStyle]"></view>

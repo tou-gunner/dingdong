@@ -12,7 +12,7 @@
 						<image v-for="(item, index) in pinkInfo.pinkUserList" :key="index" :src="item.avatar" mode="aspectFill"
 							class="w-36 h-36 rd-50-p111- avatar-item"></image>
 					</view>
-					<text class="fs-26 text--w111-999 lh-36rpx" :style="[tipsColor]">{{ pinkInfo.pinkCount }}人拼团成功</text>
+					<text class="fs-26 text--w111-999 lh-36rpx" :style="[tipsColor]">{{ pinkInfo.pinkCount }} ຄົນສຳເລັດໃນກຸ່ມ</text>
 				</view>
 				<view class="flex-y-center fs-24 text--w111-999" :style="[headerBntColor]"
 					@tap="goPage('/pages/activity/combination/index')">
@@ -34,22 +34,22 @@
 							<view class="flex mt-14" v-if="checkboxInfo.includes(1)">
 								<view class="flex fs-20 rd-8rpx" :style="[labelBg]">
 									<text class="tuan-num text--w111-fff flex-center" v-if="checkboxInfo.includes(1)">{{
-										item.buying_count_num }}人团</text>
-									<text class="complete flex-center" :style="[pinkNumStyle]">已拼{{ item.buying_num || 0 }}份</text>
+										item.buying_count_num }} ຄົນ/ກຸ່ມ</text>
+									<text class="complete flex-center" :style="[pinkNumStyle]">ສຳເລັດແລ້ວ {{ item.buying_num || 0 }} ຊິ້ນ</text>
 								</view>
 							</view>
 						</view>
 						<view class="flex justify-between items-end">
 							<view class="flex-col">
 								<view :style="{ color: priceColor }" v-if="checkboxInfo.includes(2)">
-									<text style="font-size: 12px; margin-right: 4px">拼团价</text>
+									<text style="font-size: 12px; margin-right: 4px">ລາຄາກຸ່ມ</text>
 									<priceFormat :price="item.price" intSize="36" floatSize="36" labelSize="24" weight />
 								</view>
 								<text class="text-line fs-28 text--w111-999 pt-14 Regular" v-if="checkboxInfo.includes(3)"
 									:style="[otPriceColor]">¥{{ item.product.price }}</text>
 							</view>
 							<view class="w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff" v-if="!showBtn"
-								:style="[btnBgColor]">去拼团</view>
+								:style="[btnBgColor]">ໄປຊື້ເປັນກຸ່ມ</view>
 						</view>
 					</view>
 				</view>
@@ -62,7 +62,7 @@
 						style="width: 100%; height: 324rpx; border-radius: 16rpx;" />
 					<view class="w-full mt-16 line1" :style="[productStyle]" v-if="checkboxInfo.includes(1)">
 						<view class="inline fs-20 rd-4rpx mr-10 rd-4rpx" :style="[labelBg]">
-							<text class="complete flex-center rd-4rpx" :style="[pinkNumStyle]">{{ item.buying_count_num }}人团</text>
+							<text class="complete flex-center rd-4rpx" :style="[pinkNumStyle]">{{ item.buying_count_num }} ຄົນ/ກຸ່ມ</text>
 						</view>
 						<view class="inline fs-28 lh-40rpx" v-if="checkboxInfo.includes(0)">{{ item.product.store_name }}</view>
 					</view>
@@ -75,7 +75,7 @@
 								:style="[otPriceColor]">¥{{ item.product.price }}</text>
 						</view>
 						<view class="w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff bg--w111-E93323" v-if="!showBtn"
-							:style="[btnBgColor]">去拼团</view>
+							:style="[btnBgColor]">ໄປຊື້ເປັນກຸ່ມ</view>
 					</view>
 				</view>
 			</view>
@@ -84,7 +84,7 @@
 				v-if="goodStyleConfig == 2">
 				<view class="relative" v-for="(item, index) in combinationList" :key="index" @tap="goDetail(item)" :style="[goodStyle]">
 					<view class="abs-tag z-20" :style="[labelBg]" v-if="checkboxInfo.includes(1)">
-						<text class="circle-tag flex-center fs-22" :style="[pinkNumStyle]">{{ item.buying_count_num }}人团</text>
+						<text class="circle-tag flex-center fs-22" :style="[pinkNumStyle]">{{ item.buying_count_num }} ຄົນ/ກຸ່ມ</text>
 					</view>
 					<image :src="item.product.image" mode="aspectFill"
 						:style="{ width: '100%', height: '212rpx', borderRadius: imgStyle }" />
@@ -104,7 +104,7 @@
 					<view class="inline-block relative" :class="{ 'ml-20': index }" v-for="(item, index) in combinationList"
 						:key="index" @tap="goDetail(item)" :style="[goodStyle]">
 						<view class="abs-tag z-20" :style="[labelBg]" v-if="checkboxInfo.includes(1)">
-							<text class="circle-tag flex-center fs-22" :style="[pinkNumStyle]">{{ item.buying_count_num }}人团</text>
+							<text class="circle-tag flex-center fs-22" :style="[pinkNumStyle]">{{ item.buying_count_num }} ຄົນ/ກຸ່ມ</text>
 						</view>
 						<image :src="item.product.image" mode="aspectFill"
 							:style="{ width: '224rpx', height: '224rpx', borderRadius: imgStyle }" />

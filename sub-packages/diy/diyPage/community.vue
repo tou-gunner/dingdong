@@ -50,13 +50,13 @@
 											<text class="iconfont icon-ic_right2 fs-20"></text>
 										</view>
 										<view class="w-60 h-36 rd-4rpx flex-center fs-22 text--w111-fff pic-number"
-											v-if="item.is_type == 1">{{ item.image.length }}张</view>
+											v-if="item.is_type == 1">{{ item.image.length }} ຮູບ</view>
 										<view class="abs-lt w-full h-full flex-col flex-center text--w111-fff shenhe"
 											v-if="[0, -1].includes(item.is_verify)">
-											<text class="fs-28" v-show="item.is_verify == 0">正在审核</text>
-											<text class="fs-24 pt-22" v-show="item.is_verify == 0">通过后将展示在列表</text>
-											<text class="fs-28" v-show="item.is_verify == -1">审核未通过</text>
-											<text class="fs-24 pt-22" v-show="item.is_verify == -1">查看未通过原因</text>
+											<text class="fs-28" v-show="item.is_verify == 0">ກຳລັງກວດສອບ</text>
+											<text class="fs-24 pt-22" v-show="item.is_verify == 0">ຈະສະແດງໃນລາຍຊື່ຫຼັງຜ່ານ</text>
+											<text class="fs-28" v-show="item.is_verify == -1">ກວດສອບບໍ່ຜ່ານ</text>
+											<text class="fs-24 pt-22" v-show="item.is_verify == -1">ເບິ່ງເຫດຜົນທີ່ບໍ່ຜ່ານ</text>
 										</view>
 									</view>
 									<view class="info_box box-border">
@@ -91,13 +91,13 @@
 											<text class="iconfont icon-ic_right2 fs-20"></text>
 										</view>
 										<view class="w-60 h-36 rd-4rpx flex-center fs-22 text--w111-fff pic-number"
-											v-if="item.is_type == 1">{{ item.image.length }}张</view>
+											v-if="item.is_type == 1">{{ item.image.length }} ຮູບ</view>
 										<view class="abs-lt w-full h-full flex-col flex-center text--w111-fff shenhe"
 											v-if="[0, -1].includes(item.is_verify)">
-											<text class="fs-28" v-show="item.is_verify == 0">正在审核</text>
-											<text class="fs-24 pt-22" v-show="item.is_verify == 0">通过后将展示在列表</text>
-											<text class="fs-28" v-show="item.is_verify == -1">审核未通过</text>
-											<text class="fs-24 pt-22" v-show="item.is_verify == -1">查看未通过原因</text>
+											<text class="fs-28" v-show="item.is_verify == 0">ກຳລັງກວດສອບ</text>
+											<text class="fs-24 pt-22" v-show="item.is_verify == 0">ຈະສະແດງໃນລາຍຊື່ຫຼັງຜ່ານ</text>
+											<text class="fs-28" v-show="item.is_verify == -1">ກວດສອບບໍ່ຜ່ານ</text>
+											<text class="fs-24 pt-22" v-show="item.is_verify == -1">ເບິ່ງເຫດຜົນທີ່ບໍ່ຜ່ານ</text>
 										</view>
 									</view>
 									<view class="info_box box-border">

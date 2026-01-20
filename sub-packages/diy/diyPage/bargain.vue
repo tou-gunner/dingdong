@@ -28,7 +28,7 @@
 								item.store_name }}</view>
 							<view class="flex-y-center mt-26" :style="[joinColor]" v-if="checkboxInfo.includes(1)">
 								<text class="iconfont icon-ic_fire fs-20"></text>
-								<text class="fs-24 fw-500 pl-4" :style="[braginSuccess]">{{ item.user_count }}人正在参与</text>
+								<text class="fs-24 fw-500 pl-4" :style="[braginSuccess]">{{ item.user_count }} ຄົນກຳລັງເຂົ້າຮ່ວມ</text>
 							</view>
 						</view>
 						<view class="flex justify-between items-end">
@@ -41,7 +41,7 @@
 									:style="[otPriceColor]">¥{{ item.product.ot_price }}</text>
 							</view>
 							<view class="w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff" v-if="!showBtn" :style="[btnBgColor]">
-								参与砍价</view>
+								ເຂົ້າຮ່ວມຕໍ່ລອງ</view>
 						</view>
 					</view>
 				</view>
@@ -64,7 +64,7 @@
 								:style="[otPriceColor]">¥{{ item.product.ot_price }}</text>
 						</view>
 						<view class="w-144 h-56 rd-30rpx flex-center fs-24 bg--w111-E93323" v-if="!showBtn" :style="[btnBgColor]">
-							参与砍价</view>
+							ເຂົ້າຮ່ວມຕໍ່ລອງ</view>
 					</view>
 				</view>
 			</view>
@@ -79,7 +79,7 @@
 						}}</view>
 					<view class="flex items-baseline mt-12">
 						<view :style="{ color: priceColor }" v-if="checkboxInfo.includes(2)">
-							低至
+							ຕໍ່າສຸດ
 							<priceFormat :price="item.assistSku[0].assist_price" intSize="36" floatSize="36" labelSize="24" weight />
 						</view>
 					</view>
@@ -98,7 +98,7 @@
 						<view class="w-222 line1 mt-16 fs-26 mb-10" :style="[productStyle]" v-if="checkboxInfo.includes(0)">{{
 							item.store_name }}</view>
 						<text class="badge fs-20 mb-14" v-if="checkboxInfo.includes(1)" :style="[braginSuccess]">{{ item.user_count
-							}}人正在参与</text>
+							}} ຄົນກຳລັງເຂົ້າຮ່ວມ</text>
 						<view>
 							<view :style="{ color: priceColor }" v-if="checkboxInfo.includes(2)">
 								<priceFormat :price="item.assistSku[0].assist_price" intSize="36" floatSize="36" labelSize="24"

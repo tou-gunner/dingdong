@@ -139,7 +139,7 @@ export default {
 			return [
 				{
 					text: {
-						val: "首页"
+						val: "ໜ້າຫຼັກ"
 					}
 				},
 				...tabList

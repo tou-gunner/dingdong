@@ -141,7 +141,7 @@ export default {
     },
     inputTipText() {
       const { searchTipConfig } = this.dataConfig;
-      return searchTipConfig.value || "请输入搜索内容";
+      return searchTipConfig.value || "ປ້ອນເນື້ອຫາຄົ້ນຫາ";
     },
     inputTipTextStyle() {
       if (!this.dataConfig) return {};

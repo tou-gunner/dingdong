@@ -12,7 +12,7 @@
                   <view class="pictrue skeleton-radius" v-if="menuStyleConfig !== 2">
                     <image :src="itemn.img" mode="aspectFill" :style="[imgStyle]" class="easy-loadimage"></image>
                   </view>
-                  <view class="fs-24" :style="[textColor]" :class="{ 'mt-14': menuStyleConfig == 0 }"
+                  <view class="fs-24 text-center" :style="[textColor]" :class="{ 'mt-14': menuStyleConfig == 0 }"
                     v-if="menuStyleConfig !== 1">{{ itemn.info[0].value }}</view>
                 </view>
               </view>
@@ -27,7 +27,7 @@
             <view class="pictrue skeleton-radius" v-if="menuStyleConfig !== 2">
               <image :src="item.img" mode="aspectFill" :style="[imgStyle]" class="easy-loadimage"></image>
             </view>
-            <view class="fs-24" :style="[textColor]" :class="{ 'mt-14': menuStyleConfig == 0 }"
+            <view class="fs-24 text-center" :style="[textColor]" :class="{ 'mt-14': menuStyleConfig == 0 }"
               v-if="menuStyleConfig !== 1">{{ item.info[0].value }}</view>
           </view>
         </view>

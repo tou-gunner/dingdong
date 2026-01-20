@@ -73,7 +73,7 @@ export default {
           set(nextData);
           return nextData;
         } else {
-          throw new Error("获取 diy 数据失败");
+          throw new Error("ການດຶງຂໍ້ມູນ DIY ລົ້ມເຫລວ");
         }
       } catch (error) {
         throw error;

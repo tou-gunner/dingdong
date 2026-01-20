@@ -12,9 +12,9 @@
       <view class="good-tag tags_item flex-center line1" v-for="tag of tagList" :style="[tag.style]" :key="tag.label">{{ tag.label }}</view>
     </view>
     <view class="good-sale-score" @click="handleToProductPage">
-      <view class="good-score">{{ good.rate }}评分</view>
-      <view class="good-sale">已售{{ good.sales }}</view>
-      <view class="good-reply-count">{{ good.reply_count | formatReplyCount }}条评论</view>
+      <view class="good-score">{{ good.rate }} ຄະແນນ</view>
+      <view class="good-sale">ຂາຍແລ້ວ {{ good.sales }}</view>
+      <view class="good-reply-count">{{ good.reply_count | formatReplyCount }} ຄຳເຫັນ</view>
     </view>
     <view class="good-store-info" v-if="isStoreInfoVisible">
       <view class="store-distance" v-if="distance">{{ distance }}km</view>
@@ -58,7 +58,7 @@ export default {
   filters: {
     formatReplyCount(count) {
       if (count < 10000) return count;
-      return parseInt(count / 10000) + "万+";
+      return parseInt(count / 10000) + "ໝື່ນ+";
     }
   },
   computed: {

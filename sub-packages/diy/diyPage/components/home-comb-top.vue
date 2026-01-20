@@ -55,7 +55,7 @@
     </view>
     <view v-if="isCategory" class="category_count">
       <view class="sys-head tui-skeleton" :style="{ height: statusBarHeight + 'px' }" v-if="!special"></view>
-      <view class="fs-28">精选类目</view>
+      <view class="fs-28">ໝວດໝູ່ຍອດນິຍົມ</view>
       <view class="cate_count grid-column-4 grid-gap-16rpx mt-32">
         <view class="category_item" :style="[index === tabClick ? classColor : '']" @click="changeTab(item, index)"
           v-for="(item, index) in tabListConfig" :key="index" :id="'ids' + index">
@@ -155,7 +155,7 @@ export default {
       return [
         {
           text: {
-            val: "首页"
+            val: "ໜ້າຫຼັກ"
           }
         },
         ...tabList

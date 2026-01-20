@@ -27,8 +27,8 @@
 							{{ item.store_name }}
 						</view>
 						<view class="item_tags acea-row row-middle">
-							<view class="presale-label" v-if="item.coupon">领券</view>
-							<view class="presale-label" v-if="item.delivery_free == 1">包邮</view>
+							<view class="presale-label" v-if="item.coupon">ຮັບຄູປອງ</view>
+							<view class="presale-label" v-if="item.delivery_free == 1">ສົ່ງຟຣີ</view>
 						</view>
 						<view class="flex w-full h-68 rd-8rpx relative"
 							:style="{ background: dataConfig.goodsBntColor.color[0].item }" v-if="!showBtn">
@@ -36,7 +36,7 @@
 								:style="{ color: dataConfig.goodsBntColor.color[0].item }">
 								<!--  v-if="checkboxInfo.includes(2)" -->
 								<view :style="{ color: priceColor }">
-									预售:
+									ຈອງລ່ວງໜ້າ:
 									<priceFormat :price="item.price" intSize="40" floatSize="26" labelSize="26" weight />
 								</view>
 							</view>
@@ -63,7 +63,7 @@
 								}}</text>
 						</view>
 						<view class='w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff bg--w111-E93323' v-if="!showBtn"
-							:style="[btnBgColor]">去预定</view>
+							:style="[btnBgColor]">ໄປຈອງ</view>
 					</view>
 				</view>
 			</view>
@@ -76,7 +76,7 @@
 						{{ item.store_name }}</view>
 					<view class="flex items-baseline mt-12">
 						<view :style="{ color: priceColor }" v-if="checkboxInfo.includes(2)">
-							预售价
+							ລາຄາຈອງ
 							<priceFormat :price="item.price" intSize="36" floatSize="36" labelSize="24" weight />
 						</view>
 					</view>
@@ -96,7 +96,7 @@
 							{{ item.store_name }}</view>
 						<view class="flex items-baseline mt-12">
 							<view :style="{ color: priceColor }" v-if="checkboxInfo.includes(2)">
-								预售价
+								ລາຄາຈອງ
 								<priceFormat :price="item.price" intSize="36" floatSize="36" labelSize="24" weight />
 							</view>
 						</view>
@@ -128,8 +128,8 @@ export default {
 	filters: {
 		filterType(val) {
 			let obj = {
-				1: '立即预定',
-				2: '已结束'
+				1: 'ຈອງດຽວນີ້',
+				2: 'ສິ້ນສຸດແລ້ວ'
 			};
 			return obj[val]
 		}

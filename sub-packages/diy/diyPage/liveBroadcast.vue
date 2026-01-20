@@ -11,14 +11,14 @@
 							<view class="img-box" :style="liveItemStyle">
 								<view class="label-a acea-row row-middle" v-if="item.live_status == 101">
 									<text class="iconfont icon-ic_video1"></text>
-									<text>直播中</text>
+									<text>ຖ່າຍທອດສົດ</text>
 								</view>
 								<view class="label-b acea-row row-middle" v-else-if="item.live_status == 102">
-									<view class="txt acea-row row-middle">预告</view>
+									<view class="txt acea-row row-middle">ເປີດໂຕໃໝ່</view>
 									<view class="msg">{{ item.show_time }}</view>
 								</view>
 								<view class="label-c acea-row row-middle" v-else-if="item.live_status == 103">
-									<text>回放</text>
+									<text>ເບິ່ງຄືນ</text>
 								</view>
 								<image mode="aspectFill" :src="item.cover_img" style="width: 100%; height: 400rpx;" />
 							</view>
@@ -26,7 +26,7 @@
 								<view class="title line2" v-if="titleShow">{{ item.name }}</view>
 								<view class="people acea-row row-middle" v-if="anchorShow">
 									<image class="image" :src="item.anchor_img" style="width: 40rpx; height: 40rpx; border-radius: 20rpx;" />
-									<text>主播：{{ item.anchor_name }}</text>
+									<text>ນັກຖ່າຍທອດ: {{ item.anchor_name }}</text>
 								</view>
 							</view>
 						</navigator>
@@ -40,14 +40,14 @@
 							<view class="img-box" :style="liveItemStyle">
 								<view class="label-a" v-if="item.live_status == 101">
 									<text class="iconfont icon-ic_video1"></text>
-									<text>直播中</text>
+									<text>ຖ່າຍທອດສົດ</text>
 								</view>
 								<view class="label-b acea-row" v-else-if="item.live_status == 102">
-									<view class="txt acea-row row-middle">预告</view>
+									<view class="txt acea-row row-middle">ເປີດໂຕໃໝ່</view>
 									<view class="msg">{{ item.show_time }}</view>
 								</view>
 								<view class="label-c" v-else-if="item.live_status == 103">
-									<text>回放</text>
+									<text>ເບິ່ງຄືນ</text>
 								</view>
 								<image :src="item.cover_img" mode="aspectFill" style="width: 332rpx; height: 236rpx; border-radius: 16rpx 0rpx 0rpx 16rpx;" />
 							</view>
@@ -73,14 +73,14 @@
 								<view class="img-box" :style="liveItemStyle">
 									<view class="label-a" v-if="item.live_status == 101">
 										<text class="iconfont icon-ic_video1"></text>
-										<text>直播中</text>
+										<text>ຖ່າຍທອດສົດ</text>
 									</view>
 									<view class="label-b acea-row" v-else-if="item.live_status == 102">
-										<view class="txt">预告</view>
+										<view class="txt">ເປີດໂຕໃໝ່</view>
 										<view class="msg">{{ item.show_time }}</view>
 									</view>
 									<view class="label-c" v-else-if="item.live_status == 103">
-										<text>回放</text>
+										<text>ເບິ່ງຄືນ</text>
 									</view>
 									<image :src="item.cover_img" mode="aspectFill" style="width: 280rpx; height: 200rpx; border-radius: 16rpx;" />
 								</view>
@@ -88,7 +88,7 @@
 									<view class="title line1" v-if="titleShow">{{ item.name }}</view>
 									<view class="people acea-row row-middle" v-if="anchorShow">
 										<image class="image" :src="item.anchor_img" style="width: 40rpx; height: 40rpx; border-radius: 20rpx;" />
-										<text>主播：{{ item.anchor_name }}</text>
+										<text>ນັກຖ່າຍທອດ: {{ item.anchor_name }}</text>
 									</view>
 								</view>
 							</navigator>
@@ -105,19 +105,19 @@
 									<view class="acea-row row-middle">
 										<view class="label-a acea-row row-middle" v-if="item.live_status == 101">
 											<text class="iconfont icon-ic_video1"></text>
-											<text>直播中</text>
+											<text>ຖ່າຍທອດສົດ</text>
 										</view>
 										<view class="label-b acea-row row-middle" v-else-if="item.live_status == 102">
-											<text>预告</text>
+											<text>ເປີດໂຕໃໝ່</text>
 										</view>
 										<view class="label-c acea-row row-middle" v-else-if="item.live_status == 103">
-											<text>回放</text>
+											<text>ເບິ່ງຄືນ</text>
 										</view>
 										<view class="title line1" v-if="titleShow">{{ item.name }}</view>
 									</view>
 									<view class="people acea-row row-middle" v-if="anchorShow">
 										<image class="image" :src="item.anchor_img" style="width: 40rpx; height: 40rpx; border-radius: 20rpx;" />
-										<text>主播：{{ item.anchor_name }}</text>
+										<text>ນັກຖ່າຍທອດ: {{ item.anchor_name }}</text>
 										<text class="time">{{ item.show_time }}</text>
 									</view>
 								</view>
@@ -128,14 +128,14 @@
 								<view class="img-box">
 									<view class="label-a" v-if="item.live_status == 101">
 										<text class="iconfont icon-ic_video1"></text>
-										<text>直播中</text>
+										<text>ຖ່າຍທອດສົດ</text>
 									</view>
 									<view class="label-b acea-row" v-else-if="item.live_status == 102">
-										<view class="txt">预告</view>
+										<view class="txt">ເປີດໂຕໃໝ່</view>
 										<view class="msg">{{ item.show_time }}</view>
 									</view>
 									<view class="label-c acea-row row-middle" v-else-if="item.live_status == 103">
-										<text>回放</text>
+										<text>ເບິ່ງຄືນ</text>
 									</view>
 									<image mode="aspectFill" :src="item.cover_img" style="width: 100%; height: 670rpx;" />
 								</view>
@@ -143,7 +143,7 @@
 									<view class="title line1" v-if="titleShow">{{ item.name }}</view>
 									<view class="people acea-row row-middle" v-if="anchorShow">
 										<image class="image" :src="item.anchor_img" style="width: 40rpx; height: 40rpx; border-radius: 20rpx;" />
-										<text>主播：{{ item.anchor_name }}</text>
+										<text>ນັກຖ່າຍທອດ: {{ item.anchor_name }}</text>
 									</view>
 								</view>
 							</navigator>

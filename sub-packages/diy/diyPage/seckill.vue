@@ -7,7 +7,7 @@
 				<view class="flex-y-center" :style="[numberBgColor]">
 					<text class="fs-32 lh-44rpx fw-500" :style="[titleStyle]" v-if="titleConfig">{{ titleTxtConfig }}</text>
 					<image :src="titleImg" class="w-140 h-32" v-else></image>
-					<text class="fs-26 text--w111-999 lh-36rpx pl-20" :style="[tipsColor]">距离结束</text>
+					<text class="fs-26 text--w111-999 lh-36rpx pl-20" :style="[tipsColor]">ໃກ້ຈະສິ້ນສຸດ</text>
 					<view>
 						<countDown :is-day="false" tip-text=" " day-text=" " hour-text=":" minute-text=":" second-text=" "
 						:datatime="datatime" :colors="numberColor" :dotColor="dotColor"></countDown>
@@ -37,13 +37,13 @@
 										:style="{ left: item.percent + '%', transform: item.percent == 100 ? 'translateX(-100%)' : 'translateX(0)' }">
 									</image>
 								</view>
-								<text class="fs-22 lh-30rpx pl-12" :style="{ color: priceColor }">已抢{{ item.percent + '%' }}</text>
+								<text class="fs-22 lh-30rpx pl-12" :style="{ color: priceColor }">ຂາຍແລ້ວ{{ item.percent + '%' }}</text>
 							</view>
 						</view>
 						<view class="flex justify-between items-end">
 							<view class="flex-col">
 								<view :style="{ color: priceColor }" v-if="checkboxInfo.includes(2)">
-									<text style="font-size: 12px; margin-right: 4px">秒杀价</text>
+									<text style="font-size: 12px; margin-right: 4px">ລາຄາຟ້າຜ່າ</text>
 									<priceFormat :price="item.price" intSize="36" decimalSize="36" weight></priceFormat>
 								</view>
 								<text class="text-line fs-28 text--w111-999 pt-10 Regular" v-if="checkboxInfo.includes(3)"
@@ -114,7 +114,7 @@
 									v-if="checkboxInfo.includes(3)">¥{{ item.ot_price.toString().split('.')[1] ?
 										item.ot_price : item.ot_price + '.00' }}</view>
 							</view>
-							<view class="qiang flex-center fs-24 text--w111-fff" v-if="!showBtn" :style="[btnBgColor, getBtnOtherStyle(item)]">抢
+							<view class="qiang flex-center fs-24 text--w111-fff" v-if="!showBtn" :style="[btnBgColor, getBtnOtherStyle(item)]">ຊື້
 							</view>
 						</view>
 					</view>
@@ -329,7 +329,7 @@ export default {
 	inject: ["parentDiyId", "parentMerId"],
 	filters: {
 		btnText(skill_status) {
-			return skill_status === 0 ? "未开始" : "去抢购";
+			return skill_status === 0 ? "ຍັງບໍ່ເລີ່ມ" : "ໄປຊື້ດຽວນີ້";
 		}
 	},
 	methods: {
@@ -345,7 +345,7 @@ export default {
 		},
 		goDetails(item) {
 			if (item.skill_status === 0) return this.$util.Tips({
-				title: "该商品尚未开始抢购"
+				title: "ສິນຄ້ານີ້ຍັງບໍ່ເລີ່ມຂາຍ"
 			});
 			uni.navigateTo({
 				url: '/pages/activity/goods_seckill_details/index?id=' + item.product_id + '&type=1&time_id=' + this.seckillTime[this.seckillTimeIndex].seckill_time_id

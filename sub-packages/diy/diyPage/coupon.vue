@@ -13,12 +13,12 @@
 									</template>
 								</view>
 								<view class="info">
-									<text v-if="item.use_min_price">满{{ item.use_min_price }}可用</text>
-									<text v-else>无门槛券</text>
+									<text v-if="item.use_min_price">ໃຊ້ໄດ້ເມື່ອຊື້ຄົບ {{ item.use_min_price }}</text>
+									<text v-else>ຄູປອງບໍ່ມີເງື່ອນໄຂ</text>
 								</view>
 							</view>
-							<navigator v-if="item.issue" class="button" :style="[bntBgColor]" hover-class="none" :url="getUseCouponUrl(item)">已领取</navigator>
-							<view v-else class="button" :style="[bntBgColor]" @click="receiveCoupon(item)">去领取</view>
+							<navigator v-if="item.issue" class="button" :style="[bntBgColor]" hover-class="none" :url="getUseCouponUrl(item)">ຮັບແລ້ວ</navigator>
+							<view v-else class="button" :style="[bntBgColor]" @click="receiveCoupon(item)">ໄປຮັບ</view>
 							<!-- <view v-else-if="item.is_use == 2" class="button" :style="[bntBgColor]">已过期</view> -->
 						</view>
 						<view class="last-item-placeholder" />
@@ -37,12 +37,12 @@
 									</template>
 								</view>
 								<view class="info">
-									<text v-if="item.use_min_price">满{{ item.use_min_price }}可用</text>
-									<text v-else>无门槛券</text>
+									<text v-if="item.use_min_price">ໃຊ້ໄດ້ເມື່ອຊື້ຄົບ {{ item.use_min_price }}</text>
+									<text v-else>ຄູປອງບໍ່ມີເງື່ອນໄຂ</text>
 								</view>
 							</view>
-							<navigator v-if="item.issue" class="button" :style="[bntBgColor]" hover-class="none" :url="getUseCouponUrl(item)">已领取</navigator>
-							<view v-else class="button" :style="[bntBgColor]" @click="receiveCoupon(item)">去领取</view>
+							<navigator v-if="item.issue" class="button" :style="[bntBgColor]" hover-class="none" :url="getUseCouponUrl(item)">ຮັບແລ້ວ</navigator>
+							<view v-else class="button" :style="[bntBgColor]" @click="receiveCoupon(item)">ໄປຮັບ</view>
 						</view>
 						<view class="last-item-placeholder" />
 					</view>
@@ -60,12 +60,12 @@
 										</template>
 									</view>
 									<view class="info">
-										<text v-if="item.use_min_price">满{{ item.use_min_price }}可用</text>
-										<text v-else>无门槛券</text>
+										<text v-if="item.use_min_price">ໃຊ້ໄດ້ເມື່ອຊື້ຄົບ {{ item.use_min_price }}</text>
+										<text v-else>ຄູປອງບໍ່ມີເງື່ອນໄຂ</text>
 									</view>
 								</view>
-								<navigator v-if="item.issue" class="button acea-row row-middle" hover-class="none" :url="getUseCouponUrl(item)">已领取</navigator>
-								<view v-else class="button acea-row row-middle" @click="receiveCoupon(item)">立即领取</view>
+								<navigator v-if="item.issue" class="button acea-row row-middle" hover-class="none" :url="getUseCouponUrl(item)">ຮັບແລ້ວ</navigator>
+								<view v-else class="button acea-row row-middle" @click="receiveCoupon(item)">ຮັບດຽວນີ້</view>
 							</view>
 						</view>
 						<view class="last-item-placeholder" />
@@ -87,8 +87,8 @@
 										</template>
 									</view>
 									<view class="info">
-										<text v-if="item.use_min_price">满{{ item.use_min_price }}可用</text>
-										<text v-else>无门槛券</text>
+										<text v-if="item.use_min_price">ໃຊ້ໄດ້ເມື່ອຊື້ຄົບ {{ item.use_min_price }}</text>
+										<text v-else>ຄູປອງບໍ່ມີເງື່ອນໄຂ</text>
 									</view>
 								</view>
 							</view>
@@ -96,9 +96,9 @@
 						</view>
 					</scroll-view>
 					<view class="station acea-row row-column row-middle row-center" :style="[bntBgColor, coupon4Style]">
-						<view class="station-name">先领券 再购物</view>
-						<view class="station-info">领券下单·享购物优惠</view>
-						<view class="button" @click="goCoupon">立即领取</view>
+						<view class="station-name">ຮັບຄູປອງກ່ອນ ຊື້ເຄື່ອງ</view>
+						<view class="station-info">ຮັບຄູປອງສັ່ງຊື້ ຮັບສ່ວນຫຼຸດ</view>
+						<view class="button" @click="goCoupon">ຮັບດຽວນີ້</view>
 					</view>
 				</view>
 			</view>
@@ -113,12 +113,12 @@
 									</template>
 								</view>
 								<view class="info" :style="[couponMoneyColor]">
-									<text v-if="item.use_min_price">满{{ item.use_min_price }}可用</text>
-									<text v-else>无门槛券</text>
+									<text v-if="item.use_min_price">ໃຊ້ໄດ້ເມື່ອຊື້ຄົບ {{ item.use_min_price }}</text>
+									<text v-else>ຄູປອງບໍ່ມີເງື່ອນໄຂ</text>
 								</view>
 							</view>
-							<navigator v-if="item.issue" class="button acea-row row-middle" hover-class="none" :url="getUseCouponUrl(item)">已领取</navigator>
-							<view v-else class="button acea-row row-middle" @click="receiveCoupon(item)">领取</view>
+							<navigator v-if="item.issue" class="button acea-row row-middle" hover-class="none" :url="getUseCouponUrl(item)">ຮັບແລ້ວ</navigator>
+							<view v-else class="button acea-row row-middle" @click="receiveCoupon(item)">ຮັບ</view>
 						</view>
 						<view class="last-item-placeholder" />
 					</view>
@@ -163,9 +163,9 @@ export default {
 	filters: {
 		typeFilter(val) {
 			let obj = {
-				10: '通用券',
-				11: '品类券',
-				12: '跨店券'
+				10: 'ຄູປອງທົ່ວໄປ',
+				11: 'ຄູປອງປະເພດ',
+				12: 'ຄູປອງຂ້າມຮ້ານ'
 			};
 			return obj[val] || obj[10];
 		}

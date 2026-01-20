@@ -121,7 +121,7 @@
 											<text class="iconfont" :class="item.icon"></text>
 											<text class="order-status-num" v-if="item.num > 0">{{ item.num }}</text>
 										</view>
-										<view class="txt skeleton-rect">{{item.title}}</view>
+										<view class="txt skeleton-rect text-center">{{item.title}}</view>
 									</view>
 								</block>
 							</view>

@@ -6,7 +6,7 @@
 				<view v-if="dataConfig.titleConfig.tabVal" :style="[titleStyle]">{{ dataConfig.titleTxtConfig.value }}</view>
 				<image v-else :src="dataConfig.imgConfig.url" mode="heightFix" class="image"></image>
 				<view v-if="!dataConfig.buttonConfig.tabVal" class="more" 
-					@click="moreTab(linkConfig)" :style="[moreStyle]">更多<text
+					@click="moreTab(linkConfig)" :style="[moreStyle]">ເພີ່ມເຕີມ<text
 						class="iconfont icon-ic_rightarrow"></text></view>
 			</view>
 			<view class="news-bottom">

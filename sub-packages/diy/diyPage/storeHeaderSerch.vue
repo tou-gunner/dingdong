@@ -19,8 +19,8 @@
 				</view>
 				<template v-if="dataConfig.styleConfig.tabVal == 2">
 					<view v-if="dataConfig.displaySearchStyleConfig.tabVal == 1" class="button"
-						:style="[searchBtnStyle]">搜索</view>
-					<view v-else-if="dataConfig.displaySearchStyleConfig.tabVal == 2" class="button2" :style="[searchBtnStyle]">搜索</view>
+						:style="[searchBtnStyle]">ຄົ້ນຫາ</view>
+					<view v-else-if="dataConfig.displaySearchStyleConfig.tabVal == 2" class="button2" :style="[searchBtnStyle]">ຄົ້ນຫາ</view>
 				</template>
 			</navigator>
 			<!-- #ifdef MP-WEIXIN  -->

@@ -1,7 +1,7 @@
 <template>
   <view v-if="dataConfig.cartConfig.tabVal === 0" @click="handleCartClick" class="cart-box"
     :class="[`type-${styleType}`]" :style="[cartStyle]">
-    <template v-if="styleType === CART_BTN_ENUM.TEXT">购买</template>
+    <template v-if="styleType === CART_BTN_ENUM.TEXT">ຊື້</template>
     <view class="iconfont icon-ic_increase" v-else-if="styleType === CART_BTN_ENUM.PLUS_ICON"></view>
     <view class="iconfont icon-ic_ShoppingCart1" v-else-if="styleType === CART_BTN_ENUM.CART_ICON"></view>
   </view>

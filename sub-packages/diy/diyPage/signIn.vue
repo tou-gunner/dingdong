@@ -5,7 +5,7 @@
 				<image src="@/static/images/sign-icon-04.png" mode="widthFix" class="image"></image>
 				<view class="text">
 					<view class="name-wrap acea-row row-middle">
-						<view class="name">签到立即获取</view>
+						<view class="name">ເຊັກອິນເພື່ອຮັບ</view>
 						<view class="num acea-row row-middle" :style="[numStyle]">
 							<view class="inner acea-row row-middle" :class="{ opacity: !dataConfig.toneConfig.tabVal }">
 								<image src="@/static/images/sign-icon-01.png" mode="widthFix" class="icon"></image>
@@ -13,10 +13,10 @@
 							</view>
 						</view>
 					</view>
-					<view>连续签到 {{ continuousSignDays || 0 }}天</view>
+					<view>ເຊັກອິນຕິດຕໍ່ກັນ {{ continuousSignDays || 0 }} ມື້</view>
 				</view>
 				<view class="button" :style="[buttonStyle]" @click="handleSign">
-					{{ todayIsSign ? '已签到' : '立即签到' }}
+					{{ todayIsSign ? 'ເຊັກອິນແລ້ວ' : 'ເຊັກອິນດຽວນີ້' }}
 				</view>
 			</view>
 			<view v-else class="week-wrap acea-row row-middle" :style="[signBodyStyle]">
@@ -26,11 +26,11 @@
 						<image v-if="item.isSign" src="@/static/images/sign-icon-03.png" mode="widthFix" class="image"></image>
 						<image v-else-if="item.isCurrentDay" src="@/static/images/sign-icon-02.png" mode="widthFix" class="image"></image>
 						<image v-else src="@/static/images/sign-icon-01.png" mode="widthFix" class="image"></image>
-						<view>周{{ index | weekFormat }}</view>
+						<view>{{ index | weekFormat }}</view>
 					</view>
 				</view>
 				<view class="button" :style="[buttonStyle]" @click="handleSign">
-					{{ todayIsSign ? '已签到' : '签到' }}
+					{{ todayIsSign ? 'ເຊັກອິນແລ້ວ' : 'ເຊັກອິນ' }}
 				</view>
 			</view>
 		</view>
@@ -60,7 +60,7 @@ export default {
 	},
 	filters: {
 		weekFormat: function (value) {
-			return ['一', '二', '三', '四', '五', '六', '日'][value];
+			return ['ຈັນ', 'ອັງຄານ', 'ພຸດ', 'ພະຫັດ', 'ສຸກ', 'ເສົາ', 'ທິດ'][value];
 		}
 	},
 	data() {
@@ -156,7 +156,7 @@ export default {
 		async handleSign() {
 			if (this.todayIsSign) {
 				this.$util.Tips({
-					title: '您今日已签到!'
+					title: 'ທ່ານເຊັກອິນມື້ນີ້ແລ້ວ!'
 				});
 				return;
 			}
@@ -168,7 +168,7 @@ export default {
 				this.refreshData();
 				uni.hideLoading();
 				this.$util.Tips({
-					title: '签到成功'
+					title: 'ເຊັກອິນສຳເລັດ'
 				});
 			} catch (error) {
 				uni.hideLoading();

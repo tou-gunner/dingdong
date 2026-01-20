@@ -13,7 +13,7 @@
               {{ storeInfo.type_name }}
             </view>
             <view class="store-type" v-else-if="storeInfo.is_trader">
-              自营
+              ທາງການ
             </view>
           </template>
           <view class="star" :style="{ background: `url(${domain}/static/diy/star.png) left top/100% 100% no-repeat` }" v-if="isStoreScoreVisible">
@@ -25,7 +25,7 @@
       </view>
       <button class="store-follow-btn" @click="handleToggleFollow(storeInfo)" v-if="isStoreFollowBtnVisible">
         <i class="iconfont icon-ic_love" v-if="!storeInfo.care"></i>
-        {{ storeInfo.care ? '已关注' : '关注' }}
+        {{ storeInfo.care ? 'ຕິດຕາມແລ້ວ' : 'ຕິດຕາມ' }}
       </button>
     </view>
   </view>
