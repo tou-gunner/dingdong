@@ -12,9 +12,9 @@
 								</view>
 								<view @click="followAuthor(item)">
 									<view v-if="!item.relevance_id" class="follow focus">
-										<text class="iconfont icon-ic_increase"></text>关注
+										<text class="iconfont icon-ic_increase"></text>ຕິດຕາມ
 									</view>
-									<view v-else class="follow focused">已关注</view>
+									<view v-else class="follow focused">ຕິດຕາມແລ້ວ</view>
 								</view>
 							</view>
 							<view class="product">
@@ -22,7 +22,7 @@
 							</view>
 							<view class="pro_describle">
 								<view class="mentioned" v-if="item.relevance.length>0" @click="openMore(item)">
-									<text class="title">查看TA提到的宝贝({{item.relevance.length}})</text>
+									<text class="title">ເບິ່ງສິນຄ້າທີ່ກ່າວເຖິງ({{item.relevance.length}})</text>
 									<view class="product_more">
 										<view class="item">
 											<image v-for="(itemn, indexn) in item.relevance" :key="indexn" :src="(itemn.spu&&itemn.spu.image)||itemn.image" class="more_image"></image>
@@ -34,7 +34,7 @@
 									<text class="text">
 										{{item.content}}
 									</text>
-									<text class="unfold_btn">展开</text>
+									<text class="unfold_btn">ຂະຫຍາຍ</text>
 								</view>
 								<navigator v-if="item.topic" hover-class="none" class="product_cate" :url="'/pages/plantGrass/plant_search_list/index?id='+item.topic.topic_id">
 									<view>
@@ -46,11 +46,11 @@
 									<view class="item">
 										<view class="item_count" @click.stop="likeToggle(item)">
 											<text class="iconfont" :class="item.relevance_id ? 'icon-icon_Like_2' : 'icon-ic_Like'"></text>
-											<text>{{item.count_start > 0 ? item.count_start : '点赞'}}</text>
+											<text>{{item.count_start > 0 ? item.count_start : 'ກົດໃຈ'}}</text>
 										</view>
 										<view class="item_count" @click="openCommon(item,index)">
 											<text class="iconfont icon-ic_daipingjia1"></text>
-											<text>{{item.count_reply ? item.count_reply : '评论'}}</text>
+											<text>{{item.count_reply ? item.count_reply : 'ຄຳເຫັນ'}}</text>
 										</view>
 									</view>
 								</view>
@@ -103,7 +103,7 @@
 				commList: [], //评论列表
 				loading: false,
 				loaded: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				where: {
 					topic_id: '',
 					page: 1,
@@ -142,7 +142,7 @@
 					let list = res.data.list;
 					let featuredList = that.$util.SplitArray(list, that.featuredList);
 					that.loaded = list.length < that.where.limit;
-					that.loadTitle = loaded ? '已全部加载' : '加载更多';
+					that.loadTitle = loaded ? 'ໂຫຼດໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'featuredList', featuredList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {

@@ -52,7 +52,7 @@
 											</view>
 										</view>
 										<view v-if="storeInfo.atmosphere_pic" class='integral_count skeleton-rect'>
-											<text v-if="storeInfo.max_integral > 0" class='integral'>积分最高可抵扣{{storeInfo.max_integral}}元</text>
+											<text v-if="storeInfo.max_integral > 0" class='integral'>ຄະແນນສູງສຸດສາມາດຫຼຸດໄດ້{{storeInfo.max_integral}}ກີບ</text>
 										</view>
 										<!--无氛围图-->
 										<view v-else class='share acea-row row-between row-bottom'>
@@ -74,18 +74,18 @@
 											class="svipCon acea-row row-between-wrapper skeleton-rect" style="margin-top: 20rpx;">
 											<view class="acea-row row-between-wrapper">
 												<image :src="`${domain}/static/images/svip_user.png`"></image>
-												<view class="">开通 SVIP会员
-													<block v-if="svipData.show_svip_price">立省<text>{{svipData.save_money}}元</text></block>
-													<block v-else><text>省钱多多，权益多多</text></block>
+												<view class="">ເປີດສະມາຊິກ SVIP
+													<block v-if="svipData.show_svip_price">ປະຢັດທັນທີ<text>{{svipData.save_money}}ກີບ</text></block>
+													<block v-else><text>ປະຢັດເງິນຫຼາຍ, ສິດທິປະໂຫຍດຫຼາຍ</text></block>
 												</view>
 											</view>
 											<navigator class="svipBtn" url="/pages/annex/vip_paid/index">
-												立即开通
+												ເປີດໃຊ້ດຽວນີ້
 												<text class="iconfont icon-ic_rightarrow"></text>
 											</navigator>
 										</view>
 										<view v-if="!storeInfo.atmosphere_pic" class='integral_count skeleton-rect'>
-											<text v-if="storeInfo.max_integral > 0" class='integral'>积分最高可抵扣{{storeInfo.max_integral}}元</text>
+											<text v-if="storeInfo.max_integral > 0" class='integral'>ຄະແນນສູງສຸດສາມາດຫຼຸດໄດ້{{storeInfo.max_integral}}ກີບ</text>
 										</view>
 										<view v-if="!storeInfo.atmosphere_pic" class='introduce skeleton-rect'>
 											<text v-if="promotionType" class="font-bg-red bt-color">{{promotionType}}</text>
@@ -96,8 +96,8 @@
 										</view>
 										<view class='label acea-row row-between-wrapper' :style="{'padding-bottom':coupon.list.length || storeInfo.top_pid?0 :10+'px;'}">
 											<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">¥{{marketPrice || 0}}</view>
-											<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">库存:{{storeInfo.stock ? storeInfo.stock : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
-											<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">已售:{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
+											<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">ສະຕ໋ອກ:{{storeInfo.stock ? storeInfo.stock : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
+											<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">ຂາຍແລ້ວ:{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
 										</view>
 									</view>
 									<navigator v-if="storeInfo.top_pid && diyProduct.showRank==1" hover-class='none' :url="`/pages/activity/rank/index?cate_id=${storeInfo.top_pid}`" class='label pad20'>
@@ -117,8 +117,8 @@
 							<view v-if="(diyProduct.showCoupon==1 && coupon.list.length > 0) || diyProduct.serviceList.length>0" class="pad20">
 								<view v-if="diyProduct.showCoupon==1 && coupon.list.length > 0" class='coupon acea-row row-between-wrapper skeleton-rect bg-f boder-24 mt20' @click='couponTap'>
 									<view class='hide line1 acea-row'>
-										优惠券：
-										<view class='activity' v-for="(item,index) in coupon.list" :key="index">{{item.use_min_price == 0 ? '领券立减'+item.coupon_price : '满'+item.use_min_price+'减'+item.coupon_price}}</view>
+										ຄູປອງ：
+										<view class='activity' v-for="(item,index) in coupon.list" :key="index">{{item.use_min_price == 0 ? 'ຮັບຄູປອງຫຼຸດທັນທີ'+item.coupon_price : 'ຊື້ຄົບ'+item.use_min_price+'ຫຼຸດ'+item.coupon_price}}</view>
 									</view>
 									<view class='iconfont icon-ic_rightarrow'></view>
 								</view>
@@ -135,7 +135,7 @@
 								<!--优惠套餐-->
 								<view class='combo boder-24 bg-f mt20' v-if="comboList && comboList.length>0 && diyProduct.showMatch==1">
 									<view class='title acea-row row-between-wrapper'>
-										<view>优惠套餐({{comboTotal}}) </view>
+										<view>ຊຸດໂປຣໂມຊັນ({{comboTotal}}) </view>
 										<view class='praise' @click="openCombo">
 											<text class='iconfont icon-ic_rightarrow'></text>
 										</view>
@@ -149,8 +149,8 @@
 														<text v-if="indexn != item.count-1" class="iconfont icon-ic_increase"></text>
 													</view>
 													<view class="list_total">
-														<view class="list_num">共{{item.count}}件</view>
-														<view class="list_price p-color">省 ¥{{item.max_price}}</view>
+														<view class="list_num">ລວມ{{item.count}}ຊິ້ນ</view>
+														<view class="list_price p-color">ປະຢັດ ¥{{item.max_price}}</view>
 													</view>
 												</view>
 											</block>
@@ -159,9 +159,9 @@
 								</view>
 								<view class='userEvaluation boder-24' id="past1" v-if="replyCount && replyCount>0 && diyProduct.showReply==1">
 									<view class='title acea-row row-between-wrapper skeleton-rect'>
-										<view>用户评价({{replyCount}})</view>
+										<view>ການປະເມີນຂອງຜູ້ໃຊ້({{replyCount}})</view>
 										<navigator class='praise' hover-class='none' :url='"/pages/users/goods_comment_list/index?product_id="+id'>
-											<text class='t-color'>{{replyChance}}</text>好评率
+											<text class='t-color'>{{replyChance}}</text>ອັດຕາຄວາມພໍໃຈ
 											<text class='iconfont icon-ic_rightarrow'></text>
 										</navigator>
 									</view>
@@ -172,9 +172,9 @@
 								<!-- 种草秀 -->
 								<view class='userPlant boder-24 mt20' v-if="community_status==1 && storeInfo.community && storeInfo.community.length>0 && diyProduct.showCommunity == 1">
 									<view class='title acea-row row-between-wrapper'>
-										<view>种草秀({{storeInfo.community.length}})</view>
+										<view>ການສະແດງ({{storeInfo.community.length}})</view>
 										<navigator class='praise' hover-class='none' :url="'/pages/plantGrass/plant_show/index?spu_id='+storeInfo.spu_id">
-											查看全部
+											ເບິ່ງທັງໝົດ
 											<text class='iconfont icon-ic_rightarrow'></text>
 										</navigator>
 									</view>
@@ -203,22 +203,22 @@
 													<text v-else-if="storeInfo.merchant.is_trader" class="font-bg-red ml8 bt-color">自营</text>
 												</view>
 												<view v-if="storeInfo.merchant.care_count" class="txt">
-													{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}人关注
+													{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'ໝື່ນ'}}ຄົນຕິດຕາມ
 												</view>
-												<view v-else class="txt">0人关注</view>
+												<view v-else class="txt">0ຄົນຕິດຕາມ</view>
 											</navigator>
 											<navigator v-if="hide_mer_status != 1" :url="'/pages/store/home/index?id='+storeInfo.mer_id" class="link"
-											 hover-class="none">进店</navigator>
+											 hover-class="none">ເຂົ້າຮ້ານ</navigator>
 										</view>
 										<view class="score-wrapper">
 											<view class="item">
-												商品描述<text>{{storeInfo.merchant.product_score}}</text>
+												ລາຍລະອຽດສິນຄ້າ<text>{{storeInfo.merchant.product_score}}</text>
 											</view>
 											<view class="item">
-												卖家服务<text>{{storeInfo.merchant.service_score}}</text>
+												ການບໍລິການຂອງຜູ້ຂາຍ<text>{{storeInfo.merchant.service_score}}</text>
 											</view>
 											<view class="item">
-												物流服务<text>{{storeInfo.merchant.postage_score}}</text>
+												ການບໍລິການຂົນສົ່ງ<text>{{storeInfo.merchant.postage_score}}</text>
 											</view>
 										</view>
 									</view>
@@ -257,7 +257,7 @@
 									</view>
 								</view>
 								<view class='product-intro' id="past3">
-									<view class='title'>产品介绍</view>
+									<view class='title'>ແນະນຳສິນຄ້າ</view>
 									<view class='conter' v-if="description">
 										<!-- #ifndef APP-PLUS -->
 										<jyf-parser v-if="description.type == 0" :domain='domain' :html="description.content.replace(/<br\/>/ig, '')" ref="article" :tag-style="tagStyle"></jyf-parser>
@@ -303,16 +303,16 @@
 				<!--  -->
 				<view v-if="attr.productSelect.stock != 0 || storeInfo.type == 4" class='bnt acea-row skeleton-rect'>
 					<form v-if="diyProduct.showCart" @submit="joinCart" report-submit='true'>
-						<button v-if="storeInfo.type != 1&&storeInfo.type != 2&&storeInfo.type != 3&&storeInfo.type != 4&&!storeInfo.mer_form_id" class='joinCart bnts' :class="'w_buy'+diyProduct.menuList.length" form-type="submit">加入购物车</button>
+						<button v-if="storeInfo.type != 1&&storeInfo.type != 2&&storeInfo.type != 3&&storeInfo.type != 4&&!storeInfo.mer_form_id" class='joinCart bnts' :class="'w_buy'+diyProduct.menuList.length" form-type="submit">ເພີ່ມເຂົ້າກະຕ່າ</button>
 					</form>
 					<form @submit="goBuy" report-submit='true' v-if="attr.productSelect">
-						<button class='buy bnts' :class="(storeInfo.type == 1 || storeInfo.type == 2 || storeInfo.type == 3 || storeInfo.type == 4 || storeInfo.mer_form_id || !diyProduct.showCart) ? 'virtual_buy virtual_buy'+diyProduct.menuList.length : 'w_buy'+diyProduct.menuList.length" form-type="submit" :disabled="attr.productSelect.stock == 0 && storeInfo.type!=4">立即购买</button>
+						<button class='buy bnts' :class="(storeInfo.type == 1 || storeInfo.type == 2 || storeInfo.type == 3 || storeInfo.type == 4 || storeInfo.mer_form_id || !diyProduct.showCart) ? 'virtual_buy virtual_buy'+diyProduct.menuList.length : 'w_buy'+diyProduct.menuList.length" form-type="submit" :disabled="attr.productSelect.stock == 0 && storeInfo.type!=4">ຊື້ດຽວນີ້</button>
 					</form>
 				</view>
 				<view v-else class='bnt acea-row skeleton-rect'>
 					<form report-submit='true'>
-						<button v-if="procudt_increase_status == 1" class='buy bnts sold_out' :class="'sold_out'+diyProduct.menuList.length" form-type="submit" @click="arrivalNotice">到货通知</button>
-						<button v-else class='buy bnts sold_out' :class="'sold_out'+diyProduct.menuList.length" form-type="submit" disabled>商品已售罄</button>
+						<button v-if="procudt_increase_status == 1" class='buy bnts sold_out' :class="'sold_out'+diyProduct.menuList.length" form-type="submit" @click="arrivalNotice">ແຈ້ງເຕືອນເມື່ອສິນຄ້າມາເຖິງ</button>
+						<button v-else class='buy bnts sold_out' :class="'sold_out'+diyProduct.menuList.length" form-type="submit" disabled>ສິນຄ້າໝົດແລ້ວ</button>
 					</form>
 				</view>
 			</view>
@@ -333,28 +333,28 @@
 				<!-- #ifndef MP -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' v-if="weixinStatus === true" @click="H5ShareBox = true">
 					<view class="iconfont icon-ic_wechat"></view>
-					<view class="">发送给朋友</view>
+					<view class="">ສົ່ງໃຫ້ໝູ່ເພື່ອນ</view>
 				</button>
 				<!-- #endif -->
 				<!-- #ifdef MP -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" open-type="share" hover-class='none' @click="goFriend">
 					<view class="iconfont icon-ic_wechat"></view>
-					<view class="">发送给朋友</view>
+					<view class="">ສົ່ງໃຫ້ໝູ່ເພື່ອນ</view>
 				</button>
 				<!-- #endif -->
 				<!-- #ifdef APP-PLUS -->
 				<view class="item" @click="appShare('WXSceneSession')">
 					<view class="iconfont icon-ic_wechat"></view>
-					<view class="">分享给好友</view>
+					<view class="">ແບ່ງປັນໃຫ້ໝູ່ເພື່ອນ</view>
 				</view>
 				<!-- #endif -->
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @click="downloadFilePromotionCode">
 					<view class="iconfont icon-a-ic_picture1"></view>
-					<view class="">生成海报</view>
+					<view class="">ສ້າງໂປສເຕີ</view>
 				</button>
 				<button class="item" :class="weixinStatus ? 'item3' : ''" hover-class='none' @click="copyPwd">
 					<view class="iconfont icon-ic_key"></view>
-					<view>生成口令</view>
+					<view>ສ້າງລະຫັດ</view>
 				</button>
 			</view>
 			<view class="mask" v-if="posters" @click="listenerActionClose"></view>
@@ -366,10 +366,10 @@
 				<image src='../../static/images/poster-close.png' class='close' @click="posterImageClose"></image>
 				<image :src='posterImage'></image>
 				<!-- #ifndef H5  -->
-				<view class='save-poster' @click="savePosterPath">保存到手机</view>
+				<view class='save-poster' @click="savePosterPath">ບັນທຶກລົງໂທລະສັບ</view>
 				<!-- #endif -->
 				<!-- #ifdef H5 -->
-				<view class="keep">长按图片可以保存到手机</view>
+				<view class="keep">ກົດຄ້າງຮູບພາບເພື່ອບັນທຶກລົງໂທລະສັບ</view>
 				<!-- #endif -->
 			</view>
 			<view class='mask' v-if="posterImageStatus"></view>

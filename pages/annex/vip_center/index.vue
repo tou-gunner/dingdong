@@ -16,16 +16,16 @@
 							<image class="vip" :src="`${domain}/static/images/svip.png`"></image>
 						</view>
 					</view>
-					<view v-if="userInfo.is_svip == 3" class="expire">终身会员</view>
-					<view v-else class="expire">{{userInfo.svip_endtime | dateFormat}}到期</view>
+					<view v-if="userInfo.is_svip == 3" class="expire">ສະມາຊິກຕະຫຼອດຊີວິດ</view>
+					<view v-else class="expire">{{userInfo.svip_endtime | dateFormat}} ໝົດອາຍຸ</view>
 				</view>
 				<view class="header_count">
 					<view class="acea-row row-between vip_save">
 						<view class="save_money">
-							<text class="name">累计节省(元)</text>
+							<text class="name">ປະຢັດລວມ (ກີບ)</text>
 							<view class="money">{{userInfo.svip_save_money}}</view>
 						</view>
-						<view v-if="userInfo.is_svip != 3" @click="scrollToCard" class="renew_btn">立即续费</view>
+						<view v-if="userInfo.is_svip != 3" @click="scrollToCard" class="renew_btn">ຕໍ່ອາຍຸດຽວນີ້</view>
 					</view>
 					<view class="save_list acea-row">
 						<scroll-view scroll-x="true" style="white-space: nowrap; display: flex" show-scrollbar="false">
@@ -45,8 +45,8 @@
 		<view class="vip_center">
 			<view v-if="memberCoupons.length > 0" class="coupon-section" :style="{ 'background-image': `url(${domain}/static/images/svip_coupon_bg.png)`}">
 				<view class="section-hd">
-					<view class="title">会员优惠券</view>
-					<text class="desc">会员专享优惠券，全场通用</text>
+					<view class="title">ຄູປ໋ອງສະມາຊິກ</view>
+					<text class="desc">ຄູປ໋ອງພິເສດສຳລັບສະມາຊິກ, ໃຊ້ໄດ້ທຸກບ່ອນ</text>
 				</view>
 				<scroll-view class="section-bd" scroll-x="true">
 					<view v-for="item in memberCoupons" :key="item.coupon_id" class="item"
@@ -59,20 +59,20 @@
 								<text class="num">{{item.coupon_price}}</text>
 							</view>
 							<view class="text">
-								<view v-if="item.use_min_price === '0.00'" class="mark">领券立减{{item.coupon_price}}元</view>
-								<view v-else class="mark">满{{item.use_min_price | moneyFormat}}可用</view>
+								<view v-if="item.use_min_price === '0.00'" class="mark">ຮັບຄູປ໋ອງຫຼຸດທັນທີ {{item.coupon_price}} ກີບ</view>
+								<view v-else class="mark">ໃຊ້ໄດ້ເມື່ອຊື້ຄົບ {{item.use_min_price | moneyFormat}}</view>
 							</view>
 						</view>
-						<navigator hover-class="none" :url="'/pages/columnGoods/goods_coupon_list/index?coupon_id='+item.coupon_id" v-if="item.svipIssue" class="coupon-btn">去使用</navigator>
-						<view v-else @click="receiveCoupon(item)" class="coupon-btn">立即领取</view>
+						<navigator hover-class="none" :url="'/pages/columnGoods/goods_coupon_list/index?coupon_id='+item.coupon_id" v-if="item.svipIssue" class="coupon-btn">ໄປໃຊ້</navigator>
+						<view v-else @click="receiveCoupon(item)" class="coupon-btn">ຮັບດຽວນີ້</view>
 					</view>
 				</scroll-view>
 			</view>
 			<!--立即续费-->
 			<view v-if="userInfo.is_svip != 3 && memberType.length>0" class="type-section" id="card" :style="{ 'background-image': `url(${domain}/static/images/renew_bg.png)`}">
 				<view class="section-hd">
-					<view class="title">会员续费</view>
-					<text class="desc">续费可继续享受优惠价</text>
+					<view class="title">ຕໍ່ອາຍຸສະມາຊິກ</view>
+					<text class="desc">ຕໍ່ອາຍຸເພື່ອຮັບລາຄາພິເສດ</text>
 				</view>
 				<scroll-view class="scroll" scroll-x="true">
 					<view v-for="(item,index) in memberType" :key="item.group_data_id" class="item" :class="{on: index === type}"
@@ -84,15 +84,15 @@
 						<view class="old">¥{{item.value && item.value.cost_price | moneyFormat}}</view>
 					</view>
 				</scroll-view>
-				<view class="buy" @click="pay">立即支付</view>
+				<view class="buy" @click="pay">ຈ່າຍດຽວນີ້</view>
 				<view v-if="memberExplain" class="agree">
-					<navigator class="link" url="/pages/annex/vip_clause/index" hover-class="none">购买即视为同意<text
-						class="mark">《会员用户协议》</text></navigator>
+					<navigator class="link" url="/pages/annex/vip_clause/index" hover-class="none">ການຊື້ຖືວ່າຍອມຮັບ<text
+						class="mark">《ຂໍ້ຕົກລົງຜູ້ໃຊ້ສະມາຊິກ》</text></navigator>
 				</view>
 			</view>
 			<view v-if="goodsList.length" class="goods-section" :style="'background-image: url('+domain+'/static/images/member_price.png)'">
 				<view class="section-hd">
-					<view class="title">会员专享价</view>
+					<view class="title">ລາຄາພິເສດສະມາຊິກ</view>
 				</view>
 				<view class="section-bd acea-row">
 					<view v-for="item in goodsList" :key="item.product_id" class="item" @click="goDetail(item.product_id)">
@@ -105,7 +105,7 @@
 							<priceFormat :price="item.svip_price" weight intSize="28" floatSize="20" labelSize="20"></priceFormat>
 							<image :src="`${domain}/static/images/svip.png`"></image>
 						</view>
-						<view class="shop-price">商城价：¥{{item.price}}</view>
+						<view class="shop-price">ລາຄາຮ້ານ: ₭{{item.price}}</view>
 					</view>
 				</view>
 			</view>
@@ -170,7 +170,7 @@
 				goodsList: [],
 				pay_order_id: '',
 				payMode: [{
-					name: '微信支付',
+					name: 'ຈ່າຍຜ່ານ WeChat',
 					icon: 'icon-a-ic_wechatpay',
 					// #ifdef H5
 					value: this.$wechat.isWeixin() ? 'weixin' : 'h5',
@@ -181,13 +181,13 @@
 					// #ifdef APP-PLUS
 					value: 'weixin',
 					// #endif
-					title: '微信快捷支付',
+					title: 'ຈ່າຍດ່ວນ WeChat',
 					payStatus: app.globalData.pay_weixin_open
 					}
 					// #ifdef H5 ||APP-PLUS
 					,
 					{
-					name: '支付宝支付',
+					name: 'ຈ່າຍຜ່ານ Alipay',
 					icon: 'icon-a-ic_alipay',
 					// #ifdef H5 || APP-PLUS
 					value: 'alipay',
@@ -195,7 +195,7 @@
 					// #ifdef MP
 					value: 'alipayQr',
 					// #endif
-					title: '支付宝支付',
+					title: 'ຈ່າຍຜ່ານ Alipay',
 					payStatus: app.globalData.alipay_open
 					}
 					// #endif
@@ -263,7 +263,7 @@
 			// 付费会员数据
 			getMemberCard() {
 				uni.showLoading({
-					title: '正在加载…'
+					title: 'ກຳລັງໂຫຼດ...'
 				});
 				memberCard().then(res => {
 					uni.hideLoading();
@@ -334,7 +334,7 @@
 			// 立即购买
 			createMemberCard(type) {
 				uni.showLoading({
-					title: '正在加载…'
+					title: 'ກຳລັງໂຫຼດ...'
 				});
 				let query = {
 					pay_type: type,
@@ -353,7 +353,7 @@
 						} else {
 							uni.hideLoading();
 							return this.$util.Tips({
-								title: this.svip_type == 1 ? '成功开启0元试用' : '续费成功',
+								title: this.svip_type == 1 ? 'ເປີດນຳໃຊ້ຟຣີສຳເລັດ' : 'ຕໍ່ອາຍຸສຳເລັດ',
 							}, () => {
 								this.onLunch()
 							});
@@ -374,7 +374,7 @@
 					} else {
 						uni.hideLoading();
 						return this.$util.Tips({
-							title:  this.svip_type == 1 ? '成功开启0元试用' : '续费成功',
+							title:  this.svip_type == 1 ? 'ເປີດນຳໃຊ້ຟຣີສຳເລັດ' : 'ຕໍ່ອາຍຸສຳເລັດ',
 						}, () => {
 							this.onLunch()
 						});
@@ -439,7 +439,7 @@
 						}).catch(res => {
 							uni.hideLoading();
 							if (res.errMsg == 'chooseWXPay:cancel') return that.$util.Tips({
-								title: '取消支付'
+								title: 'ຍົກເລີກການຈ່າຍ'
 							});
 						})
 						// #endif
@@ -457,7 +457,7 @@
 								uni.hideLoading();
 								that.payClose();
 								return that.$util.Tips({
-									title: '支付成功',
+									title: 'ຈ່າຍສຳເລັດ',
 									icon: 'success'
 								});
 							},
@@ -465,7 +465,7 @@
 								uni.hideLoading();
 								that.payClose();
 								uni.showModal({
-									content: "支付失败",
+									content: "ຈ່າຍບໍ່ສຳເລັດ",
 									showCancel: false,
 									success: function(res) {}
 								})
@@ -492,7 +492,7 @@
 								uni.hideLoading();
 								that.payClose();
 								return that.$util.Tips({
-									title: '支付成功',
+									title: 'ຈ່າຍສຳເລັດ',
 									icon: 'success'
 								}, {
 									tab: 5,
@@ -503,7 +503,7 @@
 								uni.hideLoading();
 								that.payClose();
 								return that.$util.Tips({
-									title: '取消支付'
+									title: 'ຍົກເລີກການຈ່າຍ'
 								});
 							},
 						})
@@ -541,14 +541,14 @@
 								uni.hideLoading();
 								that.payClose();
 								return that.$util.Tips({
-									title: '支付成功',
+									title: 'ຈ່າຍສຳເລັດ',
 									icon: 'success'
 								});
 							},
 							fail: (e) => {
 								uni.hideLoading();
 								uni.showModal({
-									content: "支付失败",
+									content: "ຈ່າຍບໍ່ສຳເລັດ",
 									showCancel: false,
 									success: function(res) {}
 								})

@@ -1,7 +1,7 @@
 <template>
 	<view :style="viewColor">
 		<view class="customerCount">
-			<view class="title">选择登录店铺</view>
+			<view class="title">ເລືອກຮ້ານເຂົ້າລະບົບ</view>
 			<view class="store_count">
 				<scroll-view scroll-y="true" show-scrollbar="false">
 					<view v-for="(item, index) in list" class="item" :key="index">
@@ -23,17 +23,17 @@
 		<view v-if="loaded && !list.length">
 			<view class="empty">
 				<image class="img" :src="`${domain}/static/images/noPermission.png)`"></image>
-				<view class="title">暂无权限</view>
-				<view class="intr">抱歉，您还没有登录权限哦！</view>
-				<navigator class="btn" open-type="switchTab" url="/pages/index/index">返回首页</navigator>
+				<view class="title">ບໍ່ມີສິດ</view>
+				<view class="intr">ຂໍອະໄພ, ທ່ານຍັງບໍ່ມີສິດເຂົ້າລະບົບ!</view>
+				<navigator class="btn" open-type="switchTab" url="/pages/index/index">ກັບໄປໜ້າຫຼັກ</navigator>
 			</view>
 		</view>
 		<view class="success" v-if="isShowbox">
 			<view class="bg"></view>
 			<view class="con bg-f boder-24">
 				<image :src="domain+'/static/images/login_success.png'" mode=""></image>
-				<view class="text">登录成功</view>
-				<view class="btn" @click="close">我知道了</view>
+				<view class="text">ເຂົ້າລະບົບສຳເລັດ</view>
+				<view class="btn" @click="close">ຂ້ອຍເຂົ້າໃຈແລ້ວ</view>
 			</view>
 		</view>
 	</view>
@@ -94,7 +94,7 @@
 			},
 			getList() {
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ',
 					mask: true
 				})
 				getStoreList().then(res=>{
@@ -105,7 +105,7 @@
 			},
 			login(item){
 				uni.showLoading({
-					title: '授权中',
+					title: 'ກຳລັງອະນຸຍາດ',
 					mask: true
 				})
 				serviceLogin(this.key, {service_id:item.service_id}).then(res=>{

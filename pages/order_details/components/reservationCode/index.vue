@@ -1,7 +1,7 @@
 <template>
 	<view :style="viewColor">
 		<view class="verificate bg-f boder-24">
-			<view class="title">核销码</view>
+			<view class="title">ລະຫັດກວດສອບ</view>
 			<view class="pictrue">
 				<image :src="codeUrl"></image>
 			</view>
@@ -9,10 +9,10 @@
 				<view class="code">{{verifyVal}}</view>
 				<view class="conter">
 					<!-- #ifndef H5 -->
-					<text class='copyCode' @tap='copy(verifyVal)'>复制</text>
+					<text class='copyCode' @tap='copy(verifyVal)'>ສຳເນົາ</text>
 					<!-- #endif -->
 					<!-- #ifdef H5 -->
-					<text class='copyCode copy-data' :data-clipboard-text="verifyVal">复制</text>
+					<text class='copyCode copy-data' :data-clipboard-text="verifyVal">ສຳເນົາ</text>
 					<!-- #endif -->
 			</view>
 			</view>

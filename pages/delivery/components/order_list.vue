@@ -49,19 +49,19 @@
 					class="order-item-btn" 
 					:data-event="EVENT.RUSH_ORDER"
           :data-index="index"
-				>领取任务</button>
+				>ຮັບໜ້າວຽກ</button>
 				<block v-if="orderType == 0">
 					<button
 						class="order-item-btn order-item-remark-btn" 
 						:data-event="EVENT.REMARK"
 					  :data-index="index"
-					>订单备注</button>
+					>ໝາຍເຫດອໍເດີ</button>
 					<button
 						v-if="item.status == 1"
 						class="order-item-btn" 
 						:data-event="EVENT.SERVED_ORDER"
 					  :data-index="index"
-					>确认送达</button>
+					>ຢືນຢັນສົ່ງແລ້ວ</button>
 				</block>
       </view>
     </view>
@@ -137,7 +137,7 @@ export default {
         handleOpenLocation(item.user_address);
       } else if (event === EVENT.RUSH_ORDER) {
         const result = await uni.showModal({
-          title: "您确定要领取此工单任务吗?",
+          title: "ທ່ານແນ່ໃຈວ່າຕ້ອງການຮັບໜ້າວຽກນີ້ບໍ?",
         });
         if (result[0] || result[1].cancel) return;
         try {
@@ -198,11 +198,11 @@ export default {
 				let deliveryTimeText = ''
 				if ('remarks' in takeInfo) {
 					const remarks = takeInfo.remarks
-					deliveryTimeText = '预期时间: '+remarks
+					deliveryTimeText = 'ເວລາຄາດໝາຍ: '+remarks
 				} else if('date' in takeInfo) {
 					const date = takeInfo.date
 					const time = takeInfo.time
-					deliveryTimeText = '预期时间: '+date+' '+time+' 送达'
+					deliveryTimeText = 'ເວລາຄາດໝາຍ: '+date+' '+time+' ສົ່ງຮອດ'
 				} else {
 				}
 				return deliveryTimeText

@@ -2,14 +2,14 @@
 	<!-- 产品参数 -->
 	<view>
 		<view class="specs" :class="specsInfo.show === true ? 'on' : ''">
-			<view class="title">商品参数<text class="iconfont icon-ic_close" @click="closeSpecs"></text></view>
+			<view class="title">ຂໍ້ມູນສິນຄ້າ<text class="iconfont icon-ic_close" @click="closeSpecs"></text></view>
 			<view class="list">
 				<view class="item acea-row" v-for="(item,index) in specsInfo.params" :key="index">
 					<view class="name">{{item.name}}</view>
 					<view class="val" v-for="(itm,idx) in item.values" :key="idx">{{itm.values}}</view>
 				</view>
 			</view>
-			<view class="bnt" @click="closeSpecs">完成</view>
+			<view class="bnt" @click="closeSpecs">ສຳເລັດ</view>
 			<slot name="bottom"></slot>
 		</view>
 		<view class="mask" @touchmove.prevent :hidden="specsInfo.show === false" @click="closeSpecs"></view>

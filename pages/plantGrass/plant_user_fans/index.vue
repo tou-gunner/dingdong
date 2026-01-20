@@ -5,19 +5,19 @@
 				<image :src="(item.fans && item.fans.avatar) || '/static/images/f.png'" mode=""></image>
 				<view class="info">
 					<view class="line1">
-						<text class="name line1">{{(item.fans && item.fans.nickname) || '用户已注销'}}</text>
+						<text class="name line1">{{(item.fans && item.fans.nickname) || 'ຜູ້ໃຊ້ຖືກຍົກເລີກແລ້ວ'}}</text>
 					</view>
 					<view v-if="item.fans" class="acea-row plant-des">
 						<view class="des">
-							内容<text>{{(item.fans.count_content<10000&&item.fans.count_content>0) ? item.fans.count_content : item.fans.count_content>1000 ? (item.fans.count_content/10000).toFixed(2)+'万' : 0}}</text>
+							ເນື້ອຫາ<text>{{(item.fans.count_content<10000&&item.fans.count_content>0) ? item.fans.count_content : item.fans.count_content>1000 ? (item.fans.count_content/10000).toFixed(2)+'ໝື່ນ' : 0}}</text>
 						</view>
 						<view class="des">
-							粉丝<text>{{(item.fans.count_fans<10000&&item.fans.count_fans>0) ? item.fans.count_fans : item.fans.count_fans>1000 ? (item.fans.count_fans/10000).toFixed(2)+'万' : 0}}</text>
+							ຜູ້ຕິດຕາມ<text>{{(item.fans.count_fans<10000&&item.fans.count_fans>0) ? item.fans.count_fans : item.fans.count_fans>1000 ? (item.fans.count_fans/10000).toFixed(2)+'ໝື່ນ' : 0}}</text>
 						</view>
 					</view>
 					<view  @click.stop="focusToggle(item)" class="btn" :class="item.is_start ? '' : 'focusBtn'">
 						<text v-if="!item.is_start" class="iconfont icon-ic_increase"></text>
-						{{item.is_start ? '已关注' : '关注'}}
+						{{item.is_start ? 'ຕິດຕາມແລ້ວ' : 'ຕິດຕາມ'}}
 					</view>
 				</view>
 			</view>
@@ -28,7 +28,7 @@
 		<view class="no_content" v-if="list.length == 0 && !loading">
 			<view class="count">
 				<image :src="`${domain}/static/images/noFans.png`"></image>
-				<text>你还没有粉丝哦~</text>
+				<text>ທ່ານຍັງບໍ່ມີຜູ້ຕິດຕາມ~</text>
 			</view>
 		</view>
 	</view>

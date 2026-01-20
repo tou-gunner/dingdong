@@ -2,7 +2,7 @@
 	<view :style="viewColor">
 		<view class="container popup-main bg-f" :class="showBind==true?'on':''">
 			<view class="header">
-				<text class="title font-500">绑定手机号</text>
+				<text class="title font-500">ຜູກເບີໂທລະສັບ</text>
 				<text class="iconfont icon-ic_close popup-close" @tap="closePopup"></text>
 			</view>
 			<view class="main_counts">
@@ -10,18 +10,18 @@
 					<view class="ChangePassword">
 						<view class="list">
 							<view class="item">
-								<input type='number' placeholder='输入手机号码' placeholder-class='placeholder' v-model="phone"></input>
+								<input type='number' placeholder='ປ້ອນເບີໂທລະສັບ' placeholder-class='placeholder' v-model="phone"></input>
 							</view>
 							<view class="item acea-row row-between-wrapper">
-								<input type='number' placeholder='输入验证码' placeholder-class='placeholder' class="codeIput" v-model="captcha"></input>
+								<input type='number' placeholder='ປ້ອນລະຫັດຢືນຢັນ' placeholder-class='placeholder' class="codeIput" v-model="captcha"></input>
 								<button class="code" :class="disabled === true ? 'on' : ''" :disabled='disabled' @click="handleVerify">
 									{{ text }}
 								</button>
 							</view>
 						</view>
-						<button form-type="submit" @click="editPwd" class="confirmBnt">确认绑定</button>
+						<button form-type="submit" @click="editPwd" class="confirmBnt">ຢືນຢັນການຜູກ</button>
 						<!-- #ifdef MP -->
-						<button v-if="!isCommuity && wechat_phone_switch == 1" form-type="submit" class="getPhoneBtn" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">绑定号码</button>
+						<button v-if="!isCommuity && wechat_phone_switch == 1" form-type="submit" class="getPhoneBtn" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">ຜູກເບີໂທລະສັບ</button>
 						<!-- #endif -->
 					</view>
 				</form>
@@ -94,7 +94,7 @@
 					code:that.codeVal
 					}).then(res => {
 						that.$util.Tips({
-							title: '绑定成功！',
+							title: 'ຜູກສຳເລັດແລ້ວ！',
 							icon: 'success'
 						})
 						setTimeout(()=>{
@@ -108,13 +108,13 @@
 			editPwd: function() {
 				let that = this;
 				if (!that.phone) return that.$util.Tips({
-					title: '请输入手机号码！'
+					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ！'
 				});
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
-					title: '请输入正确的手机号码！'
+					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ！'
 				});
 				if (!that.captcha) return that.$util.Tips({
-					title: '请填写验证码'
+					title: 'ກະລຸນາປ້ອນລະຫັດຢືນຢັນ'
 				});
 				bindingPhone({
 					phone: that.phone,
@@ -122,9 +122,9 @@
 				}).then(res => {
 					if (res.data !== undefined && res.data.is_bind) {
 						uni.showModal({
-							title: '是否绑定手机号',
+							title: 'ຕ້ອງການຜູກເບີໂທລະສັບບໍ່',
 							content: res.message,
-							confirmText: '绑定',
+							confirmText: 'ຜູກ',
 							success(res) {
 								if (res.confirm) {
 									bindingPhone({
@@ -144,7 +144,7 @@
 									})
 								} else if (res.cancel) {
 									return that.$util.Tips({
-										title: '您已取消绑定！'
+										title: 'ທ່ານໄດ້ຍົກເລີກການຜູກແລ້ວ！'
 									}, {
 										tab: 5,
 										url: '/pages/users/user_info/index'
@@ -155,7 +155,7 @@
 					} else
 						that.closePopup();
 						return that.$util.Tips({
-							title: '绑定成功！',
+							title: 'ຜູກສຳເລັດແລ້ວ！',
 							icon: 'success'
 						});
 				}).catch(err => {
@@ -171,10 +171,10 @@
 			async code(data) {
 				let that = this;
 				if (!that.phone) return that.$util.Tips({
-					title: '请填写手机号码！'
+					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ！'
 				});
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
-					title: '请输入正确的手机号码！'
+					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ！'
 				});
 				this.disabled = true
 				await registerVerify({
@@ -207,10 +207,10 @@
 			handleVerify() {
 				let that = this;
 				if (!that.phone) return that.$util.Tips({
-					title: '请填写手机号码！'
+					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ！'
 				});
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
-					title: '请输入正确的手机号码！'
+					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ！'
 				});
 				this.$refs.verify.show();
 				this.$emit('changeVisible','hidden')

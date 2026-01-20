@@ -7,7 +7,7 @@
 				</view>
 				<view class="show_info">
 					<view class="show_name line1">{{proInfo.store_name}}</view>
-					<view class="show_count"><text class="num">{{count}}</text>条买家秀</view>
+					<view class="show_count"><text class="num">{{count}}</text>ລີວິວຈາກລູກຄ້າ</view>
 				</view>
 			</view>
 			<view class="tab-cont">
@@ -19,7 +19,7 @@
 				<view :hidden="!loading" class="acea-row row-center-wrapper loadingicon">
 					<text class="iconfont icon-jiazai loading"></text>
 				</view>
-				<emptyPage v-if="goods.length == 0 && !loading" title="暂无文章~"></emptyPage>
+				<emptyPage v-if="goods.length == 0 && !loading" title="ບໍ່ມີບົດຄວາມ~"></emptyPage>
 			</view>
 		</view>
 	</view>
@@ -53,7 +53,7 @@
 				keyword: '',
 				loaded: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				proInfo: {},
 				where: {
 					keyword: '',
@@ -92,7 +92,7 @@
 					that.loadend = loadend;
 					that.loading = false;
 					that.count = res.data.count;
-					that.loadTitle = loadend ? '已全部加载' : '加载更多';
+					that.loadTitle = loadend ? 'ໂຫຼດໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'goods', goodsList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {

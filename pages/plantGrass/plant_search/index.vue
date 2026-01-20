@@ -4,12 +4,12 @@
 			<view class='search acea-row row-between-wrapper'>
 				<view class='input acea-row row-between-wrapper'>
 					<text class='iconfont icon-ic_search'></text>
-					<input type='text' :value='searchValue' :focus="focus" placeholder='请输入关键字' placeholder-class='placeholder'
+					<input type='text' :value='searchValue' :focus="focus" placeholder='ກະລຸນາປ້ອນຄຳຄົ້ນຫາ' placeholder-class='placeholder'
 					 @input="setValue" confirm-type="search" @confirm="searchBut()"></input>
 				</view>
-				<view class='bnt' @tap='searchCancle'>取消</view>
+				<view class='bnt' @tap='searchCancle'>ຍົກເລີກ</view>
 			</view>
-			<view class='title'>历史记录 <text class="iconfont icon-ic_delete" @click="remove"></text></view>
+			<view class='title'>ປະຫວັດການຄົ້ນຫາ <text class="iconfont icon-ic_delete" @click="remove"></text></view>
 			<view class='list acea-row' :style="{'height':historyBox?'auto':'150rpx'}" v-if="historyList.length > 0">
 				<block v-for="(item,index) in historyList" :key="index">
 					<view class='item line1' @tap='setHotSearchValue(item,0)'>{{item}}</view>
@@ -17,14 +17,14 @@
 			</view>
 			<view>
 				<view class="more-btn" v-if="historyList.length>9 && !historyBox" @click="historyBox = true">
-					展开全部<text class="iconfont icon-ic_downarrow"></text>
+					ຂະຫຍາຍທັງໝົດ<text class="iconfont icon-ic_downarrow"></text>
 				</view>
 				<view class="more-btn" v-if="historyList.length>9 && historyBox" @click="historyBox = false">
-					收起<text class="iconfont icon-ic_uparrow"></text>
+					ຫຍໍ້<text class="iconfont icon-ic_uparrow"></text>
 				</view>
 			</view>
-			<view v-if="historyList.length == 0" style="text-align: center; color: #999;">暂无搜索历史~</view>
-			<view v-if="hotSearchList.length>0" class='title'>热门搜索</view>
+			<view v-if="historyList.length == 0" style="text-align: center; color: #999;">ບໍ່ມີປະຫວັດການຄົ້ນຫາ~</view>
+			<view v-if="hotSearchList.length>0" class='title'>ຄົ້ນຫາຍອດນິຍົມ</view>
 			<view class='list acea-row' :style="{'height': hotSearchBox?'auto':'150rpx'}">
 				<block v-for="(item,index) in hotSearchList" :key="index">
 					<view class='item line1' @tap='setHotSearchValue(item,1)'>{{item.keyword}}</view>
@@ -32,10 +32,10 @@
 			</view>
 			<view>
 				<view class="more-btn" v-if="hotSearchList.length>8 && !hotSearchBox" @click="hotSearchBox = true">
-					展开全部<text class="iconfont icon-ic_downarrow"></text>
+					ຂະຫຍາຍທັງໝົດ<text class="iconfont icon-ic_downarrow"></text>
 				</view>
 				<view class="more-btn" v-if="hotSearchList.length>8 && hotSearchBox" @click="hotSearchBox = false">
-					收起<text class="iconfont icon-ic_uparrow"></text>
+					ຫຍໍ້<text class="iconfont icon-ic_uparrow"></text>
 				</view>
 			</view>
 		</view>
@@ -63,7 +63,7 @@
 				page: 1,
 				loading: false,
 				loadend: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				isScroll: true,
 				// 搜索历史
 				historyList: [],
@@ -95,8 +95,8 @@
 			remove() {
 				let self = this
 				uni.showModal({
-					title: '提示',
-					content: '确认删除全部历史搜索记录？',
+					title: 'ແຈ້ງເຕືອນ',
+					content: 'ຢືນຢັນລຶບປະຫວັດການຄົ້ນຫາທັງໝົດບໍ່？',
 					success: function(res) {
 						if (res.confirm) {
 							self.tempStorage = []

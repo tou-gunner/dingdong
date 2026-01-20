@@ -4,12 +4,12 @@
 			<view class='logisticsCon'>
 				<view class='company bg-f boder-24'>
 					<view v-if="status == 0 || status == 2" class="order_head">
-						<view class="order_number">{{status == 0 ? '待接单' : '待取货'}}</view>
-						<view class="">等待配送员接单完成后开始派送</view>
+						<view class="order_number">{{status == 0 ? 'ລໍຖ້າຮັບອໍເດີ' : 'ລໍຖ້າຮັບເຄື່ອງ'}}</view>
+						<view class="">ລໍຖ້າພະນັກງານຈັດສົ່ງຮັບອໍເດີເພື່ອເລີ່ມຈັດສົ່ງ</view>
 					</view>
 					<view v-if="code && (status != 0 && status != 2)" class="order_head">
 						<view class="order_number">{{code}}</view>
-						<view>稍后请将收货码告诉配送员</view>
+						<view>ກະລຸນາບອກລະຫັດຮັບສິນຄ້າໃຫ້ພະນັກງານຈັດສົ່ງ</view>
 					</view>
 					<view class="order_delivery">
 						<view class="delivery_info">
@@ -19,25 +19,25 @@
 							<view v-if="deliveryInfo.delivery_id" class="delivery_name">
 								<view>{{deliveryInfo.delivery_name}}<br/>{{deliveryInfo.delivery_id}}</view>
 							</view>
-							<view v-else class="delivery_name_not">配送员未接单</view>
+							<view v-else class="delivery_name_not">ພະນັກງານຈັດສົ່ງຍັງບໍ່ໄດ້ຮັບອໍເດີ</view>
 						</view>
 						<view class="delivery_phone iconfont icon-a-icon_phonenumber" @click="call"></view>
 					</view>
 				</view>
 				<view class="order_logistic bg-f boder-24 mt20">
 					<view class="recip_info">
-						<view class="title">收件人信息</view>
+						<view class="title">ຂໍ້ມູນຜູ້ຮັບ</view>
 						<view>
 							<view class='items acea-row row-between'>
-								<view>姓名：</view>
+								<view>ຊື່:</view>
 								<view class='conter'>{{deliveryInfo.real_name}}</view>
 							</view>
 							<view class='items acea-row row-between'>
-								<view>手机号：</view>
+								<view>ເບີໂທລະສັບ:</view>
 								<view class='conter'>{{deliveryInfo.user_phone}}</view>
 							</view>
 							<view class='items acea-row row-between'>
-								<view>地址：</view>
+								<view>ທີ່ຢູ່:</view>
 								<view class='conter'>{{deliveryInfo.user_address}}</view>
 							</view>
 						</view>
@@ -85,7 +85,7 @@
 		},
 		computed: mapGetters(['isLogin']),
 		onLoad: function (options) {
-		  if (!options.orderId) return this.$util.Tips({title:'缺少订单号'});
+		  if (!options.orderId) return this.$util.Tips({title:'ບໍ່ມີລະຫັດຄຳສັ່ງຊື້'});
 				this.orderId = options.orderId;
 				if (this.isLogin) {
 					this.getExpress();

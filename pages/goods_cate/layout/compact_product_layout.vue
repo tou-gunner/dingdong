@@ -34,7 +34,7 @@
           </CompactProductList>
 
           <!-- 空页面组件 -->
-          <emptyPage title="暂无商品，去看点别的吧～" :noImage="`${domain}/static/images/no_thing.png`"
+          <emptyPage title="ບໍ່ມີສິນຄ້າ, ໄປເບິ່ງອັນອື່ນເດີ້～" :noImage="`${domain}/static/images/no_thing.png`"
             v-if="!productList.length && !loading" />
         </view>
       </view>

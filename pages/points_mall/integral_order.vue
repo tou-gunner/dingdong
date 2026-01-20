@@ -6,7 +6,7 @@
 			<view class="sys-head">
 				<view class="sys-bar" :style="{height:sysHeight}"></view>
 				<!-- #ifdef MP -->
-				<view class="sys-title"><view class='iconfont icon-ic_leftarrow' @tap='goBack'></view>ສົ່ງຄຳສັ່ງ</view>
+				<view class="sys-title"><view class='iconfont icon-ic_leftarrow' @tap='goBack'></view>ຍື່ນຄຳສັ່ງ</view>
 				<!-- #endif -->
 				<view class="bg"></view>
 			</view>
@@ -22,11 +22,11 @@
 						</view>
 						<view>
 							<text class='default t-color'
-								v-if="addressInfo.is_default">[默认]</text>{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.district}}{{addressInfo.street || ''}}{{addressInfo.detail}}
+								v-if="addressInfo.is_default">[ຄ່າເລີ່ມຕົ້ນ]</text>{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.district}}{{addressInfo.street || ''}}{{addressInfo.detail}}
 						</view>
 					</view>
 					<navigator v-else :url="'/pages/users/user_address/index?cartId='+cartId" hover-class="none" class='addressCon'>
-						<view class='setaddress'>设置收货地址</view>
+						<view class='setaddress'>ຕັ້ງທີ່ຢູ່ຮັບສິນຄ້າ</view>
 					</navigator>
 					<view class='iconfont icon-ic_rightarrow'></view>
 				</view>
@@ -52,13 +52,13 @@
 									<view class="price acea-row row-between">
 										<view class="acea-row row-middle">
 											<block>
-												{{goods.productAttr.ot_price}}积分<block v-if="goods.productAttr.price>0">+{{goods.productAttr.price}}元</block>
+												{{goods.productAttr.ot_price}}ຄະແນນ<block v-if="goods.productAttr.price>0">+{{goods.productAttr.price}}ກີບ</block>
 											</block>
 										</view>
 									</view>
 									<view class="err-txt" v-if="goods.undelivered && addressInfo.real_name">
 										<text class="iconfont icon-icon_tip"></text>
-										<view class="txt">此商品不支持该区域配送</view>
+										<view class="txt">ສິນຄ້ານີ້ບໍ່ສະໜັບສະໜູນການຈັດສົ່ງໃນເຂດນີ້</view>
 									</view>
 								</view>
 							</view>
@@ -68,38 +68,38 @@
 			</view>
 			<view class='wrapper bg-f boder-24 mt20'>
 				<view class='item acea-row row-between-wrapper'>
-					<view>可用积分</view>
-					<view class='discount'>{{resData.true_integral}}积分
+					<view>ຄະແນນທີ່ໃຊ້ໄດ້</view>
+					<view class='discount'>{{resData.true_integral}}ຄະແນນ
 					</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>兑换积分</view>
-					<view class='discount'>{{resData.order_total_integral}}积分
+					<view>ຄະແນນແລກປ່ຽນ</view>
+					<view class='discount'>{{resData.order_total_integral}}ຄະແນນ
 					</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>支付金额</view>
+					<view>ຈຳນວນເງິນຊຳລະ</view>
 					<view class='discount'>¥{{resData.order_pay_price || 0}}
 					</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>快递费用</view>
-					<view class='discount'>免运费
+					<view>ຄ່າສົ່ງ</view>
+					<view class='discount'>ສົ່ງຟຣີ
 					</view>
 				</view>
 				<view class='item' v-if="textareaStatus">
-					<view>备注信息</view>
-					<textarea placeholder-class='placeholder' placeholder="请添加备注（150字以内）"
+					<view>ໝາຍເຫດ</view>
+					<textarea placeholder-class='placeholder' placeholder="ກະລຸນາເພີ່ມໝາຍເຫດ (ບໍ່ເກີນ 150 ຕົວອັກສອນ)"
 						@input='bindHideKeyboard' :value="mark" :maxlength="150" name="mark">
 						</textarea>
 				</view>
 			</view>
 			<view style='height:120rpx;'></view>
 			<view class='footer acea-row row-between-wrapper'>
-				<view>支付：
-					<text class='color-t'>{{resData.order_total_integral || 0}}积分</text><text class="color-t" v-if="resData.order_pay_price>0">+{{resData.order_pay_price}}元</text>
+				<view>ຊຳລະ：
+					<text class='color-t'>{{resData.order_total_integral || 0}}ຄະແນນ</text><text class="color-t" v-if="resData.order_pay_price>0">+{{resData.order_pay_price}}ກີບ</text>
 				</view>
-				<view class='settlement' :class="{'disabled' : resData.true_integral < resData.order_total_integral}" @tap="goPay">{{resData.true_integral < resData.order_total_integral ? '积分不足' : '立即兑换'}}</view>
+				<view class='settlement' :class="{'disabled' : resData.true_integral < resData.order_total_integral}" @tap="goPay">{{resData.true_integral < resData.order_total_integral ? 'ຄະແນນບໍ່ພໍ' : 'ແລກດຽວນີ້'}}</view>
 			</view>
 		</view>
 		<view class="alipaysubmit" v-html="formContent"></view>
@@ -147,14 +147,14 @@
 				textareaStatus: true,
 				//支付方式
 				cartArr: [{
-						"name": "微信支付",
+						"name": "ຊຳລະຜ່ານ WeChat",
 						"icon": "icon-icon_WeChat_1",
 						value: 'weixin',
-						title: '微信快捷支付',
+						title: 'ຊຳລະດ່ວນ WeChat',
 						payStatus: app.globalData.pay_weixin_open,
 					},
 					{
-						name: "支付宝支付",
+						name: "ຊຳລະຜ່ານ Alipay",
 						icon: "icon-icon_Alipay",
 						// #ifdef H5 || APP-PLUS
 						value: 'alipay',
@@ -162,21 +162,21 @@
 						// #ifdef MP
 						value: 'alipayQr',
 						// #endif
-						title: '支付宝支付',
+						title: 'ຊຳລະຜ່ານ Alipay',
 						payStatus: app.globalData.alipay_open
 					},
 					{
-						"name": "余额支付",
+						"name": "ຊຳລະດ້ວຍຍອດເງິນ",
 						"icon": "icon-a-ic_Money111",
 						value: 'balance',
-						title: '可用余额:',
+						title: 'ຍອດເງິນທີ່ໃຊ້ໄດ້:',
 						payStatus: app.globalData.yue_pay_status,
 					},
 					{
-						name: '线下支付',
+						name: 'ຊຳລະອອຟລາຍ',
 						icon: 'icon-a-ic_offlinepay',
 						value: 'offline',
-						title: '线下支付',
+						title: 'ຊຳລະອອຟລາຍ',
 						payStatus: app.globalData.offline_switch
 					}
 				],
@@ -187,7 +187,7 @@
 				coupon: {
 					coupon: false,
 					list: [],
-					statusTile: '立即使用'
+					statusTile: 'ນຳໃຊ້ດຽວນີ້'
 				}, //优惠券组件
 				address: {
 					address: false
@@ -202,7 +202,7 @@
 				seckillId: 0,
 				userInfo: {}, //用户信息
 				mark: '', //备注信息
-				couponTitle: '请选择', //优惠券
+				couponTitle: 'ກະລຸນາເລືອກ', //优惠券
 				coupon_price: 0, //优惠券抵扣金额
 				useIntegral: false, //是否使用积分
 				integral_price: 0, //积分抵扣金额
@@ -231,7 +231,7 @@
 				news: 1,
 				order_key: "",
 				order_type: 20,
-				invTitle: '不开发票',
+				invTitle: 'ບໍ່ອອກໃບເກັບເງິນ',
 				special_invoice: false,
 				invoice_func: false,
 				header_type: '',
@@ -261,7 +261,7 @@
 				this.payType = this.from
 			}
 			if (!options.cartId) return this.$util.Tips({
-				title: '请选择要购买的商品'
+				title: 'ກະລຸນາເລືອກສິນຄ້າທີ່ຕ້ອງການຊື້'
 			}, {
 				tab: 3,
 				url: 1
@@ -327,13 +327,13 @@
 				let that = this,
 					data = {};
 				if (!that.addressId) {
-					return that.$util.Tips({
-						title: '请选择收货地址'
-					});
+return that.$util.Tips({
+					title: 'ກະລຸນາເລືອກທີ່ຢູ່ຮັບສິນຄ້າ'
+				});
 				}
 				if (parseFloat(that.resData.true_integral) < parseFloat(that.resData.order_total_integral))
 					return that.$util.Tips({
-						title: '积分不足！'
+						title: 'ຄະແນນບໍ່ພໍ!'
 					});
 				data = {
 					cart_id: this.cartId.split(","),
@@ -348,17 +348,17 @@
 				};
 				if (data.mark && this.isEmojiCharacter(data.mark[Object.keys(data.mark)[0]])) {
 					that.$util.Tips({
-						title: '备注不允许输入表情！'
+						title: 'ບໍ່ອະນຸຍາດໃຫ້ໃສ່ອີໂມຈິໃນໝາຍເຫດ!'
 					});
 					return;
 				}
 				if (data.payType == 'balance' && parseFloat(that.userInfo.now_money) < parseFloat(that.totalPrice))
 					return that.$util
 						.Tips({
-							title: '余额不足！'
+							title: 'ຍອດເງິນບໍ່ພໍ!'
 						});
 				uni.showLoading({
-					title: '订单支付中',
+					title: 'ກຳລັງຊຳລະຄຳສັ່ງ',
 					mask: true
 				});
 				// #ifdef MP
@@ -400,13 +400,13 @@
 							});
 							break;
 						case 'success':
-							return that.$util.Tips({
-								title: res.message,
-								icon: 'success'
-							}, {
-								tab: 5,
-								url: goPages
-							});
+return that.$util.Tips({
+									title: 'ສຳເລັດ',
+									icon: 'success'
+								}, {
+									tab: 5,
+									url: goPages
+								});
 							break;
 						case 'alipay':
 						case "alipayQr":
@@ -431,7 +431,7 @@
 								});
 							}).catch(res => {
 								if (res.errMsg == 'chooseWXPay:cancel') return that.$util.Tips({
-									title: '取消支付'
+									title: 'ຍົກເລີກການຊຳລະ'
 								}, {
 									tab: 5,
 									url: goPages
@@ -450,9 +450,9 @@
 								orderInfo: jsConfig,
 								success: (e) => {
 									let url = '/pages/order_pay_status/index?order_type=20&order_id=' + orderId +
-										'&msg=支付成功';
+										'&msg=ຊຳລະສຳເລັດ';
 									return that.$util.Tips({
-										title: '支付成功',
+										title: 'ຊຳລະສຳເລັດ',
 										icon: 'success'
 									}, {
 										tab: 4,
@@ -460,18 +460,18 @@
 									});
 								},
 								fail: (e) => {
-									let url = '/pages/order_pay_status/index?order_type=20&order_id=' + orderId + '&msg=取消支付';
+									let url = '/pages/order_pay_status/index?order_type=20&order_id=' + orderId + '&msg=ຍົກເລີກການຊຳລະ';
 									return that.$util.Tips({
-										title: '取消支付',
+										title: 'ຍົກເລີກການຊຳລະ',
 									}, {
 										tab: 4,
 										url: url
 									});
 								},
 								complete: () => {
-									let url = '/pages/order_pay_status/index?order_type=20&order_id=' + orderId + '&msg=取消支付';
+									let url = '/pages/order_pay_status/index?order_type=20&order_id=' + orderId + '&msg=ຍົກເລີກການຊຳລະ';
 									return that.$util.Tips({
-										title: '取消支付',
+										title: 'ຍົກເລີກການຊຳລະ',
 									}, {
 										tab: 4,
 										url: url
@@ -495,19 +495,19 @@
 								...jsConfig,
 								success: function(res) {
 									uni.hideLoading();
-									return that.$util.Tips({
-										title: '支付成功',
-										icon: 'success'
-									}, {
-										tab: 5,
-										url: goPages
-									});
+return that.$util.Tips({
+								title: 'ຊຳລະສຳເລັດ',
+								icon: 'success'
+							}, {
+								tab: 5,
+								url: goPages
+							});
 								},
 								fail: function(e) {
-									let pages = '/pages/order_pay_status/index?order_type=20&order_id=' +
-										orderId + '&msg=取消支付'
+let pages = '/pages/order_pay_status/index?order_type=20&order_id=' +
+									orderId + '&msg=ຍົກເລີກການຊຳລະ'
 									return that.$util.Tips({
-										title: '取消支付'
+										title: 'ຍົກເລີກການຊຳລະ'
 									}, {
 										tab: 5,
 										url: pages + '&status=0'
@@ -543,30 +543,30 @@
 								provider: 'alipay',
 								orderInfo: jsConfig,
 								success: (e) => {
-									return that.$util.Tips({
-										title: '支付成功',
-										icon: 'success'
-									}, {
-										tab: 5,
-										url: goPages
-									});
+return that.$util.Tips({
+								title: 'ຊຳລະສຳເລັດ',
+								icon: 'success'
+							}, {
+								tab: 5,
+								url: goPages
+							});
 								},
 								fail: (e) => {
-									let pages = '/pages/order_pay_status/index?order_type=20&order_id=' +
-										orderId + '&msg=支付失败'
-									return that.$util.Tips({
-										title: '支付失败'
-									}, {
+let pages = '/pages/order_pay_status/index?order_type=20&order_id=' +
+								orderId + '&msg=ຊຳລະບໍ່ສຳເລັດ'
+return that.$util.Tips({
+									title: 'ຊຳລະບໍ່ສຳເລັດ'
+								}, {
 										tab: 5,
 										url: pages
 									});
 								},
 								complete: () => {
 									uni.hideLoading();
-									let pages = '/pages/order_pay_status/index?order_type=20&order_id=' +
-										orderId + '&msg=取消支付'
+let pages = '/pages/order_pay_status/index?order_type=20&order_id=' +
+									orderId + '&msg=ຍົກເລີກການຊຳລະ'
 									return that.$util.Tips({
-										title: '取消支付'
+										title: 'ຍົກເລີກການຊຳລະ'
 									}, {
 										tab: 5,
 										url: pages
@@ -576,10 +576,10 @@
 							break;
 							// #endif
 						default:
-							let pages = '/pages/order_pay_status/index?order_type=20&order_id=' +
-								orderId + '&msg=取消支付'
+let pages = '/pages/order_pay_status/index?order_type=20&order_id=' +
+									orderId + '&msg=ຍົກເລີກການຊຳລະ'
 							return that.$util.Tips({
-								title: '取消支付'
+								title: 'ຍົກເລີກການຊຳລະ'
 							}, {
 								tab: 5,
 								url: pages + '&status=0'

@@ -4,13 +4,13 @@
 			class="flex-box"
 			:class="deliveringStyle"
 			@click="handleCateClick(0)">
-			配送中({{orderCount}})
+			ກຳລັງຈັດສົ່ງ({{orderCount}})
 		</view>
 		<view 
 			class="flex-box"
 			:class="deliveredStyle"
 			@click="handleCateClick(1)">
-			已配送
+			ຈັດສົ່ງແລ້ວ
 		</view>
 		<image 
 			src="/static/type_tag.png" 

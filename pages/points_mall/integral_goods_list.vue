@@ -4,22 +4,22 @@
 		<view class='productList'>
 			<view class='search acea-row row-between-wrapper'>
 				<view class='input acea-row row-between-wrapper'><text class='iconfont icon-ic_search'></text>
-					<input placeholder='搜索商品名称' placeholder-class='placeholder' confirm-type='search' name="search"
+					<input placeholder='ຄົ້ນຫາຊື່ສິນຄ້າ' placeholder-class='placeholder' confirm-type='search' name="search"
 						:value='where.keyword' @confirm="searchSubmit"></input>
 				</view>
 				<view class='iconfont' :class='is_switch==true?"icon-a-ic_Imageandtextsorting":"icon-a-ic_Picturearrangement"' @click.native='Changswitch'>
 				</view>
 			</view>
 			<view class='nav acea-row row-middle'>
-				<view class='item line1' :class="{'font-num': where.order==''}" @click.native='set_where(1)'>默认</view>
+				<view class='item line1' :class="{'font-num': where.order==''}" @click.native='set_where(1)'>ຄ່າເລີ່ມຕົ້ນ</view>
 				<view class='item' :class="{'font-num': where.order=='ot_price_desc' || where.order=='ot_price_asc'}" @click='set_where(2)'>
-					积分
+					ຄະແນນ
 					<image v-if="price==1" :src="domain+'/static/diy/up'+keyColor+'.png'"></image>
 					<image v-else-if="price==2" :src="domain+'/static/diy/down'+keyColor+'.png'"></image>
 					<image v-else :src='`${domain}/static/images/horn.png`'></image>
 				</view>
 				<view class='item' :class="{'font-num': where.order=='sales'}" @click.native='set_where(3)'>
-					销量
+					ຍອດຂາຍ
 				</view>
 			</view>
 			<view class='list acea-row row-between-wrapper' :class='is_switch==true?"":"on"'>
@@ -27,7 +27,7 @@
 					v-for="(item,index) in productList" :key="index" @click.native="godDetail(item)">
 					<view class='pictrue' :class='is_switch==true?"":"on"'>
 						<image :src='item.image' :class='is_switch==true?"":"on"'></image>
-						<view v-if="item.stock == 0" class="sell_out" :class='is_switch==true?"":"on"'>已兑完</view>
+						<view v-if="item.stock == 0" class="sell_out" :class='is_switch==true?"":"on"'>ແລກໝົດແລ້ວ</view>
 					</view>
 					<view class='text acea-row row-column-between' :class='is_switch==true?"":"on"'>
 						<view class='name' :class='is_switch==true?"line1":"line2"'>{{item.store_name}}</view>
@@ -35,12 +35,12 @@
 							<view class="acea-row price-count">
 								<image class="image" :src="`${domain}/static/images/jf-point.png`" mode="widthFix"></image>
 								<view class="price-box">
-									<text>{{ item.ot_price }}</text>积分
+									<text>{{ item.ot_price }}</text>ຄະແນນ
 								</view>
-								<view v-if="item.price!=0" class="sales">+{{parseFloat(Number(item.price).toFixed(2))}}元</view>
+								<view v-if="item.price!=0" class="sales">+{{parseFloat(Number(item.price).toFixed(2))}}ກີບ</view>
 							</view>
 							<view class="exchange">
-								{{item.sales}}人兑换
+								{{item.sales}} ຄົນແລກ
 							</view>
 						</view>
 					</view>
@@ -53,7 +53,7 @@
 		<view class='noCommodity' v-if="productList.length==0 && !loading">
 			<view class='emptyBox'>
 				<image :src="`${domain}/static/images/no_thing.png`"></image>
-				<view class="tips">暂无商品，去看点别的吧</view>
+				<view class="tips">ບໍ່ມີສິນຄ້າ, ໄປເບິ່ງອັນອື່ນກ່ອນ</view>
 			</view>
 			<recommend :hostProduct="hostProduct"></recommend>
 		</view>
@@ -97,7 +97,7 @@
 				nows: false,
 				loadend: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				title: '',
 				hostProduct: [],
 				hotPage: 1,
@@ -180,12 +180,12 @@
 					let loadend = list.length < that.where.limit;
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? '没有更多内容啦~' : '加载更多';
+					that.loadTitle = loadend ? 'ບໍ່ມີເນື້ອຫາເພີ່ມເຕີມ~' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'productList', productList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = '加载更多';
+					that.loadTitle = 'ໂຫຼດເພີ່ມ';
 				});
 			},
 		},

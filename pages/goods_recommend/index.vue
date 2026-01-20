@@ -22,7 +22,7 @@
 									</view>
 								</view>
 							</view>
-							<view class="goods-buy-text">{{item.sales}}+人都在买</view>
+							<view class="goods-buy-text">{{item.sales}}+ຄົນກຳລັງຊື້</view>
 						</navigator>
 						<navigator hover-class="none" :url="'/pages/goods_details/index?id='+item.product_id" class="goods-title acea-row row-between-wrapper">
 							<view class="title line1">{{ item.store_name }}</view>
@@ -34,27 +34,27 @@
 									<view class='store-avatar'>
 										<image class="image" :src="item.merchant&&item.merchant.mer_avatar"></image>
 									</view>
-									<view>进店</view>
+									<view>ເຂົ້າຮ້ານ</view>
 								</navigator>
 								<view class="item skeleton-rect">
 									<view class="store-avatar" @click.stop="setCollect(item)">
 										<view class="iconfont" :class="item.isRelation ? 'icon-ic_star1' : 'icon-ic_star'"></view>
 									</view>
-									<view>收藏</view>
+									<view>ເກັບໄວ້</view>
 								</view>
 							</view>
 							<view class="footer-btn acea-row row-between-wrapper">
 								<form @submit="joinCart(item)" report-submit='true'>
-									<button v-if="item.type != 1&&item.type != 2&&item.type != 3&&!item.mer_form_id" class='joinCart bnts' form-type="submit">加入购物车</button>
+									<button v-if="item.type != 1&&item.type != 2&&item.type != 3&&!item.mer_form_id" class='joinCart bnts' form-type="submit">ເພີ່ມເຂົ້າກະຕ່າ</button>
 								</form>
 								<form @submit="goBuy(item)" report-submit='true'>
-									<button class='buy bnts' :class="(item.type == 1 || item.type == 2 || item.type == 3 || item.mer_form_id) ? 'virtual_buy' : ''" form-type="submit">立即购买</button>
+									<button class='buy bnts' :class="(item.type == 1 || item.type == 2 || item.type == 3 || item.mer_form_id) ? 'virtual_buy' : ''" form-type="submit">ຊື້ດຽວນີ້</button>
 								</form>
 							</view>
 						</view>
 					</view>
 				</view>
-				<view v-if="loadingMore" style="text-align: center; margin-top: 20rpx;">加载中...</view>
+				<view v-if="loadingMore" style="text-align: center; margin-top: 20rpx;">ກຳລັງໂຫຼດ...</view>
 			</scroll-view>
 			<!-- 组件 -->
 			<addcartWindow
@@ -283,7 +283,7 @@
 			 */
 			getGoodsDetails: function(id) {
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ',
 					mask: true
 				});
 				let that = this;
@@ -448,7 +448,7 @@
 						this.$set(this.attr.productSelect, "cart_num", this.storeInfo.once_max_count);
 						this.$set(this, "cart_num", this.storeInfo.once_max_count);
 						return this.$util.Tips({
-							title: "单次购买件数不能超过"+this.storeInfo.once_max_count+"件！"
+							title: "ຈຳນວນຊື້ຕໍ່ຄັ້ງບໍ່ສາມາດເກີນ"+this.storeInfo.once_max_count+"ຊິ້ນ！"
 						});
 					}
 				} else {
@@ -461,7 +461,7 @@
 						this.$set(this.attr.productSelect, "cart_num", this.storeInfo.once_min_count);
 						this.$set(this, "cart_num", this.storeInfo.once_min_count);
 						return this.$util.Tips({
-							title: "单次购买件数不能少于"+this.storeInfo.once_min_count+"件！"
+							title: "ຈຳນວນຊື້ຕໍ່ຄັ້ງບໍ່ສາມາດໜ້ອຍກວ່າ"+this.storeInfo.once_min_count+"ຊິ້ນ！"
 						});
 					}
 				}
@@ -492,7 +492,7 @@
 							type_id: item.product_id
 						}).then(res => {
 							that.$util.Tips({
-								title: '已取消收藏'
+								title: 'ຍົກເລີກການເກັບແລ້ວ'
 							});
 							that.$set(item, 'isRelation', !item.isRelation);
 						}).catch(err=>{
@@ -506,7 +506,7 @@
 							type: 0
 						}).then(res => {
 							that.$util.Tips({
-								title: '收藏成功'
+								title: 'ເກັບສຳເລັດ'
 							});
 							that.$set(item, 'isRelation', !item.isRelation);
 						}).catch(err=>{
@@ -559,11 +559,11 @@
 					productSelect.stock == 0
 				)
 					return that.$util.Tips({
-						title: "产品库存不足，请选择其它"
+						title: "ສິນຄ້າໝົດສະຕ໋ອກ, ກະລຸນາເລືອກອັນອື່ນ"
 					});
 				if (that.attr.productSelect.cart_num == 0) {
 					return that.$util.Tips({
-						title: '购买个数不能为0！'
+						title: 'ຈຳນວນຊື້ບໍ່ສາມາດເປັນ 0！'
 					})
 				}
 				let q = {
@@ -589,7 +589,7 @@
 						} else {
 							that.getCartNum()
 							that.$util.Tips({
-								title: "添加购物车成功",
+								title: "ເພີ່ມເຂົ້າກະຕ່າສຳເລັດ",
 							});
 						}
 					})

@@ -4,15 +4,15 @@
 			<view :style="viewColor">
 				<view class='shoppingCart'>
 					<view class='f2ef6a acea-row row-around row-middle'>
-						<view class='item'><text class='iconfont icon-ic-complete1'></text>100%正品保证</view>
-						<view class='item'><text class='iconfont icon-ic-complete1'></text>所有商品精挑细选</view>
-						<view class='item'><text class='iconfont icon-ic-complete1'></text>售后无忧</view>
+						<view class='item'><text class='iconfont icon-ic-complete1'></text>100%ຮັບປະກັນຂອງແທ້</view>
+						<view class='item'><text class='iconfont icon-ic-complete1'></text>ສິນຄ້າທັງໝົດຄັດສັນຢ່າງດີ</view>
+						<view class='item'><text class='iconfont icon-ic-complete1'></text>ບໍລິການຫຼັງການຂາຍ</view>
 					</view>
 					<view class="nav-head">
 						<view class='nav acea-row row-between-wrapper bg-f'>
-							<view>购物车数量 <text class='num t-color'>{{cartTotalCount}}</text></view>
+							<view>ຈຳນວນກະຕ່າ <text class='num t-color'>{{cartTotalCount}}</text></view>
 							<view v-if="cartList.valid.length > 0 || cartList.invalid.length > 0" class='administrate acea-row row-center-wrapper'
-							@click='manage'>{{ footerswitch ? '管理' : '取消'}}</view>
+							@click='manage'>{{ footerswitch ? 'ຈັດການ' : 'ຍົກເລີກ'}}</view>
 						</view>
 					</view>
 					<view class="pad20">
@@ -88,20 +88,20 @@
 								@updateTotalCount="updateTotalCount"></cartGoods>
 							<view class='invalidGoods bg-f boder-24' v-if="cartList.invalid.length > 0">
 								<view class='goodsNav acea-row row-between-wrapper'>
-									<view @click='goodsOpen'><text class='iconfont' :class='goodsHidden==true?"icon-ic_downarrow":"icon-ic_uparrow"'></text>失效商品</view>
-									<view class='del' @click='unsetCart'><text class='iconfont icon-ic_delete'></text>清空</view>
+									<view @click='goodsOpen'><text class='iconfont' :class='goodsHidden==true?"icon-ic_downarrow":"icon-ic_uparrow"'></text>ສິນຄ້າໝົດອາຍຸ</view>
+									<view class='del' @click='unsetCart'><text class='iconfont icon-ic_delete'></text>ລ້າງ</view>
 								</view>
 								<view class='goodsList' :hidden='goodsHidden'>
 									<block v-for="(item,index) in cartList.invalid" :key='index'>
 										<navigator v-if="item.product" :url="'/pages/goods_details/index?id='+item.product_id" class='item acea-row row-between-wrapper' hover-class='none'>
-											<view class='invalid'>失效</view>
+											<view class='invalid'>ໝົດອາຍຸ</view>
 											<view class='pictrue'>
 												<image :src='(item.productAttr && item.productAttr.image) || (item.product&&item.product.image)'></image>
 											</view>
 											<view class='text acea-row row-column-between'>
 												<view class='line1 name'>{{item.product.store_name}}</view>
 												<view class='acea-row row-between-wrapper'>
-													<view class='end'>该商品已失效</view>
+													<view class='end'>ສິນຄ້ານີ້ໝົດອາຍຸແລ້ວ</view>
 												</view>
 											</view>
 										</navigator>
@@ -114,7 +114,7 @@
 						<view class="pad20">
 							<view class='pictrue bg-f boder-24'>
 								<image :src="`${domain}/static/images/no_thing.png`"></image>
-								<view>暂无商品，去添加点什么吧~</view>
+								<view>ບໍ່ມີສິນຄ້າ, ໄປເພີ່ມບາງອັນເດີ້~</view>
 							</view>
 						</view>
 						<block v-if="recommend">
@@ -129,7 +129,7 @@
 							<view class="allcheckbox" @click.stop="checkboxAllChange">
 								<text v-if="!isAllSelect" class="iconfont icon-ic_unselect"></text>
 								<text v-else class="iconfont icon-a-ic_CompleteSelect"></text>
-								全选 ({{cartCount}})
+								ເລືອກທັງໝົດ ({{cartCount}})
 							</view>
 						</view>
 						<view class='money acea-row row-middle' v-if="footerswitch==true">
@@ -137,15 +137,15 @@
 								<priceFormat :price="selectCountPrice" weight intSize="40" floatSize="26" labelSize="26"></priceFormat>
 							</view>
 							<form @submit="subOrder" report-submit='true'>
-								<button class='placeOrder' formType="submit">去结算</button>
+								<button class='placeOrder' formType="submit">ໄປຊຳລະ</button>
 							</form>
 						</view>
 						<view class='button acea-row row-middle' v-else>
 							<form @submit="subCollect" report-submit='true'>
-								<button class='bnt bt-color' formType="submit">收藏</button>
+								<button class='bnt bt-color' formType="submit">ເກັບໄວ້</button>
 							</form>
 							<form @submit="subDel" report-submit='true'>
-								<button class='bnt' formType="submit">删除</button>
+								<button class='bnt' formType="submit">ລຶບ</button>
 							</form>
 						</view>
 					</view>
@@ -228,7 +228,7 @@
 				domain: HTTP_REQUEST_URL,
 				loading: false, //是否加载中
 				loadend: false, //是否加载完毕
-				loadTitle: '加载更多', //提示语
+				loadTitle: 'ໂຫລດເພີ່ມເຕີມ', //提示语
 				isFooter:false,
 				cartCount: 0,
 				goodsHidden: true,
@@ -330,7 +330,7 @@
 				})
 				if(type_id.length == 0){
 					return that.$util.Tips({
-						title: '请选择产品'
+						title: 'ກະລຸນາເລືອກສິນຄ້າ'
 					});
 				}else{
 					cartDel({
@@ -362,7 +362,7 @@
 				})
 				if(type_id.length == 0){
 					return that.$util.Tips({
-						title: '请选择产品'
+						title: 'ກະລຸນາເລືອກສິນຄ້າ'
 					});
 				}else{
 					collectAll({
@@ -396,7 +396,7 @@
 					});
 				} else {
 					return this.$util.Tips({
-						title: '请选择产品'
+						title: 'ກະລຸນາເລືອກສິນຄ້າ'
 					});
 				}
 			},
@@ -517,7 +517,7 @@
 				if (that.loadend) return;
 				if (that.hotScroll) return;
 				that.loading = true;
-				that.loadTitle = "加载更多";
+				that.loadTitle = "ໂຫລດເພີ່ມເຕີມ";
 				getProductHot(
 					that.hotPage,
 					that.hotLimit,
@@ -527,7 +527,7 @@
 					that.hotScroll = res.data.list.length < that.hotLimit
 					that.hostProduct = that.hostProduct.concat(res.data.list)
 					that.loading = false;
-					that.loadTitle = that.hotScroll ? "我也是有底线的" : '加载更多';
+					that.loadTitle = that.hotScroll ? "ໂຫລດຄົບແລ້ວ" : 'ໂຫລດເພີ່ມເຕີມ';
 				});
 			},
 			// 失效商品展开
@@ -550,7 +550,7 @@
 					cart_id:ids
 				}).then(res => {
 					that.$util.Tips({
-						title: '清除成功'
+						title: 'ລ້າງສຳເລັດ'
 					});
 					that.getCartNum();
 					that.$set(that.cartList, 'invalid', []);
@@ -567,7 +567,7 @@
 					ids.push(el.product_id)
 				})
 				uni.showLoading({
-					title: '加载中...',
+					title: 'ກຳລັງໂຫລດ...',
 					mask: true
 				});
 				getCoupons({

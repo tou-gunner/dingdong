@@ -2,11 +2,11 @@
 	<view :style="viewColor" class="order-details">
 		<view v-if="orderInfo" class='wrapper boder-24'>
 			<view v-if="orderInfo.orderProduct" class='item acea-row row-between'>
-				<view>预约日期</view>
+				<view>ວັນທີນັດໝາຍ</view>
 				<view class='conter' >{{orderInfo.orderProduct[0].reservation_date}} {{orderInfo.orderProduct[0].reservation_time_part}}</view>
 			</view>
 			<view v-if="orderInfo.orderProduct" class='item acea-row row-between'>
-				<view>预约数量</view>
+				<view>ຈຳນວນນັດໝາຍ</view>
 				<view class='conter'>{{orderInfo.orderProduct[0].product_num}}</view>
 			</view>
 		</view>

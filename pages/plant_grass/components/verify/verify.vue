@@ -2,7 +2,7 @@
 	<view :class="mode == 'pop' ? 'masks' : ''" v-show="showBox">
 		<view :class="mode == 'pop' ? 'verifybox' : ''" :style="{ 'max-width': parseInt(imgSize.width) + 30 + 'px' }">
 			<view class="verifybox-top" v-if="mode == 'pop'">
-				请完成安全验证
+				ກະລຸນາສຳເລັດການຢືນຢັນຄວາມປອດໄພ
 				<text class="verifybox-close" @click="close">
 					<text class="iconfont icon-close"></text>
 				</text>
@@ -85,7 +85,7 @@ export default {
 		},
 		explain: {
 			type: String,
-			default: '向右滑动完成验证'
+			default: 'ເລື່ອນໄປທາງຂວາເພື່ອຢືນຢັນ'
 		},
 		imgSize: {
 			type: Object,

@@ -15,7 +15,7 @@
 						<view class="acea-row row-middle">
 							<priceFormat :price="attr.productSelect.price" weight intSize="40" floatSize="26" labelSize="26"></priceFormat>
 						</view>
-						<text class="stock" v-if='isShow'>库存: {{ attr.productSelect.stock }}</text>
+						<text class="stock" v-if='isShow'>ສະຕ໋ອກ: {{ attr.productSelect.stock }}</text>
 					</view>
 				</view>
 			</view>
@@ -33,10 +33,10 @@
 				</view>
 			</view>
 			<view class="joinBnt on"
-				v-if="!attr.productSelect || attr.productSelect.stock <=0">已售罄
+				v-if="!attr.productSelect || attr.productSelect.stock <=0">ໝົດແລ້ວ
 			</view>
-			<view class="joinBnt" v-if="attr.productSelect.stock" @click="goCat">确定</view>
-			<view class="joinBnt on" v-else-if="!attr.productSelect.stock">已售罄</view>
+			<view class="joinBnt" v-if="attr.productSelect.stock" @click="goCat">ຢືນຢັນ</view>
+			<view class="joinBnt on" v-else-if="!attr.productSelect.stock">ໝົດແລ້ວ</view>
 		</view>
 		<view class="mask" @touchmove.prevent :hidden="attr.cartAttr === false" @click="closeAttr"></view>
 	</view>

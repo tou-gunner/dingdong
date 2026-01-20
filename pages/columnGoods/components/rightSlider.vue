@@ -3,15 +3,15 @@
 		<view class="control-wrapper animated" :class="showBox?'slideInRight':''">
 			<view class="wrapper-count">
 				<view class="header">
-					<view class="title">价格区间</view>
+					<view class="title">ຊ່ວງລາຄາ</view>
 					<view class="input-wrapper">
-						<input placeholder="最低价" v-model="min" type="number"/>
+						<input placeholder="ລາຄາຕໍ່າສຸດ" v-model="min" type="number"/>
 						<view class="line"></view>
-						<input placeholder="最高价" v-model="max" type="number"/>
+						<input placeholder="ລາຄາສູງສຸດ" v-model="max" type="number"/>
 					</view>
 				</view>
 				<view class="store_type content-border">
-					<view class="title">商户类别</view>
+					<view class="title">ປະເພດຮ້ານຄ້າ</view>
 					<view class="brand-wrapper">
 						<view class="wrapper">
 							<view class="item line1" v-for="(item,index) in storeCateList" :key="index" :class="item.check?'on':''" @tap="bindChenckType(item,index)">
@@ -22,9 +22,9 @@
 				</view>
 				<view class="content-box">
 					<view class="content-title">
-						<view class="title">品牌</view>
+						<view class="title">ຍີ່ຫໍ້</view>
 						<view v-if="list.length>3">
-							<view class="btns" @click="isShowBrand = !isShowBrand">{{isShowBrand?'收起':'展开'}}<text class="iconfont" :class="isShowBrand ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
+							<view class="btns" @click="isShowBrand = !isShowBrand">{{isShowBrand?'ຫຍໍ້':'ຂະຫຍາຍ'}}<text class="iconfont" :class="isShowBrand ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
 						</view>
 					</view>
 					<view class="brand-wrapper">
@@ -40,9 +40,9 @@
 				<!--店铺类型-->
 				<view class="content-box">
 					<view class="content-title">
-						<view class="title">店铺类型</view>
+						<view class="title">ປະເພດຮ້ານ</view>
 						<view v-if="storeTypeList.length>3">
-							<view class="btns" @click="isShowType = !isShowType">{{isShowType?'收起':'展开'}}<text class="iconfont" :class="isShowType ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
+							<view class="btns" @click="isShowType = !isShowType">{{isShowType?'ຫຍໍ້':'ຂະຫຍາຍ'}}<text class="iconfont" :class="isShowType ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
 						</view>
 					</view>
 					<view class="brand-wrapper">
@@ -62,7 +62,7 @@
 							<view class="content-title">
 								<view class="title">{{item.name}}</view>
 								<view>
-									<view class="btns" @click="getParmasValue(item)">{{item.showValue?'收起':'展开'}}<text class="iconfont" :class="item.showValue ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
+									<view class="btns" @click="getParmasValue(item)">{{item.showValue?'ຫຍໍ້':'ຂະຫຍາຍ'}}<text class="iconfont" :class="item.showValue ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
 								</view>
 							</view>
 							<view v-if="item.parmasValue.length>0 && item.showValue" class="brand-wrapper">
@@ -79,8 +79,8 @@
 				</view>
 			</view>
 			<view class="foot-btn">
-				<view class="btn-item" @click="reset">重置</view>
-				<view class="btn-item confirm" @click="confirm">确定</view>
+				<view class="btn-item" @click="reset">ຣີເຊັດ</view>
+				<view class="btn-item confirm" @click="confirm">ຢືນຢັນ</view>
 			</view>
 		</view>
 		<view class="right-bg" @click="close"></view>
@@ -145,9 +145,9 @@
 				storeTypeList: [],
 				productParmasList: [],
 				storeCateList: [
-					{name: '全部', value: '',check: true},
-					{name: '自营', value: 'trader',check: false},
-					{name: '非自营', value: 'trader',check: false},
+					{name: 'ທັງໝົດ', value: '',check: true},
+					{name: 'ຂາຍເອງ', value: 'trader',check: false},
+					{name: 'ບໍ່ຂາຍເອງ', value: 'trader',check: false},
 				],
 				activeList:[],
 				showBox:false,
@@ -171,9 +171,9 @@
 			},
 			bindChenckType(item,index){
 				this.storeCateList = [
-					{name: '全部', value: '',check: false},
-					{name: '自营', value: 'trader',check: false},
-					{name: '非自营', value: 'trader',check: false},
+					{name: 'ທັງໝົດ', value: '',check: false},
+					{name: 'ຂາຍເອງ', value: 'trader',check: false},
+					{name: 'ບໍ່ຂາຍເອງ', value: 'trader',check: false},
 				]
 				this.storeCateList[index]['check'] = true
 				this.is_trader = this.storeCateList[0]['check'] ? '' : this.storeCateList[1]['check'] ? 1 : 0
@@ -210,9 +210,9 @@
 					})
 				})
 				this.storeCateList = [
-					{name: '全部', value: '',check: true},
-					{name: '自营', value: 'trader',check: false},
-					{name: '非自营', value: 'trader',check: false}
+					{name: 'ທັງໝົດ', value: '',check: true},
+					{name: 'ຂາຍເອງ', value: 'trader',check: false},
+					{name: 'ບໍ່ຂາຍເອງ', value: 'trader',check: false}
 				]
 				this.min = this.max = ''
 				// this.arrFilter()

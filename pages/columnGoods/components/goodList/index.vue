@@ -4,9 +4,9 @@
 			<view @click="goDetail(item)" class='item acea-row' hover-class="none">
 				<view class='pictrue'>
 					<image :src='item.image'></image>
-					<text class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">秒杀</text>
-					<text class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">砍价</text>
-					<text class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">拼团</text>
+					<text class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">ການຂາຍດ່ວນ</text>
+					<text class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">ຕໍ່ລອງລາຄາ</text>
+					<text class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">ຊື້ເປັນກຸ່ມ</text>
 				</view>
 				<view class='underline'>
 						<view class='line1'>
@@ -14,15 +14,15 @@
 						</view>
 						<view class="item_line">
 							<text v-if="item.merchant.type_name && item.product_type == 0" class="font-bg-red bt-color">{{item.merchant.type_name}}</text>
-							<text v-else-if="item.merchant.is_trader && item.product_type == 0" class="font-bg-red bt-color">自营</text>
-							<text v-if="item.product_type != 0" :class="'font_bg-red bt-color type'+item.product_type">{{item.product_type == 1 ? "秒杀" : item.product_type == 2 ? "预售" : item.product_type == 3 ? "助力" : item.product_type == 4 ? "拼团" : ""}}</text>
-							<text v-if="item.issetCoupon" class="coupon">领券购买更优惠</text>
+							<text v-else-if="item.merchant.is_trader && item.product_type == 0" class="font-bg-red bt-color">ຂາຍເອງ</text>
+							<text v-if="item.product_type != 0" :class="'font_bg-red bt-color type'+item.product_type">{{item.product_type == 1 ? "ການຂາຍດ່ວນ" : item.product_type == 2 ? "ສັ່ງຈອງລ່ວງໜ້າ" : item.product_type == 3 ? "ຊ່ວຍເຫຼືອ" : item.product_type == 4 ? "ຊື້ເປັນກຸ່ມ" : ""}}</text>
+							<text v-if="item.issetCoupon" class="coupon">ເອົາຄູປອງຊື້ຖືກກວ່າ</text>
 						</view>
 						<view class='money'>
 							<priceFormat :price="item.price" weight intSize="36" floatSize="26" labelSize="26"></priceFormat>
 						</view>
 				</view>
-				<view class='gobuy acea-row row-center-wrapper'>去购买</view>
+				<view class='gobuy acea-row row-center-wrapper'>ໄປຊື້</view>
 			</view>
 		</block>
 	</view>

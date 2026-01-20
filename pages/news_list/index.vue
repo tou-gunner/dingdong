@@ -26,7 +26,7 @@
 			</view>
 		</view>
 		<block v-if="articleList.length == 0 && (page != 1 || active== 0)">
-			<emptyPage title="暂无新闻信息～" :noImage="`${domain}/static/images/empty-box.png`"></emptyPage>
+			<emptyPage title="ບໍ່ມີຂ່າວ～" :noImage="`${domain}/static/images/empty-box.png`"></emptyPage>
 		</block>
 		<home></home>
 	</view>

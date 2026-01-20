@@ -232,7 +232,7 @@ export default {
 					this.backToken = res.token;
 					this.secretKey = res.secretKey;
 					this.poinTextList = res.wordList;
-					this.text = '请依次点击【' + this.poinTextList.join(',') + '】';
+					this.text = 'ກະລຸນາກົດຕາມລຳດັບ【' + this.poinTextList.join(',') + '】';
 				})
 				.catch(() => {
 					this.pointBackImgBase = null;

@@ -27,7 +27,7 @@
 								</view>
 								<view class='text'>
 									<view class="name line1">{{item.topic_name}}</view>
-									<view class="info">{{item.count_use || 0}}篇内容 </view>
+									<view class="info">{{item.count_use || 0}}ເນື້ອຫາ </view>
 								</view>
 							</navigator>
 						</view>

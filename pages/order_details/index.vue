@@ -8,7 +8,7 @@
 				<!-- #ifdef MP -->
 				<view class="sys-title">
 					<view class='iconfont icon-ic_leftarrow' :style="{lineHeight:sysHeight}" @tap='goBack'></view>
-					订单详情
+					ລາຍລະອຽດຄຳສັ່ງຊື້
 				</view>
 				<!-- #endif -->
 				<view class="bg"></view>
@@ -23,38 +23,38 @@
 				<view v-if="orderInfo.activity_type == 2 && (orderInfo.status == 10 || orderInfo.status == 11)" class='header presell_header'>
 					<view class="presell_payment">
 						<text class="iconfont icon-icon_clock-2"></text>
-						{{ orderInfo.status == 11 ? '交易已关闭' : '待付尾款' }}
+						{{ orderInfo.status == 11 ? 'ການຊື້ຂາຍປິດແລ້ວ' : 'ລໍຖ້າຊຳລະເງິນທີ່ເຫຼືອ' }}
 					</view>
 					<view class='data' style="margin-left: 0;">
-						<view class='state'>请在{{orderInfo.orderProduct[0].cart_info.productPresell.final_end_time}}前完成支付,超时订单将自动取消</view>
+						<view class='state'>ກະລຸນາຊຳລະເງິນກ່ອນ{{orderInfo.orderProduct[0].cart_info.productPresell.final_end_time}}, ຄຳສັ່ງຊື້ທີ່ໝົດເວລາຈະຖືກຍົກເລີກອັດຕະໂນມັດ</view>
 					</view>
 				</view>
 				<view v-else class="header-gradient">
 					<view class='header acea-row row-middle row-between' :class='isGoodsReturn ? "on":""'>
 						<view class='data' :class='isGoodsReturn ? "on":""'>
 							<view class='state'>
-								<block v-if="orderInfo.status == 0  && orderInfo.order_type == 0">{{orderInfo.is_virtual == 4 ? '待服务' : '待发货'}}</block>
+								<block v-if="orderInfo.status == 0  && orderInfo.order_type == 0">{{orderInfo.is_virtual == 4 ? 'ລໍຖ້າບໍລິການ' : 'ລໍຖ້າຈັດສົ່ງ'}}</block>
 								<!-- order_type 0: 快递 1: 自提 2: 同城 -->
-								<block v-if="orderInfo.status == 0 && orderInfo.order_type == 2">{{orderInfo.is_virtual == 4 ? '待服务' : '待配送'}}</block>
+								<block v-if="orderInfo.status == 0 && orderInfo.order_type == 2">{{orderInfo.is_virtual == 4 ? 'ລໍຖ້າບໍລິການ' : 'ລໍຖ້າຈັດສົ່ງ'}}</block>
 
-								<block v-if="orderInfo.status == 9">等待其他人参加拼团</block>
-								<block v-if="orderInfo.status == 0 && orderInfo.order_type == 1">{{orderInfo.is_virtual != 4 ? '待核销' : '待服务'}}</block>
+								<block v-if="orderInfo.status == 9">ລໍຖ້າຄົນອື່ນເຂົ້າຮ່ວມກຸ່ມ</block>
+								<block v-if="orderInfo.status == 0 && orderInfo.order_type == 1">{{orderInfo.is_virtual != 4 ? 'ລໍຖ້າກວດສອບ' : 'ລໍຖ້າບໍລິການ'}}</block>
 
 
 								<!-- <block v-if="orderInfo.status == 20 && orderInfo.is_virtual == 4">{{orderInfo.order_type == 1 ? '待核销' : '已打卡'}}</block> -->
-								<block v-if="orderInfo.status == 20 && orderInfo.is_virtual == 4">待核销</block>
+								<block v-if="orderInfo.status == 20 && orderInfo.is_virtual == 4">ລໍຖ້າກວດສອບ</block>
 								<block v-if="orderInfo.order_type != 2">
-									<block v-if="orderInfo.status == 1">{{orderInfo.is_virtual == 1 ? '服务商品已虚拟发货' : orderInfo.is_virtual == 4 ? '待服务' : '待收货'}}</block>
+									<block v-if="orderInfo.status == 1">{{orderInfo.is_virtual == 1 ? 'ສິນຄ້າບໍລິການໄດ້ຈັດສົ່ງແບບສະເໝືອນແລ້ວ' : orderInfo.is_virtual == 4 ? 'ລໍຖ້າບໍລິການ' : 'ລໍຖ້າຮັບສິນຄ້າ'}}</block>
 								</block>
 								<!-- 如果是同城配送则再判断是否为配送中 -->
-								<block v-if="orderInfo.order_type == 2 && orderInfo.deliveryOrder && orderInfo.deliveryOrder.status == 3">配送中</block>
-								<block v-if="orderInfo.status == 2">待评价</block>
-								<block v-if="orderInfo.status == 3">已完成</block>
-								<block v-if="orderInfo.status == -1">已为您退款,感谢您的支持</block>
+								<block v-if="orderInfo.order_type == 2 && orderInfo.deliveryOrder && orderInfo.deliveryOrder.status == 3">ກຳລັງຈັດສົ່ງ</block>
+								<block v-if="orderInfo.status == 2">ລໍຖ້າປະເມີນ</block>
+								<block v-if="orderInfo.status == 3">ສຳເລັດແລ້ວ</block>
+								<block v-if="orderInfo.status == -1">ໄດ້ຄືນເງິນໃຫ້ທ່ານແລ້ວ, ຂອບໃຈສຳລັບການສະໜັບສະໜູນ</block>
 							</view>
 							<view v-if="orderInfo.is_virtual!= 4 && orderInfo.order_type != 2">{{orderInfo.pay_time}}</view>
-							<view v-else-if="orderInfo.order_type == 2 && orderInfo.deliveryOrder && orderInfo.deliveryOrder.status == 3">商家正在配送，请等待收货</view> <!-- 如果是同城配送，则显示文本-->
-							<view v-else-if="orderInfo.is_virtual == 4">预约时间： {{orderInfo.orderProduct[0].reservation_date}} {{orderInfo.orderProduct[0].reservation_time_part}}</view>
+							<view v-else-if="orderInfo.order_type == 2 && orderInfo.deliveryOrder && orderInfo.deliveryOrder.status == 3">ຮ້ານຄ້າກຳລັງຈັດສົ່ງ, ກະລຸນາລໍຖ້າຮັບສິນຄ້າ</view> <!-- 如果是同城配送，则显示文本-->
+							<view v-else-if="orderInfo.is_virtual == 4">ເວລານັດໝາຍ: {{orderInfo.orderProduct[0].reservation_date}} {{orderInfo.orderProduct[0].reservation_time_part}}</view>
 
 						</view>
 						<view class='pictrue reservation-pictrue'>
@@ -68,11 +68,11 @@
 						<view v-if="orderInfo.is_virtual == 4" class='nav'>
 							<!-- orer_type 1 到店 -->
 							<view class='navCon acea-row row-between-wrapper'>
-								<view class="nav-text">待付款</view>
-								<view class="nav-text" :class="orderInfo.status == 0 ? 'on':''">待服务</view>
-								<view class="nav-text" :class="orderInfo.status == 20 || (orderInfo.order_type==1 && orderInfo.status == 1) ? 'on':''">待核销</view>
-								<view class="nav-text" :class="orderInfo.status == 2 ? 'on':''">待评价</view>
-								<view class="nav-text" :class="orderInfo.status == 3 ? 'on':''">已完成</view>
+								<view class="nav-text">ລໍຖ້າຊຳລະ</view>
+								<view class="nav-text" :class="orderInfo.status == 0 ? 'on':''">ລໍຖ້າບໍລິການ</view>
+								<view class="nav-text" :class="orderInfo.status == 20 || (orderInfo.order_type==1 && orderInfo.status == 1) ? 'on':''">ລໍຖ້າກວດສອບ</view>
+								<view class="nav-text" :class="orderInfo.status == 2 ? 'on':''">ລໍຖ້າປະເມີນ</view>
+								<view class="nav-text" :class="orderInfo.status == 3 ? 'on':''">ສຳເລັດແລ້ວ</view>
 							</view>
 							<view class='progress acea-row row-between-wrapper'>
 								<view class='iconfont icon-ic_jindu2 t-color'></view>
@@ -88,12 +88,12 @@
 						</view>
 						<view v-else class='nav'>
 							<view class='navCon acea-row row-between-wrapper'>
-								<view class="nav-text">待付款</view>
-								<view class="nav-text" :class="(orderInfo.status == 0 || orderInfo.status == 9) ? 'on':''" v-if="orderInfo.order_type != 1">{{orderInfo.order_type == 2 ? '待配送' : '待发货'}}</view>
-								<view class="nav-text" :class="(orderInfo.status == 0 || orderInfo.status == 9) ? 'on':''" v-if="orderInfo.order_type == 1">待核销</view>
-								<view class="nav-text" :class="orderInfo.status == 1 ? 'on':''" v-if="orderInfo.order_type != 1">{{orderInfo.order_type == 2 ? '配送中' : '待收货'}}</view>
-								<view class="nav-text" :class="orderInfo.status == 2 ? 'on':''">待评价</view>
-								<view class="nav-text" :class="orderInfo.status == 3 ? 'on':''">已完成</view>
+								<view class="nav-text">ລໍຖ້າຊຳລະ</view>
+								<view class="nav-text" :class="(orderInfo.status == 0 || orderInfo.status == 9) ? 'on':''" v-if="orderInfo.order_type != 1">{{orderInfo.order_type == 2 ? 'ລໍຖ້າຈັດສົ່ງ' : 'ລໍຖ້າຈັດສົ່ງ'}}</view>
+								<view class="nav-text" :class="(orderInfo.status == 0 || orderInfo.status == 9) ? 'on':''" v-if="orderInfo.order_type == 1">ລໍຖ້າກວດສອບ</view>
+								<view class="nav-text" :class="orderInfo.status == 1 ? 'on':''" v-if="orderInfo.order_type != 1">{{orderInfo.order_type == 2 ? 'ກຳລັງຈັດສົ່ງ' : 'ລໍຖ້າຮັບສິນຄ້າ'}}</view>
+								<view class="nav-text" :class="orderInfo.status == 2 ? 'on':''">ລໍຖ້າປະເມີນ</view>
+								<view class="nav-text" :class="orderInfo.status == 3 ? 'on':''">ສຳເລັດແລ້ວ</view>
 							</view>
 							<view class='progress acea-row row-between-wrapper'>
 								<view class='iconfont icon-ic_jindu2 t-color'></view>
@@ -149,7 +149,7 @@
 									</view>
 								</view>
 								<view class="mer-time-box fs-24">
-									营业时间：{{`${orderInfo.merchant.mer_take_time[0]}-${orderInfo.merchant.mer_take_time[1]}`}}
+									ເວລາເປີດບໍລິການ: {{`${orderInfo.merchant.mer_take_time[0]}-${orderInfo.merchant.mer_take_time[1]}`}}
 								</view>
 							</view>
 							<view class="footer-box flex-box">
@@ -188,12 +188,12 @@
 									<view class="address-title acea-row row-middle">
 										<text class="iconfont icon-ic_truck"></text>
 										<block v-if="orderInfo.order_type == 2">
-											<text class="text-title">门店配送</text>
-											<text class="text-content">线上下单，门店为您配送</text>
+											<text class="text-title">ຈັດສົ່ງຈາກຮ້ານ</text>
+											<text class="text-content">ສັ່ງອອນລາຍ, ຮ້ານຈັດສົ່ງໃຫ້ທ່ານ</text>
 										</block>
 										<block v-if="orderInfo.order_type == 1">
-											<text class="text-title">到店自提</text>
-											<text class="text-content">请尽快前往自提点取货</text>
+											<text class="text-title">ຮັບເອງທີ່ຮ້ານ</text>
+											<text class="text-content">ກະລຸນາໄປຮັບສິນຄ້າທີ່ຈຸດຮັບເອງໂດຍໄວ</text>
 										</block>
 									</view>
 									<view class="same-city-address">
@@ -201,14 +201,14 @@
 											<view class="shop-name">{{orderInfo.take.station_name}}</view>
 											<view class="shop-address">{{orderInfo.take.station_address}}</view>
 											<text class="marks" v-if="!isInBusinessHours(orderInfo.take.business_time_start, orderInfo.take.business_time_end)">
-												自提点已打烊，
+												ຈຸດຮັບເອງປິດແລ້ວ, 
 											</text>
-											<text class="marks">营业时间：{{`${orderInfo.take.business_time_start}-${orderInfo.take.business_time_end}`}}</text>
+											<text class="marks">ເວລາເປີດບໍລິການ: {{`${orderInfo.take.business_time_start}-${orderInfo.take.business_time_end}`}}</text>
 										</view>
 										<view v-if="orderInfo.merchant_take_info" class="same-city-map-box">
 											<view class="map-content">
 												<view class="dsitance">
-													距您{{orderInfo.merchant_take_info[orderInfo.mer_id].distance}}
+													ຫ່າງຈາກທ່ານ{{orderInfo.merchant_take_info[orderInfo.mer_id].distance}}
 												</view>
 												<view class="triangle">
 
@@ -228,11 +228,11 @@
 										<view class="phone" @click="makePhone(orderInfo.take.phone)">
 											<text
 												class="iconfont icon-ic_phone fs-24"></text>
-											<text class="fs-24">联系自提点</text>
+											<text class="fs-24">ຕິດຕໍ່ຈຸດຮັບເອງ</text>
 										</view>
 										<view class="navigation" @click="showMaoLocation('take')">
 											<text class="iconfont icon-ic_location fs-24"></text>
-											<text class="fs-24">导航至自提点</text>
+											<text class="fs-24">ນຳທາງໄປຈຸດຮັບເອງ</text>
 										</view>
 									</view>
 								</view>
@@ -328,23 +328,23 @@
 						class="receive-info-box bg-f boder-24 mt-20"
 						v-if="orderInfo.order_type == 2"
 					>
-						<text class="title">收货信息</text>
+						<text class="title">ຂໍ້ມູນຮັບສິນຄ້າ</text>
 						<view class="take-point-item">
-							<text class="item-title">收货人名称</text>
+							<text class="item-title">ຊື່ຜູ້ຮັບ</text>
 							<text class="item-content">{{orderInfo.real_name}}</text>
 						</view>
 						<view class="take-point-item">
-							<text class="item-title">联系电话</text>
+							<text class="item-title">ເບີໂທລະສັບ</text>
 							<text class="item-content">
 								{{orderInfo.user_phone}}
 							</text>
 						</view>
 						<view class="take-point-item">
-							<text class="item-title">收货地址</text>
+							<text class="item-title">ທີ່ຢູ່ຮັບສິນຄ້າ</text>
 							<text class="item-content">{{orderInfo.user_address}}</text>
 						</view>
 						<view v-if="orderInfo.deliveryOrder && orderInfo.deliveryOrder.finish_code != ''" class="take-point-item">
-							<text class="item-title">收货码</text>
+							<text class="item-title">ລະຫັດຮັບສິນຄ້າ</text>
 							<text class="item-content">{{orderInfo.deliveryOrder.finish_code}}</text>
 						</view>
 					</view>
@@ -353,20 +353,20 @@
 						class="delivery-info-box bg-f boder-24 mt-20"
 						v-if="orderInfo.order_type == 2 && orderInfo.status == 1 && orderInfo.deliveryOrder.deliveryService"
 					>
-						<text class="title">送货信息</text>
+						<text class="title">ຂໍ້ມູນຈັດສົ່ງ</text>
 						<view class="delivery-info-item">
-							<text class="item-title">配送员</text>
+							<text class="item-title">ພະນັກງານຈັດສົ່ງ</text>
 							<text class="item-content">{{orderInfo.deliveryOrder.deliveryService.name}}</text>
 						</view>
 						<view class="delivery-info-item">
-							<text class="item-title">联系电话</text>
+							<text class="item-title">ເບີໂທລະສັບ</text>
 							<text class="item-content">
 								{{orderInfo.deliveryOrder.deliveryService.phone}}
 								<text class="iconfont icon-ic_phone" @click="makePhone(orderInfo.deliveryOrder.deliveryService.phone)"></text>
 							</text>
 						</view>
 						<view class="delivery-info-item">
-							<text class="item-title">送达时间</text>
+							<text class="item-title">ເວລາສົ່ງເຖິງ</text>
 							<text class="item-content">{{deliveryTimeText}}</text>
 						</view>
 					</view>
@@ -376,34 +376,34 @@
 						<!--卡密商品发货-->
 						<view v-if="orderInfo.delivery_type == 6 && orderInfo.delivery_id" class='wrapper boder-24'>
 							<view class='item acea-row row-between'>
-								<view>卡密发货：</view>
+								<view>ຈັດສົ່ງລະຫັດ:</view>
 								<view class="item acea-row">
 									<view class="conter">
 										<!-- #ifndef H5 -->
-										<text class='copy' @tap='copyKm'>复制</text>
+										<text class='copy' @tap='copyKm'>ສຳເນົາ</text>
 										<!-- #endif -->
 										<!-- #ifdef H5 -->
-										<text class='copy copy-data' :data-clipboard-text="orderInfo.delivery_id">复制</text>
+										<text class='copy copy-data' :data-clipboard-text="orderInfo.delivery_id">ສຳເນົາ</text>
 										<!-- #endif -->
 									</view>
 								</view>
 							</view>
 							<view class="item acea-row">
-								<view style="color:#999;">卡密已自动发放 <view>{{orderInfo.delivery_id}}</view></view>
+								<view style="color:#999;">ລະຫັດໄດ້ສົ່ງອັດຕະໂນມັດແລ້ວ <view>{{orderInfo.delivery_id}}</view></view>
 							</view>
 						</view>
 						<!-- 送货 -->
 						<view class="wrapper boder-24" v-if="orderInfo.delivery_type == 2">
 							<view class='item acea-row row-between'>
-								<view>配送方式：</view>
-								<view class='conter'>送货</view>
+								<view>ວິທີຈັດສົ່ງ:</view>
+								<view class='conter'>ຈັດສົ່ງ</view>
 							</view>
 							<view class='item acea-row row-between'>
-								<view>配送员：</view>
+								<view>ພະນັກງານຈັດສົ່ງ:</view>
 								<view class='conter'>{{orderInfo.delivery_name}}</view>
 							</view>
 							<view class='item acea-row row-between'>
-								<view>联系电话：</view>
+								<view>ເບີໂທລະສັບ:</view>
 								<view class='conter'>{{orderInfo.delivery_id}}</view>
 							</view>
 						</view>
@@ -426,48 +426,48 @@
 						</view> -->
 						<view v-if="orderInfo.remark" class="wrapper boder-24">
 							<view class="item acea-row row-between">
-								<view class="">发货备注：</view>
+								<view class="">ໝາຍເຫດຈັດສົ່ງ:</view>
 								<view class="conter remark">{{ orderInfo.remark }}</view>
 							</view>
 						</view>
 					</block>
 					<view class='wrapper boder-24'>
 						<view class='item acea-row row-between'>
-							<view>订单编号：</view>
+							<view>ລະຫັດຄຳສັ່ງຊື້:</view>
 							<view class='conter acea-row row-middle row-right'>{{orderInfo.order_sn}}
 								<!-- #ifndef H5 -->
-								<text class='copy' @tap='copy(orderInfo.order_sn)'>复制</text>
+								<text class='copy' @tap='copy(orderInfo.order_sn)'>ສຳເນົາ</text>
 								<!-- #endif -->
 								<!-- #ifdef H5 -->
-								<text class='copy copy-data' :data-clipboard-text="orderInfo.order_sn">复制</text>
+								<text class='copy copy-data' :data-clipboard-text="orderInfo.order_sn">ສຳເນົາ</text>
 								<!-- #endif -->
 							</view>
 						</view>
 						<view class='item acea-row row-between'>
-							<view>下单时间：</view>
+							<view>ເວລາສັ່ງຊື້:</view>
 							<view class='conter'>{{orderInfo.create_time}}</view>
 						</view>
 						<view class='item acea-row row-between'>
-							<view>支付状态：</view>
-							<view class='conter'>已支付</view>
+							<view>ສະຖານະການຊຳລະ:</view>
+							<view class='conter'>ຊຳລະແລ້ວ</view>
 						</view>
 						<view class='item acea-row row-between' v-if="orderInfo.pay_time">
-							<view>支付时间：</view>
+							<view>ເວລາຊຳລະ:</view>
 							<view class='conter'>{{orderInfo.pay_time}}</view>
 						</view>
 						<!-- <view class='item acea-row row-between'>
-							<view>商品总额：</view>
+							<view>ລາຄາສິນຄ້າທັງໝົດ:</view>
 							<view class='conter'>¥{{orderInfo.total_price}}</view>
 						</view> -->
 						<view class='item acea-row row-between'>
-							<view>支付方式：</view>
-							<view class='conter' v-if="orderInfo.pay_type==0">余额支付</view>
-							<view class='conter' v-if="orderInfo.pay_type==7">线下支付</view>
-							<view class='conter' v-if="orderInfo.pay_type==4 || orderInfo.pay_type==5">支付宝支付</view>
-							<view class='conter' v-if="orderInfo.pay_type==1 || orderInfo.pay_type==2 || orderInfo.pay_type==3">微信支付</view>
+							<view>ວິທີຊຳລະ:</view>
+							<view class='conter' v-if="orderInfo.pay_type==0">ຊຳລະດ້ວຍຍອດເງິນຄົງເຫຼືອ</view>
+							<view class='conter' v-if="orderInfo.pay_type==7">ຊຳລະອອບລາຍ</view>
+							<view class='conter' v-if="orderInfo.pay_type==4 || orderInfo.pay_type==5">ຊຳລະດ້ວຍ Alipay</view>
+							<view class='conter' v-if="orderInfo.pay_type==1 || orderInfo.pay_type==2 || orderInfo.pay_type==3">ຊຳລະດ້ວຍ WeChat</view>
 						</view>
 						<view class='item acea-row row-between' v-if="orderInfo.mark">
-							<view>买家留言：</view>
+							<view>ຂໍ້ຄວາມຜູ້ຊື້:</view>
 							<view class='conter'>{{orderInfo.mark}}</view>
 						</view>
 					</view>
@@ -484,32 +484,32 @@
 					</view>
 					<view class='wrapper boder-24'>
 						<view class='item acea-row row-between' v-if="orderInfo.pay_postage > 0 && orderInfo.order_type != 1">
-							<view>运费：</view>
+							<view>ຄ່າຂົນສົ່ງ:</view>
 							<view class='conter'>+¥{{orderInfo.pay_postage}}</view>
 						</view>
 						<view class='item acea-row row-between'>
-							<view>商品总额：</view>
+							<view>ລາຄາສິນຄ້າທັງໝົດ:</view>
 							<view class='conter'>¥{{orderInfo.total_price}}</view>
 						</view>
 						<view class='item acea-row row-between' v-if='orderInfo.coupon_price > 0'>
-							<view>优惠券抵扣：</view>
+							<view>ສ່ວນຫຼຸດຄູປອງ:</view>
 							<view class='conter'>-¥{{orderInfo.coupon_price}}</view>
 						</view>
 						<view class='item acea-row row-between' v-if='orderInfo.integral'>
-							<view>积分抵扣：</view>
+							<view>ສ່ວນຫຼຸດຄະແນນ:</view>
 							<view class='conter'>-¥{{orderInfo.integral_price}}</view>
 						</view>
 						<view class='item acea-row row-between' v-if="orderInfo.activity_type == 2">
-							<view>实付款：</view>
+							<view>ຈຳນວນຊຳລະຕົວຈິງ:</view>
 							<view class='conter'>¥{{orderInfo.presell_price}}</view>
 						</view>
 						<view class='item acea-row row-between' v-else>
-							<view>实付款：</view>
+							<view>ຈຳນວນຊຳລະຕົວຈິງ:</view>
 							<view class='conter'>¥{{orderInfo.pay_price}}</view>
 						</view>
 						<view class='item acea-row row-between'>
 							<view></view>
-							<view v-if="!orderInfo.receipt && orderInfo.open_receipt == 1" class='bnt cancels' @click="applyInvoice">申请开票</view>
+							<view v-if="!orderInfo.receipt && orderInfo.open_receipt == 1" class='bnt cancels' @click="applyInvoice">ຂໍໃບບິນ</view>
 						</view>
 					</view>
 				</view>
@@ -523,32 +523,32 @@
 					class="bnt more"
 					@click="isMore = !isMore"
 				>
-					更多
+					ເພີ່ມເຕີມ
 				</view>
 				<view v-if="isMore" class="toggle-btn">
 					<view
 						v-if="!([-1,2,3].includes(orderInfo.status) || (orderInfo.order_type == 2 && orderInfo.status == 1)) && refundNum.length != cartInfo.length && orderInfo.refund_status && orderInfo.refund_switch && !orderInfo.cancel_status"
 						class="bnts"
 						@click="allRefund"
-						>批量退款</view
+						>ຄືນເງິນເປັນກຸ່ມ</view
 					>
 				</view>
 				<view v-else></view>
 				<view class="acea-row row-right row-middle">
-					<view v-if="orderInfo.is_virtual == 4 && orderInfo.cancel_status" class='bnt cancel' @click="cancelReservation">取消预约</view>
+					<view v-if="orderInfo.is_virtual == 4 && orderInfo.cancel_status" class='bnt cancel' @click="cancelReservation">ຍົກເລີກການນັດໝາຍ</view>
 					<view v-if="orderInfo.activity_type == 2 && (orderInfo.status == 10 || orderInfo.status == 11)" class=" acea-row row-right row-middle" style="margin-left: 17rpx;">
-						<view v-if="orderInfo.presellOrder.activeStatus == 0" class='bnt b-color btn_auto'>{{ orderInfo.presellOrder.final_start_time | filterDay }} 付尾款</view>
-						<view v-if="orderInfo.presellOrder.activeStatus == 1" class='bnt b-color' @tap='pay_open'>立即付款</view>
-						<view v-if="orderInfo.presellOrder.activeStatus == 2 && orderInfo.is_virtual != 4" class='bnt cancel' @click="cancelOrder">取消订单</view>
+						<view v-if="orderInfo.presellOrder.activeStatus == 0" class='bnt b-color btn_auto'>{{ orderInfo.presellOrder.final_start_time | filterDay }} ຊຳລະເງິນທີ່ເຫຼືອ</view>
+						<view v-if="orderInfo.presellOrder.activeStatus == 1" class='bnt b-color' @tap='pay_open'>ຊຳລະເງິນດຽວນີ້</view>
+						<view v-if="orderInfo.presellOrder.activeStatus == 2 && orderInfo.is_virtual != 4" class='bnt cancel' @click="cancelOrder">ຍົກເລີກຄຳສັ່ງຊື້</view>
 					</view>
 					<block v-if="orderInfo.status == 9">
-						<view class="bnt cancel" @click="getCombinationRemove">取消拼团</view>
+						<view class="bnt cancel" @click="getCombinationRemove">ຍົກເລີກກຸ່ມ</view>
 					</block>
-					<view class='bnt cancel' v-if="orderInfo.activity_type==4" @tap='goJoinPink'>查看拼团</view>
-					<view v-if="orderInfo.status == 3" class='bnt cancel' @click="delOrder">删除订单</view>
-					<navigator v-if="(orderInfo.status == 0 || orderInfo.status == 1) && orderInfo.delivery_type == 1 || orderInfo.delivery_type == 4 && orderInfo.is_virtual != 4" class='bnt cancel' hover-class='none' :url="'/pages/users/goods_logistics/index?orderId='+ orderInfo.order_id">查看物流</navigator>
-					<view class='bnt cancel' @click="goOrderConfirm" v-if="orderInfo.is_virtual!=4 && (![1, 2, 3, 4, 10].includes(orderInfo.activity_type))">再次购买</view>
-					<view v-if="orderInfo.status == 1" class='bnt b-color' @tap='confirmOrder'>确认收货</view>
+					<view class='bnt cancel' v-if="orderInfo.activity_type==4" @tap='goJoinPink'>ເບິ່ງກຸ່ມ</view>
+					<view v-if="orderInfo.status == 3" class='bnt cancel' @click="delOrder">ລຶບຄຳສັ່ງຊື້</view>
+					<navigator v-if="(orderInfo.status == 0 || orderInfo.status == 1) && orderInfo.delivery_type == 1 || orderInfo.delivery_type == 4 && orderInfo.is_virtual != 4" class='bnt cancel' hover-class='none' :url="'/pages/users/goods_logistics/index?orderId='+ orderInfo.order_id">ເບິ່ງການຂົນສົ່ງ</navigator>
+					<view class='bnt cancel' @click="goOrderConfirm" v-if="orderInfo.is_virtual!=4 && (![1, 2, 3, 4, 10].includes(orderInfo.activity_type))">ຊື້ອີກຄັ້ງ</view>
+					<view v-if="orderInfo.status == 1" class='bnt b-color' @tap='confirmOrder'>ຢືນຢັນຮັບສິນຄ້າ</view>
 
 				</view>
 			</view>
@@ -559,9 +559,9 @@
 		<uni-popup ref="cancellPoupon" type="bottom">
 			<view class="code-content">
 				<text class="iconfont popup-close icon-ic_close" @click="close"></text>
-				<view class="title font-500">核销码</view>
+				<view class="title font-500">ລະຫັດກວດສອບ</view>
 				<view class="trip">
-					请将二维码展示给店员 或 提供数字核销码
+					ກະລຸນາສະແດງ QR Code ໃຫ້ພະນັກງານ ຫຼື ບອກລະຫັດກວດສອບ
 				</view>
 				<view class="grayBg">
 					<view class="pictrue">
@@ -645,7 +645,7 @@
 					system_store: {},
 					_status: {},
 					take: {}
-				}, //订单详情
+				}, //ລາຍລະອຽດຄຳສັ່ງຊື້
 				system_store: {},
 				isGoodsReturn: false, //是否为退款订单
 				status: {}, //订单底部按钮状态
@@ -731,7 +731,7 @@
 				const clipboard = new ClipboardJS(".copy-data");
 				clipboard.on("success", () => {
 					this.$util.Tips({
-						title: '复制成功'
+						title: 'ສຳເນົາສຳເລັດ'
 					});
 				});
 			});
@@ -839,7 +839,7 @@
 			cancelSales(){
 				let that = this;
 				uni.showModal({
-				  content: '确定要取消售后？',
+				  content: 'ທ່ານແນ່ໃຈວ່າຕ້ອງການຍົກເລີກການບໍລິການຫຼັງການຂາຍບໍ?',
 				  success: function(res) {
 				    if(res.confirm) {
 				      deletePlantApi(that.order_id).then(res => {
@@ -859,7 +859,7 @@
 			cancelReservation() {
 				let that = this;
 				uni.showModal({
-				  content: '确定取消预约吗？',
+				  content: 'ທ່ານແນ່ໃຈວ່າຕ້ອງການຍົກເລີກການນັດໝາຍບໍ?',
 				  success: function(res) {
 				    if(res.confirm) {
 				      cancelReservationApi(that.order_id).then(res => {
@@ -879,7 +879,7 @@
 			openSubcribe: function(e) {
 				let page = e;
 				uni.showLoading({
-					title: '正在加载',
+					title: 'ກຳລັງໂຫຼດ',
 				})
 				openOrderRefundSubscribe().then(res => {
 					uni.hideLoading();
@@ -916,14 +916,14 @@
 				let that, lat, long
 				if (type == 'mer') {
 					if (!this.orderInfo.merchant.lat || !this.orderInfo.merchant.long) return this.$util.Tips({
-						title: '请设置允许商城访问您的位置！'
+						title: 'ກະລຸນາອະນຸຍາດໃຫ້ເຂົ້າເຖິງຕຳແໜ່ງຂອງທ່ານ!'
 					});
 					that = this
 					lat = parseFloat(that.orderInfo.merchant.lat)
 					long = parseFloat(that.orderInfo.merchant.long)
 				} else if (type == 'take') {
 					if (!this.orderInfo.take.lat || !this.orderInfo.take.lng) return this.$util.Tips({
-						title: '请设置允许自提点访问您的位置！'
+						title: 'ກະລຸນາອະນຸຍາດໃຫ້ເຂົ້າເຖິງຕຳແໜ່ງຈຸດຮັບເອງ!'
 					});
 					that = this
 					lat = parseFloat(that.orderInfo.take.lat)
@@ -1118,13 +1118,13 @@
 			confirmOrder: function() {
 				let that = this;
 				uni.showModal({
-					title: '确认收货',
-					content: '为保障权益，请收到货确认无误后，再确认收货',
+					title: 'ຢືນຢັນຮັບສິນຄ້າ',
+					content: 'ເພື່ອປົກປ້ອງສິດຂອງທ່ານ, ກະລຸນາກວດສອບສິນຄ້າກ່ອນຢືນຢັນການຮັບ',
 					success: function(res) {
 						if (res.confirm) {
 							orderTake(that.order_id).then(res => {
 								return that.$util.Tips({
-									title: '操作成功',
+									title: 'ດຳເນີນການສຳເລັດ',
 									icon: 'success'
 								}, function() {
 									that.getOrderInfo();
@@ -1147,7 +1147,7 @@
 				let that = this;
 				orderDel(this.order_id).then(res => {
 					return that.$util.Tips({
-						title: '删除成功',
+						title: 'ລຶບສຳເລັດ',
 						icon: 'success'
 					}, {
 						tab: 3,
@@ -1162,8 +1162,8 @@
 			cancelOrder() {
 				let self = this
 				uni.showModal({
-					title: '提示',
-					content: '确认取消该订单?',
+					title: 'ແຈ້ງເຕືອນ',
+					content: 'ທ່ານແນ່ໃຈວ່າຕ້ອງການຍົກເລີກຄຳສັ່ງຊື້ນີ້ບໍ?',
 					success: function(res) {
 						if (res.confirm) {
 							orderDel(self.orderInfo.order_id)

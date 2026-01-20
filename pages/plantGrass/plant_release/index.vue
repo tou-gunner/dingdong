@@ -14,44 +14,44 @@
 												<text class="iconfont icon-ic_right2"></text>
 											</view>
 										</view>
-										<text class="video-text">点击可预览视频</text>
+										<text class="video-text">ກົດເພື່ອເບິ່ງວິດີໂອ</text>
 										<view class="close_btn" @click="deleteLink"><text class="iconfont icon-ic_close"></text></view>
 									</view>
 									<view v-else-if="!formData.video_link&&formData.image.length<=1" class="pictrue acea-row row-center-wrapper row-column add" @click="uploadVideo">
 										<view><text class='iconfont icon-icon_video'></text></view>
-										<view class="text">添加视频</view>
+										<view class="text">ເພີ່ມວິດີໂອ</view>
 									</view>
 									<block v-if="(tabLength == 3 && formData.video_link) || tabLength==2">
 										<view v-if="formData.image.length < 1" class="pictrue acea-row row-center-wrapper row-column add" @click.stop="clk(1)">
 											<view><text class='iconfont icon-fengmian'></text></view>
-											<view class="text">添加图片</view>
+											<view class="text">ເພີ່ມຮູບ</view>
 										</view>
 									</block>
 								</block>
 								<view class="pictrue" v-for="(item, index) in formData.image" :key="index">
 									<image :src="item"></image>
-									<text class="cover_text" v-if="index == 0">封面</text>
+									<text class="cover_text" v-if="index == 0">ໜ້າປົກ</text>
 									<view class="close_btn" @click="DelPic(index)"><text class="iconfont icon-ic_close"></text></view>
 								</view>
 								<!--图文或者图文加视频-->
 								<block v-if="(tabLength == 1 && !formData.video_link) || (tabLength == 3 && !formData.video_link)">
 									<view v-if="formData.image.length < 9" class="pictrue acea-row row-center-wrapper row-column add" @click.stop="clk(9)">
 										<view><text class='iconfont icon-ic_camera1'></text></view>
-										<view class="text">添加图片</view>
+										<view class="text">ເພີ່ມຮູບ</view>
 									</view>
 								</block>
 							</view>
 						</view>
 						<view class="textarea">
-							<textarea maxlength="-1" placeholder='分享使用体验和心得，获得更多点赞和关注哦~' name="comment" placeholder-class='placeholder' v-model="formData.content"></textarea>
+							<textarea maxlength="-1" placeholder='ແບ່ງປັນປະສົບການການໃຊ້ງານ, ເພື່ອໄດ້ຮັບການກົດໃຈແລະຕິດຕາມຫຼາຍຂຶ້ນ~' name="comment" placeholder-class='placeholder' v-model="formData.content"></textarea>
 						</view>
 					</view>
 					<view class="release_item">
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'><text class="iconfont icon-icon_Link"></text>添加宝贝({{productList.length}})</view>
+							<view class='name'><text class="iconfont icon-icon_Link"></text>ເພີ່ມສິນຄ້າ({{productList.length}})</view>
 							<view class="select">
 								<view class="select_count" @click.stop="addProduct">
-									<text v-if="productList.length == 0" class="text">选择商品</text>
+									<text v-if="productList.length == 0" class="text">ເລືອກສິນຄ້າ</text>
 									<view v-else class="text">
 										<image class="image" v-for="(item,index) in productList" :key="index" :src="item.image || (item.spu && item.spu.image)"></image>
 									</view>
@@ -60,10 +60,10 @@
 							</view>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'><text class="iconfont icon-icon_talk_2-2"></text>参与话题</view>
+							<view class='name'><text class="iconfont icon-icon_talk_2-2"></text>ເຂົ້າຮ່ວມຫົວຂໍ້</view>
 							<view class="select">
 								<view class="select_count" @click="addTopic">
-									<text v-if="!topicName.topic_name"class="text">选择话题</text>
+									<text v-if="!topicName.topic_name"class="text">ເລືອກຫົວຂໍ້</text>
 									<view v-else class="text_name" @click.stop="deleteTopic">
 										<text class="iconfont icon-ic_talk_2"></text>
 										<text class="title">{{topicName.topic_name}}</text>
@@ -75,7 +75,7 @@
 						</view>
 					</view>
 				</view>
-				<button class="release_btn button" form-type="submit">发布</button>
+				<button class="release_btn button" form-type="submit">ເຜີຍແຜ່</button>
 			</view>
 		</form>
 		<!--视频预览弹窗-->
@@ -152,8 +152,8 @@
 				domain: HTTP_REQUEST_URL,
 				uploadUrl: `${HTTP_REQUEST_URL}/api/upload/video`,
 				tabList: [
-					{name: '图文', value: 1, icon: 'icon-tuwen'},
-					{name: '视频', value: 2, icon: 'icon-shipin'},
+					{name: 'ຮູບພາບ', value: 1, icon: 'icon-tuwen'},
+					{name: 'ວິດີໂອ', value: 2, icon: 'icon-shipin'},
 				],
 				tabActive: 1,
 				tabLength: 3,
@@ -299,7 +299,7 @@
 					sourceType: ['camera', 'album'],
 					success: res => {
 						uni.showLoading({
-							title: '视频上传中',
+							title: 'ກຳລັງອັບໂຫຼດວິດີໂອ',
 						});
 						if (Math.ceil(res.size / 1024) < that.upload_max * 1024) {
 							uni.uploadFile({
@@ -335,8 +335,8 @@
 						} else {
 							uni.hideLoading();
 							uni.showModal({
-								title: '提示',
-								content: `视频超出限制${that.upload_max}MB`
+								title: 'ແຈ້ງເຕືອນ',
+								content: `ວິດີໂອເກີນຂີດຈຳກັດ${that.upload_max}MB`
 							});
 						}
 					},
@@ -425,14 +425,14 @@
 					toLogin()
 				}else{
 					if (value.image.length == 0) return that.$util.Tips({
-						title: '请添加话题图片'
+						title: 'ກະລຸນາເພີ່ມຮູບພາບຫົວຂໍ້'
 					});
 					if (!value.content) return that.$util.Tips({
-						title: '请分享使用心得和体会'
+						title: 'ກະລຸນາແບ່ງປັນປະສົບການການໃຊ້ງານ'
 					});
 					if(that.tabLength == 2 && !value.video_link){
 						return that.$util.Tips({
-							title: '请添加话题视频'
+							title: 'ກະລຸນາເພີ່ມວິດີໂອຫົວຂໍ້'
 						});
 					}
 					if(that.id){
@@ -443,7 +443,7 @@
 					value.order_id = that.order_id
 					value.is_type = that.tabActive
 					uni.showLoading({
-						title: '保存中',
+						title: 'ກຳລັງບັນທຶກ',
 						mask: true
 					})
 					that.id ? updatePlantApi(that.id, value).then(res => {

@@ -4,11 +4,11 @@
 			<view class='search acea-row row-between-wrapper'>
 				<view class='input acea-row row-between-wrapper'>
 					<text class='iconfont icon-ic_search'></text>
-					<input type='text' v-model="where.keyword" :focus="focus" placeholder='请输入关键字' placeholder-class='placeholder' @input="setValue" confirm-type="search" @confirm="searchBut()"></input>
+					<input type='text' v-model="where.keyword" :focus="focus" placeholder='ກະລຸນາປ້ອນຄຳຄົ້ນຫາ' placeholder-class='placeholder' @input="setValue" confirm-type="search" @confirm="searchBut()"></input>
 					<i v-if="where.keyword" class="iconfont icon-ic_close2 icon-zhanwei" @click="where.keyword = ''"></i>
 					<i v-else class="iconfont icon-zhanwei"></i>
 				</view>
-				<view class='bnt' @tap='searchBut'>搜索</view>
+				<view class='bnt' @tap='searchBut'>ຄົ້ນຫາ</view>
 			</view>
 			<view class="search-tabs acea-row">
 				<view v-for="(item,index) in tabList" :key="index" @click="getList(item,index)" class="item" :class="{on : activeIndex == index}">{{item.title}}</view>
@@ -23,15 +23,15 @@
 							</view>
 							<view class="acea-row plant-des">
 								<view class="des">
-									内容<text>{{(item.author.count_content<10000&&item.author.count_content>0) ? item.author.count_content : item.author.count_content>1000 ? (item.author.count_content/10000).toFixed(2)+'万' : 0}}</text>
+									ເນື້ອຫາ<text>{{(item.author.count_content<10000&&item.author.count_content>0) ? item.author.count_content : item.author.count_content>1000 ? (item.author.count_content/10000).toFixed(2)+'ໝື່ນ' : 0}}</text>
 								</view>
 								<view class="des">
-									粉丝<text>{{(item.author.count_fans<10000&&item.author.count_fans>0) ? item.author.count_fans : item.author.count_fans>1000 ? (item.author.count_fans/10000).toFixed(2)+'万' : 0}}</text>
+									ຜູ້ຕິດຕາມ<text>{{(item.author.count_fans<10000&&item.author.count_fans>0) ? item.author.count_fans : item.author.count_fans>1000 ? (item.author.count_fans/10000).toFixed(2)+'ໝື່ນ' : 0}}</text>
 								</view>
 							</view>
 							<view class="btn" :class="!item.is_fans ? 'focusBtn' : ''" @click.stop="focusToggle(item)">
 								<text v-if="!item.is_fans" class="iconfont icon-ic_increase"></text>
-								{{item.is_fans ? '已关注' : '关注'}}
+								{{item.is_fans ? 'ຕິດຕາມແລ້ວ' : 'ຕິດຕາມ'}}
 							</view>
 						</view>
 					</view>
@@ -39,7 +39,7 @@
 				<view :hidden="!loading" class="acea-row row-center-wrapper loadingicon">
 					<text class="iconfont icon-jiazai loading"></text>
 				</view>
-				<emptyPage v-if="authorList.length == 0 && !loading" title="暂无作者~"></emptyPage>
+				<emptyPage v-if="authorList.length == 0 && !loading" title="ບໍ່ມີຜູ້ໃຊ້~"></emptyPage>
 			</view>
 			<view v-else class="tab-cont">
 				<view v-if="goods.length" class="goods-wrap">
@@ -51,7 +51,7 @@
 			<view :hidden="!loading" class="acea-row row-center-wrapper loadingicon">
 				<text class="iconfont icon-jiazai loading"></text>
 			</view>
-			<emptyPage v-if="goods.length == 0 && !loading" title="暂无内容~"></emptyPage>
+			<emptyPage v-if="goods.length == 0 && !loading" title="ບໍ່ມີເນື້ອຫາ~"></emptyPage>
 		</view>
 	</view>
 </template>
@@ -90,7 +90,7 @@
 				keyword: '',
 				loaded: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				where: {
 					keyword: "",
 					search_type: "all",
@@ -101,9 +101,9 @@
 				searchValue: "",
 				activeIndex: 0,
 				tabList:[
-					{title: "全部", value: 0, type: "all"},
-					{title: "内容", value: 1, type: "content"},
-					{title: "用户", value: 2, type: "user"},
+					{title: "ທັງໝົດ", value: 0, type: "all"},
+					{title: "ເນື້ອຫາ", value: 1, type: "content"},
+					{title: "ຜູ້ໃຊ້", value: 2, type: "user"},
 				]
 			}
 		},
@@ -169,7 +169,7 @@
 					let loadend = list.length < that.where.limit;
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? '已全部加载' : '加载更多';
+					that.loadTitle = loadend ? 'ໂຫຼດໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'goods', goodsList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {

@@ -2,7 +2,7 @@
   <BaseContainer>
     <!-- #ifdef MP || APP-PLUS -->
     <view class="nav-bar-wrapper">
-      <BaseNavBar title="订单详情" lightText />
+      <BaseNavBar title="ລາຍລະອຽດອໍເດີ" lightText />
     </view>
     <!-- #endif -->
     <view class="order-body">
@@ -20,13 +20,13 @@
       @savePrice="handleSaveRemark" status="1" v-if="orderInfo" />
 		<view v-if="orderInfo" class="bottom-box">
 			<view class="btn-box remarks" @click="handleOpenRemarkPanel">
-				订单备注
+				ໝາຍເຫດອໍເດີ
 			</view>
 			<view v-if="orderInfo.status == 1" class="btn-box confirm" @click="confirmServed">
-				确认送达
+				ຢືນຢັນສົ່ງແລ້ວ
 			</view>
 			<view v-if="orderInfo.status == 0" class="btn-box confirm" @click="receiveOrder">
-				领取任务
+				ຮັບໜ້າວຽກ
 			</view>
 		</view>
   </BaseContainer>
@@ -106,7 +106,7 @@ export default {
       if (progressStatus.includes(this.orderInfo.status)) {
         config.push(
           {
-            text: "订单备注",
+            text: "ໝາຍເຫດອໍເດີ",
             type: "plain",
             event: BTN_EVENT.REMARK
           }
@@ -117,7 +117,7 @@ export default {
       if (!this.orderInfo.is_instore_order) {
         if (BtnUtil.getCheckinStatus(this.orderInfo, this.merServiceConfig)) {
           config.push({
-            text: "上门打卡",
+            text: "ເຊັກອິນເຂົ້າ",
             type: "primary",
             event: BTN_EVENT.SIGN_IN
           });
@@ -126,7 +126,7 @@ export default {
         if (BtnUtil.getServiceRecordStatus(this.orderInfo, this.merServiceConfig)) {
           config.push(
             {
-              text: "服务记录",
+              text: "ບັນທຶກການບໍລິການ",
               type: "primary",
               event: BTN_EVENT.SERVICE_RECORD
             }
@@ -136,7 +136,7 @@ export default {
 
 
       const verifyItem = {
-        text: "核销",
+        text: "ກວດສອບ",
         type: "primary",
         event: BTN_EVENT.VERIFY
       };
@@ -162,7 +162,7 @@ export default {
     async handleSaveRemark({ remark }) {
       if (!remark) {
         this.$util.Tips({
-          title: "请输入备注信息",
+          title: "ກະລຸນາປ້ອນຂໍ້ມູນໝາຍເຫດ",
           icon: "none"
         });
         return;
@@ -209,8 +209,8 @@ export default {
 		// 确认送达
 		async confirmServed() {
 			const [err, { confirm }] = await uni.showModal({
-			  title: "提示",
-			  content: `确定要确认送达吗？`,
+			  title: "ແຈ້ງເຕືອນ",
+			  content: `ແນ່ໃຈວ່າຕ້ອງການຢືນຢັນສົ່ງແລ້ວບໍ?`,
 			});
 			if (err || !confirm) return;
 			uni.showLoading({
@@ -240,8 +240,8 @@ export default {
 		// 领取订单
 		async receiveOrder() {
 			const [err, { confirm }] = await uni.showModal({
-			  title: "提示",
-			  content: `确定要领取此工单吗？`,
+			  title: "ແຈ້ງເຕືອນ",
+			  content: `ແນ່ໃຈວ່າຕ້ອງການຮັບໜ້າວຽກນີ້ບໍ?`,
 			});
 			if (err || !confirm) return;
 			uni.showLoading({

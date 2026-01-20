@@ -8,7 +8,7 @@
 				<!-- #ifdef MP -->
 				<view class="sys-title">
 					<view class='iconfont icon-ic_leftarrow' :style="{lineHeight:sysHeight}" @tap='goBack'></view>
-					订单详情
+					ລາຍລະອຽດຄຳສັ່ງຊື້
 				</view>
 				<!-- #endif -->
 				<view class="bg"></view>
@@ -22,7 +22,7 @@
 					<block v-if="orderInfo.orderList && orderInfo.orderList[0].activity_type != 2">
 						<view class='header acea-row row-middle row-between'>
 							<view class='data'>
-								<view class='state'>请在{{orderInfo.cancel_time}}前完成支付!</view>
+								<view class='state'>ກະລຸນາຊຳລະເງິນກ່ອນ{{orderInfo.cancel_time}}!</view>
 								<view>{{orderInfo.add_time_y}}<text class='time'>{{orderInfo.create_time}}</text></view>
 							</view>
 							<view class='pictrue'>
@@ -31,11 +31,11 @@
 						</view>
 						<view class='nav'>
 							<view class='navCon acea-row row-between-wrapper'>
-								<view class="nav-text on">待付款</view>
-								<view class="nav-text">待发货</view>
-								<view class="nav-text">待收货</view>
-								<view class="nav-text">待评价</view>
-								<view class="nav-text">已完成</view>
+								<view class="nav-text on">ລໍຖ້າຊຳລະ</view>
+								<view class="nav-text">ລໍຖ້າຈັດສົ່ງ</view>
+								<view class="nav-text">ລໍຖ້າຮັບສິນຄ້າ</view>
+								<view class="nav-text">ລໍຖ້າປະເມີນ</view>
+								<view class="nav-text">ສຳເລັດແລ້ວ</view>
 							</view>
 							<view class='progress acea-row row-between-wrapper'>
 								<view class='iconfont icon-ic_jindu1 t-color'></view>
@@ -53,9 +53,9 @@
 					<!--预售（代付款）-->
 					<block v-else>
 						<view class='header presell_header' :style="{ 'background-image': `url(${domain}/static/diy/presell_header${keyColor}.png)`}">
-							<view class="presell_payment" v-if="orderInfo.orderList"><text class="iconfont icon-icon_clock-2"></text>{{orderInfo.orderList[0].orderProduct[0].cart_info.productPresell.presell_type==1?'待支付':'待付定金'}}</view>
+							<view class="presell_payment" v-if="orderInfo.orderList"><text class="iconfont icon-icon_clock-2"></text>{{orderInfo.orderList[0].orderProduct[0].cart_info.productPresell.presell_type==1?'ລໍຖ້າຊຳລະ':'ລໍຖ້າຊຳລະເງິນມັດຈຳ'}}</view>
 							<view class='data'>
-								<view class='state'>请在{{orderInfo.cancel_time}}前完成支付,超时订单将自动取消</view>
+								<view class='state'>ກະລຸນາຊຳລະເງິນກ່ອນ{{orderInfo.cancel_time}}, ຄຳສັ່ງຊື້ທີ່ໝົດເວລາຈະຖືກຍົກເລີກອັດຕະໂນມັດ</view>
 							</view>
 						</view>
 					</block>
@@ -79,27 +79,27 @@
 								<view class="item">
 									<image :src="goods.cart_info.product.image"></image>
 									<view class="info-box">
-										<view class="name line1"><text class="event_name event_bg">预售</text>{{goods.cart_info.product.store_name}}</view>
+										<view class="name line1"><text class="event_name event_bg">ຈອງລ່ວງໜ້າ</text>{{goods.cart_info.product.store_name}}</view>
 										<view class="msg">{{goods.cart_info.productAttr.sku}}</view>
-										<view  class="event_ship event_color">发货时间：
+										<view  class="event_ship event_color">ເວລາຈັດສົ່ງ:
 											<!--全款预售-->
-											<text v-if="goods.cart_info.productPresell.presell_type === 1">{{ goods.cart_info.productPresell.delivery_type === 1 ? '支付成功后' : '预售结束后' }}{{ goods.cart_info.productPresell.delivery_day }}天内</text>
+											<text v-if="goods.cart_info.productPresell.presell_type === 1">{{ goods.cart_info.productPresell.delivery_type === 1 ? 'ຫຼັງຊຳລະສຳເລັດ' : 'ຫຼັງສິ້ນສຸດການຈອງ' }}{{ goods.cart_info.productPresell.delivery_day }}ວັນ</text>
 											<!--定金预售-->
-											<text v-if="goods.cart_info.productPresell.presell_type === 2">{{ goods.cart_info.productPresell.delivery_type === 1 ? '支付尾款后' : '预售结束后' }}{{ goods.cart_info.productPresell.delivery_day }}天内</text>
+											<text v-if="goods.cart_info.productPresell.presell_type === 2">{{ goods.cart_info.productPresell.delivery_type === 1 ? 'ຫຼັງຊຳລະເງິນທີ່ເຫຼືອ' : 'ຫຼັງສິ້ນສຸດການຈອງ' }}{{ goods.cart_info.productPresell.delivery_day }}ວັນ</text>
 										</view>
 									</view>
 									<view class="num"><text class="font-color">¥{{goods.cart_info.productPresellAttr.presell_price}}</text></br>x{{goods.product_num}}</view>
 								</view>
 								<view class="event_progress" v-if="goods.cart_info.productPresell.presell_type !=1">
 									<view class="progress_list">
-										<view class="progress_name">阶段一： 等待买家付款</view>
-										<view class="progress_price">商品定金  <text class="align_right">¥{{ item.pay_price }}</text></view>
-										<view class="progress_pay">定金需付款<text class="align_right gColor">¥{{ item.pay_price }}</text></view>
+										<view class="progress_name">ຂັ້ນຕອນ 1: ລໍຖ້າຜູ້ຊື້ຊຳລະເງິນ</view>
+										<view class="progress_price">ເງິນມັດຈຳ  <text class="align_right">¥{{ item.pay_price }}</text></view>
+										<view class="progress_pay">ເງິນມັດຈຳທີ່ຕ້ອງຊຳລະ<text class="align_right gColor">¥{{ item.pay_price }}</text></view>
 									</view>
 									<view class="progress_list">
-										<view class="progress_name">阶段二： 未开始</view>
-										<view class="progress_price">商品尾款  <text class="align_right">¥{{ item.presellOrder.pay_price }}</text></view>
-										<view class="progress_pay">尾款需付款<text class="align_right gColor">¥{{ item.presellOrder.pay_price }}</text></view>
+										<view class="progress_name">ຂັ້ນຕອນ 2: ຍັງບໍ່ເລີ່ມ</view>
+										<view class="progress_price">ເງິນທີ່ເຫຼືອ  <text class="align_right">¥{{ item.presellOrder.pay_price }}</text></view>
+										<view class="progress_pay">ເງິນທີ່ເຫຼືອທີ່ຕ້ອງຊຳລະ<text class="align_right gColor">¥{{ item.presellOrder.pay_price }}</text></view>
 									</view>
 								</view>
 							</view>
@@ -119,32 +119,32 @@
 					</view>
 					<block v-if="item.merchant">
 						<view  class="goodCall" @click="goGoodCall(item)">
-							<text class="iconfont icon-ic_customerservice"></text><text style="font-size: 28rpx;">联系客服</text>
+							<text class="iconfont icon-ic_customerservice"></text><text style="font-size: 28rpx;">ຕິດຕໍ່ບໍລິການລູກຄ້າ</text>
 						</view>
 					</block>
 				</view>
 				<view class='wrapper bg-f boder-24'>
 					<view class='item acea-row row-between'>
-						<view>订单编号：</view>
+						<view>ລະຫັດຄຳສັ່ງຊື້:</view>
 						<view class='conter acea-row row-middle row-right'>{{orderInfo.group_order_sn}}
 							<!-- #ifndef H5 -->
-							<text class='copy' @tap='copy'>复制</text>
+							<text class='copy' @tap='copy'>ສຳເນົາ</text>
 							<!-- #endif -->
 							<!-- #ifdef H5 -->
-							<text class='copy copy-data' :data-clipboard-text="orderInfo.group_order_sn">复制</text>
+							<text class='copy copy-data' :data-clipboard-text="orderInfo.group_order_sn">ສຳເນົາ</text>
 							<!-- #endif -->
 						</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>下单时间：</view>
+						<view>ເວລາສັ່ງຊື້:</view>
 						<view class='conter'>{{orderInfo.create_time || 0}}</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>支付状态：</view>
-						<view class='conter'>未支付</view>
+						<view>ສະຖານະການຊຳລະ:</view>
+						<view class='conter'>ຍັງບໍ່ໄດ້ຊຳລະ</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>商品总额：</view>
+						<view>ລາຄາສິນຄ້າທັງໝົດ:</view>
 						<view class='conter'>¥{{orderInfo.total_price}}</view>
 					</view>
 				</view>
@@ -162,26 +162,26 @@
 
 				<view class='wrapper bg-f boder-24'>
 					<view class='item acea-row row-between' v-if="orderInfo.pay_postage > 0">
-						<view>运费：</view>
+						<view>ຄ່າຂົນສົ່ງ:</view>
 						<view class='conter'>+¥{{orderInfo.pay_postage}}</view>
 					</view>
 					<view class='item acea-row row-between' v-if='orderInfo.coupon_price>0'>
-						<view>优惠券抵扣：</view>
+						<view>ສ່ວນຫຼຸດຄູປອງ:</view>
 						<view class='conter'>-¥{{orderInfo.coupon_price}}</view>
 					</view>
 					<view class='item acea-row row-between' v-if='orderInfo.integral'>
-						<view>积分抵扣：</view>
+						<view>ສ່ວນຫຼຸດຄະແນນ:</view>
 						<view class='conter'>-¥{{orderInfo.integral_price}}</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>实付款：</view>
+						<view>ຈຳນວນຊຳລະຕົວຈິງ:</view>
 						<view class='conter'>¥{{orderInfo.pay_price}}</view>
 					</view>
 				</view>
 				<view class="content-clip"></view>
 				<view class='footer acea-row row-right row-middle'>
-					<view class="bnt cancel" @click.stop="cancelOrder">取消订单</view>
-					<view class='bnt bgColor' @tap='pay_open(orderInfo.order_id)'>立即付款</view>
+					<view class="bnt cancel" @click.stop="cancelOrder">ຍົກເລີກຄຳສັ່ງຊື້</view>
+					<view class='bnt bgColor' @tap='pay_open(orderInfo.order_id)'>ຊຳລະເງິນດຽວນີ້</view>
 				</view>
 			</view>
 		</view>
@@ -234,40 +234,40 @@
 				orderInfo: {
 					system_store: {},
 					_status: {}
-				}, //订单详情
+				}, //ລາຍລະອຽດຄຳສັ່ງຊື້
 				system_store: {},
 				isGoodsReturn: false, //是否为退款订单
 				status: {}, //订单底部按钮状态
 				isClose: false,
 				payMode: [{
-					name: "微信支付",
+					name: "ຊຳລະດ້ວຍ WeChat",
 					icon: "icon-a-ic_wechatpay",
 					value: 'wechat',
-					title: '微信快捷支付',
+					title: 'ຊຳລະດ່ວນ WeChat',
 					payStatus: app.globalData.pay_weixin_open
 				},
 				// #ifndef MP
 				{
-					name: "支付宝支付",
+					name: "ຊຳລະດ້ວຍ Alipay",
 					icon: "icon-a-ic_alipay",
 					value: 'alipay',
-					title: '支付宝支付',
+					title: 'ຊຳລະ Alipay',
 					payStatus: app.globalData.alipay_open
 				},
 				// #endif
 				{
-					name: "余额支付",
+					name: "ຊຳລະດ້ວຍຍອດເງິນຄົງເຫຼືອ",
 					icon: "icon-ic_Money2",
 					value: 'balance',
-					title: '可用余额:',
+					title: 'ຍອດເງິນຄົງເຫຼືອ:',
 					number: 0,
 					payStatus: app.globalData.yue_pay_status
 				},
 				{
-					name: '线下支付',
+					name: 'ຊຳລະອອບລາຍ',
 					icon: 'icon-a-ic_offlinepay',
 					value: 'offline',
-					title: '线下支付',
+					title: 'ຊຳລະອອບລາຍ',
 					payStatus: app.globalData.offline_switch
 				}
 			],
@@ -315,7 +315,7 @@
 				const clipboard = new ClipboardJS(".copy-data");
 				clipboard.on("success", () => {
 					this.$util.Tips({
-						title: '复制成功'
+						title: 'ສຳເນົາສຳເລັດ'
 					});
 				});
 			});
@@ -357,8 +357,8 @@
 				let that = this
 				if(item.merchant.service_phone){
 					uni.showModal({
-						title: '提示',
-						content: '暂无在线客服，确定拨打客服电话:'+item.merchant.service_phone+'吗？',
+						title: 'ແຈ້ງເຕືອນ',
+						content: 'ບໍ່ມີບໍລິການລູກຄ້າອອນລາຍ, ທ່ານຕ້ອງການໂທຫາ:'+item.merchant.service_phone+' ບໍ?',
 						success: function(res) {
 							if (res.confirm) {
 								uni.makePhoneCall({
@@ -369,7 +369,7 @@
 					})
 				}else{
 					return that.$util.Tips({
-						title: '暂无可用客服'
+						title: 'ບໍ່ມີບໍລິການລູກຄ້າ'
 					})
 				}
 			},
@@ -448,7 +448,7 @@
 			getOrderInfo: function() {
 				let that = this;
 				uni.showLoading({
-					title: "正在加载中"
+					title: "ກຳລັງໂຫຼດ"
 				});
 				groupOrderDetail(this.order_id).then(res => {
 					let _type = 0;
@@ -478,8 +478,8 @@
 			cancelOrder() {
 				let self = this
 				uni.showModal({
-					title: '提示',
-					content: '确认取消该订单?',
+					title: 'ແຈ້ງເຕືອນ',
+					content: 'ທ່ານແນ່ໃຈວ່າຕ້ອງການຍົກເລີກຄຳສັ່ງຊື້ນີ້ບໍ?',
 					success: function(res) {
 						if (res.confirm) {
 							unOrderCancel(self.order_id)

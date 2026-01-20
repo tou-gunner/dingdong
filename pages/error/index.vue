@@ -1,6 +1,6 @@
 <template>
 	<view class="box">
-		网站已关闭
+		ເວັບໄຊທ໌ປິດແລ້ວ
 	</view>
 </template>
 

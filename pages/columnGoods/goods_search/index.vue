@@ -4,12 +4,12 @@
 			<view class='search acea-row row-between-wrapper'>
 				<view class='input acea-row row-between-wrapper'>
 					<text class='iconfont icon-ic_search'></text>
-					<input type='text' :value='searchValue' :focus="focus" placeholder='点击搜索商品、店铺名称' placeholder-class='placeholder'
+					<input type='text' :value='searchValue' :focus="focus" placeholder='ຄລິກຄົ້ນຫາສິນຄ້າ, ຊື່ຮ້ານ' placeholder-class='placeholder'
 					 @input="setValue"></input>
 				</view>
-				<view class='bnt' @tap='searchBut'>搜索</view>
+				<view class='bnt' @tap='searchBut'>ຄົ້ນຫາ</view>
 			</view>
-			<view class='title'>历史记录 <text class="iconfont icon-ic_delete" @click="remove"></text></view>
+			<view class='title'>ປະຫວັດ <text class="iconfont icon-ic_delete" @click="remove"></text></view>
 			<view class='list acea-row' :class="{'autoHeight' : historyBox}" v-if="historyList.length > 0">
 				<block v-for="(item,index) in historyList" :key="index">
 					<view class='item line1' @tap='setHotSearchValue(item,0)'>{{item}}</view>
@@ -17,15 +17,15 @@
 			</view>
 			<view>
 				<view class="more-btn" v-if="historyList.length>12 && !historyBox" @click="historyBox = true">
-					展开全部<text class="iconfont icon-ic_downarrow"></text>
+					ຂະຫຍາຍທັງໝົດ<text class="iconfont icon-ic_downarrow"></text>
 				</view>
 				<view class="more-btn" v-if="historyList.length>12 && historyBox" @click="historyBox = false">
-					收起<text class="iconfont icon-ic_uparrow"></text>
+					ຫຍໍ້<text class="iconfont icon-ic_uparrow"></text>
 				</view>
 			</view>
-			<view v-if="historyList.length == 0" style="text-align: center; color: #999;">暂无搜索历史~</view>
+			<view v-if="historyList.length == 0" style="text-align: center; color: #999;">ບໍ່ມີປະຫວັດການຄົ້ນຫາ~</view>
 			<block v-if="hotSearchList.length>0">
-				<view class='title'>热门搜索</view>
+				<view class='title'>ການຄົ້ນຫາຍອດນິຍົມ</view>
 				<view class='list acea-row' :class="{'autoHeight' : hotSearchBox}">
 					<block v-for="(item,index) in hotSearchList" :key="index">
 						<view class='item line1' @tap='setHotSearchValue(item,1)'>{{item.keyword}}</view>
@@ -33,10 +33,10 @@
 				</view>
 				<view>
 					<view class="more-btn" v-if="hotSearchList.length>8 && !hotSearchBox" @click="hotSearchBox = true">
-						展开全部<text class="iconfont icon-ic_downarrow"></text>
+						ຂະຫຍາຍທັງໝົດ<text class="iconfont icon-ic_downarrow"></text>
 					</view>
 					<view class="more-btn" v-if="hotSearchList.length>8 && hotSearchBox" @click="hotSearchBox = false">
-						收起<text class="iconfont icon-ic_uparrow"></text>
+						ຫຍໍ້<text class="iconfont icon-ic_uparrow"></text>
 					</view>
 				</view>
 			</block>
@@ -47,7 +47,7 @@
 						<view class="scroll-item" :style="{'background-image':`url(${domain}/static/images/search-title-bg.png)`}">
 							<view class="search-title">
 								<image :src="`${domain}/static/images/search-title-icon.png`" class="title-icon"></image>
-								<text>今日热搜</text>
+								<text>ການຄົ້ນຫາຮ້ອນມື້ນີ້</text>
 							</view>
 							<view class="search-list">
 								<navigator v-for="(item,index) in daySearchList" :key="index" :url="`/pages/goods_details/index?id=${item.product_id}`" hover-class="none" class="search-item">
@@ -104,11 +104,11 @@
 				<view class="search-hot-switch">
 					<view v-if="isShow" class="switch" @click="isShow=!isShow">
 						<text class="iconfont icon-ic_Eyes"></text>
-						<text>隐藏热搜榜</text>
+						<text>ເຊື່ອງອັນດັບການຄົ້ນຫາຮ້ອນ</text>
 					</view>
 					<view v-else class="switch" @click="isShow=!isShow">
 						<text class="iconfont icon-ic_eye"></text>
-						<text>开启热搜榜</text>
+						<text>ເປີດອັນດັບການຄົ້ນຫາຮ້ອນ</text>
 					</view>
 				</view>
 			</view>
@@ -162,7 +162,7 @@
 				page: 1,
 				loading: false,
 				loadend: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				hotPage: 1,
 				isScroll: true,
 				// 搜索历史
@@ -199,8 +199,8 @@
 			remove() {
 				let self = this
 				uni.showModal({
-					title: '提示',
-					content: '确认删除全部历史搜索记录？',
+					title: 'ແຈ້ງເຕືອນ',
+					content: 'ຢືນຢັນລຶບປະຫວັດການຄົ້ນຫາທັງໝົດບໍ?',
 					success: function(res) {
 						if (res.confirm) {
 							self.tempStorage = []

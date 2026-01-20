@@ -6,13 +6,13 @@
 					<view class="item bg-f boder-24" v-for="(itm, idx) in item.orderProduct" :key="idx">
 						<view class="exchange_record-time">
 							<view>
-								{{item.paid == 1 ? '兑换时间：'+item.pay_time : '订单号：'+item.order_sn}}
+								{{item.paid == 1 ? 'ເວລາແລກ：'+item.pay_time : 'ເລກຄຳສັ່ງ：'+item.order_sn}}
 							</view>
 							<view v-if="item.paid == 0" class="status">
-								待付款
+								ລໍຖ້າຊຳລະ
 							</view>
 							<view v-else class="status">
-								{{item.status == 0 ? '待发货' : item.status == 1 ? '待收货' : '已完成'}}
+								{{item.status == 0 ? 'ລໍຖ້າສົ່ງ' : item.status == 1 ? 'ລໍຖ້າຮັບ' : 'ສຳເລັດແລ້ວ'}}
 							</view>
 						</view>
 						<view v-if="itm.cart_info" class="picTxt acea-row row-between-wrapper">
@@ -21,20 +21,20 @@
 							</view>
 							<view class="text acea-row row-column-around">
 								<view class="line2" style="width: 100%;">{{ itm.cart_info.product.store_name }}</view>
-								<view class="line1 gray-sty">{{itm.cart_info.productAttr&&itm.cart_info.productAttr.sku || '默认'}}</view>
+								<view class="line1 gray-sty">{{itm.cart_info.productAttr&&itm.cart_info.productAttr.sku || 'ຄ່າເລີ່ມຕົ້ນ'}}</view>
 							</view>
 						</view>
 						<view class="bottom acea-row row-between-wrapper">
 							<view class="end"></view>
 							<view class="acea-row row-middle row-right">
-								<view v-if="item.paid == 0" class='bnt bg-colort' @click='goPay(item)'>立即付款</view>
+								<view v-if="item.paid == 0" class='bnt bg-colort' @click='goPay(item)'>ຊຳລະດຽວນີ້</view>
 								<view class="bnt cancel" v-if="(item.status == 2 || item.status == 1) && item.delivery_type == 1"
 									@click="getLogistics(item.order_id)">
-									查看物流
+									ເບິ່ງການຂົນສົ່ງ
 								</view>
-								<view v-if="item.status == 3 && item.paid == 1" class="bnt cancel" @click="delOrder(item.order_id,index,idx)">删除</view>
+								<view v-if="item.status == 3 && item.paid == 1" class="bnt cancel" @click="delOrder(item.order_id,index,idx)">ລຶບ</view>
 								<view v-if="item.paid == 1" class="bnt bg-colort" @click="goDetail(item.order_id)">
-									查看详情
+									ເບິ່ງລາຍລະອຽດ
 								</view>
 							</view>
 						</view>
@@ -47,7 +47,7 @@
 			{{loadTitle}}
 		</view>
 		<block v-if="exchangeList.length == 0 && !loading">
-			<emptyPage title="暂无兑换记录～" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
+			<emptyPage title="ບໍ່ມີບັນທຶກການແລກ～" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
 		</block>
 		<payment :payMode='payMode' :order_type="2" :pay_close="pay_close" :returnUrl="'/pages/points_mall/integral_order_details?order_id='+order_id" @onChangeFun='onChangeFun' :order_id="pay_order_id" :totalPrice='totalPrice'></payment>
 	</view>
@@ -85,7 +85,7 @@
 				payMode: [],
 				loadend: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				page: 1, //页码
 				limit: 20, //数量
 				userInfo: {},
@@ -143,7 +143,7 @@
 					let loadend = res.data.list.length < that.limit;
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? '已全部加载' : '加载更多';
+					that.loadTitle = loadend ? 'ໂຫຼດໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.exchangeList.push.apply(that.exchangeList, res.data.list);
 					that.page++;
 				})
@@ -208,7 +208,7 @@
 			goOrderDetails: function(order_id) {
 				let self = this
 				if (!order_id) return that.$util.Tips({
-					title: '缺少订单号无法查看订单详情'
+					title: 'ຂາດເລກຄຳສັ່ງ ບໍ່ສາມາດເບິ່ງລາຍລະອຽດໄດ້'
 				});
 				uni.navigateTo({
 					url: '/pages/points_mall/integral_order_details?order_id=' + order_id
@@ -226,14 +226,14 @@
 			delOrder: function(order_id, index, idx) {
 				let that = this;
 				uni.showModal({
-					title: '提示',
-					content: '确定删除该记录吗？',
+					title: 'ແຈ້ງເຕືອນ',
+					content: 'ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບບັນທຶກນີ້?',
 					success: function (res) {
 						if (res.confirm) {
 							integralOrderDelete(order_id).then(res=>{
 								that.exchangeList[index]['orderProduct'].splice(idx,1);
 								that.$util.Tips({
-									title: '删除成功'
+									title: 'ລຶບສຳເລັດ'
 								});
 							}).catch(err => {
 								return that.$util.Tips({

@@ -3,7 +3,7 @@
 		<view class="container" :class="isShow==true?'on':''" @click.stop="loseFocus">
 			<view class="main_content">
 				<view class="header">
-					<text class="title font-500">评论 {{all}}</text>
+					<text class="title font-500">ຄຳເຫັນ {{all}}</text>
 					<text class="iconfont icon-ic_close popup-close" @click="close"></text>
 				</view>
 				<view class="main">
@@ -32,7 +32,7 @@
 													<image class="image" :src="itemn.author && itemn.author.avatar || '/static/images/f.png'"></image>
 													<view v-if="itemn.author" class="name_two">{{itemn.author.nickname}}</view>
 													<view class="desc_two">
-														<text class="reply_user" v-if="itemn.reply">回复 @{{itemn.reply.nickname}} </text> {{itemn.content}}
+														<text class="reply_user" v-if="itemn.reply">ຕອບກັບ @{{itemn.reply.nickname}} </text> {{itemn.content}}
 													</view>
 													<view class="time_two">{{itemn.create_time}}</view>
 												</view>
@@ -45,12 +45,12 @@
 									</view>
 								</view>
 							</view>
-							<view class="end"><text>到底了</text></view>
+							<view class="end"><text>ບໍ່ມີແລ້ວ</text></view>
 						</view>
 						<Loading :loaded="loaded" :loading="loading"></Loading>
 						<view v-if="list.length == 0 && !loading" class="empty">
 							<image :src="`${domain}/static/images/no_commen.png`"></image>
-							<text>暂无评论，快去抢沙发吧~</text>
+							<text>ບໍ່ມີຄຳເຫັນ, ເປັນຄົນທຳອິດໄດ້ເລີຍ~</text>
 						</view>
 					</scroll-view>
 				</view>
@@ -60,7 +60,7 @@
 				<view class="input_count" @click.stop="">
 					<input ref="myInput" type="text" :placeholder="placeholder" placeholder-style="color: #999999; font-size: 26rpx;" v-model="content" confirm-type="search">
 				</view>
-				<button class="send" @click.stop="submitComment">发送</button>
+				<button class="send" @click.stop="submitComment">ສົ່ງ</button>
 			</view>
 		</view>
 		<!-- 绑定手机号 -->
@@ -121,7 +121,7 @@
 					limit: 10
 				},
 				reply_id: "",
-				placeholder: "快来说点儿什么吧...",
+				placeholder: "ມາເວົ້າບາງຢ່າງ...",
 				isChild: false,
 				index: 0,
 				listIndex: 0,
@@ -231,7 +231,7 @@
 				this.focus = true;
 				// this.$refs.myInput.focus();
 				this.content = ""
-				this.placeholder = '回复：'+item.author.nickname
+				this.placeholder = 'ຕອບກັບ：'+item.author.nickname
 				this.reply_id = item.reply_id
 				this.isChild = true
 				this.index = index;
@@ -240,7 +240,7 @@
 			loseFocus(){
 				this.focus = false;
 				this.reply_id = 0;
-				this.placeholder = "快来说点儿什么吧..."
+				this.placeholder = "ມາເວົ້າບາງຢ່າງ..."
 				this.isChild = false
 			},
 			/*点赞评论*/

@@ -2,9 +2,9 @@
 	<view class="containers" :style="viewColor">
 		<view class="header">
 			<view class="title">
-				<text :class="isActive == 0 ? 'on' : ''" @click="tabs(0)">已购</text>
-				<text :class="isActive == 1 ? 'on' : ''" @click="tabs(1)">收藏</text>
-				<text :class="isActive == 2 ? 'on' : ''" @click="tabs(2)">浏览</text>
+				<text :class="isActive == 0 ? 'on' : ''" @click="tabs(0)">ຊື້ແລ້ວ</text>
+				<text :class="isActive == 1 ? 'on' : ''" @click="tabs(1)">ເກັບໄວ້</text>
+				<text :class="isActive == 2 ? 'on' : ''" @click="tabs(2)">ເຂົ້າຊົມ</text>
 			</view>
 			<view class="search">
 				<text class="iconfont icon-ic_search"></text>
@@ -35,7 +35,7 @@
 					</view>
 					<view v-else class="empty">
 						<image :src="`${domain}/static/images/no_thing.png`"></image>
-						<text>暂无内容哦~</text>
+						<text>ບໍ່ມີເນື້ອຫາ~</text>
 					</view>
 				</block>
 				<block v-if="isActive == 1">
@@ -58,7 +58,7 @@
 					</view>
 					<view v-else class="empty">
 						<image :src="`${domain}/static/images/no_thing.png`"></image>
-						<text>暂无内容哦~</text>
+						<text>ບໍ່ມີເນື້ອຫາ~</text>
 					</view>
 				</block>
 				<block v-if="isActive == 2">
@@ -81,12 +81,12 @@
 					</view>
 					<view v-else class="empty">
 						<image :src="`${domain}/static/images/no_thing.png`"></image>
-						<text>暂无内容哦~</text>
+						<text>ບໍ່ມີເນື້ອຫາ~</text>
 					</view>
 				</block>
 			</scroll-view>
 			<view class="foot_bar">
-				<button class="confirm_btn" @click="submit">确定&nbsp;&nbsp;({{checkedArr.length}})</button>
+				<button class="confirm_btn" @click="submit">ຕົກລົງ&nbsp;&nbsp;({{checkedArr.length}})</button>
 			</view>
 		</view>
 	</view>

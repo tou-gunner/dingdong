@@ -37,12 +37,12 @@ export default {
       tabs: [
         {
           index: UNASSIGNED,
-          label: "接单",
+          label: "ຮັບອໍເດີ",
           icon: "icon-jiedan-weixuanzhong"
         },
         {
           index: ASSIGNED,
-          label: "我的配送",
+          label: "ການຈັດສົ່ງຂອງຂ້ອຍ",
           icon: "icon-dingdan-weixuanzhong"
         }
       ]

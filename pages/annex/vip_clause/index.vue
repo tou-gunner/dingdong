@@ -34,7 +34,7 @@
 		methods: {
 			memberCard() {
 				uni.showLoading({
-					title: '加载中'
+					title: 'ກຳລັງໂຫຼດ'
 				});
 				let that = this
 				getAgreementApi('sys_svip').then(res => {

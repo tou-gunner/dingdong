@@ -51,22 +51,22 @@
 				<view class="product-item" v-for="(item, index) in goodList" @click="goGoodsDetail(item)" :key="index">
 					<view class='pictrue'>
 						<image :src='item.image'></image>
-						<view v-if="item.stock == 0" class="sell_out">已兑完</view>
+						<view v-if="item.stock == 0" class="sell_out">ແລກໝົດແລ້ວ</view>
 					</view>
 					<view class="info">
 						<view class="title line1">{{ item.store_name }}</view>
 						<view class="acea-row price-count">
 							<image class="image" :src="`${domain}/static/images/jf-point.png`" mode="widthFix"></image>
 							<text class="price">{{ item.ot_price }}</text>
-							<text class="count-text">积分</text>
-							<view class="sales">+{{parseFloat(Number(item.price).toFixed(2))}}元</view>
+							<text class="count-text">ຄະແນນ</text>
+							<view class="sales">+{{parseFloat(Number(item.price).toFixed(2))}}ກີບ</view>
 						</view>
 					</view>
 				</view>
 			</view>
 			<view v-else-if="!loading" class="no-goods">
 				<image :src="`${domain}/static/images/no_thing.png`"></image>
-				<view class="fontimg">暂无商品，去看点别的吧</view>
+				<view class="fontimg">ບໍ່ມີສິນຄ້າ, ໄປເບິ່ງອັນອື່ນກ່ອນ</view>
 			</view>
 			<view v-if="loading" class='loadingicon acea-row row-center-wrapper'>
 				<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>{{loadTitle}}
@@ -105,7 +105,7 @@
 				domain:HTTP_REQUEST_URL,
 				loadend: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				where: {
 					page: 1,
 					limit: 10,
@@ -149,7 +149,7 @@
 			// 获取积分区间
 			getIntegralScope() {
 				getIntegralScope().then(res => {
-					res.data.unshift({title: '全部',group_data_id: '',min: '',max: ''})
+					res.data.unshift({title: 'ທັງໝົດ',group_data_id: '',min: '',max: ''})
 					this.tabTitle = res.data
 				}).catch(err => {
 					this.loading = false;
@@ -187,7 +187,7 @@
 					let loadend = list.length < that.where.limit;
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? '已全部加载' : '加载更多';
+					that.loadTitle = loadend ? 'ໂຫຼດໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'goodList', goodList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {

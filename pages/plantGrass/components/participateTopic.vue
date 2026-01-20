@@ -1,7 +1,7 @@
 <template>
 	<view class='productSort'>
 		<view class="title">
-			参与话题
+			ເຂົ້າຮ່ວມຫົວຂໍ້
 			<text class="iconfont icon-ic_close popup-close" @click="close"></text>
 		</view>
 		<view class="con-box">
@@ -79,7 +79,7 @@
 				let value = ""
 				getTopicList().then(res => {
 					let arr = [
-						{category_id: "",count_use: 0,count_view: 0,pic: null,topic_id: '',topic_name: "不添加任何话题"}
+						{category_id: "",count_use: 0,count_view: 0,pic: null,topic_id: '',topic_name: "ບໍ່ເພີ່ມຫົວຂໍ້ໃດ"}
 					]
 					that.productList = res.data;
 					if(that.productList[0].children && that.productList[0].children.length > 0){

@@ -17,19 +17,19 @@
 			</view>
 			<view class="store-address" style="border-bottom: 1rpx solid #eee;">
 				<view class="address acea-row row-between">
-					<view class="info">地址：{{orderInfo.merchant.mer_address}}</view>
+					<view class="info">ທີ່ຢູ່: {{orderInfo.merchant.mer_address}}</view>
 					<!-- #ifndef H5 -->
-					<text class='copy' @tap='copy(orderInfo.merchant.mer_address)'>复制</text>
+					<text class='copy' @tap='copy(orderInfo.merchant.mer_address)'>ສຳເນົາ</text>
 					<!-- #endif -->
 					<!-- #ifdef H5 -->
-					<text class='copy copy-data' :data-clipboard-text="orderInfo.merchant.mer_take_address">复制</text>
+					<text class='copy copy-data' :data-clipboard-text="orderInfo.merchant.mer_take_address">ສຳເນົາ</text>
 					<!-- #endif -->
 				</view>
-				<view class="info info-100">营业时间：{{orderInfo.merchant.mer_take_time[0]}}-{{orderInfo.merchant.mer_take_time[1]}}</view>
+				<view class="info info-100">ເວລາເປີດບໍລິການ: {{orderInfo.merchant.mer_take_time[0]}}-{{orderInfo.merchant.mer_take_time[1]}}</view>
 			</view>
 			<view class="store-count acea-row row-between">
-				<view class="acea-row row-middle row-center" @click="makePhone(orderInfo.merchant.mer_take_phone)"><text class="iconfont icon-ic_phone"></text>联系商家</view>
-				<view class="acea-row row-middle row-center" @tap="showMaoLocation"><text class="iconfont icon-ic_location"></text>导航至商家</view>
+				<view class="acea-row row-middle row-center" @click="makePhone(orderInfo.merchant.mer_take_phone)"><text class="iconfont icon-ic_phone"></text>ຕິດຕໍ່ຮ້ານຄ້າ</view>
+				<view class="acea-row row-middle row-center" @tap="showMaoLocation"><text class="iconfont icon-ic_location"></text>ນຳທາງໄປຮ້ານຄ້າ</view>
 			</view>
 		</view>
 		<!--上门-->
@@ -49,10 +49,10 @@
 			</view>
 			<view v-if="orderInfo.staffs" class="service acea-row row-between row-middle">
 				<view>
-					<view class="service-item">服务人员：{{orderInfo.staffs.name}}</view>
-					<view class="service-item">联系电话：{{orderInfo.staffs.phone}}</view>
+					<view class="service-item">ພະນັກງານບໍລິການ: {{orderInfo.staffs.name}}</view>
+					<view class="service-item">ເບີໂທລະສັບ: {{orderInfo.staffs.phone}}</view>
 				</view>
-				<view class="call acea-row row-center row-middle" @click="makePhone(orderInfo.staffs.phone)">拨打电话</view>
+				<view class="call acea-row row-center row-middle" @click="makePhone(orderInfo.staffs.phone)">ໂທຫາ</view>
 			</view>
 			<view class='line'>
 				<image :src="`${domain}/static/images/line.jpg`"></image>

@@ -9,26 +9,26 @@
 				<view class="customerInfo">
 					<view class="list">
 						<view class="item">
-							<view class="text">备注昵称</view>
+							<view class="text">ຊື່ເອີ້ນ</view>
 							<view class="input">
-								<input type='text' v-model="userInfo.mark" placeholder="请输入"></input>
+								<input type='text' v-model="userInfo.mark" placeholder="ກະລຸນາປ້ອນ"></input>
 							</view>
 						</view>
 						<view class="item" v-if="userInfo.user.phone">
-							<view class="text">手机号</view>
+							<view class="text">ເບີໂທລະສັບ</view>
 							<view class="input">
 								{{userInfo.user.phone}}
 							</view>
 						</view>
 						<view class="item">
-							<view class="text">推广员</view>
+							<view class="text">ຜູ້ສົ່ງເສີມ</view>
 							<view class="input">
-								{{userInfo.user.is_promoter ? '是' : '否'}}
+								{{userInfo.user.is_promoter ? 'ແມ່ນ' : 'ບໍ່ແມ່ນ'}}
 							</view>
 						</view>
 					</view>
 				</view>
-				<button form-type="submit" @click="saveMark" class="confirmBnt">确认</button>
+				<button form-type="submit" @click="saveMark" class="confirmBnt">ຢືນຢັນ</button>
 			</view>
 		</form>
 	</view>
@@ -72,7 +72,7 @@
 				serviceSaveMark(this.mer_id, this.uid, this.userInfo.mark).then(res=>{
 					uni.showToast({
 						icon: 'success',
-						title: '保存成功'
+						title: 'ບັນທຶກສຳເລັດ'
 					})
 					setTimeout(v=>{
 						uni.navigateBack()
@@ -90,7 +90,7 @@
 			},
 			serviceUser() {
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ',
 					mask: true
 				})
 				serviceUser(this.mer_id, this.uid).then(res => {

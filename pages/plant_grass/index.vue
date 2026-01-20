@@ -12,15 +12,15 @@
 								<view class="toggle_count" v-if="showBubble">
 									<view v-if="community_status == 1" @click="goPage('/pages/plantGrass/plant_release/index')" class="items">
 										<text class="iconfont icon-ic_edit"></text>
-										<text>发布作品</text>
+										<text>ເຜີຍແຜ່ຜົນງານ</text>
 									</view>
 									<view v-if="community_status == 1" @click="goPage('/pages/plantGrass/plant_user/index?id='+userInfo.uid)" class="items">
 										<text class="iconfont icon-a-ic_user1"></text>
-										<text>我的主页</text>
+										<text>ໜ້າຫຼັກຂອງຂ້ອຍ</text>
 									</view>
 								</view>
 							</view>
-							<view class="sys-title">种草社区</view>
+							<view class="sys-title">ຊຸມຊົນແນະນຳສິນຄ້າ</view>
 						</view>
 						<!-- #endif -->
 						<view class="grass_header">
@@ -30,21 +30,21 @@
 										<view class="toggle_count" v-if="showBubble">
 											<view v-if="community_status == 1" @click="goPage('/pages/plantGrass/plant_release/index')" class="items">
 												<text class="iconfont icon-ic_edit"></text>
-												<text>发布作品</text>
+												<text>ເຜີຍແຜ່ຜົນງານ</text>
 											</view>
 											<view v-if="community_status == 1" @click="goPage('/pages/plantGrass/plant_user/index?id='+userInfo.uid)" class="items">
 												<text class="iconfont icon-a-ic_user1"></text>
-												<text>我的主页</text>
+												<text>ໜ້າຫຼັກຂອງຂ້ອຍ</text>
 											</view>
 										</view>
 									</view>
 									<view class="acea-row row-center-wrapper flex-center">
-										<view :class="tabActive == 0 ? 'on' : ''" class="nav-item" @click="tabActive=0;">关注</view>
-										<view :class="tabActive == 1 ? 'on' : ''" class="nav-item" @click="tabActive=1;">发现</view>
+										<view :class="tabActive == 0 ? 'on' : ''" class="nav-item" @click="tabActive=0;">ຕິດຕາມ</view>
+										<view :class="tabActive == 1 ? 'on' : ''" class="nav-item" @click="tabActive=1;">ຄົ້ນພົບ</view>
 									</view>
 								</view>
 								<view class="search_count">
-									<navigator url="/pages/plantGrass/plant_search/index" hover-class="none" class="search"><text class="iconfont icon-ic_search"></text>搜索想看的文章</navigator>
+									<navigator url="/pages/plantGrass/plant_search/index" hover-class="none" class="search"><text class="iconfont icon-ic_search"></text>ຄົ້ນຫາບົດຄວາມທີ່ຕ້ອງການອ່ານ</navigator>
 									<navigator class="search_topic" url="/pages/plantGrass/plant_topic/index">
 										<image class="topic_icon" :src="`${domain}/static/images/topic_cate.png`"></image>
 									</navigator>
@@ -88,7 +88,7 @@
 											</view>
 											<view class="pro_describle">
 												<view class="mentioned" v-if="item.relevance && item.relevance.length > 0" @click="openMore(item)">
-													<text class="title">查看TA提到的宝贝({{item.relevance.length}})</text>
+													<text class="title">ເບິ່ງສິນຄ້າທີ່ກ່າວເຖິງ({{item.relevance.length}})</text>
 													<view class="product_more">
 														<view class="item">
 															<image v-if="indexn<4" v-for="(itemn, indexn) in item.relevance" :key="indexn" :src="(itemn.spu && itemn.spu.image) || itemn.image" class="more_image"></image>
@@ -100,7 +100,7 @@
 													<text class="text">
 														{{item.content.substring(0,90)+'...'}}
 													</text>
-													<text @click.stop="showMore(item)" class="unfold_btn">展开</text>
+													<text @click.stop="showMore(item)" class="unfold_btn">ຂະຫຍາຍ</text>
 												</view>
 												<view v-else class="product_info">
 													<text class="text">
@@ -122,11 +122,11 @@
 													<view class="item">
 														<view class="item_count" @click.stop="likeToggle(item)">
 															<text class="iconfont" :class="item.relevance_id ? 'icon-ic_love_2' : 'icon-ic_love'"></text>
-															<text>{{item.count_start > 0 ? item.count_start : '点赞'}}</text>
+															<text>{{item.count_start > 0 ? item.count_start : 'ກົດໃຈ'}}</text>
 														</view>
 														<view v-if="community_reply_status == 1" class="item_count" @click.stop="openCommon(item,index)">
 															<text class="iconfont icon-ic_daipingjia1"></text>
-															<text>{{item.count_reply > 0 ? item.count_reply : '评论'}}</text>
+															<text>{{item.count_reply > 0 ? item.count_reply : 'ຄຳເຫັນ'}}</text>
 														</view>
 													</view>
 												</view>
@@ -138,7 +138,7 @@
 								</view>
 								<view v-if="followList.length == 0 && !focusLoading && isLogin" class="empty">
 									<image :src="`${domain}/static/images/no_thing.png`"></image>
-									<text class="text">暂无内容~</text>
+									<text class="text">ບໍ່ມີເນື້ອຫາ~</text>
 								</view>
 								<view v-if="!isLogin" class="empty no_login">
 									<image :src="`${domain}/static/images/noActivity.png`"></image>
@@ -170,7 +170,7 @@
 												</view>
 												<view v-if="cateGoods[item.category_id] && cateGoods[item.category_id].goods.length == 0 && !cateGoods[item.category_id].goodsLoading" class="empty">
 													<image :src="`${domain}/static/images/no_thing.png`"></image>
-													<text class="text">{{item.category_id == -1 ? '暂无视频' : '暂无文章'}}~</text>
+													<text class="text">{{item.category_id == -1 ? 'ບໍ່ມີວິດີໂອ' : 'ບໍ່ມີບົດຄວາມ'}}~</text>
 												</view>
 
 											</scroll-view>
@@ -270,7 +270,7 @@
 				goodsLoading: false,
 				goodsLoaded: false,
 				focusLoaded: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				where: {
 					category_id: 0,
 					page: 1,
@@ -427,9 +427,9 @@
 			/*获取分类列表*/
 			getCateList(){
 				getTopicList().then(res => {
-					let data = [{cate_name: "推荐",category_id: 0,children: []}]
+					let data = [{cate_name: "ແນະນຳ",category_id: 0,children: []}]
 					if(this.community_app_switch.length == 2 || this.community_app_switch[0]==2){
-						data = [{cate_name: "推荐",category_id: 0,children: []},{cate_name: "视频",category_id: -1,children: []}]
+						data = [{cate_name: "ແນະນຳ",category_id: 0,children: []},{cate_name: "ວິດີໂອ",category_id: -1,children: []}]
 					}
 					this.menuList = Array.from(new Set([...data,...res.data]));
 				})

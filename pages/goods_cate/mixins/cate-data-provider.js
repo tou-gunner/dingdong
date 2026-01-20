@@ -31,7 +31,7 @@ export default {
     allCategoryList() {
       return [
         {
-          cate_name: "全部分类",
+          cate_name: "ໝວດໝູ່ທັງໝົດ",
           pic: this.login_logo,
           store_category_id: 0
         },
@@ -41,7 +41,7 @@ export default {
     activeSecondCategoryList() {
       let categoryList = [
         {
-          cate_name: "推荐",
+          cate_name: "ແນະນຳ",
           store_category_id: 0,
           children: this.hotCategoryList
         }
@@ -63,7 +63,7 @@ export default {
     activeThirdCategoryList() {
       const categoryList = [
         {
-          cate_name: "全部商品",
+          cate_name: "ສິນຄ້າທັງໝົດ",
           store_category_id: 0
         }
       ];

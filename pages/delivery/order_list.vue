@@ -7,7 +7,7 @@
     <view class="order-top-bar">
       <view class="order-top-bar-content">
         <OrderListInfo/>
-        <SearchBar @confirm="confirmSearchText" @change="changeSearchText" placeholder="请输入订单编号/商品名称">
+        <SearchBar @confirm="confirmSearchText" @change="changeSearchText" placeholder="ກະລຸນາປ້ອນລະຫັດອໍເດີ/ຊື່ສິນຄ້າ">
         </SearchBar>
       </view>
       <view class="order-category-bg" v-if="orderType === ASSIGNED">
@@ -34,10 +34,10 @@
     </view>
     <template v-if="!loadOptions.loading">
       <view class="order-list-empty" v-if="loadOptions.loaded && orderList.length">
-        人家也是有底线的～
+        ໝົດແລ້ວ~
       </view>
       <view v-else-if="orderList.length === 0" class="nothing">
-        <EmptyPage title="暂无订单~" :noImage="`${domain}/static/images/noRecord.png`" />
+        <EmptyPage title="ບໍ່ມີອໍເດີ~" :noImage="`${domain}/static/images/noRecord.png`" />
       </view>
     </template>
 		<!-- 备注弹窗 -->
@@ -112,7 +112,7 @@ export default {
       },
 			user: {
 				avatar: '',
-				name: '昵称',
+				name: 'ຊື່ຫຼິ້ນ',
 				id: 'id',
 			},
 			panelHeight: 0, // 订单类型选项到屏幕剩余高度
@@ -225,7 +225,7 @@ export default {
 		async handleSaveRemark({ remark }) {
 		  if (!remark) {
 		    this.$util.Tips({
-		      title: "请输入备注信息",
+		      title: "ກະລຸນາປ້ອນຂໍ້ມູນໝາຍເຫດ",
 		      icon: "none"
 		    });
 		    return;

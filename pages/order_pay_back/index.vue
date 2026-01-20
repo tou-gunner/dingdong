@@ -5,31 +5,31 @@
 		<view class="payCount" v-if="isWeixin">
 			<view class="count">
 				<view class="main">
-					<view>点击右上角
+					<view>ກົດທີ່ມຸມຂວາເທິງ
 						<text class='iconfont icon-gengduo2'></text>
 						<image class="image" :src="`${domain}/static/images/guide.png`"></image>
 					</view>
-					<view>选择在<text class="text">浏览器</text>中打开，去支付宝支付</view>
+					<view>ເລືອກເປີດໃນ<text class="text">ບຣາວເຊີ</text> ເພື່ອຊຳລະດ້ວຍ Alipay</view>
 				</view>
 			</view>
 			<view class="pay_count">
-				<navigator v-if="type == 0" url="/pages/users/order_list/index?status=1" class="payBtn">完成支付</navigator>
-				<navigator v-if="type == 10" url="/pages/users/user_payment/index" class="payBtn bg-none">返回</navigator>
-				<navigator v-else-if="type == 11" url="/pages/annex/vip_paid/index" class="payBtn bg-none">返回</navigator>
-				<navigator v-else url="/pages/users/order_list/index?status=0" class="payBtn bg-none">返回查看订单</navigator>
+				<navigator v-if="type == 0" url="/pages/users/order_list/index?status=1" class="payBtn">ຊຳລະສຳເລັດ</navigator>
+				<navigator v-if="type == 10" url="/pages/users/user_payment/index" class="payBtn bg-none">ກັບຄືນ</navigator>
+				<navigator v-else-if="type == 11" url="/pages/annex/vip_paid/index" class="payBtn bg-none">ກັບຄືນ</navigator>
+				<navigator v-else url="/pages/users/order_list/index?status=0" class="payBtn bg-none">ກັບຄືນເບິ່ງຄຳສັ່ງຊື້</navigator>
 			</view>
 		</view>
 		<!--H5-->
 		<view v-else>
 			<view class="alipay">
 				<image class="alipay_wait" :src="domain+'/static/diy/alipay_wait'+keyColor+'.png'"></image>
-				<view class="alipay_text">正在跳转支付... </view>
+				<view class="alipay_text">ກຳລັງເປີດໜ້າຊຳລະເງິນ... </view>
 			</view>
 			<view class="pay_count">
-				<navigator v-if="type == 0" url="/pages/users/order_list/index?status=1" class="payBtn">完成支付</navigator>
-				<navigator v-if="type == 10" url="/pages/users/user_payment/index" class="payBtn bg-none">返回</navigator>
-				<navigator v-else-if="type == 11" url="/pages/annex/vip_paid/index" class="payBtn bg-none">返回</navigator>
-				<navigator v-else url="/pages/users/order_list/index?status=0" class="payBtn bg-none">返回查看订单</navigator>
+				<navigator v-if="type == 0" url="/pages/users/order_list/index?status=1" class="payBtn">ຊຳລະສຳເລັດ</navigator>
+				<navigator v-if="type == 10" url="/pages/users/user_payment/index" class="payBtn bg-none">ກັບຄືນ</navigator>
+				<navigator v-else-if="type == 11" url="/pages/annex/vip_paid/index" class="payBtn bg-none">ກັບຄືນ</navigator>
+				<navigator v-else url="/pages/users/order_list/index?status=0" class="payBtn bg-none">ກັບຄືນເບິ່ງຄຳສັ່ງຊື້</navigator>
 			</view>
 		</view>
 		<!-- #endif -->
@@ -38,17 +38,17 @@
 		<view class="payCount">
 			<view class="count">
 				<view class="main_text">
-					<view>去支付，请长按网址复制后 使用浏览器访问</view>
+					<view>ເພື່ອຊຳລະເງິນ, ກະລຸນາກົດຄ້າງທີ່ URL ເພື່ອສຳເນົາ ແລະ ເປີດໃນບຣາວເຊີ</view>
 					<text class='copy' @tap='copy'>{{url}}</text>
 				</view>
 			</view>
 			<view class="pay_count">
-				<navigator v-if="type == 10" url="/pages/users/user_payment/index" class="payBtn">完成支付</navigator>
-				<navigator v-else-if="type == 11" url="/pages/annex/vip_paid/index" class="payBtn">完成支付</navigator>
-				<navigator v-else url="/pages/users/order_list/index?status=1" class="payBtn">完成支付</navigator>
-				<navigator v-if="type == 10" url="/pages/users/user_payment/index" class="payBtn bg-none">返回</navigator>
-				<navigator v-else-if="type == 11" url="/pages/annex/vip_paid/index" class="payBtn bg-none">返回</navigator>
-				<navigator v-else url="/pages/users/order_list/index?status=0" class="payBtn bg-none">返回查看订单</navigator>
+				<navigator v-if="type == 10" url="/pages/users/user_payment/index" class="payBtn">ຊຳລະສຳເລັດ</navigator>
+				<navigator v-else-if="type == 11" url="/pages/annex/vip_paid/index" class="payBtn">ຊຳລະສຳເລັດ</navigator>
+				<navigator v-else url="/pages/users/order_list/index?status=1" class="payBtn">ຊຳລະສຳເລັດ</navigator>
+				<navigator v-if="type == 10" url="/pages/users/user_payment/index" class="payBtn bg-none">ກັບຄືນ</navigator>
+				<navigator v-else-if="type == 11" url="/pages/annex/vip_paid/index" class="payBtn bg-none">ກັບຄືນ</navigator>
+				<navigator v-else url="/pages/users/order_list/index?status=0" class="payBtn bg-none">ກັບຄືນເບິ່ງຄຳສັ່ງຊື້</navigator>
 			</view>
 		</view>
 		<!-- #endif -->
@@ -95,7 +95,7 @@
 				const clipboard = new ClipboardJS(".copy-data");
 				clipboard.on("success", () => {
 					this.$util.Tips({
-						title: '复制成功'
+						title: 'ສຳເນົາສຳເລັດ'
 					});
 				});
 			});

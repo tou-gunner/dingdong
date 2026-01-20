@@ -32,7 +32,7 @@
 	</view>
 	<view class="wrapper">
 		<GoodList :bastList="goodsList" :is-sort="false" :isLogin='isLogin'></GoodList>
-		<view class="txt-bar" v-if="goodsList.length>0 && !isScroll">我是有底线的~</view>
+		<view class="txt-bar" v-if="goodsList.length>0 && !isScroll">ໝົດແລ້ວ~</view>
 	</view>
 </view>
 </template>
@@ -58,20 +58,20 @@ import { toLogin } from '@/libs/login.js';
 
 const typeData = {
 	best:{
-		desc:'新品抢先购',
-		name:'精品推荐'
+		desc:'ຊື້ສິນຄ້າໃໝ່ກ່ອນໃຜ',
+		name:'ສິນຄ້າແນະນຳ'
 	},
 	hot:{
-		desc:'剁手必备指南',
-		name:'热门榜单'
+		desc:'ຄູ່ມືການຊື້ທີ່ຕ້ອງມີ',
+		name:'ອັນດັບຍອດນິຍົມ'
 	},
 	new:{
-		desc:'发现品质好物',
-		name:'首发新品'
+		desc:'ພົບສິນຄ້າຄຸນນະພາບ',
+		name:'ສິນຄ້າໃໝ່ທຳອິດ'
 	},
 	good:{
-		desc:'惊喜折扣价',
-		name:'推荐单品'
+		desc:'ລາຄາສ່ວນຫຼຸດພິເສດ',
+		name:'ສິນຄ້າແນະນຳເດີ່ຍວ'
 	},
 }
 

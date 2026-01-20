@@ -2,7 +2,7 @@
 	<view :style="viewColor">
 		<view class="container popup-main" :class="popup.show==true?'on':''">
 			<view class="header">
-				<text class="title font-500">优惠套餐({{discountsTotal}})</text>
+				<text class="title font-500">ຊຸດໂປຣໂມຊັນ({{discountsTotal}})</text>
 				<text class="iconfont icon-ic_close popup-close" @tap.stop="closePopup"></text>
 			</view>
 			<view class="main_count">
@@ -12,7 +12,7 @@
 							<view class="acea-row list_title">
 								<view class="combo_list_name">
 									<image class="title_icon" :src="`${domain}/static/images/combo_title.png`"></image>
-									<view class="name line1">套餐{{index+1}}: {{item.title}}</view>
+									<view class="name line1">ຊຸດ{{index+1}}: {{item.title}}</view>
 								</view>
 								<view class="combo_list_money">
 									<priceFormat :price="item.total_price.toFixed(2)" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
@@ -20,7 +20,7 @@
 							</view>
 							<view v-if="item.is_time == 1">
 								<view class="comb_time">
-									<text class="count-time">距套餐结束</text>
+									<text class="count-time">ຍັງເຫຼືອເວລາ</text>
 									<countDown class="spike-count" :tip-text="' '" :day-text="'天'" :hour-text="':'" :minute-text="':'" :second-text="' '" :isDay="true" :datatime="item.stop_time" :isTheme="true" :isView="true"></countDown>
 								</view>
 							</view>
@@ -36,13 +36,13 @@
 										</view>
 										<view class="picture">
 											<image :src="itemn.image" class="image"></image>
-											<text v-if="itemn.product_id == id" class="current_pro">当前商品</text>
+											<text v-if="itemn.product_id == id" class="current_pro">ສິນຄ້າປັດຈຸບັນ</text>
 										</view>
 										<view class="info">
 											<view class="name line2" :class="item.type==1 ? 'names' : ''">{{itemn.store_name}}</view>
 											<view class="list_attr" @click="selecAttr(index,indexn)">
 												<text class="line1">
-												{{itemn.attr || '默认'}}
+												{{itemn.attr || 'ຄ່າເລີ່ມຕົ້ນ'}}
 												</text>
 												<text class="iconfont icon-ic_downarrow"></text>
 											</view>
@@ -58,14 +58,14 @@
 									</view>
 								</block>
 							</view>
-							<view class="save_money semiBold"><text>省:</text>
+							<view class="save_money semiBold"><text>ປະຢັດ:</text>
 								¥{{item.checked_save_money}}
 							</view>
 							<view v-if="item.is_limit == 0 || (item.is_limit == 1 && item.limit_num > 0)" class="btn" @click="subData(index)">
-								购买此套餐（{{item.checked_num}}件商品）
+								ຊື້ຊຸດນີ້（{{item.checked_num}}ຊິ້ນສິນຄ້າ）
 							</view>
 							<view v-else-if="item.is_limit == 1 && item.limit_num <= 0" class="btn disabled">
-								套餐已售罄
+								ຊຸດໝົດແລ້ວ
 							</view>
 						</view>
 					</block>

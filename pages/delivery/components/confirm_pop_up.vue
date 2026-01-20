@@ -6,13 +6,13 @@
 		@touchmove.stop.prevent=""
 	>
 		<view class="content-box flex-box" @click.stop>
-			<view class="text flex-center">请将包裹送达客户手中，辛苦您了！</view>
+			<view class="text flex-center">ກະລຸນາສົ່ງພັດສະດຸໃຫ້ລູກຄ້າ, ຂອບໃຈທ່ານ!</view>
 			<view class="btn-box flex-box">
 				<view class="cancel flex-center" @click="cancel">
-					取消
+					ຍົກເລີກ
 				</view>
 				<view class="confirm flex-center" @click="confirm">
-					确认
+					ຢືນຢັນ
 				</view>
 			</view>
 		</view>

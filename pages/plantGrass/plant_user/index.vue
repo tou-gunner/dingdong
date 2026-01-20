@@ -14,32 +14,32 @@
 			<view class="plant_info acea-row">
 				<view class="count_wrapper acea-row">
 					<navigator :url="userInfo.is_self ? '/pages/plantGrass/plant_user_attention/index' : ''" class="item" hover-class="none">
-						<text>{{userInfo.focus}}</text>关注
+						<text>{{userInfo.focus}}</text>ຕິດຕາມ
 					</navigator>
 					<navigator :url="userInfo.is_self ? '/pages/plantGrass/plant_user_fans/index' : ''" class="item" hover-class="none">
-						<text>{{userInfo.fans}}</text>粉丝
+						<text>{{userInfo.fans}}</text>ຜູ້ຕິດຕາມ
 					</navigator>
 					<view class="item">
-						<text>{{userInfo.start}}</text>获赞
+						<text>{{userInfo.start}}</text>ກົດໃຈ
 					</view>
 				</view>
 				<view v-if="!userInfo.is_self" @click.stop="followAuthor">
 					<button v-if="!userInfo.is_start" class="follow_btn focus">
-						<text class="iconfont icon-ic_increase"></text>关注
+						<text class="iconfont icon-ic_increase"></text>ຕິດຕາມ
 					</button>
-					<button v-else class="follow_btn focused">已关注</button>
+					<button v-else class="follow_btn focused">ຕິດຕາມແລ້ວ</button>
 				</view>
 				<view v-else>
 					<navigator hover-class="none" url="/pages/plantGrass/plant_release/index" class="follow_btn focus">
-						<text class="iconfont icon-ic_edit"></text>发布
+						<text class="iconfont icon-ic_edit"></text>ເຜີຍແຜ່
 					</navigator>
 				</view>
 			</view>
 		</view>
 		<view class="main">
 			<view v-if="userInfo.is_self" class="tab_count">
-				<text @click.stop="changeTab(0)" :class="tab==0 ? 'on' : ''">作品</text>
-				<text @click.stop="changeTab(1)" :class="tab==1 ? 'on' : ''">赞过</text>
+				<text @click.stop="changeTab(0)" :class="tab==0 ? 'on' : ''">ຜົນງານ</text>
+				<text @click.stop="changeTab(1)" :class="tab==1 ? 'on' : ''">ກົດໃຈແລ້ວ</text>
 			</view>
 			<view class="tab-cont">
 				<view v-if="goods.length > 0" class="goods-wrap">
@@ -51,7 +51,7 @@
 					<image :src="`${domain}/static/images/noAttention.png`"></image>
 					<text>暂无内容哦~</text>
 				</view> -->
-				<emptyPage v-if="goods.length == 0 && !loading" class="empty" title="暂无内容哦~"></emptyPage>
+				<emptyPage v-if="goods.length == 0 && !loading" class="empty" title="ບໍ່ມີເນື້ອຫາ~"></emptyPage>
 				<view class='loadingicon acea-row row-center-wrapper'>
 					<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>
 						<view class="end" :hidden="loading || goods.length == 0"><text :class="loaded ? 'loaded' : ''">{{loadTitle}}</text>
@@ -88,7 +88,7 @@
 			return {
 				domain: HTTP_REQUEST_URL,
 				goods: [], // 商铺商品
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				loading: false,
 				loaded: false,
 				isAuth: 0,
@@ -165,7 +165,7 @@
 					let goods = that.$util.SplitArray(list, that.goods);
 					that.loaded = list.length < that.where.limit;
 					that.loading = false;
-					that.loadTitle = that.loaded ? '到底了' : '加载更多';
+					that.loadTitle = that.loaded ? 'ບໍ່ມີແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'goods', goods);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {
@@ -181,7 +181,7 @@
 					let goods = that.$util.SplitArray(list, that.goods);
 					that.loaded = list.length < that.where.limit;
 					that.loading = false;
-					that.loadTitle = that.loaded ? '到底了' : '加载更多';
+					that.loadTitle = that.loaded ? 'ບໍ່ມີແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'goods', goods);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {

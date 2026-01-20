@@ -8,14 +8,14 @@
 						<image v-else :src="domain+'/static/order_'+(orderInfo.status+1)+'.gif'"></image>
 					</view>
 					<view v-if="orderInfo.status == 0 && orderInfo.paid == 0" class='data'>
-						<view class='state'>请在{{orderInfo.cancel_time}}前完成支付!</view>
+						<view class='state'>ກະລຸນາຊຳລະກ່ອນ{{orderInfo.cancel_time}}!</view>
 						<view>{{orderInfo.add_time_y}}<text class='time'>{{orderInfo.create_time}}</text></view>
 					</view>
 					<view v-else class='data'>
 						<view class='state'>
-							<block v-if="orderInfo.status == 0  && orderInfo.paid == 1">待发货</block>
-							<block v-if="orderInfo.status == 1">待收货</block>
-							<block v-if="orderInfo.status == 3">已完成</block>
+							<block v-if="orderInfo.status == 0  && orderInfo.paid == 1">ລໍຖ້າສົ່ງ</block>
+							<block v-if="orderInfo.status == 1">ລໍຖ້າຮັບ</block>
+							<block v-if="orderInfo.status == 3">ສຳເລັດແລ້ວ</block>
 						</view>
 						<view>{{orderInfo.pay_time}}</view>
 					</view>
@@ -32,7 +32,7 @@
 					</view>
 				</view>
 				<view class="orderGoods bg-f mt20 boder-24" :class="orderInfo.product_type == 0?'':'on'">
-					<view class='total'>共{{orderInfo.total_num}}件商品</view>
+					<view class='total'>ລວມ {{orderInfo.total_num}} ລາຍການ</view>
 					<view class='goodWrapper'>
 						<view class='item acea-row row-between-wrapper' v-for="(item, index) in orderInfo.orderProduct" @click="jumpCon(item)" :key="index">
 							<view class='pictrue'>
@@ -43,9 +43,9 @@
 									<view class='name line1'>{{item.cart_info.product.store_name}}</view>
 									<view class='num'>x {{item.product_num}}</view>
 								</view>
-								<view class='attr line1'>{{item.cart_info.productAttr.sku || '默认'}}</view>
+								<view class='attr line1'>{{item.cart_info.productAttr.sku || 'ຄ່າເລີ່ມຕົ້ນ'}}</view>
 								<view class='money'>
-									{{item.integral}}积分 <text v-if="item.product_price > 0">+{{item.product_price}}元</text>
+									{{item.integral}}ຄະແນນ <text v-if="item.product_price > 0">+{{item.product_price}}ກີບ</text>
 								</view>
 							</view>
 						</view>
@@ -54,64 +54,64 @@
 				<!-- 送货 -->
 				<view class="wrapper bg-f mt20 boder-24" v-if="orderInfo.delivery_type == 2">
 					<view class='item acea-row row-between'>
-						<view>配送方式：</view>
-						<view class='conter'>送货</view>
+<view>ວິທີຈັດສົ່ງ：</view>
+					<view class='conter'>ສົ່ງສິນຄ້າ</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>配送员：</view>
+						<view>ຜູ້ຈັດສົ່ງ：</view>
 						<view class='conter'>{{orderInfo.delivery_name}}</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>联系电话：</view>
+						<view>ເບີໂທຕິດຕໍ່：</view>
 						<view class='conter'>{{orderInfo.delivery_id}}</view>
 					</view>
 				</view>
 				<view class='wrapper bg-f mt20 boder-24'>
 					<view class='item acea-row row-between'>
-						<view>订单编号：</view>
+						<view>ເລກຄຳສັ່ງ：</view>
 						<view class='conter acea-row row-middle row-right'>{{orderInfo.order_sn}}
 							<!-- #ifndef H5 -->
-							<text class='copy' @tap='copy'>复制</text>
+							<text class='copy' @tap='copy'>ສຳເນົາ</text>
 							<!-- #endif -->
 							<!-- #ifdef H5 -->
-							<text class='copy copy-data' :data-clipboard-text="orderInfo.order_sn">复制</text>
+							<text class='copy copy-data' :data-clipboard-text="orderInfo.order_sn">ສຳເນົາ</text>
 							<!-- #endif -->
 						</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>下单时间：</view>
+						<view>ເວລາສັ່ງ：</view>
 						<view class='conter'>{{orderInfo.create_time}}</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>支付状态：</view>
-						<view class='conter'>{{orderInfo.paid == 1 ? '已支付' : '未支付'}}</view>
+<view>ສະຖານະຊຳລະ：</view>
+					<view class='conter'>{{orderInfo.paid == 1 ? 'ຊຳລະແລ້ວ' : 'ຍັງບໍ່ຊຳລະ'}}</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>支付积分：</view>
-						<view class='conter'>{{orderInfo.integral}}积分</view>
+<view>ຄະແນນຊຳລະ：</view>
+					<view class='conter'>{{orderInfo.integral}}ຄະແນນ</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>支付金额：</view>
+						<view>ຈຳນວນເງິນຊຳລະ：</view>
 						<view class='conter'>¥{{orderInfo.pay_price}}</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>备注信息：</view>
+						<view>ໝາຍເຫດ：</view>
 						<view class='conter'>{{orderInfo.mark}}</view>
 					</view>
 					<view class='item acea-row row-between' v-if="orderInfo.delivery_type === 'express'">
-						<view>快递单号：</view>
+						<view>ເລກພັດສະດຸ：</view>
 						<view class='conter'>{{orderInfo.delivery_id}}</view>
 					</view>
 					<view class='item acea-row row-between' v-if="orderInfo.delivery_type === 'express'">
-						<view>快递公司：</view>
+						<view>ບໍລິສັດຂົນສົ່ງ：</view>
 						<view class='conter'>{{orderInfo.delivery_name}}</view>
 					</view>
 					<view class='item acea-row row-between' v-if="orderInfo.delivery_type === 'send'">
-						<view>送货人电话：</view>
+						<view>ເບີໂທຜູ້ສົ່ງ：</view>
 						<view class='conter'>{{orderInfo.delivery_id}}</view>
 					</view>
 					<view class='item acea-row row-between' v-if="orderInfo.delivery_type === 'send'">
-						<view>配送人姓名：</view>
+						<view>ຊື່ຜູ້ສົ່ງ：</view>
 						<view class='conter'>{{orderInfo.delivery_name}}</view>
 					</view>
 				</view>
@@ -119,13 +119,13 @@
 				<view v-if="orderInfo.status==1 || orderInfo.status==3" class='footer acea-row row-right row-middle'>
 					<navigator class='bnt cancel' hover-class='none'
 						v-if="orderInfo.status==1 && orderInfo.delivery_id && orderInfo.delivery_type == 1"
-						:url="'/pages/users/goods_logistics/index?orderId='+ orderInfo.order_id">查看物流
+						:url="'/pages/users/goods_logistics/index?orderId='+ orderInfo.order_id">ເບິ່ງການຂົນສົ່ງ
 					</navigator>
-					<view v-if="orderInfo.status == 3 && orderInfo.paid == 1" class="bnt cancel" @click="delOrder(orderInfo.order_id)">删除</view>
-					<view class='bnt bg-colort' v-if="orderInfo.status==1 && orderInfo.paid==1" @click='confirmOrder'>确认收货</view>
+					<view v-if="orderInfo.status == 3 && orderInfo.paid == 1" class="bnt cancel" @click="delOrder(orderInfo.order_id)">ລຶບ</view>
+					<view class='bnt bg-colort' v-if="orderInfo.status==1 && orderInfo.paid==1" @click='confirmOrder'>ຢືນຢັນຮັບສິນຄ້າ</view>
 				</view>
 				<view v-else-if="orderInfo.status==0 && orderInfo.paid==0" class='footer acea-row row-right row-middle'>
-					<view class='bnt bg-colort' @click='pay_open()'>立即付款</view>
+					<view class='bnt bg-colort' @click='pay_open()'>ຊຳລະດຽວນີ້</view>
 				</view>
 			</view>
 		</view>
@@ -210,7 +210,7 @@
 				const clipboard = new ClipboardJS(".copy-data");
 				clipboard.on("success", () => {
 					this.$util.Tips({
-						title: '复制成功'
+						title: 'ສຳເນົາສຳເລັດ'
 					});
 				});
 			});
@@ -220,7 +220,7 @@
 			openSubcribe: function(e) {
 				let page = e;
 				uni.showLoading({
-					title: '正在加载',
+					title: 'ກຳລັງໂຫຼດ',
 				})
 				openOrderRefundSubscribe().then(res => {
 					uni.hideLoading();
@@ -284,7 +284,7 @@
 			getOrderInfo: function() {
 				let that = this;
 				uni.showLoading({
-					title: "正在加载中"
+					title: "ກຳລັງໂຫຼດ"
 				});
 				integralOrderDetail(this.order_id).then(res => {
 					uni.hideLoading();
@@ -323,14 +323,14 @@
 			confirmOrder: function() {
 				let that = this;
 				uni.showModal({
-					title: '确认收货',
-					content: '是否确认收货？',
+					title: 'ຢືນຢັນຮັບສິນຄ້າ',
+					content: 'ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຢືນຢັນຮັບສິນຄ້າ?',
 					success: function(res) {
 						if (res.confirm) {
 							integralOrderTake(that.order_id
 							).then(res => {
 								return that.$util.Tips({
-									title: '操作成功',
+									title: 'ດຳເນີນການສຳເລັດ',
 									icon: 'success'
 								}, function() {
 									that.getOrderInfo();
@@ -350,13 +350,13 @@
 			delOrder: function(order_id) {
 				let that = this;
 				uni.showModal({
-					title: '提示',
-					content: '确定删除该记录吗？',
+					title: 'ແຈ້ງເຕືອນ',
+					content: 'ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບບັນທຶກນີ້?',
 					success: function (res) {
 						if (res.confirm) {
 							integralOrderDelete(order_id).then(res=>{
 								return that.$util.Tips({
-									title: '删除成功',
+									title: 'ລຶບສຳເລັດ',
 									icon: 'success'
 								}, {
 									tab: 3,

@@ -22,7 +22,7 @@
 									<image :src="`${domain}/static/images/jf-point.png`" mode=""></image>
 									<view class="price-count">
 										<text class="num">{{storeInfo.ot_price || 0}}</text>
-										<text>积分</text><text v-if="storeInfo.price > 0">+{{storeInfo.price}}元</text>
+										<text>ຄະແນນ</text><text v-if="storeInfo.price > 0">+{{storeInfo.price}}ກີບ</text>
 									</view>
 								</view>
 								<view></view>
@@ -34,10 +34,10 @@
 							</view>
 							<view class='label acea-row row-middle'>
 								<view class='stock line-through'>¥{{storeInfo.cost}}</view>
-								<view class='stock'>库存:
+								<view class='stock'>ສະຕ໋ອກ:
 									{{ storeInfo.stock}}
 								</view>
-								<view class='stock'>已兑换：{{storeInfo.sales}}
+								<view class='stock'>ແລກແລ້ວ：{{storeInfo.sales}}
 								</view>
 							</view>
 						</view>
@@ -52,11 +52,11 @@
 								<view class="flex">
 									<image :src="item.image" v-for="(item,index) in skuArr.slice(0,4)" :key="index" class="attrImg"></image>
 								</view>
-								<view class="switchTxt">共{{skuArr.length}}种规格可选</view>
+								<view class="switchTxt">ມີ {{skuArr.length}} ແບບໃຫ້ເລືອກ</view>
 							</view>
 						</view>
 						<view class='product-intro' id="past2">
-							<view class='title'>产品介绍</view>
+							<view class='title'>ລາຍລະອຽດສິນຄ້າ</view>
 							<view class='conter'>
 								<jyf-parser :html="storeInfo.description" ref="article" :tag-style="tagStyle"></jyf-parser>
 							</view>
@@ -67,15 +67,15 @@
 			<view class='footer acea-row row-between-wrapper'>
 				<navigator hover-class="none" class="item" url="/pages/points_mall/index">
 					<view class="iconfont icon-ic_gift1"></view>
-					<view class="p_center">积分商城</view>
+					<view class="p_center">ຮ້ານຄະແນນ</view>
 				</navigator>
 
 				<view class="bnt acea-row"
 					v-if="attribute.productSelect.stock>0">
-					<view class="buy bnts" @tap="goCat">立即兑换</view>
+					<view class="buy bnts" @tap="goCat">ແລກດຽວນີ້</view>
 				</view>
 				<view class="bnt acea-row" v-else>
-					<view class="bnts no-goods">无法兑换</view>
+					<view class="bnts no-goods">ບໍ່ສາມາດແລກໄດ້</view>
 				</view>
 			</view>
 		</view>
@@ -121,7 +121,7 @@
 				parameter: {
 					'navbar': '1',
 					'return': '1',
-					'title': '抢购详情页',
+					'title': 'ໜ້າລາຍລະອຽດ',
 					'color': false
 				},
 				attribute: {
@@ -131,7 +131,7 @@
 				},
 				productValue: [],
 				isOpen: false,
-				attr: '请选择',
+				attr: 'ກະລຸນາເລືອກ',
 				attrValue: '',
 				status: 1,
 				iShidden: false,
@@ -140,7 +140,7 @@
 				replyCount: 0, //总评论数量
 				reply: [], //评论列表
 				replyChance: 0,
-				navList: ['商品', '详情'],
+				navList: ['ສິນຄ້າ', 'ລາຍລະອຽດ'],
 				opacity: 0,
 				scrollY: 0,
 				topArr: [],
@@ -222,7 +222,7 @@
 					this.id = value.id;
 				} else {
 					return this.$util.Tips({
-						title: '缺少参数无法查看商品'
+						title: 'ຂາດພາລາມິເຕີ ບໍ່ສາມາດເບິ່ງສິນຄ້າໄດ້'
 					}, {
 						tab: 3,
 						url: 1
@@ -257,14 +257,14 @@
 					imageUrl: that.storeInfo.image,
 					success: function(res) {
 						uni.showToast({
-							title: '分享成功',
+							title: 'ແບ່ງປັນສຳເລັດ',
 							icon: 'success'
 						})
 						that.posters = false;
 					},
 					fail: function(err) {
 						uni.showToast({
-							title: '分享失败',
+							title: 'ແບ່ງປັນບໍ່ສຳເລັດ',
 							icon: 'none',
 							duration: 2000
 						})
@@ -417,7 +417,7 @@
 					self.$set(self.attribute.productSelect, "unique", "");
 					self.$set(self.attribute.productSelect, "cart_num", 0);
 					self.$set(self, "attrValue", "");
-					self.$set(self, "attrTxt", "请选择");
+					self.$set(self, "attrTxt", "ກະລຸນາເລືອກ");
 				} else if (!productSelect && !productAttr.length) {
 					self.$set(self.attribute.productSelect, "image", self.storeInfo.image);
 					self.$set(self.attribute.productSelect, "price", self.storeInfo.price);
@@ -430,7 +430,7 @@
 					);
 					self.$set(self.attribute.productSelect, "cart_num", 1);
 					self.$set(self, "attrValue", "");
-					self.$set(self, "attrTxt", "请选择");
+					self.$set(self, "attrTxt", "ກະລຸນາເລືອກ");
 				}
 				self.$set(self.attribute.productSelect, "store_name", self.storeInfo.store_name);
 			},
@@ -460,7 +460,7 @@
 					this.$set(this.attribute.productSelect, "unique", productSelect.unique);
 					this.$set(this.attribute.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", res);
-					this.attrTxt = "已选择"
+					this.attrTxt = "ເລືອກແລ້ວ"
 				} else {
 					this.$set(this.attribute.productSelect, "image", this.storeInfo.image);
 					this.$set(this.attribute.productSelect, "price", this.storeInfo.price);
@@ -469,7 +469,7 @@
 					this.$set(this.attribute.productSelect, "unique", "");
 					this.$set(this.attribute.productSelect, "cart_num", 0);
 					this.$set(this, "attrValue", "");
-					this.attrTxt = "已选择"
+					this.attrTxt = "ເລືອກແລ້ວ"
 				}
 			},
 			scroll: function(e) {
@@ -508,11 +508,11 @@
 					//如果有属性,没有选择,提示用户选择
 					if (this.attribute.productAttr.length && productSelect === undefined && this.isOpen == true) return app
 						.$util.Tips({
-							title: '请选择属性'
+							title: 'ກະລຸນາເລືອກຄຸນລັກສະນະ'
 						});
 					if (this.cart_num <= 0) {
 						return app.$util.Tips({
-							title: '请选择数量'
+							title: 'ກະລຸນາເລືອກຈຳນວນ'
 						});
 					}
 					this.isOpen = false

@@ -20,13 +20,13 @@
 					</view>
 					<view class="y_money">¥{{store_info.ot_price}}</view>
 				</view>
-				<navigator :url="'/pages/goods_details/index?id='+store_info.id" hover-class="none" class="label"><text class="span">查看商品</text></navigator>
+				<navigator :url="'/pages/goods_details/index?id='+store_info.id" hover-class="none" class="label"><text class="span">ເບິ່ງສິນຄ້າ</text></navigator>
 			</view>
 			<!-- #ifdef H5 -->
-			<button class="bnt bg-color" hover-class='none' @click="listenerActionSheet" v-if="this.$wechat.isWeixin()">和好友一起分享</button>
+			<button class="bnt bg-color" hover-class='none' @click="listenerActionSheet" v-if="this.$wechat.isWeixin()">ແບ່ງປັນກັບໝູ່ເພື່ອນ</button>
 			<!-- #endif -->
 			<!-- #ifdef MP -->
-			<button class="bnt bg-color" open-type="share" hover-class='none'>和好友一起分享</button>
+			<button class="bnt bg-color" open-type="share" hover-class='none'>ແບ່ງປັນກັບໝູ່ເພື່ອນ</button>
 			<!-- #endif -->
 		</view>
 		<shareInfo @setShareInfoStatus="setShareInfoStatus" :shareInfoStatus="shareInfoStatus"></shareInfo>

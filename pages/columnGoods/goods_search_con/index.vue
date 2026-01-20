@@ -8,7 +8,7 @@
 				</view>
 				<!--#endif-->
 				<view class='input acea-row row-between-wrapper'><text class='iconfont icon-ic_search'></text>
-					<input placeholder='输入搜索商品/店铺名称' placeholder-class='placeholder' confirm-type='search' name="search" :value='where.keyword'
+					<input placeholder='ປ້ອນຊື່ສິນຄ້າ/ຮ້ານເພື່ອຄົ້ນຫາ' placeholder-class='placeholder' confirm-type='search' name="search" :value='where.keyword'
 					 @confirm="searchSubmit" @input="inputChange"></input>
 				</view>
 				<view style="text-align: right;" v-if="tabIndex==1" class='iconfont' :class='is_switch==true?"icon-a-ic_Imageandtextsorting":"icon-a-ic_Picturearrangement"'
@@ -17,8 +17,8 @@
 			</view>
 			<view class="nav-wrapper">
 				<view v-if="hide_mer_status == 0" class="tab-bar">
-					<view class="tab-item" :class="{on:tabIndex==1}" @click="tabIndex = 1">商品</view>
-					<view class="tab-item" :class="{on:tabIndex==2}" @click="tabIndex = 2">店铺</view>
+					<view class="tab-item" :class="{on:tabIndex==1}" @click="tabIndex = 1">ສິນຄ້າ</view>
+					<view class="tab-item" :class="{on:tabIndex==2}" @click="tabIndex = 2">ຮ້ານຄ້າ</view>
 				</view>
 				<block v-if="tabIndex==1">
 					<view class='nav acea-row row-middle'>
@@ -28,17 +28,17 @@
 							<text v-else class="iconfont icon-ic_uparrow"></text>
 						</view>
 						<view class='item' :class="{'t-color': where.order=='sales'}" @click='set_where(3)'>
-							销量
+							ຍອດຂາຍ
 						</view>
 						<view class='item' :class="{'t-color': where.order=='price_desc'}" @click='set_where(2)'>
-							价格
+							ລາຄາ
 							<image v-if="price==1" :src="domain+'/static/diy/up'+keyColor+'.png'"></image>
 							<image v-else-if="price==2" :src="domain+'/static/diy/down'+keyColor+'.png'"></image>
 							<image v-else :src='`${domain}/static/images/horn.png`'></image>
 						</view>
 						<!-- down -->
 						<view class='item' @click='bindRight'>
-							筛选
+							ກັ່ນຕອງ
 							<text class="iconfont icon-ic_sort"></text>
 						</view>
 					</view>
@@ -49,7 +49,7 @@
 							{{item.title}}
 						</view>
 						<view class="item" :class="{'t-colors':firstKey == 4}" @click="bindRight2">
-							<view>筛选
+							<view>ກັ່ນຕອງ
 							<text class="iconfont icon-ic_sort"></text>
 							</view>
 							<view class="line" :class="{'font-line':firstKey == 4}">
@@ -65,7 +65,7 @@
 					 @click="godDetail(item)">
 						<view class='pictrue on'>
 							<image :src='item.image' class="on"></image>
-							<view v-if="item.stock == 0" class="sell_out">已售罄</view>
+							<view v-if="item.stock == 0" class="sell_out">ຂາຍໝົດແລ້ວ</view>
 							<view v-if="item.border_pic" :style="{ backgroundImage: `url(${item.border_pic})` }" class="border-picture"></view>
 						</view>
 						<view class='text on acea-row row-column-between'>
@@ -86,17 +86,17 @@
 								</view>
 								<view class="item_tags acea-row">
 									<text v-if="item.merchant.type_name && item.product_type == 0" class="font-bg-red bt-color line1">{{item.merchant.type_name}}</text>
-									<text v-else-if="item.merchant.is_trader && item.product_type == 0" class="font-bg-red bt-color line1">自营</text>
-									<text v-if="item.product_type != 0" :class="'font_bg-red bt-color type'+item.product_type">{{item.product_type == 1 ? "秒杀" : item.product_type == 2 ? "预售" : item.product_type == 3 ? "助力" : item.product_type == 4 ? "拼团" : ""}}</text>
-									<text class="tags_item ticket" v-if="item.issetCoupon">领券</text>
-									<text class="tags_item delivery" v-if="item.delivery_free == 1">包邮</text>
+									<text v-else-if="item.merchant.is_trader && item.product_type == 0" class="font-bg-red bt-color line1">ຂາຍເອງ</text>
+									<text v-if="item.product_type != 0" :class="'font_bg-red bt-color type'+item.product_type">{{item.product_type == 1 ? "ການຂາຍດ່ວນ" : item.product_type == 2 ? "ສັ່ງຈອງລ່ວງໜ້າ" : item.product_type == 3 ? "ຊ່ວຍເຫຼືອ" : item.product_type == 4 ? "ຊື້ເປັນກຸ່ມ" : ""}}</text>
+									<text class="tags_item ticket" v-if="item.issetCoupon">ເອົາຄູປອງ</text>
+									<text class="tags_item delivery" v-if="item.delivery_free == 1">ສົ່ງຟຣີ</text>
 									<text class="tags_item reservation" v-if="item.product.reservation && item.product.type == 4">{{reservateLabel(item.product.reservation)}}</text>
 								</view>
-								<view class="score">{{item.rate}}评分 {{item.reply_count}}条评论</view>
+								<view class="score">{{item.rate}}ຄະແນນ {{item.reply_count}}ຄຳເຫັນ</view>
 								<view class="company" v-if="item.merchant && hide_mer_status==0">
 									<text class='name line1'>{{item.merchant.mer_name}}</text>
 									<view class="flex" v-if="item.merchant" @click.stop="goStore(item.merchant.mer_id)">
-										进店
+										ເຂົ້າຮ້ານ
 										<text class="iconfont icon-ic_rightarrow"></text>
 									</view>
 								</view>
@@ -120,7 +120,7 @@
 					<view class='noCommodity'>
 						<view class='pictrue' style="margin: 0 auto;">
 							<image :src="domain+'/static/images/noSearch.png'"></image>
-							<text>暂无商品，快去搜索其他商品吧</text>
+							<text>ບໍ່ມີສິນຄ້າ, ໄປຄົ້ນຫາສິນຄ້າອື່ນ</text>
 						</view>
 					</view>
 					<recommend v-if="recommend_switch == 1" :hostProduct="hostProduct" :isLogin="isLogin"></recommend>
@@ -140,7 +140,7 @@
 										<text class="mer_name line1">{{item.mer_name}}</text>
 										<image v-if="margin_ico_switch==1 && margin_ico && item.is_margin == 10" :src="margin_ico" class="store-margin"></image>
 										<text v-if="item.type_name" class="font-bg-red b-color">{{item.type_name}}</text>
-										<text v-else-if="item.is_trader" class="font-bg-red b-color">自营</text>
+										<text v-else-if="item.is_trader" class="font-bg-red b-color">ຂາຍເອງ</text>
 									</view>
 									<view class="star-box">
 										<view class="star">
@@ -154,7 +154,7 @@
 									</view>
 								</view>
 							</view>
-							<view class="link" @click="goStore(item.mer_id)">进店</view>
+							<view class="link" @click="goStore(item.mer_id)">ເຂົ້າຮ້ານ</view>
 						</view>
 						<view class="pic-wrapper">
 							<view class="pic-item" v-for="(goods,index) in item.recommend" :key="index">
@@ -175,7 +175,7 @@
 					<view class='noCommodity'>
 						<view class='pictrue' style="margin: 0 auto;">
 							<image :src="domain+'/static/images/no_thing.png'"></image>
-							<text>暂无商品，快去搜索其他商品吧</text>
+							<text>ບໍ່ມີສິນຄ້າ, ໄປຄົ້ນຫາສິນຄ້າອື່ນ</text>
 						</view>
 					</view>
 					<recommend v-if="recommend_switch == 1" :hostProduct="hostProduct" :isLogin="isLogin"></recommend>
@@ -283,7 +283,7 @@
 					limit: 30
 				},
 				shopTabs: [{
-						title: '默认',
+						title: 'ຄ່າເລີ່ມຕົ້ນ',
 						key: 0,
 						order: ""
 					},
@@ -293,7 +293,7 @@
 						order: 'sales'
 					},
 					{
-						title: '好评',
+						title: 'ຄຳຕິຊົມດີ',
 						key: 2,
 						order: 'rate'
 					},
@@ -308,7 +308,7 @@
 				nows: false,
 				loadend: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				title: '',
 				hostProduct: [],
 				hotPage: 1,
@@ -328,15 +328,15 @@
 				downStatus: false,
 				// 下拉菜单
 				downMenu: [{
-						title: 'ລວມ',
+						title: 'ຈັດລຽງລວມ',
 						key: 1,
 					},
 					{
-						title: '评分',
+						title: 'ຄະແນນ',
 						key: 2,
 					},
 					{
-						title: '新品',
+						title: 'ສິນຄ້າໃໝ່',
 						key: 3,
 					}
 				],
@@ -426,13 +426,13 @@
 		},
 		methods: {
 			reservateLabel(item) {
-				return item.reservation_type == 1 ? '到店' : item.reservation_type == 2 ? '上门' : '上门+到店'
+				return item.reservation_type == 1 ? 'ຮັບຢູ່ຮ້ານ' : item.reservation_type == 2 ? 'ສົ່ງເຖິງບ້ານ' : 'ສົ່ງເຖິງບ້ານ+ຮັບຢູ່ຮ້ານ'
 			},
 			//查看地图
 			showMaoLocation(lat, lon) {
 				if (!lat || !lon) return this.$util.Tips({
-					title: '请设置允许商城访问您的位置！'
-				});
+						title: 'ກະລຸນາຕັ້ງຄ່າອະນຸຍາດໃຫ້ຮ້ານເຂົ້າຖຶງຕຳແໜ່ງຂອງທ່ານ!'
+					});
 				//#ifdef H5
 				if(this.$wechat.isWeixin() === true) {
 					this.$wechat.seeLocation({
@@ -448,7 +448,7 @@
 						longitude: parseFloat(lon),
 						scale: 8,
 						geocode: true,
-						name: '当前位置',
+						name: 'ຕຳແໜ່ງປັດຈຸບັນ',
 						address: this.detaile_address,
 						success: function(res) {
 							console.log(res)
@@ -723,7 +723,7 @@
 				let that = this;
 				if (!e.detail.value.trim()) {
 					uni.showToast({
-						title: '请输入搜索内容',
+						title: 'ກະລຸນາປ້ອນເນື້ອຫາຄົ້ນຫາ',
 						icon: 'none',
 						duration: 1000
 					});
@@ -809,12 +809,12 @@
 					let loadend = list.length < that.where.limit;
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? '已全部加载' : '加载更多';
+					that.loadTitle = loadend ? 'ໂຫຼດໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'productList', productList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = '加载更多';
+					that.loadTitle = 'ໂຫຼດເພີ່ມ';
 				});
 			},
 			goStore: function(id) {
@@ -911,11 +911,11 @@
 					productSelect.stock == 0
 				)
 					return that.$util.Tips({
-						title: "产品库存不足，请选择其它"
+						title: "ສິນຄ້າໝົດສະຕ໋ອກ, ກະລຸນາເລືອກອັນອື່ນ"
 					});
 				if (that.attr.productSelect.cart_num == 0) {
 					return that.$util.Tips({
-						title: '购买个数不能为0！'
+						title: 'ຈຳນວນຊື້ຕ້ອງບໍ່ແມ່ນ 0!'
 					})
 				}
 				let q = {
@@ -946,7 +946,7 @@
 						return
 					}
 					uni.showToast({
-						title: '已加载全部',
+						title: 'ໂຫຼດໝົດແລ້ວ',
 						icon: 'none',
 						duration: 1000
 					});

@@ -9,10 +9,10 @@
 					<view class="info">
 						<view class="name">{{item.merchant ? item.merchant.mer_name : ''}}</view>
 						<view class="con line1" v-if="item.last && item.last.msn_type == 1">{{item.last.msn}}</view>
-						<view class="con line1" v-if="item.last && item.last.msn_type == 2">[表情]</view>
-						<view class="con line1" v-if="item.last && item.last.msn_type == 3">[图片]</view>
-						<view class="con line1" v-if="item.last && item.last.msn_type == 4">[商品]</view>
-						<view class="con line1" v-if="item.last && (item.last.msn_type == 5 || item.last.msn_type == 6)">[订单]</view>
+						<view class="con line1" v-if="item.last && item.last.msn_type == 2">[ໃບໜ້າ]</view>
+						<view class="con line1" v-if="item.last && item.last.msn_type == 3">[ຮູບ]</view>
+						<view class="con line1" v-if="item.last && item.last.msn_type == 4">[ສິນຄ້າ]</view>
+						<view class="con line1" v-if="item.last && (item.last.msn_type == 5 || item.last.msn_type == 6)">[ຄຳສັ່ງຊື້]</view>
 					</view>
 					<view class="right-box">
 						<view class="time">{{item.last && item.last.create_time.split(' ')[1] || ''}}</view>
@@ -28,10 +28,10 @@
 					<view class="info">
 						<view class="name">{{item.user && item.user.nickname}}</view>
 						<view class="con line1" v-if="item.last && item.last.msn_type == 1">{{item.last.msn}}</view>
-						<view class="con line1" v-if="item.last && item.last.msn_type == 2">[表情]</view>
-						<view class="con line1" v-if="item.last && item.last.msn_type == 3">[图片]</view>
-						<view class="con line1" v-if="item.last && (item.last.msn_type == 4 || item.last.msn_type == 7)">[商品]</view>
-						<view class="con line1" v-if="item.last &&  (item.last.msn_type == 5 || item.last.msn_type == 6)">[订单]</view>
+						<view class="con line1" v-if="item.last && item.last.msn_type == 2">[ໃບໜ້າ]</view>
+						<view class="con line1" v-if="item.last && item.last.msn_type == 3">[ຮູບ]</view>
+						<view class="con line1" v-if="item.last && (item.last.msn_type == 4 || item.last.msn_type == 7)">[ສິນຄ້າ]</view>
+						<view class="con line1" v-if="item.last &&  (item.last.msn_type == 5 || item.last.msn_type == 6)">[ຄຳສັ່ງຊື້]</view>
 					</view>
 					<view class="right-box">
 						<view class="time">{{item.last && item.last.create_time.split(' ')[1]}}</view>
@@ -40,7 +40,7 @@
 				</div>
 			</block>
 			<block v-if="list.length == 0">
-				<emptyPage title="暂无客服记录~" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
+				<emptyPage title="ບໍ່ມີບັນທຶກບໍລິການລູກຄ້າ~" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
 			</block>
 		</view>
 	</div>

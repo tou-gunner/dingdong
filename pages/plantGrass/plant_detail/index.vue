@@ -9,15 +9,15 @@
 			<view class="status_count" :class="followDetail.status == 0 ? 'status1' : 'status0'">
 				<view class="status_title">
 					<text class="iconfont" :class="(followDetail.status == -1 || followDetail.status == -2) ? 'icon-a-ic_tanhao1' : 'icon-icon_clock1'"></text>
-					<text v-if="followDetail.status == -1" class="title">审核未通过</text>
-					<text v-if="followDetail.status == -2" class="title">已下架</text>
-					<text v-if="followDetail.status == 0" class="title">正在审核</text>
+					<text v-if="followDetail.status == -1" class="title">ການກວດສອບບໍ່ຜ່ານ</text>
+					<text v-if="followDetail.status == -2" class="title">ຖືກຖອດແລ້ວ</text>
+					<text v-if="followDetail.status == 0" class="title">ກຳລັງກວດສອບ</text>
 				</view>
 				<view v-if="followDetail.status == -1 || followDetail.status == -2" class="status_info">
 					{{followDetail.refusal}}
 				</view>
 				<view v-if="followDetail.status == 0" class="status_info">
-					发布的内容审核通过后，将展示在首页！
+					ເນື້ອຫາທີ່ເຜີຍແຜ່ຈະສະແດງໃນໜ້າຫຼັກຫຼັງຈາກຜ່ານການກວດສອບ！
 				</view>
 			</view>
 		</view>
@@ -36,21 +36,21 @@
 							</view>
 							<view class="author">
 								<view class="manageCount" v-if="followDetail.is_author">
-									<view class="follow_btn" @click.stop="showManage=!showManage">管理</view>
+									<view class="follow_btn" @click.stop="showManage=!showManage">ຈັດການ</view>
 									<view class="manage" v-show="showManage">
 										<navigator hover-class="none" :url="'/pages/plantGrass/plant_release/index?id='+id+'&type=1'" class="items">
 											<text class="iconfont icon-ic_edit"></text>
-											<text>编辑</text>
+											<text>ແກ້ໄຂ</text>
 										</navigator>
 										<view class="items" @click.stop="deleteTopic">
 											<text class="iconfont icon-ic_delete"></text>
-											<text>删除</text>
+											<text>ລຶບ</text>
 										</view>
 									</view>
 								</view>
 								<view v-else @click.stop="followAuthor">
-									<view v-if="!followDetail.is_fans" class="follow_btn focus"><text class="iconfont icon-ic_increase"></text>关注</view>
-									<view v-else class="follow_btn focused">已关注</view>
+									<view v-if="!followDetail.is_fans" class="follow_btn focus"><text class="iconfont icon-ic_increase"></text>ຕິດຕາມ</view>
+									<view v-else class="follow_btn focused">ຕິດຕາມແລ້ວ</view>
 								</view>
 								<!-- #ifdef MP -->
 								<button v-if="followDetail.status == 1" class="time iconfont icon-icon_transmit-2" open-type="share" hover-class='none'></button>
@@ -65,7 +65,7 @@
 						</view>
 						<view class="pro_describle">
 							<view class="mentioned" v-if="followDetail.relevance.length" @click="openMore(followDetail)">
-								<text class="title">查看TA提到的宝贝({{followDetail.relevance.length}})</text>
+								<text class="title">ເບິ່ງສິນຄ້າທີ່ກ່າວເຖິງ({{followDetail.relevance.length}})</text>
 								<view class="product_more">
 									<view class="item">
 										<image v-if="indexn<=3" v-for="(itemn, indexn) in followDetail.relevance" :key="indexn" :src="(itemn.spu&&itemn.spu.image) || itemn.image" class="more_image"></image>
@@ -88,7 +88,7 @@
 					</view>
 				</view>
 				<view v-if="community_reply_status == 1" class="commend_list" @click.stop="loseFocus">
-					<view class="commen_count">评论{{replyData.all == 0 ? '' : replyData.all}}</view>
+					<view class="commen_count">ຄຳເຫັນ{{replyData.all == 0 ? '' : replyData.all}}</view>
 					<block v-if="commList.length > 0">
 						<view class="common_list" v-for="(item, index) in commList" :key="index">
 							<view v-if="item.author" @click.stop="toReply(item,index)" class="commen_one">
@@ -113,7 +113,7 @@
 												<image v-if="itemn.author" class="image" :src="itemn.author.avatar ? itemn.author.avatar : '/static/images/f.png'" @click.stop="toReply(itemn,index)"></image>
 												<view v-if="itemn.author" class="name_two">{{itemn.author.nickname}}</view>
 												<view class="desc_two" @click.stop="toReply(itemn,index)">
-												<text class="reply_user" v-if="itemn.reply">回复 @{{itemn.reply.nickname}} </text>
+												<text class="reply_user" v-if="itemn.reply">ຕອບກັບ @{{itemn.reply.nickname}} </text>
 												{{itemn.content}}
 												</view>
 												<view class="time_two">{{itemn.create_time}}</view>
@@ -133,7 +133,7 @@
 					</block>
 					<view v-if="commList.length == 0 && !loading" class="empty">
 						<image :src="`${domain}/static/images/no_commen.png`"></image>
-						<text>暂无评论，快去抢沙发吧~</text>
+						<text>ບໍ່ມີຄຳເຫັນ, ເປັນຄົນທຳອິດໄດ້ເລີຍ~</text>
 					</view>
 					<view v-if="followDetail.status == 1" class="release_bar acea-row">
 						<view class="input_count" :class="{input_reply:content}">
@@ -142,7 +142,7 @@
 							</form>
 						</view>
 						<view v-if="content">
-							<button class="send" @click.stop="submitComment">发送</button>
+							<button class="send" @click.stop="submitComment">ສົ່ງ</button>
 						</view>
 						<view v-else class="input_bar acea-row">
 							<view class="item acea-row" @click.stop="likeToggle(followDetail.relevance_id)">
@@ -161,8 +161,8 @@
 		<view v-if="(!followDetail || followDetail == null) && !loadData" class="no_content">
 			<view class="count">
 				<image :src="`${domain}/static/images/noRecord.png`"></image>
-				<text>内容不存在，可能被删除了哦~</text>
-				<navigator class="btn" open-type="navigate" url="/pages/plant_grass/index">返回首页</navigator>
+				<text>ບໍ່ມີເນື້ອຫາ, ອາດຈະຖືກລຶບໄປແລ້ວ~</text>
+				<navigator class="btn" open-type="navigate" url="/pages/plant_grass/index">ກັບຄືນໜ້າຫຼັກ</navigator>
 			</view>
 		</view>
 		<!-- 他提到的宝贝弹窗 -->
@@ -218,13 +218,13 @@
 				loadData: false,
 				loaded: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມ',
 				where:{
 					page: 1,
 					limit: 10
 				},
 				reply_id: "",
-				placeholder: "快来说点儿什么吧...",
+				placeholder: "ມາເວົ້າບາງຢ່າງ...",
 				isChild: false,
 				index: 0,
 				currSpid: '',
@@ -275,7 +275,7 @@
 			appShare(scene,id) {
 				let that = this
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ',
 					mask: true
 				});
 				let data = this.followDetail;
@@ -291,7 +291,7 @@
 					imageUrl: data.image[0] || '',
 					success: function(res) {
 						uni.showToast({
-							title: '分享成功',
+							title: 'ແບ່ງປັນສຳເລັດ',
 							icon: 'success'
 						})
 						uni.hideLoading();
@@ -299,7 +299,7 @@
 					fail: function(err) {
 						uni.hideLoading();
 						uni.showToast({
-							title: '分享失败',
+							title: 'ແບ່ງປັນລົ້ມເຫລວ',
 							icon: 'none',
 							duration: 2000
 						})
@@ -328,7 +328,7 @@
 				if(that.loadData)return
 				that.loadData = true
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ',
 					mask: true
 				});
 				plantDetailApi(that.id).then(res => {
@@ -385,7 +385,7 @@
 					let commList = that.$util.SplitArray(list, that.commList);
 					that.loaded = list.length < that.where.limit;
 					that.loading = false;
-					that.loadTitle = that.loaded ? '已全部加载' : '加载更多';
+					that.loadTitle = that.loaded ? 'ໂຫຼດໝົດແລ້ວ' : 'ໂຫຼດເພີ່ມ';
 					that.$set(that, 'commList', commList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {
@@ -434,7 +434,7 @@
 				});
 			},
 			toReply(item,index){
-				this.placeholder = '回复：'+item.author.nickname
+				this.placeholder = 'ຕອບກັບ：'+item.author.nickname
 				this.reply_id = item.reply_id
 				this.isChild = true
 				this.index = index
@@ -444,7 +444,7 @@
 			loseFocus(){
 				this.focus = false;
 				this.reply_id = 0;
-				this.placeholder = "快来说点儿什么吧..."
+				this.placeholder = "ມາເວົ້າບາງຢ່າງ..."
 				this.isChild = false
 			},
 			/*点赞评论*/
@@ -522,7 +522,7 @@
 			deleteTopic(){
 				let that = this;
 				uni.showModal({
-				  content: '确定要删除该话题么？',
+				  content: 'ທ່ານແນ່ໃຈວ່າຕ້ອງການລຶບຫົວຂໍ້ນີ້ບໍ່？',
 				  success: function(res) {
 				    if(res.confirm) {
 				      deletePlantApi(that.id).then(res => {

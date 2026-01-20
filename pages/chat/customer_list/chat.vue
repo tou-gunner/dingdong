@@ -7,7 +7,7 @@
 					<view class="txt">{{storeInfo.mer_name}}</view>
 				</view>
 				<view class="acea-row store-opeation">
-					<navigator v-if="hide_mer_status != 1 && storeInfo.mer_id" :url="'/pages/store/home/index?id='+storeInfo.mer_id" class="link" open-type="redirect">进店</navigator>
+					<navigator v-if="hide_mer_status != 1 && storeInfo.mer_id" :url="'/pages/store/home/index?id='+storeInfo.mer_id" class="link" open-type="redirect">ເຂົ້າຮ້ານ</navigator>
 					<text v-if="storeInfo.services_type&&storeInfo.services_type.service_type == 2" class="iconfont icon-ic_phone" @click="goCustomer"></text>
 				</view>
 			</view>
@@ -25,13 +25,13 @@
 								<view v-if="item.msn_type !== 100" class="pictrue" @click="userDetail(item.user.uid)">
 									<image :src="(item.user&&item.user.avatar) || '/static/images/f.png'" mode=""></image>
 								</view>
-								<view v-if="item.msn_type === 100" class="recall-msg">对方撤回了一条消息</view>
+								<view v-if="item.msn_type === 100" class="recall-msg">ອີກຝ່າຍຖອນຂໍ້ຄວາມນຶ່ງ</view>
 								<view class="text">
 									<view class="acea-row">
 										<!--退款订单链接-->
 										<navigator v-if="item.msn_type === 6 && item.refundOrder && item.refundOrder.refund_order_id" open-type="navigate" :url="'/pages/order_details/index?order_id='+item.refundOrder.order_id">
 											<view class="broadcast-details_num">
-												<span>退款单号：{{ item.refundOrder.refund_order_sn }}</span>
+												<span>ເລກຄຳສັ່ງຄືນເງິນ: {{ item.refundOrder.refund_order_sn }}</span>
 											</view>
 											<view class="conter acea-row row-middle">
 												<view class="broadcast-details_order noPad" v-for="(val, inx) in item.refundOrder.refundProduct" :key="item.service_log_id">
@@ -39,7 +39,7 @@
 														<view class="broadcast_details_img">
 															<image :src="val.product.cart_info.product.image" />
 															<view class="broadcast_details_model">
-																{{item.refundOrder.refund_num}}件商品
+																{{item.refundOrder.refund_num}} ລາຍການສິນຄ້າ
 															</view>
 														</view>
 														<view class="broadcast_details_picBox noPad">
@@ -55,12 +55,12 @@
 										<!--订单链接-->
 										<view v-if="item.msn_type === 5 && item.orderInfo && item.orderInfo.order_id">
 											<view class="broadcast-details_num acea-row row-middle">
-												<text>订单号：{{ item.orderInfo.order_sn }}</text>
+												<text>ເລກຄຳສັ່ງຊື້: {{ item.orderInfo.order_sn }}</text>
 												<!-- #ifdef H5 -->
-												<button class="copy copy-data" :data-clipboard-text="item.orderInfo.order_sn">复制</button>
+												<button class="copy copy-data" :data-clipboard-text="item.orderInfo.order_sn">ສຳເນົາ</button>
 												<!-- #endif -->
 												<!-- #ifndef H5 -->
-												<button class="copy" @tap.stop="copyText(item.orderInfo.order_sn)">复制</button>
+												<button class="copy" @tap.stop="copyText(item.orderInfo.order_sn)">ສຳເນົາ</button>
 												<!-- #endif -->
 											</view>
 											<navigator :url="'/pages/admin/orderDetail/index?id='+item.orderInfo.order_id+'&mer_id='+item.orderInfo.mer_id" open-type="navigate" class="conter acea-row row-middle">
@@ -69,7 +69,7 @@
 														<view class="broadcast_details_img">
 															<image :src="val.cart_info.product.image" />
 															<view class="broadcast_details_model">
-																{{item.orderInfo.total_num}}件商品
+																{{item.orderInfo.total_num}} ລາຍການສິນຄ້າ
 															</view>
 														</view>
 														<view class="broadcast_details_picBox noPad">
@@ -152,10 +152,10 @@
 											<view class="broadcast-details_num acea-row row-middle">
 												<text>订单号：{{ item.refundOrder.refund_order_sn }}</text>
 												<!-- #ifdef H5 -->
-												<button class="copy copy-data" :data-clipboard-text="item.refundOrder.refund_order_sn">复制</button>
+												<button class="copy copy-data" :data-clipboard-text="item.refundOrder.refund_order_sn">ສຳເນົາ</button>
 												<!-- #endif -->
 												<!-- #ifndef H5 -->
-												<button class="copy" @tap.stop="copyText(item.refundOrder.refund_order_sn)">复制</button>
+												<button class="copy" @tap.stop="copyText(item.refundOrder.refund_order_sn)">ສຳເນົາ</button>
 												<!-- #endif -->
 											</view>
 											<view class="conter acea-row row-middle">
@@ -164,7 +164,7 @@
 														<view class="broadcast_details_img">
 															<image :src="val.product.cart_info.product.image" />
 															<view class="broadcast_details_model">
-																{{item.refundOrder.refund_num}}件商品
+																{{item.refundOrder.refund_num}} ລາຍການສິນຄ້າ
 															</view>
 														</view>
 														<view class="broadcast_details_picBox noPad">
@@ -180,12 +180,12 @@
 										<!--订单链接-->
 										<view v-if="item.msn_type === 5 && item.orderInfo && item.orderInfo.order_id">
 											<view class="broadcast-details_num acea-row row-middle">
-												<text>订单号：{{ item.orderInfo.order_sn }}</text>
+												<text>ເລກຄຳສັ່ງຊື້: {{ item.orderInfo.order_sn }}</text>
 												<!-- #ifdef H5 -->
-												<button class="copy copy-data" :data-clipboard-text="item.orderInfo.order_sn">复制</button>
+												<button class="copy copy-data" :data-clipboard-text="item.orderInfo.order_sn">ສຳເນົາ</button>
 												<!-- #endif -->
 												<!-- #ifndef H5 -->
-												<button class="copy" @tap.stop="copyText(item.orderInfo.order_sn)">复制</button>
+												<button class="copy" @tap.stop="copyText(item.orderInfo.order_sn)">ສຳເນົາ</button>
 												<!-- #endif -->
 											</view>
 											<navigator :url="'/pages/admin/orderDetail/index?id='+item.orderInfo.order_id+'&mer_id='+item.orderInfo.mer_id" open-type="navigate" class="conter acea-row row-middle">
@@ -194,7 +194,7 @@
 														<view class="broadcast_details_img">
 															<image :src="val.cart_info.product.image" />
 															<view class="broadcast_details_model">
-																{{item.orderInfo.total_num}}件商品
+																{{item.orderInfo.total_num}} ລາຍການສິນຄ້າ
 															</view>
 														</view>
 														<view class="broadcast_details_picBox noPad">
@@ -269,24 +269,24 @@
 												<!-- #ifdef H5 -->
 												<view class="copy copy-data" :data-clipboard-text="item.msn">
 													<text class="iconfont icon-icon_copy"></text>
-													复制
+													ສຳເນົາ
 												</view>
 												<!-- #endif -->
 												<!-- #ifndef H5 -->
 												<view class="copy copy-data" @tap.stop="copyText(item.msn)">
 													<text class="iconfont icon-icon_copy"></text>
-													复制
+													ສຳເນົາ
 												</view>
 												<!-- #endif -->
 											</view>
-											<view v-if="(new Date().getTime()/1000 - item.send_time) <= 120" class="recall-item" @click.stop="reverstMsg(item)"><view class="iconfont icon-icon_retern"></view>撤回</view>
+											<view v-if="(new Date().getTime()/1000 - item.send_time) <= 120" class="recall-item" @click.stop="reverstMsg(item)"><view class="iconfont icon-icon_retern"></view>ຖອນ</view>
 										</view>
 									</view>
 								</view>
 								<view v-if="item.msn_type != 100" class="pictrue">
 									<image :src="(item.service&&item.service.avatar) || '/static/images/f.png'"  />
 								</view>
-								<view v-if="item.msn_type === 100" class="recall-msg">你撤回了一条消息</view>
+								<view v-if="item.msn_type === 100" class="recall-msg">ທ່ານຖອນຂໍ້ຄວາມນຶ່ງ</view>
 							</view>
 						</block>
 					</block>
@@ -299,13 +299,13 @@
 								<view v-if="item.msn_type !== 100" class="pictrue">
 									<image :src="(item.service&&item.service.avatar) ||'/static/images/f.png'" mode=""></image>
 								</view>
-								<view v-if="item.msn_type === 100" class="recall-msg">对方撤回了一条消息</view>
+								<view v-if="item.msn_type === 100" class="recall-msg">ອີກຝ່າຍຖອນຂໍ້ຄວາມນຶ່ງ</view>
 								<view class="text">
 									<view class="acea-row">
 										<!--退款订单链接-->
 										<navigator v-if="item.msn_type === 6 && item.refundOrder.refund_order_id"  open-type="navigate" :url="'/pages/order_details/index?order_id='+item.refundOrder.order_id">
 											<view class="broadcast-details_num">
-												<text>退款单号：{{ item.refundOrder.refund_order_sn }}</text>
+												<text>ເລກຄຳສັ່ງຄືນເງິນ: {{ item.refundOrder.refund_order_sn }}</text>
 											</view>
 											<view class="conter acea-row row-middle">
 												<view class="broadcast-details_order noPad" v-for="(val, inx) in item.refundOrder.refundProduct" :key="inx">
@@ -313,7 +313,7 @@
 														<view class="broadcast_details_img">
 															<image :src="val.product.cart_info.product.image" />
 															<view class="broadcast_details_model">
-																{{item.refundOrder.refund_num}}件商品
+																{{item.refundOrder.refund_num}} ລາຍການສິນຄ້າ
 															</view>
 														</view>
 														<view class="broadcast_details_picBox noPad">
@@ -329,12 +329,12 @@
 										<!--订单链接-->
 										<view v-if="item.msn_type === 5 && item.orderInfo && item.orderInfo.order_id">
 											<view class="broadcast-details_num acea-row row-middle">
-												<text>订单号：{{ item.orderInfo.order_sn }}</text>
+												<text>ເລກຄຳສັ່ງຊື້: {{ item.orderInfo.order_sn }}</text>
 												<!-- #ifdef H5 -->
-												<button class="copy copy-data" :data-clipboard-text="item.orderInfo.order_sn">复制</button>
+												<button class="copy copy-data" :data-clipboard-text="item.orderInfo.order_sn">ສຳເນົາ</button>
 												<!-- #endif -->
 												<!-- #ifndef H5 -->
-												<button class="copy" @tap.stop="copyText(item.orderInfo.order_sn)">复制</button>
+												<button class="copy" @tap.stop="copyText(item.orderInfo.order_sn)">ສຳເນົາ</button>
 												<!-- #endif -->
 											</view>
 											<navigator :url="'/pages/order_details/index?order_id='+item.orderInfo.order_id" open-type="navigate" class="conter acea-row row-middle">
@@ -344,7 +344,7 @@
 														<view class="broadcast_details_img">
 															<image :src="val.cart_info.product.image" />
 															<view class="broadcast_details_model">
-																{{item.orderInfo.total_num}}件商品
+																{{item.orderInfo.total_num}} ລາຍການສິນຄ້າ
 															</view>
 														</view>
 														<view class="broadcast_details_picBox noPad">
@@ -424,7 +424,7 @@
 										<!--退款订单链接-->
 										<navigator v-if="item.msn_type === 6 && item.refundOrder.refund_order_id" open-type="navigate" :url="'/pages/order_details/index?order_id='+item.refundOrder.order_id">
 											<view class="broadcast-details_num">
-												<text>退款单号：{{ item.refundOrder.refund_order_sn }}</text>
+												<text>ເລກຄຳສັ່ງຄືນເງິນ: {{ item.refundOrder.refund_order_sn }}</text>
 											</view>
 											<view class="conter acea-row row-middle">
 												<view class="broadcast-details_order noPad" v-for="(val, inx) in item.refundOrder.refundProduct" :key="inx">
@@ -432,14 +432,14 @@
 														<view class="broadcast_details_img">
 															<image :src="val.product.cart_info.product.image" />
 															<view class="broadcast_details_model">
-																	{{item.refundOrder.refund_num}}件商品
+																	{{item.refundOrder.refund_num}} ລາຍການສິນຄ້າ
 															</view>
 														</view>
 														<view class="broadcast_details_picBox noPad">
 															<view class="broadcast_details_tit">{{val.product.cart_info.product.store_name}}</view>
 															<view class="broadcast_details_pic">
-																共{{item.refundOrder.refund_num}}件商品，
-																合计 ¥{{ item.refundOrder.refund_price }}
+																ລວມ {{item.refundOrder.refund_num}} ລາຍການສິນຄ້າ,
+																ລວມທັງໝົດ ₭{{ item.refundOrder.refund_price }}
 															</view>
 														</view>
 													</view>
@@ -449,12 +449,12 @@
 										<!--订单链接-->
 										<view v-if="item.msn_type === 5 && item.orderInfo && item.orderInfo.order_id">
 											<view class="broadcast-details_num acea-row row-middle">
-												<text>订单号：{{ item.orderInfo.order_sn }}</text>
+												<text>ເລກຄຳສັ່ງຊື້: {{ item.orderInfo.order_sn }}</text>
 												<!-- #ifdef H5 -->
-												<button class="copy copy-data" :data-clipboard-text="item.orderInfo.order_sn">复制</button>
+												<button class="copy copy-data" :data-clipboard-text="item.orderInfo.order_sn">ສຳເນົາ</button>
 												<!-- #endif -->
 												<!-- #ifndef H5 -->
-												<button class="copy" @tap.stop="copyText(item.orderInfo.order_sn)">复制</button>
+												<button class="copy" @tap.stop="copyText(item.orderInfo.order_sn)">ສຳເນົາ</button>
 												<!-- #endif -->
 											</view>
 											<navigator :url="'/pages/order_details/index?order_id='+item.orderInfo.order_id" open-type="navigate" class="conter acea-row row-middle">
@@ -463,7 +463,7 @@
 														<view class="broadcast_details_img">
 															<image :src="val.cart_info.product.image" />
 															<view class="broadcast_details_model">
-																{{item.orderInfo.total_num}}件商品
+																{{item.orderInfo.total_num}} ລາຍການສິນຄ້າ
 															</view>
 														</view>
 														<view class="broadcast_details_picBox noPad">
@@ -538,24 +538,24 @@
 												<!-- #ifdef H5 -->
 												<view class="copy copy-data" :data-clipboard-text="item.msn">
 													<text class="iconfont icon-icon_copy"></text>
-													复制
+													ສຳເນົາ
 												</view>
 												<!-- #endif -->
 												<!-- #ifndef H5 -->
 												<view class="copy copy-data" @tap.stop="copyText(item.msn)">
 													<text class="iconfont icon-icon_copy"></text>
-													复制
+													ສຳເນົາ
 												</view>
 												<!-- #endif -->
 											</view>
-											<view v-if="(new Date().getTime()/1000 - item.send_time) <= 120" class="recall-item" @click.stop="reverstMsg(item)"><view class="iconfont icon-icon_retern"></view>撤回</view>
+											<view v-if="(new Date().getTime()/1000 - item.send_time) <= 120" class="recall-item" @click.stop="reverstMsg(item)"><view class="iconfont icon-icon_retern"></view>ຖອນ</view>
 										</view>
 									</view>
 								</view>
 								<view v-if="item.msn_type !== 100" class="pictrue">
 									<image :src="(item.user&&item.user.avatar) || '/static/images/f.png'"/>
 								</view>
-							<view v-if="item.msn_type === 100" class="recall-msg">你撤回了一条消息</view>
+							<view v-if="item.msn_type === 100" class="recall-msg">ທ່ານຖອນຂໍ້ຄວາມນຶ່ງ</view>
 							</view>
 						</block>
 					</block>
@@ -574,7 +574,7 @@
 									<view class="broadcast_details_pic p-color">
 										<priceFormat :price="productInfo.price" weight intSize="36" floatSize="24" labelSize="24"></priceFormat>
 									</view>
-									<view class="broadcast_details_btn product_btn" @click="sendProduct">发送商品</view>
+									<view class="broadcast_details_btn product_btn" @click="sendProduct">ສົ່ງສິນຄ້າ</view>
 								</view>
 							</view>
 						</view>
@@ -582,7 +582,7 @@
 						<view class="broadcast_box" v-if="orderId && orderInfo.order_id">
 							<text class="iconfont icon-ic_close" @click.stop="orderId = ''"></text>
 							<view class="broadcast-details_num broadcast_num acea-row row-between-wrapper">
-								<text>订单号：{{ orderInfo.order_sn }}</text>
+								<text>ເລກຄຳສັ່ງຊື້: {{ orderInfo.order_sn }}</text>
 								<!-- <span class="line1">{{ orderInfo.pay_time }}</span> -->
 							</view>
 							<view class="broadcast-details_box">
@@ -595,10 +595,10 @@
 									</view>
 									<view>
 										<view class="broadcast_details_pic">
-											共{{ orderInfo.total_num }}件商品，合计 <text class="p-color">¥{{ orderInfo.pay_price }}</text>
+											ລວມ {{ orderInfo.total_num }} ລາຍການສິນຄ້າ, ລວມທັງໝົດ <text class="p-color">₭{{ orderInfo.pay_price }}</text>
 										</view>
 										<view class="broadcast_details_btn" @click="sendOrder">
-											发送订单
+											ສົ່ງຄຳສັ່ງຊື້
 										</view>
 									</view>
 								</view>
@@ -608,7 +608,7 @@
 						<view class="broadcast_box" v-if="refund_order_id && refundDetail.refund_order_id">
 							<text class="iconfont icon-ic_close" @click.stop="refund_order_id = ''"></text>
 							<view class="broadcast-details_num broadcast_num">
-								<text>退款单号：{{ refundDetail.refund_order_sn }}</text>
+								<text>ເລກຄຳສັ່ງຄືນເງິນ: {{ refundDetail.refund_order_sn }}</text>
 							</view>
 							<view class="broadcast-details_box">
 								<view class="broadcast_details_img">
@@ -620,11 +620,11 @@
 									</view>
 									<view>
 										<view class="broadcast_details_pic">
-											共{{ refundDetail.refund_num }}件商品，
-											合计 <text class="p-color">¥{{ refundDetail.refund_price}}</text>
+											ລວມ {{ refundDetail.refund_num }} ລາຍການສິນຄ້າ,
+											ລວມທັງໝົດ <text class="p-color">₭{{ refundDetail.refund_price}}</text>
 										</view>
 										<view class="broadcast_details_btn refund_btn" @click="sendRefundOrder">
-											发送退款单
+											ສົ່ງຄຳສັ່ງຄືນເງິນ
 										</view>
 									</view>
 								</view>
@@ -646,7 +646,7 @@
 						{{ speak }}
 					</view>
 					<view class="input_count">
-						<input type="text" placeholder-class='placeholder' placeholder="输入内容" class="input" ref="input" v-show="!voice" @input="bindInput" @keyup="keyup"
+						<input type="text" placeholder-class='placeholder' placeholder="ປ້ອນຂໍ້ຄວາມ" class="input" ref="input" v-show="!voice" @input="bindInput" @keyup="keyup"
 						 @focus="focus" @confirm="sendTest" cursor-spacing="20" v-model="textCon">
 						<view class="send iconfont icon-ic_send" :style="'color:'+iconColor" @click="sendTest"></view>
 					</view>
@@ -727,7 +727,7 @@
 				emojiGroup: chunk(emojiList, 21),
 				active: false,
 				voice: false,
-				speak: "按住 说话",
+				speak: "ກົດຄ້າງ ເວົ້າ",
 				recording: false,
 				swiperOption: {
 					pagination: {
@@ -822,13 +822,13 @@
 				var clipboard = new ClipboardJS('.copy-data');
 				clipboard.on('success', function(e) {
 					self.$util.Tips({
-						title:'复制成功'
+						title:'ສຳເນົາສຳເລັດ'
 					})
 					self.press = false;
 				});
 				clipboard.on('error', function(e) {
 					self.$util.Tips({
-						title:'复制失败'
+						title:'ສຳເນົາບໍ່ສຳເລັດ'
 					})
 				});
 			});
@@ -889,8 +889,8 @@
 					if (!that.isBack) {
 						let self = this
 						uni.showModal({
-							title: '提示',
-							content: '连接失败,是否重新连接',
+							title: 'ແຈ້ງເຕືອນ',
+							content: 'ເຊື່ອມຕໍ່ບໍ່ສຳເລັດ, ຕ້ອງການເຊື່ອມຕໍ່ໃໝ່ບໍ?',
 							success: function(res) {
 								if (res.confirm) {
 									self.wsStart()
@@ -904,13 +904,13 @@
 				uni.$on("err_tip", data => {
 					if (!this.isBack) {
 						uni.showModal({
-							title: '提示',
+							title: 'ແຈ້ງເຕືອນ',
 							content: data,
 							success: function(res) {
 								if (res.confirm) {
-									console.log('用户点击确定');
+									console.log('ຜູ້ໃຊ້ກົດຢືນຢັນ');
 								} else if (res.cancel) {
-									console.log('用户点击取消');
+									console.log('ຜູ້ໃຊ້ກົດຍົກເລີກ');
 								}
 							}
 						});
@@ -921,8 +921,8 @@
 						let curRoute = this.$mp.page.route;
 						let self = this
 						uni.showModal({
-							title: '提示',
-							content: '连接断开，是否重新连接',
+							title: 'ແຈ້ງເຕືອນ',
+							content: 'ການເຊື່ອມຕໍ່ຂາດ, ຕ້ອງການເຊື່ອມຕໍ່ໃໝ່ບໍ?',
 							success: function(res) {
 								if (res.confirm) {
 									self.wsStart()
@@ -1090,7 +1090,7 @@
 			imageuploaded(res) {
 				if (res.status !== 200)
 				return this.$util.Tips({
-					title: res.message || "上传图片失败"
+					title: res.message || "ອັບໂຫຼດຮູບບໍ່ສຳເລັດ"
 				});
 				this.sendMsg(res.data.url, 3);
 			},
@@ -1126,7 +1126,7 @@
 					})
 					.catch(err => {
 						this.$util.Tips({
-							title: err.message || "加载失败"
+							title: err.message || "ໂຫຼດບໍ່ສຳເລັດ"
 						});
 					});
 			},
@@ -1192,7 +1192,7 @@
 					})
 					.catch(err => {
 						this.$util.Tips({
-							title: err.message || "加载失败"
+							title: err.message || "ໂຫຼດບໍ່ສຳເລັດ"
 						});
 					});
 			},
@@ -1295,7 +1295,7 @@
 				this.timeOutEvent = setTimeout(function() {
 					that.longClick = 1;
 				}, 500);
-				that.speak = "松开 结束";
+				that.speak = "ປ່ອຍ ສິ້ນສຸດ";
 				that.recording = true;
 			},
 			move() {
@@ -1308,7 +1308,7 @@
 					//点击
 					//此处为点击事件----在此处添加跳转详情页
 				}
-				this.speak = "按住 说话";
+				this.speak = "ກົດຄ້າງ ເວົ້າ";
 				this.recording = false;
 				return false;
 			},

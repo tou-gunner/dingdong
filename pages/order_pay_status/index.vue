@@ -7,53 +7,53 @@
 			<view class="status">{{payResult}}</view>
 			<view class='wrapper'>
 				<view v-if="order_type== 20 || order_pay_info.pay_type==7" class='item acea-row row-between-wrapper'>
-					<view>订单编号</view>
+					<view>ລະຫັດຄຳສັ່ງຊື້</view>
 					<view class='itemCom'>{{order_pay_info.group_order_sn}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>{{order_type== 20 ? '兑换时间' : '下单时间'}}</view>
+					<view>{{order_type== 20 ? 'ເວລາແລກປ່ຽນ' : 'ເວລາສັ່ງຊື້'}}</view>
 					<view class='itemCom'>{{order_pay_info.create_time}}</view>
 				</view>
 				<view v-if="order_type== 20" class='item acea-row row-between-wrapper'>
-					<view>兑换方式</view>
-					<view class='itemCom'>积分兑换</view>
+					<view>ວິທີແລກປ່ຽນ</view>
+					<view class='itemCom'>ແລກດ້ວຍຄະແນນ</view>
 				</view>
 				<view v-else class='item acea-row row-between-wrapper'>
-					<view>支付方式</view>
-					<view v-if="order_pay_info.pay_type==1 || order_pay_info.pay_type==2 || order_pay_info.pay_type==3" class='itemCom'>微信</view>
-					<view v-else-if="order_pay_info.pay_type==4 || order_pay_info.pay_type==5" class='itemCom'>支付宝</view>
-					<view v-else-if="order_pay_info.pay_type==7" class='itemCom'>线下支付</view>
-					<view v-else class='itemCom'>余额</view>
+					<view>ວິທີຊຳລະ</view>
+					<view v-if="order_pay_info.pay_type==1 || order_pay_info.pay_type==2 || order_pay_info.pay_type==3" class='itemCom'>WeChat</view>
+					<view v-else-if="order_pay_info.pay_type==4 || order_pay_info.pay_type==5" class='itemCom'>Alipay</view>
+					<view v-else-if="order_pay_info.pay_type==7" class='itemCom'>ຊຳລະອອບລາຍ</view>
+					<view v-else class='itemCom'>ຍອດເງິນຄົງເຫຼືອ</view>
 				</view>
 				<view v-if="order_type== 20" class='item acea-row row-between-wrapper'>
-					<view>支付积分</view>
+					<view>ຄະແນນທີ່ໃຊ້</view>
 					<view class='itemCom'>{{order_pay_info.integral}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>支付金额</view>
+					<view>ຈຳນວນເງິນຊຳລະ</view>
 					<view class='itemCom'>{{order_pay_info.pay_price}}</view>
 				</view>
 				<view v-if="order_pay_info.give_integral > 0 && order_pay_info.paid" class='item acea-row row-between-wrapper'>
-					<view>赠送积分</view>
+					<view>ຄະແນນທີ່ໄດ້ຮັບ</view>
 					<view class='itemCom t-color'>{{order_pay_info.give_integral}}</view>
 				</view>
 				<!--失败时加上这个  -->
 				<view class='item acea-row row-between-wrapper' v-if="order_pay_info.paid==0 && order_pay_info.pay_type != 7 && order_pay_info.pay_type != 'offline' && msg != 'success'">
-					<view>失败原因</view>
-					<view class='itemCom'>{{order_pay_info.pay_type==0 ? '余额不足':msg}}</view>
+					<view>ເຫດຜົນລົ້ມເຫຼວ</view>
+					<view class='itemCom'>{{order_pay_info.pay_type==0 ? 'ຍອດເງິນບໍ່ພຽງພໍ':msg}}</view>
 				</view>
 			</view>
 			<!--失败时： 重新购买 -->
-			<button @click="goPink(order_pay_info.activity_id)" class='returnBnt gColor' formType="submit" hover-class='none' v-if="order_pay_info.activity_type == 4 && order_pay_info.paid">邀请好友参团</button>
+			<button @click="goPink(order_pay_info.activity_id)" class='returnBnt gColor' formType="submit" hover-class='none' v-if="order_pay_info.activity_type == 4 && order_pay_info.paid">ເຊີນໝູ່ເຂົ້າຮ່ວມກຸ່ມ</button>
 			<view @tap="goOrderDetails">
-				<button formType="submit" class='returnBnt' :class="(order_pay_info.activity_type == 4 && order_pay_info.paid) ? 's-Color' : 'gColor'">查看订单</button>
+				<button formType="submit" class='returnBnt' :class="(order_pay_info.activity_type == 4 && order_pay_info.paid) ? 's-Color' : 'gColor'">ເບິ່ງຄຳສັ່ງຊື້</button>
 			</view>
 
-			<button v-if="!order_pay_info.paid || order_pay_info.activity_type != 4" @click="goIndex" class='returnBnt s-Color' formType="submit" hover-class='none'>返回首页</button>
+			<button v-if="!order_pay_info.paid || order_pay_info.activity_type != 4" @click="goIndex" class='returnBnt s-Color' formType="submit" hover-class='none'>ກັບຄືນໜ້າຫຼັກ</button>
 			<view class="coupon-wrapper" v-if="couponList.length>0 && order_pay_info.paid">
 				<view class="hd">
 					<view class="line"></view>
-					<view class="txt">赠送优惠券</view>
+					<view class="txt">ຄູປອງທີ່ໄດ້ຮັບ</view>
 					<view class="line"></view>
 				</view>
 				<view class="coupon-box" :class="{on:isOpen}">
@@ -62,13 +62,13 @@
 							<view class="left-bg" :style="{ 'background-image': `url(${domain}/static/diy/couponBg${keyColor}.png)` }"><text>¥</text>{{item.coupon_price}}</view>
 							<view class="info">
 								<view class="title">{{item.title}}</view>
-								<view v-if="item.use_min_price==0" class="des">领券立减{{item.coupon_price}}元</view>
-								<view v-else class="des">满{{item.use_min_price}}元可用</view>
+								<view v-if="item.use_min_price==0" class="des">ຫຼຸດທັນທີ {{item.coupon_price}} ກີບ</view>
+								<view v-else class="des">ໃຊ້ໄດ້ເມື່ອຊື້ຄົບ {{item.use_min_price}} ກີບ</view>
 								<block v-if="item.coupon_type == 1">
-									<view class="des">有效期:{{ item.use_start_time |timeYMD }}-{{ item.use_end_time |timeYMD}}</view>
+									<view class="des">ໃຊ້ໄດ້: {{ item.use_start_time |timeYMD }}-{{ item.use_end_time |timeYMD}}</view>
 								</block>
 								<block v-if="item.coupon_type == 0">
-									<view class="des">领取后{{ item.coupon_time}}天内可用</view>
+									<view class="des">ໃຊ້ໄດ້ພາຍໃນ {{ item.coupon_time}} ວັນຫຼັງຮັບ</view>
 								</block>
 							</view>
 						</view>
@@ -130,12 +130,12 @@
 				couponList:[], //优惠券列表
 				isOpen:false ,//展开
 				moneyBg: '/static/images/couponBg',
-				text: '展开更多',
+				text: 'ເບິ່ງເພີ່ມເຕີມ',
 				timer: null,
-				payResult: '正在查询支付结果...',
+				payResult: 'ກຳລັງກວດສອບຜົນການຊຳລະ...',
 				loading: false, //是否加载中
 				loadend: false, //是否加载完毕
-				loadTitle: '加载更多', //提示语
+				loadTitle: 'ໂຫຼດເພີ່ມ', //提示语
 				hotScroll: false,
 				hotPage: 1,
 				hotLimit: 10,
@@ -151,7 +151,7 @@
 		  const options = currentPage.options;
 		  console.log('最新参数:', options);
 			if (!options.order_id) return this.$util.Tips({
-				title: '缺少参数无法查看订单支付状态'
+				title: 'ບໍ່ມີພາລາມິເຕີ ບໍ່ສາມາດເບິ່ງສະຖານະການຊຳລະໄດ້'
 			}, {
 				tab: 3,
 				url: 1
@@ -182,7 +182,7 @@
 			// 优惠券展开
 			bindMore(){
 				this.isOpen = !this.isOpen
-				this.text = this.text == '展开更多' ? '收起' : '展开更多';
+				this.text = this.text == 'ເບິ່ງເພີ່ມເຕີມ' ? 'ຫຍໍ້' : 'ເບິ່ງເພີ່ມເຕີມ';
 			},
 			/**
 			 *
@@ -198,12 +198,12 @@
 					that.couponList = res.data.give_coupon
 					that.order_type = res.data.activity_type
 					if(that.order_type == 20){
-						that.payResult = res.data.paid == 1 ? '商品兑换成功' : '支付失败'
+						that.payResult = res.data.paid == 1 ? 'ແລກປ່ຽນສິນຄ້າສຳເລັດ' : 'ການຊຳລະລົ້ມເຫຼວ'
 					}else{
-						that.payResult = res.data.paid == 1 ? '支付成功' : res.data.pay_type == 7 ? '订单创建成功' : '支付失败'
+						that.payResult = res.data.paid == 1 ? 'ຊຳລະສຳເລັດ' : res.data.pay_type == 7 ? 'ສ້າງຄຳສັ່ງຊື້ສຳເລັດ' : 'ການຊຳລະລົ້ມເຫຼວ'
 					}
 					uni.setNavigationBarTitle({
-						title: res.data.paid == 1 ? '支付成功': res.data.pay_type == 7 ? '未支付' : '支付失败'
+						title: res.data.paid == 1 ? 'ຊຳລະສຳເລັດ': res.data.pay_type == 7 ? 'ຍັງບໍ່ໄດ້ຊຳລະ' : 'ການຊຳລະລົ້ມເຫຼວ'
 					});
 					if(res.data.paid == 1 || res.data.pay_type == 7){
 						clearInterval(this.timer);
@@ -274,7 +274,7 @@
 				if (that.loadend) return;
 				if (that.hotScroll) return;
 				that.loading = true;
-				that.loadTitle = "加载更多";
+				that.loadTitle = "ໂຫຼດເພີ່ມ";
 				getProductHot(
 					that.hotPage,
 					that.hotLimit,
@@ -284,7 +284,7 @@
 					that.hotScroll = res.data.list.length < that.hotLimit
 					that.hostProduct = that.hostProduct.concat(res.data.list)
 					that.loading = false;
-					that.loadTitle = that.hotScroll ? "我也是有底线的" : '加载更多';
+					that.loadTitle = that.hotScroll ? "ບໍ່ມີຂໍ້ມູນເພີ່ມແລ້ວ" : 'ໂຫຼດເພີ່ມ';
 				});
 			},
 			clearTimer() {

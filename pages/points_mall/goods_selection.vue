@@ -25,13 +25,13 @@
 									<view class="count acea-row">
 										<image class="image" :src="`${domain}/static/images/jf-point.png`" mode="widthFix"></image>
 										<text class="price">{{ item.ot_price }}</text>
-										<text class="count-text">积分</text>
-										<view v-if="item.price>0" class="sales">+{{parseFloat(Number(item.price).toFixed(2))}}元</view>
+										<text class="count-text">ຄະແນນ</text>
+										<view v-if="item.price>0" class="sales">+{{parseFloat(Number(item.price).toFixed(2))}}ກີບ</view>
 									</view>
 								</view>
 								<view class="exchange">
-									<view class="count">{{item.sales}}人兑换</view>
-									<view class='order_btn'>去兑换</view>
+									<view class="count">{{item.sales}} ຄົນແລກ</view>
+									<view class='order_btn'>ໄປແລກ</view>
 								</view>
 							</view>
 						</view>
@@ -96,13 +96,13 @@
 				menus: ['shareAppMessage', 'shareTimeline']
 			})
 			return {
-				title: '好物精选',
+				title: 'ສິນຄ້າຄັດສັນ',
 				path: 'pages/points_mall/goodSelection',
 			}
 		},
 		onShareTimeline: function() {
 			return {
-				title: '好物精选',
+				title: 'ສິນຄ້າຄັດສັນ',
 				query: {
 					key: ''
 				},
