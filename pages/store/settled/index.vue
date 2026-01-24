@@ -412,8 +412,8 @@
 				if (!that.merchantData.phone) return that.$util.Tips({
 					title: '请填写手机号码'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.merchantData.phone)) return that.$util.Tips({
-					title: '请输入正确的手机号码'
+				if (!that.isValidLaoPhone(that.merchantData.phone)) return that.$util.Tips({
+					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				await verify({
 						phone: that.merchantData.phone,
@@ -592,8 +592,8 @@
 				if (!this.merchantData.phone) return this.$util.Tips({
 					title: '请输入手机号'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(this.merchantData.phone)) return this.$util.Tips({
-					title: '请输入正确的手机号码'
+				if (!this.isValidLaoPhone(this.merchantData.phone)) return this.$util.Tips({
+					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				if (!this.isAgree) return this.$util.Tips({
 					title: '请勾选并同意入驻协议'

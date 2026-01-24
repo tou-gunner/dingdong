@@ -280,6 +280,14 @@
 			// #endif
 		},
 		methods: {
+			// Lao phone validation helper - supports: +8562052096396, 8562052096396, 020 52096396, 2052096396, 52096396
+			isValidLaoPhone(phone) {
+				if (!phone) return false;
+				let cleanPhone = phone.replace(/[\s\-\.\+]/g, '');
+				if (cleanPhone.startsWith('856')) cleanPhone = cleanPhone.substring(3);
+				if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
+				return /^(20|30)?\d{8}$/.test(cleanPhone);
+			},
 			// #ifdef MP
 			getPhoneNumber(e) {
 				let that = this;
@@ -564,7 +572,7 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				if (!that.isValidLaoPhone(that.account)) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				if (!that.captcha) return that.$util.Tips({
@@ -630,7 +638,7 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				if (!that.isValidLaoPhone(that.account)) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				if (!that.captcha) return that.$util.Tips({
@@ -685,7 +693,7 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				if (!that.isValidLaoPhone(that.account)) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				await registerVerify({
@@ -798,7 +806,7 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				if (!that.isValidLaoPhone(that.account)) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				if (!that.isAgree) return that.$util.Tips({
