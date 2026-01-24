@@ -3,7 +3,7 @@
     <view class="order-item" v-for="(item, index) of orderList" :key="item.order_id">
       <view class="order-item-header">
         <view class="order-item-type">
-          {{ item.order_type === 0 ? "上门" : "到店" }}
+          {{ item.order_type === 0 ? $t('staff.door_service') : $t('staff.shop_service') }}
         </view>
         <view class="order-item-sn overflow-text">{{ item.order_sn }}</view>
         <view class="order-item-status">{{ getBookingOrderStatus(item) }}</view>
@@ -28,7 +28,7 @@
         v-for="(product, _index) of item.orderProduct" :key="_index">
         <OrderGoodSku :product="product" />
         <view class="order-item-reverse-time overflow-text">
-          预约日期：
+          {{$t('staff.appointment_date')}}
           {{ product.reservation_date }}
           {{ product.reservation_time_part }}
         </view>
@@ -36,19 +36,19 @@
 
       <view class="order-item-btn-group">
         <button v-if="orderType === 1" class="order-item-btn" :data-event="EVENT.RUSH_ORDER"
-          :data-index="index">领取工单</button>
+          :data-index="index">{{$t('staff.get_order')}}</button>
         <template v-else>
           <template v-if="!item.is_instore_order">
             <!-- 服务中才可以添加服务记录 -->
             <navigator v-if="BtnUtil.getServiceRecordStatus(item, item.merchant.checkin)" class="order-item-btn"
-              :url="`/pages/staff/service_record?order_id=${item.order_id}&mer_id=${item.mer_id}`">服务记录</navigator>
+              :url="`/pages/staff/service_record?order_id=${item.order_id}&mer_id=${item.mer_id}`">{{$t('staff.service_record')}}</navigator>
 
             <!-- 已经指派，待上门打卡服务  -->
             <navigator v-if="BtnUtil.getCheckinStatus(item, item.merchant.checkin)" class="order-item-btn"
-              :url="`/pages/staff/checkin?order_id=${item.order_id}&mer_id=${item.mer_id}`">上门打卡</navigator>
+              :url="`/pages/staff/checkin?order_id=${item.order_id}&mer_id=${item.mer_id}`">{{$t('staff.door_clock_in')}}</navigator>
           </template>
           <button v-if="BtnUtil.getReedemStatus(item, item.merchant.checkin)" class="order-item-btn"
-            :data-event="EVENT.VERIFY" :data-index="index">核销</button>
+            :data-event="EVENT.VERIFY" :data-index="index">{{$t('staff.verify')}}</button>
         </template>
       </view>
     </view>
@@ -99,7 +99,7 @@ export default {
         handleOpenLocation(item.user_address);
       } else if (event === EVENT.RUSH_ORDER) {
         const result = await uni.showModal({
-          title: "您确定要领取此工单任务吗?",
+          title: this.$t('staff.confirm_get_order'),
         });
         if (result[0] || result[1].cancel) return;
         try {

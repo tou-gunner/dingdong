@@ -44,7 +44,7 @@
 								<!-- <block v-if="orderInfo.status == 20 && orderInfo.is_virtual == 4">{{orderInfo.order_type == 1 ? '待核销' : '已打卡'}}</block> -->
 								<block v-if="orderInfo.status == 20 && orderInfo.is_virtual == 4">ລໍຖ້າກວດສອບ</block>
 								<block v-if="orderInfo.order_type != 2">
-									<block v-if="orderInfo.status == 1">{{orderInfo.is_virtual == 1 ? 'ສິນຄ້າບໍລິການໄດ້ຈັດສົ່ງແບບສະເໝືອນແລ້ວ' : orderInfo.is_virtual == 4 ? 'ລໍຖ້າບໍລິການ' : 'ລໍຖ້າຮັບສິນຄ້າ'}}</block>
+									<block v-if="orderInfo.status == 1">{{orderInfo.is_virtual == 1 ? 'ສິນຄ້າບໍລິການໄດ້ຈັດສົ່ງແບບສະເໝືອນແລ້ວ' : orderInfo.is_virtual == 4 ? 'ລໍຖ້າບໍລິການ' : 'ກຳລັງຮອດ'}}</block>
 								</block>
 								<!-- 如果是同城配送则再判断是否为配送中 -->
 								<block v-if="orderInfo.order_type == 2 && orderInfo.deliveryOrder && orderInfo.deliveryOrder.status == 3">ກຳລັງຈັດສົ່ງ</block>
@@ -53,7 +53,7 @@
 								<block v-if="orderInfo.status == -1">ໄດ້ຄືນເງິນໃຫ້ທ່ານແລ້ວ, ຂອບໃຈສຳລັບການສະໜັບສະໜູນ</block>
 							</view>
 							<view v-if="orderInfo.is_virtual!= 4 && orderInfo.order_type != 2">{{orderInfo.pay_time}}</view>
-							<view v-else-if="orderInfo.order_type == 2 && orderInfo.deliveryOrder && orderInfo.deliveryOrder.status == 3">ຮ້ານຄ້າກຳລັງຈັດສົ່ງ, ກະລຸນາລໍຖ້າຮັບສິນຄ້າ</view> <!-- 如果是同城配送，则显示文本-->
+							<view v-else-if="orderInfo.order_type == 2 && orderInfo.deliveryOrder && orderInfo.deliveryOrder.status == 3">ຮ້ານຄ້າກຳລັງຈັດສົ່ງ, ກະລຸນາກຳລັງຮອດ</view> <!-- 如果是同城配送，则显示文本-->
 							<view v-else-if="orderInfo.is_virtual == 4">ເວລານັດໝາຍ: {{orderInfo.orderProduct[0].reservation_date}} {{orderInfo.orderProduct[0].reservation_time_part}}</view>
 
 						</view>
@@ -91,7 +91,7 @@
 								<view class="nav-text">ລໍຖ້າຊຳລະ</view>
 								<view class="nav-text" :class="(orderInfo.status == 0 || orderInfo.status == 9) ? 'on':''" v-if="orderInfo.order_type != 1">{{orderInfo.order_type == 2 ? 'ລໍຖ້າຈັດສົ່ງ' : 'ລໍຖ້າຈັດສົ່ງ'}}</view>
 								<view class="nav-text" :class="(orderInfo.status == 0 || orderInfo.status == 9) ? 'on':''" v-if="orderInfo.order_type == 1">ລໍຖ້າກວດສອບ</view>
-								<view class="nav-text" :class="orderInfo.status == 1 ? 'on':''" v-if="orderInfo.order_type != 1">{{orderInfo.order_type == 2 ? 'ກຳລັງຈັດສົ່ງ' : 'ລໍຖ້າຮັບສິນຄ້າ'}}</view>
+								<view class="nav-text" :class="orderInfo.status == 1 ? 'on':''" v-if="orderInfo.order_type != 1">{{orderInfo.order_type == 2 ? 'ກຳລັງຈັດສົ່ງ' : 'ກຳລັງຮອດ'}}</view>
 								<view class="nav-text" :class="orderInfo.status == 2 ? 'on':''">ລໍຖ້າປະເມີນ</view>
 								<view class="nav-text" :class="orderInfo.status == 3 ? 'on':''">ສຳເລັດແລ້ວ</view>
 							</view>

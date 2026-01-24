@@ -318,19 +318,19 @@
 				isNodes: 0, //控制什么时候开始抓取元素节点,只要数值改变就重新抓取
 				orderMenu: [{
 					icon: 'icon-ic_daifukuan12',
-					title: 'ລໍຖ້າຊຳລະເງິນ',
+					title: 'ລໍຖ້າຊຳລະ',
 					url: '/pages/users/order_list/index?status=0',
 					num: 0
 				},
 				{
 					icon: 'icon-ic_daifahuo11',
-					title: 'ລໍຖ້າສົ່ງ/ກວດສອບ',
+					title: 'ກຳລັງຈັດສົ່ງ',
 					url: '/pages/users/order_list/index?status=1',
 					num: 0
 				},
 				{
 					icon: 'icon-ic_daishouhuo1',
-					title: 'ລໍຖ້າຮັບສິນຄ້າ',
+					title: 'ກຳລັງຮອດ',
 					url: '/pages/users/order_list/index?status=2',
 					num: 0
 				},
@@ -562,10 +562,10 @@
 							case 'ລໍຖ້າຊຳລະເງິນ':
 								item.num = data.noPay
 								break
-							case 'ລໍຖ້າສົ່ງ/ກວດສອບ':
+							case 'ກຳລັງຈັດສົ່ງ':
 								item.num = data.noPostage
 								break
-							case 'ລໍຖ້າຮັບສິນຄ້າ':
+							case 'ກຳລັງຮອດ':
 								item.num = data.noDeliver
 								break
 							case 'ລໍຖ້າລີວິວ':

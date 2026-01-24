@@ -71,7 +71,7 @@ export default {
       return price.toString().split('.')[1]
     },
     getPayType(orderInfo) {
-      if (!orderInfo.paid) return "ລໍຖ້າຊຳລະເງິນ";
+      if (!orderInfo.paid) return "ລໍຖ້າຊຳລະ";
       if (orderInfo.pay_type === 0) {
         return 'ຊຳລະດ້ວຍຍອດເງິນ'
       }

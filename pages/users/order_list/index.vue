@@ -46,7 +46,7 @@
 						<view class='num'>{{orderData.noPostage || 0}}</view>
 					</view>
 					<view class='item' :class='orderStatus==2 ? "on": ""' @click="statusClick(2)">
-						<view>ລໍຖ້າຮັບສິນຄ້າ</view>
+						<view>ກຳລັງຮອດ</view>
 						<view class='num '>{{orderData.noDeliver || 0}}</view>
 					</view>
 					<view class='item' :class='orderStatus==3 ? "on": ""' @click="statusClick(3)">
@@ -169,7 +169,7 @@
 											<view v-if="((item.status == 20 || (item.status == 1 && item.order_type == 1))) && item.is_virtual ==4" class='t-color'>
 												<text>ລໍຖ້າຢືນຢັນ</text>
 											</view>
-											<view v-if="item.status == 1 && item.order_type==0" class='t-color'>{{item.is_virtual ==4  ? 'ລໍຖ້າບໍລິການ' : 'ລໍຖ້າຮັບສິນຄ້າ'}}</view>
+											<view v-if="item.status == 1 && item.order_type==0" class='t-color'>{{item.is_virtual ==4  ? 'ລໍຖ້າບໍລິການ' : 'ກຳລັງຮອດ'}}</view>
 											<view v-if="item.status == 1 && item.order_type==2" class='t-color'>ກຳລັງຈັດສົ່ງ</view>
 											<view v-if="item.status == 2" class='t-color'>ລໍຖ້າຄຳຕິຊົມ</view>
 											<view v-if="item.status == 3" class='t-color'>ສຳເລັດແລ້ວ</view>

@@ -3,7 +3,7 @@
     <view class="checkin-bg" />
     <view class="checkin-bg2" />
     <view class="checkin-container">
-      <NavBar title="服务打卡" lightText />
+      <NavBar :title="$t('staff.checkin_title')" lightText />
       <view class="checkin-body" :class="{ 'safe-bottom-env': safeAreaBottomSize > 0 }">
         <OrderAddress :orderInfo="orderInfo" v-if="orderInfo" />
         <view class="checkin-box">
@@ -13,13 +13,13 @@
           </button>
           <view class="checkin-box-tips">
             {{
-              allowCheckin ? "您已进入服务打卡区域" : "您当前不在服务打卡区域"
+              allowCheckin ? this.$t('staff.checkin_in_area') : this.$t('staff.checkin_out_area')
             }}
           </view>
           <view class="checkin-address-info">
             <text class="iconfont icon-ic_location51"></text>
             <text class="overflow-text checkin-address-info__text">{{ addressInfo }}</text>
-            <button class="checkin-address__refresh" @click="refreshLocation">刷新</button>
+            <button class="checkin-address__refresh" @click="refreshLocation">{{$t('common.refresh')}}</button>
           </view>
         </view>
       </view>

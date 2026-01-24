@@ -6,12 +6,12 @@
     <view class="order-top-bar">
       <view class="order-top-bar-content">
         <OrderListInfo />
-        <SearchBar @confirm="handleSearch" placeholder="请输入商品名称">
+        <SearchBar @confirm="handleSearch" :placeholder="$t('staff.input_product_name')">
           <view class="calendar-btn" :style="{ 'background-image': `url(${domain}/static/images/ic_calendar.png)` }">
             <uni-datetime-picker ref="daterange" type="daterange" @change="handleChangeDateRange">
               <view class="daterange-placeholder"></view>
               <template #header>
-                <button hover-class="none" class="calendar-clear-btn" @click="handleClearDateRange">清空</button>
+                <button hover-class="none" class="calendar-clear-btn" @click="handleClearDateRange">{{$t('common.clear')}}</button>
               </template>
             </uni-datetime-picker>
           </view>
@@ -26,10 +26,10 @@
     </view>
     <template v-if="!loadOptions.loading">
       <view class="order-list-empty" v-if="loadOptions.loaded && orderList.length">
-        人家也是有底线的～
+        {{$t('common.noMore')}}
       </view>
       <view v-else-if="orderList.length === 0" class="nothing">
-        <EmptyPage title="暂无订单~" :noImage="`${domain}/static/images/noRecord.png`" />
+        <EmptyPage :title="$t('staff.no_order')" :noImage="`${domain}/static/images/noRecord.png`" />
       </view>
     </template>
 

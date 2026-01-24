@@ -2,7 +2,7 @@
   <BaseContainer>
     <!-- #ifdef MP || APP-PLUS -->
     <view class="nav-bar-wrapper">
-      <BaseNavBar title="订单详情" lightText />
+      <BaseNavBar :title="$t('staff.order_detail')" lightText />
     </view>
     <!-- #endif -->
     <view class="order-body">
@@ -78,7 +78,7 @@ export default {
       if (progressStatus.includes(this.orderInfo.status)) {
         config.push(
           {
-            text: "订单备注",
+            text: this.$t('staff.order_remark'),
             type: "plain",
             event: BTN_EVENT.REMARK
           }
@@ -89,7 +89,7 @@ export default {
       if (!this.orderInfo.is_instore_order) {
         if (BtnUtil.getCheckinStatus(this.orderInfo, this.merServiceConfig)) {
           config.push({
-            text: "上门打卡",
+            text: this.$t('staff.door_clock_in'),
             type: "primary",
             event: BTN_EVENT.SIGN_IN
           });

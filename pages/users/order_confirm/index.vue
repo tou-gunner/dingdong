@@ -1595,9 +1595,13 @@
 							title: '请填写收货人电话'
 						});
 					}
-					if(that.post.phone && !/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.post.phone)){
+					// Lao phone validation: +8562052096396, 8562052096396, 020 52096396, 2052096396, 52096396
+					let cleanPhone = that.post.phone.replace(/[\s\-\.\+]/g, '');
+					if (cleanPhone.startsWith('856')) cleanPhone = cleanPhone.substring(3);
+					if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
+					if (that.post.phone && !/^(20|30)?\d{8}$/.test(cleanPhone)){
 						return that.$util.Tips({
-							title: '收货人电话格式不正确'
+							title: 'ເບີໂທລະສັບບໍ່ຖືກຕ້ອງ'
 						});
 					}
 				}

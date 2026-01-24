@@ -4,10 +4,10 @@
     <view v-else-if="stage === STAGE.FILL_FORM" class="popup-bg">
       <view class="popup-form-container" :style="{ 'backgroundImage': `url(${domain}/static/images/checkin-bg.png)` }">
         <view class="popup-form-wrapper">
-          <view class="popup-form-title">您当前已在服务区域，确定打卡？</view>
+          <view class="popup-form-title">{{$t('staff.confirm_checkin')}}</view>
           <view class="popup-form-date">
             <text class="iconfont icon-ic_clock" />
-            打卡时间
+            {{$t('staff.checkin_time')}}
             {{ time }}
           </view>
           <view class="popup-form-location">
@@ -16,7 +16,7 @@
           </view>
           <view class="popup-form-input__wrapper">
             <view class="popup-form-input__inner_wrapper">
-              <textarea class="popup-form-input" placeholder="请输入打卡备注" fixed :maxlength="maxLength"
+              <textarea class="popup-form-input" :placeholder="$t('staff.input_checkin_remark')" fixed :maxlength="maxLength"
                 placeholder-style="color: #9e9e9e;" v-model="form.remark" />
               <view class="popup-form-input__count">
                 <text>{{ form.remark.length }}/{{ maxLength }}</text>

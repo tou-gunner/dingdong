@@ -1,13 +1,13 @@
 <template>
   <BaseContainer>
     <view class="nav-bar-wrapper" :class="{ 'is-scroll': isScroll }">
-      <BaseNavBar title="服务记录" />
+      <BaseNavBar :title="$t('staff.service_record')" />
     </view>
     <view class="form-wrapper">
       <BaseSystemForm ref="form" :formId="formId" v-if="formId && orderInfo" :defaultValues="defaultValues" />
     </view>
     <view class="form-btn-group">
-      <button class="form-btn-group__btn confirm" @click="handleConfirm">确定</button>
+      <button class="form-btn-group__btn confirm" @click="handleConfirm">{{$t('common.confirm')}}</button>
     </view>
   </BaseContainer>
 </template>
@@ -73,7 +73,7 @@ export default {
       this.checkinConfig = res.data;
       if (this.checkinConfig.enable_trace != 1 || !this.checkinConfig.trace_form_id) {
         this.$util.Tips({
-          title: "服务记录未开启或缺少表单数据",
+          title: this.$t('staff.service_record_error'),
           icon: "none"
         });
       } else {

@@ -338,7 +338,14 @@
 								title: 'ກະລຸນາໃສ່ເລກບັນຊີທະນາຄານທີ່ຖືກຕ້ອງ'
 							});
 						}
-						if(!/(^(\d{3,4})?\d{7,8})$|(13[0-9]{9})/.test(value.tel)){
+						// Lao phone formats: +8562052096396, 8562052096396, 02052096396, 020 52096396, 2052096396, 52096396
+						let cleanTel = value.tel.replace(/[\s\-\.\+]/g, '');
+						// Remove country code 856 if present
+						if (cleanTel.startsWith('856')) cleanTel = cleanTel.substring(3);
+						// Remove leading 0
+						if (cleanTel.startsWith('0')) cleanTel = cleanTel.substring(1);
+						// Valid: 8 digits (local) or 10 digits (with carrier prefix 20/30)
+						if (!/^(20|30)?\d{8}$/.test(cleanTel)) {
 							return this.$util.Tips({
 								title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 							});

@@ -385,9 +385,13 @@ export default {
 				return that.$util.Tips({
 					title: '请输入联系电话'
 				});
-				if(that.customer.phone && !/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.customer.phone))
+				// Lao phone validation: +8562052096396, 8562052096396, 020 52096396, 2052096396, 52096396
+				let cleanPhone = that.customer.phone.replace(/[\s\-\.\+]/g, '');
+				if (cleanPhone.startsWith('856')) cleanPhone = cleanPhone.substring(3);
+				if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
+				if(that.customer.phone && !/^(20|30)?\d{8}$/.test(cleanPhone))
 				return that.$util.Tips({
-					title: '请输入正确的联系电话'
+					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 			}
 			if(this.service_type == 1)uni.setStorageSync('customerInfo', this.customer);

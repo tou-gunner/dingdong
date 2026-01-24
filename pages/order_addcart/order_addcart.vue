@@ -10,7 +10,7 @@
 					</view>
 					<view class="nav-head">
 						<view class='nav acea-row row-between-wrapper bg-f'>
-							<view>ຈຳນວນກະຕ່າ <text class='num t-color'>{{cartTotalCount}}</text></view>
+							<view>ສິນຄ້າ <text class='num t-color'>{{cartTotalCount}}</text></view>
 							<view v-if="cartList.valid.length > 0 || cartList.invalid.length > 0" class='administrate acea-row row-center-wrapper'
 							@click='manage'>{{ footerswitch ? 'ຈັດການ' : 'ຍົກເລີກ'}}</view>
 						</view>

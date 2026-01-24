@@ -17,7 +17,7 @@
           </view>
         </view>
         <view class="w-186 h-72 rd-40rpx flex-center text--w111-fff fs-26 fw-500 bg-gradient1 mr-12"
-          :class="{ empty: cartCount == 0 }" @tap="subOrder">ໄປຈ່າຍເງິນ({{ cartCount || 0 }})</view>
+          :class="{ empty: cartCount == 0 }" @tap="subOrder">ຊຳລະເງິນ({{ cartCount || 0 }})</view>
       </view>
     </view>
 

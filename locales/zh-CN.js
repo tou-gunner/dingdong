@@ -465,5 +465,33 @@ export default {
     selectAddress: '请选择收货地址',
     selectSpec: '请选择商品规格',
     agreeTerm: '请同意协议'
-  }
-}
+  },
+  staff: {
+    service_record: '服务记录', // 服务记录
+    service_record_error: '服务记录未开启或缺少表单数据', // 服务记录未开启或缺少表单数据
+    input_product_name: '请输入商品名称', // 请输入商品名称
+    no_order: '暂无订单~', // 暂无订单~
+    checkin_title: '服务打卡', // 服务打卡
+    checkin_in_area: '您已进入服务打卡区域', // 您已进入服务打卡区域
+    checkin_out_area: '您当前不在服务打卡区域', // 您当前不在服务打卡区域
+    confirm_checkin: '您当前已在服务区域，确定打卡？', // 您当前已在服务区域，确定打卡？
+    checkin_time: '打卡时间', // 打卡时间
+    input_checkin_remark: '请输入打卡备注', // 请输入打卡备注
+    order_detail: '订单详情', // 订单详情
+    order_remark: '订单备注', // 订单备注
+    door_clock_in: '上门打卡', // 上门打卡
+    pending: '待服务', // 待服务
+    processing: '进行中', // 进行中
+    take_order: '接单', // 接单
+    my_order: '我的工单', // 我的工单
+    door_service: '上门', // 上门
+    shop_service: '到店', // 到店
+    appointment_date: '预约日期：', // 预约日期：
+    get_order: '领取工单', // 领取工单
+  },
+
+    service_record_success: '服务记录提交成功', // 服务记录提交成功
+    completed: '已服务', // 已服务
+    cancelled: '已取消', // 已取消
+    verify: '核销', // 核销
+    confirm_get_order: '您确定要领取此工单任务吗?', // 您确定要领取此工单任务吗?}

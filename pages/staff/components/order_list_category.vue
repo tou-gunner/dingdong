@@ -26,23 +26,23 @@ export default {
       cateList: [
         {
           status: 0,
-          label: "全部"
+          label: this.$t('common.all')
         },
         {
           status: 1,
-          label: "待服务"
+          label: this.$t('staff.pending')
         },
         {
           status: 20,
-          label: "进行中"
+          label: this.$t('staff.processing')
         },
         {
           status: 2,
-          label: "已服务"
+          label: this.$t('staff.completed')
         },
         {
           status: -1,
-          label: "已取消"
+          label: this.$t('staff.cancelled')
         }
       ]
     }

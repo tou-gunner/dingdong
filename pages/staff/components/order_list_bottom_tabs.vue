@@ -27,12 +27,12 @@ export default {
       tabs: [
         {
           index: UNASSIGNED,
-          label: "接单",
+          label: this.$t('staff.take_order'),
           icon: "icon-jiedan-weixuanzhong"
         },
         {
           index: ASSIGNED,
-          label: "我的工单",
+          label: this.$t('staff.my_order'),
           icon: "icon-dingdan-weixuanzhong"
         }
       ]

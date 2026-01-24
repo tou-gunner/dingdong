@@ -33,7 +33,7 @@
 							<view class='navCon acea-row row-between-wrapper'>
 								<view class="nav-text on">ລໍຖ້າຊຳລະ</view>
 								<view class="nav-text">ລໍຖ້າຈັດສົ່ງ</view>
-								<view class="nav-text">ລໍຖ້າຮັບສິນຄ້າ</view>
+								<view class="nav-text">ກຳລັງຮອດ</view>
 								<view class="nav-text">ລໍຖ້າປະເມີນ</view>
 								<view class="nav-text">ສຳເລັດແລ້ວ</view>
 							</view>

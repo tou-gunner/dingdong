@@ -519,10 +519,18 @@
 					}
 				}
 			},
+			// Lao phone validation helper
+			isValidLaoPhone: function(phone) {
+				if (!phone) return false;
+				let cleanPhone = phone.replace(/[\s\-\.\+]/g, '');
+				if (cleanPhone.startsWith('856')) cleanPhone = cleanPhone.substring(3);
+				if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
+				return /^(20|30)?\d{8}$/.test(cleanPhone);
+			},
 			validateBtn: function() {
 				let that = this,
 					value = that.merchantData;
-				if (value.enterprise_name && value.user_name && value.phone && /^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone) &&
+				if (value.enterprise_name && value.user_name && value.phone && that.isValidLaoPhone(value.phone) &&
 					value.yanzhengma && that.isAgree && value.classification) {
 					if (!that.isShowCode) {
 						that.validate = true;
@@ -549,8 +557,8 @@
 				if (!value.phone) return that.$util.Tips({
 					title: '请输入手机号'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone)) return that.$util.Tips({
-					title: '请输入正确的手机号码'
+				if (!that.isValidLaoPhone(value.phone)) return that.$util.Tips({
+					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				if (!value.yanzhengma) return that.$util.Tips({
 					title: '请填写验证码'
