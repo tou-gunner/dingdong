@@ -494,4 +494,5 @@ export default {
     completed: '已服务', // 已服务
     cancelled: '已取消', // 已取消
     verify: '核销', // 核销
-    confirm_get_order: '您确定要领取此工单任务吗?', // 您确定要领取此工单任务吗?}
+    confirm_get_order: '您确定要领取此工单任务吗?', // 您确定要领取此工单任务吗?
+};
