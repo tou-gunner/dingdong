@@ -163,7 +163,7 @@ export default {
 									let res = result.data;
 									this.barAreaColor = '#4cae4c';
 									this.barAreaBorderColor = '#5cb85c';
-									this.text = '验证成功';
+									this.text = 'ຢືນຢັນສຳເລັດ';
 									this.bindingClick = false;
 									setTimeout(() => {
 										if (this.mode == 'pop') {
@@ -177,7 +177,7 @@ export default {
 									this.$parent.$emit('error', this);
 									this.barAreaColor = '#d9534f';
 									this.barAreaBorderColor = '#d9534f';
-									this.text = '验证失败';
+									this.text = 'ການຢືນຢັນຫຼົ້ມເຫຼວ';
 									setTimeout(() => {
 										this.refresh();
 									}, 700);
@@ -232,7 +232,7 @@ export default {
 					this.backToken = res.token;
 					this.secretKey = res.secretKey;
 					this.poinTextList = res.wordList;
-					this.text = '请依次点击【' + this.poinTextList.join(',') + '】';
+					this.text = 'ກະລຸນາຄລິກຕາມລໍາດັບ【' + this.poinTextList.join(',') + '】';
 				})
 				.catch(() => {
 					this.pointBackImgBase = null;

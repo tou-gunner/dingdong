@@ -7,11 +7,11 @@
 		        <view class='text acea-row row-between'>
 		          <view class='name line2'>{{item.productInfo.store_name}}</view>
 		          <view class='money' v-if="item.productInfo.attrInfo">
-								<view>¥{{item.productInfo.attrInfo.price}}</view>
+								<view>₭{{item.productInfo.attrInfo.price}}</view>
 								<view class='num'>x{{item.cart_num}}</view>
 		          </view>
 		          <view class='money' v-else>
-								<view>¥{{item.productInfo.price}}</view>
+								<view>₭{{item.productInfo.price}}</view>
 								<view class='num'>x{{item.cart_num}}</view>
 		          </view>
 		        </view>
@@ -23,7 +23,7 @@
 					</view>
 					<view class='item acea-row row-between-wrapper'>
 						<view>退款金额</view>
-						<view class='num'>¥{{orderInfo.pay_price}}</view>
+						<view class='num'>₭{{orderInfo.pay_price}}</view>
 					</view>
 					<view class='item acea-row row-between-wrapper' @tap="toggleTab('region')">
 						<view>退款原因</view>

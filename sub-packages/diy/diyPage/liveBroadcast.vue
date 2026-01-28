@@ -56,7 +56,7 @@
 								<view class="goods-wrapper acea-row">
 									<view class="goods-item" v-for="goodsItem in item.goods">
 										<image :src="goodsItem.cover_img" style="width: 96rpx; height: 96rpx; border-radius: 8rpx;" />
-										<view class="money">¥{ goodsItem.price }</view>
+										<view class="money">₭{ goodsItem.price }</view>
 										<view class="num acea-row row-center-wrapper">+5</view>
 									</view>
 								</view>

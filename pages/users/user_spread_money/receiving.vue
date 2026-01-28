@@ -12,7 +12,7 @@
 				<view class="receive-money bg-f boder-24">
 					<view class="title">收款金额</view>
 					<view class="money">
-						¥<text class="semiBold">{{infoData.extract_price}}</text>
+						₭<text class="semiBold">{{infoData.extract_price}}</text>
 					</view>
 				</view>
 			</template>
@@ -23,7 +23,7 @@
 				</view>
 				<view class="receive-info">
 					<view class="money acea-row row-center-wrapper">
-						¥<text class="semiBold">{{infoData.extract_price}}</text>
+						₭<text class="semiBold">{{infoData.extract_price}}</text>
 					</view>
 				</view>
 				<view class="info">可在“微信支付-服务-钱包-账单”查看明细</view>

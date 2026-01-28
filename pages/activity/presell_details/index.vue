@@ -50,7 +50,7 @@
 										</view>
 									</view>
 									<view class='label acea-row skeleton-rect'>
-										<view v-show="diyProduct.isOpen.includes(0)" class="line-through">¥{{storeInfo.price || ''}}</view>
+										<view v-show="diyProduct.isOpen.includes(0)" class="line-through">₭{{storeInfo.price || ''}}</view>
 										<view v-show="diyProduct.isOpen.includes(1)" style="margin-left: 30rpx;">ຈອງແລ້ວ:{{presellInfo.seles}}{{ storeInfo.unit_name }}</view>
 									</view>
 									<view v-if="!storeInfo.atmosphere_pic" class='introduce skeleton-rect'>
@@ -61,17 +61,17 @@
 										<view class="acea-row row-middle">
 											<view>ເວລາກິດຈະກຳຂາຍລ່ວງໜ້າ:</view>
 											<view v-if="presellInfo.start_time && presellInfo.end_time" class="presell_time">
-												{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getDate() }}日{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getHours() }}时{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getMinutes()}}分
+												{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getMonth()+1 }}/{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getDate() }} {{ new Date(presellInfo.start_time.replace(/-/g,"/")).getHours() }}:{{ new Date(presellInfo.start_time.replace(/-/g,"/")).getMinutes()}}
 												<span class='area_line'>~</span>
-												{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getDate() }}日{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getHours() }}时{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getMinutes()}}分
+												{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getMonth()+1 }}/{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getDate() }} {{ new Date(presellInfo.end_time.replace(/-/g,"/")).getHours() }}:{{ new Date(presellInfo.end_time.replace(/-/g,"/")).getMinutes()}}
 											</view>
 										</view>
 										<view v-if="presellInfo.presell_type === 2" class="acea-row row-middle">
 											<view>ເວລາຊຳລະສ່ວນທີ່ເຫຼືອ:</view>
 											<view v-if="presellInfo.final_start_time && presellInfo.final_end_time" class="presell_time">
-												{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getDate() }}日{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getHours() }}时{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getMinutes()}}分
+												{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getMonth()+1 }}/{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getDate() }} {{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getHours() }}:{{ new Date(presellInfo.final_start_time.replace(/-/g,"/")).getMinutes()}}
 												<span class='area_line'>~</span>
-												{{ new Date(presellInfo.final_end_time.replace(/-/g,"/")).getMonth()+1 }}月{{ new Date(presellInfo.final_end_time.replace(/-/g,"/")).getDate() }}日{{ new Date(presellInfo.final_end_time.replace(/-/g,"/")).getHours() }}时{{ new Date(presellInfo.final_end_time.replace(/-/g,"/")).getMinutes()}}分
+												{{ new Date(presellInfo.final_end_time.replace(/-/g,"/")).getMonth()+1 }}/{{ new Date(presellInfo.final_end_time.replace(/-/g,"/")).getDate() }} {{ new Date(presellInfo.final_end_time.replace(/-/g,"/")).getHours() }}:{{ new Date(presellInfo.final_end_time.replace(/-/g,"/")).getMinutes()}}
 											</view>
 										</view>
 										<view v-if="presellInfo.delivery_type == 1" class="acea-row row-middle">
@@ -136,7 +136,7 @@
 											<navigator :url="'/pages/store/home/index?id='+storeInfo.mer_id" hover-class="none" class="info">
 												<view class="name">{{storeInfo.merchant.mer_name}}
 												<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red ml8">{{storeInfo.merchant.type_name}}</text>
-												<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red ml8">自营</text>
+												<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red ml8">ຮ້ານຄ້າຫຼັກ</text>
 												</view>
 												<view class="txt">
 												{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'ໝື່ນ'}}ຄົນຕິດຕາມ
@@ -178,7 +178,7 @@
 																	<view class="txt">
 																		<view class="title line1">{{itm.store_name}}</view>
 																		<view class="price">
-																			<text>¥</text>{{itm.price}}
+																			<text>₭</text>{{itm.price}}
 																		</view>
 																	</view>
 																</view>

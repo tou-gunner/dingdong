@@ -2,22 +2,22 @@
 	<view>
 		<view class="ChangePassword">
 			<form @submit="editPwd" report-submit='true'>
-				<view class="phone">当前手机号：{{phone}}</view>
+				<view class="phone">ເບີໂທປັດຈຸບັນ: {{phone}}</view>
 				<view class="list">
 					<view class="item">
-						<input type='password' placeholder='设置新密码' placeholder-class='placeholder' name="password" :value="password"></input>
+						<input type='password' placeholder='ຕັ້ງລະຫັດຜ່ານໃໝ່' placeholder-class='placeholder' name="password" :value="password"></input>
 					</view>
 					<view class="item">
-						<input type='password' placeholder='确认新密码' placeholder-class='placeholder' name="qr_password" :value="qr_password"></input>
+						<input type='password' placeholder='ຢືນຢັນລະຫັດຜ່ານໃໝ່' placeholder-class='placeholder' name="qr_password" :value="qr_password"></input>
 					</view>
 					<view class="item acea-row row-between-wrapper">
-						<input type='number' placeholder='填写验证码' placeholder-class='placeholder' class="codeIput" name="captcha" :value="captcha"></input>
+						<input type='number' placeholder='ໃສ່ລະຫັດຢືນຢັນ' placeholder-class='placeholder' class="codeIput" name="captcha" :value="captcha"></input>
 						<button class="code font-color" :class="disabled === true ? 'on' : ''" :disabled='disabled' @click="handleVerify">
 							{{ text }}
 						</button>
 					</view>
 				</view>
-				<button form-type="submit" class="confirmBnt bg-color">确认修改</button>
+				<button form-type="submit" class="confirmBnt bg-color">ຢືນຢັນການແກ້ໄຂ</button>
 			</form>
 		</view>
     <Verify @success="success" :imgSize="{ width: '330px', height: '155px' }" ref="verify"></Verify>
@@ -82,7 +82,7 @@
 			async code(data) {
 				let that = this;
 				if (!that.userInfo.phone) return that.$util.Tips({
-					title: '手机号码不存在,无法发送验证码！'
+					title: 'ບໍ່ມີເບີໂທນີ້, ບໍ່ສາມາດສົ່ງລະຫັດຢືນຢັນໄດ້!'
 				});
 				await registerVerify(that.userInfo.phone).then(res => {
 					that.$util.Tips({
@@ -105,13 +105,13 @@
 					qr_password = e.detail.value.qr_password,
 					captcha = e.detail.value.captcha;
 				if (!password) return that.$util.Tips({
-					title: '请输入新密码'
+					title: 'ກະລຸນາໃສ່ລະຫັດຜ່ານໃໝ່'
 				});
 				if (qr_password != password) return that.$util.Tips({
-					title: '两次输入的密码不一致！'
+					title: 'ລະຫັດຜ່ານບໍ່ກົງກັນ!'
 				});
 				if (!captcha) return that.$util.Tips({
-					title: '请输入验证码'
+					title: 'ກະລຸນາໃສ່ລະຫັດຢືນຢັນ'
 				});
 				phoneRegisterReset({
 					account: that.userInfo.phone,

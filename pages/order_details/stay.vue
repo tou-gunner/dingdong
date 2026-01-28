@@ -88,18 +88,18 @@
 											<text v-if="goods.cart_info.productPresell.presell_type === 2">{{ goods.cart_info.productPresell.delivery_type === 1 ? 'ຫຼັງຊຳລະເງິນທີ່ເຫຼືອ' : 'ຫຼັງສິ້ນສຸດການຈອງ' }}{{ goods.cart_info.productPresell.delivery_day }}ວັນ</text>
 										</view>
 									</view>
-									<view class="num"><text class="font-color">¥{{goods.cart_info.productPresellAttr.presell_price}}</text></br>x{{goods.product_num}}</view>
+									<view class="num"><text class="font-color">₭{{goods.cart_info.productPresellAttr.presell_price}}</text></br>x{{goods.product_num}}</view>
 								</view>
 								<view class="event_progress" v-if="goods.cart_info.productPresell.presell_type !=1">
 									<view class="progress_list">
 										<view class="progress_name">ຂັ້ນຕອນ 1: ລໍຖ້າຜູ້ຊື້ຊຳລະເງິນ</view>
-										<view class="progress_price">ເງິນມັດຈຳ  <text class="align_right">¥{{ item.pay_price }}</text></view>
-										<view class="progress_pay">ເງິນມັດຈຳທີ່ຕ້ອງຊຳລະ<text class="align_right gColor">¥{{ item.pay_price }}</text></view>
+										<view class="progress_price">ເງິນມັດຈຳ  <text class="align_right">₭{{ item.pay_price }}</text></view>
+										<view class="progress_pay">ເງິນມັດຈຳທີ່ຕ້ອງຊຳລະ<text class="align_right gColor">₭{{ item.pay_price }}</text></view>
 									</view>
 									<view class="progress_list">
 										<view class="progress_name">ຂັ້ນຕອນ 2: ຍັງບໍ່ເລີ່ມ</view>
-										<view class="progress_price">ເງິນທີ່ເຫຼືອ  <text class="align_right">¥{{ item.presellOrder.pay_price }}</text></view>
-										<view class="progress_pay">ເງິນທີ່ເຫຼືອທີ່ຕ້ອງຊຳລະ<text class="align_right gColor">¥{{ item.presellOrder.pay_price }}</text></view>
+										<view class="progress_price">ເງິນທີ່ເຫຼືອ  <text class="align_right">₭{{ item.presellOrder.pay_price }}</text></view>
+										<view class="progress_pay">ເງິນທີ່ເຫຼືອທີ່ຕ້ອງຊຳລະ<text class="align_right gColor">₭{{ item.presellOrder.pay_price }}</text></view>
 									</view>
 								</view>
 							</view>
@@ -109,7 +109,7 @@
 									<view class="name line1">{{goods.cart_info.product.store_name}}</view>
 									<view class="msg">{{goods.cart_info.productAttr.sku}}</view>
 									<view class='price acea-row row-middle'>
-										<text>¥{{goods.cart_info.productAttr.price}}</text>
+										<text>₭{{goods.cart_info.productAttr.price}}</text>
 										<image v-if="goods.cart_info.productAttr.show_svip_price" class="svip-img" :src="`${domain}/static/images/svip.png`"></image>
 									</view>
 								</view>
@@ -145,7 +145,7 @@
 					</view>
 					<view class='item acea-row row-between'>
 						<view>ລາຄາສິນຄ້າທັງໝົດ:</view>
-						<view class='conter'>¥{{orderInfo.total_price}}</view>
+						<view class='conter'>₭{{orderInfo.total_price}}</view>
 					</view>
 				</view>
 				<view v-if="orderInfo.orderList && orderInfo.orderList[0].order_extend" class='wrapper bg-f boder-24'>
@@ -163,19 +163,19 @@
 				<view class='wrapper bg-f boder-24'>
 					<view class='item acea-row row-between' v-if="orderInfo.pay_postage > 0">
 						<view>ຄ່າຂົນສົ່ງ:</view>
-						<view class='conter'>+¥{{orderInfo.pay_postage}}</view>
+						<view class='conter'>+₭{{orderInfo.pay_postage}}</view>
 					</view>
 					<view class='item acea-row row-between' v-if='orderInfo.coupon_price>0'>
 						<view>ສ່ວນຫຼຸດຄູປອງ:</view>
-						<view class='conter'>-¥{{orderInfo.coupon_price}}</view>
+						<view class='conter'>-₭{{orderInfo.coupon_price}}</view>
 					</view>
 					<view class='item acea-row row-between' v-if='orderInfo.integral'>
 						<view>ສ່ວນຫຼຸດຄະແນນ:</view>
-						<view class='conter'>-¥{{orderInfo.integral_price}}</view>
+						<view class='conter'>-₭{{orderInfo.integral_price}}</view>
 					</view>
 					<view class='item acea-row row-between'>
 						<view>ຈຳນວນຊຳລະຕົວຈິງ:</view>
-						<view class='conter'>¥{{orderInfo.pay_price}}</view>
+						<view class='conter'>₭{{orderInfo.pay_price}}</view>
 					</view>
 				</view>
 				<view class="content-clip"></view>

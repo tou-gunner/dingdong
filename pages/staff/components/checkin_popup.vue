@@ -39,8 +39,8 @@
         </view>
 
         <view class="popup-form-button-wrapper">
-          <button class="popup-form-button" @click="handleCheckinCancel">取消</button>
-          <button class="popup-form-button confirm" @click="handleCheckinConfirm">确认打卡</button>
+          <button class="popup-form-button" @click="handleCheckinCancel">ຍົກເລີກ</button>
+          <button class="popup-form-button confirm" @click="handleCheckinConfirm">ຢືນຢັນການລົງເວລາ</button>
         </view>
       </view>
     </view>
@@ -53,14 +53,14 @@
 
         <view class="popup-result-title">
           {{
-            stage === STAGE.SUCCESS ? `打卡成功 ${form.checkInTime}` : "打卡失败"
+            stage === STAGE.SUCCESS ? `ລົງເວລາສຳເລັດ ${form.checkInTime}` : "ລົງເວລາບໍ່ສຳເລັດ"
           }}
         </view>
         <view class="popup-result-description">
-          {{ stage === STAGE.SUCCESS ? "感谢您的辛苦付出～" : "打卡失败，请再试一次" }}
+          {{ stage === STAGE.SUCCESS ? "ຂອບໃຈສຳລັບຄວາມທຸ້ມເທຂອງທ່ານ" : "ລົງເວລາບໍ່ສຳເລັດ, ກະລຸນາລອງໃໝ່" }}
         </view>
-        <button class="popup-result-btn" v-if="stage === STAGE.SUCCESS" @click="handleCheckinSuccess">我知道了</button>
-        <button class="popup-result-btn" v-else @click="handleRetryCheckin">重新打卡</button>
+        <button class="popup-result-btn" v-if="stage === STAGE.SUCCESS" @click="handleCheckinSuccess">ຮັບຊາບ</button>
+        <button class="popup-result-btn" v-else @click="handleRetryCheckin">ລົງເວລາໃໝ່</button>
       </view>
     </view>
   </view>
@@ -111,8 +111,8 @@ export default {
   async created() {
     if (!this.takePhoto) {
       const [err, { confirm }] = await uni.showModal({
-        title: "提示",
-        content: `确定要打卡吗？`,
+        title: "ແຈ້ງເຕືອນ",
+        content: `ທ່ານຕ້ອງການລົງເລີ່ມວຽກບໍ?`,
       });
       if (err || !confirm) {
         this.handleCheckinCancel();

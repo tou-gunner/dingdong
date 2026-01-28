@@ -21,7 +21,7 @@
             v-if="goods.show_svip_info && goods.show_svip_info.show_svip_price && goods.svip_price">
             <svip-price :price="goods.svip_price + ''" />
           </view>
-          <view class="sales-count">{{ goods.sales }}人都在买</view>
+          <view class="sales-count">{{ goods.sales }}ຄົນທີ່ຊື້</view>
         </view>
         <view class="flex flex-y-center product-bottom">
           <view class="product-name flex-1 line2">{{ goods.product.store_name }}</view>
@@ -30,7 +30,7 @@
               <view class="iconfont icon-ic_ShoppingCart1"></view>
             </view>
             <view @click="goProductDetail(goods)" class="buy-btn flex-center flex-1">
-                购买
+              ຊື້
             </view>
           </view>
         </view>

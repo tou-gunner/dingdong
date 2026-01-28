@@ -92,7 +92,7 @@
 					</view>
 					<view class='item acea-row row-between'>
 						<view>ຈຳນວນເງິນຊຳລະ：</view>
-						<view class='conter'>¥{{orderInfo.pay_price}}</view>
+						<view class='conter'>₭{{orderInfo.pay_price}}</view>
 					</view>
 					<view class='item acea-row row-between'>
 						<view>ໝາຍເຫດ：</view>

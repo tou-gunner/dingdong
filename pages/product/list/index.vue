@@ -73,8 +73,8 @@
 				    <text class="num">销量: {{item.sales}}</text>
 				  </view>
 				  <view class='money-wrap'>
-				    <text class='price font-color'>¥{{item.price}}</text>
-				    <text class='ot_price'>¥{{item.ot_price}}</text>
+				    <text class='price font-color'>₭{{item.price}}</text>
+				    <text class='ot_price'>₭{{item.ot_price}}</text>
 				  </view>
 				</view>
 			  </view>

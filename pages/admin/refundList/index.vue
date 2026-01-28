@@ -21,7 +21,7 @@
 									<view class="attr line1">{{ goods.cart_info.productAttr.sku }}</view>
 									<view class="refund_bom acea-row row-between">
 										<view class='money acea-row row-middle'>
-											<text>¥{{goods.cart_info.productAttr.price}}</text>
+											<text>₭{{goods.cart_info.productAttr.price}}</text>
 											<text class="callate_text">x{{goods.product_num}}</text>
 										</view>
 										<view class='carnum acea-row row-center-wrapper'>

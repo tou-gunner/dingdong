@@ -15,12 +15,12 @@
                       <priceFormat :price="item.coupon_price" weight coupon intSize="52" floatSize="36" labelSize="36">
                       </priceFormat>
                     </view>
-                    <view v-if="item.use_min_price == 0">领券立减{{ item.coupon_price }}元</view>
-                    <view v-else>满{{ item.use_min_price }}元可用</view>
+                    <view v-if="item.use_min_price == 0">ຮັບຄູບອງຫຼຸດທັນທີ {{ item.coupon_price }} ກີບ</view>
+                    <view v-else>ຊື້ຄົບ {{ item.use_min_price }} ກີບ ໃຊ້ໄດ້ເລີຍ</view>
                   </view>
                   <view class="right">
                     <view class="name line1 acea-row row-middle">
-                      <text class="label">{{ item.type === 0 ? '店铺券' : '商品券' }}</text>
+                      <text class="label">{{ item.type === 0 ? 'ຄູບອງຮ້ານຄ້າ' : 'ຄູບອງສິນຄ້າ' }}</text>
                       <text class="line1">{{ item.title }}</text>
                     </view>
                     <view class="time-wrap" style="justify-content: space-between;">
@@ -29,20 +29,20 @@
                         </view>
                       </block>
                       <block v-if="item.coupon_type == 0">
-                        <view>领取后{{ item.coupon_time }}天内可用</view>
+                        <view>ໃຊ້ໄດ້ພາຍໃນ {{ item.coupon_time }} ວັນ ຫຼັງຈາກຮັບ</view>
                       </block>
                       <template v-if="!item.is_timeout">
 
                         <navigator class="button" v-if="item.issue" hover-class="none"
-                        :url="`/pages/columnGoods/goods_coupon_list/index?coupon_id=${item.coupon_id}`">去使用</navigator>
-                        <view class="button" v-else @click="receiveCoupon(item)">立即领取</view>
+                        :url="`/pages/columnGoods/goods_coupon_list/index?coupon_id=${item.coupon_id}`">ໄປນໍາໃຊ້</navigator>
+                        <view class="button" v-else @click="receiveCoupon(item)">ຮັບທັນທີ</view>
                       </template>
                     </view>
                   </view>
                 </view>
                 <view class="tabbar-placeholder"></view>
               </view>
-              <emptyPage v-if="coupon.length == 0" title="暂无优惠券~"></emptyPage>
+              <emptyPage v-if="coupon.length == 0" title="ບໍ່ມີຄູບອງ~"></emptyPage>
             </view>
           </scroll-view>
         </view>

@@ -85,19 +85,19 @@
 						</view>
 						<view class='item acea-row row-between'>
 							<view>商品总额：</view>
-							<view class='conter'>¥{{orderInfo.total_price}}</view>
+							<view class='conter'>₭{{orderInfo.total_price}}</view>
 						</view>
 						<view class='item acea-row row-between'>
 							<view>实际支付：</view>
-							<view class='conter'>¥{{orderInfo.pay_price}}</view>
+							<view class='conter'>₭{{orderInfo.pay_price}}</view>
 						</view>
 						<view v-if="orderInfo.coupon_price > 0" class='item acea-row row-between'>
 							<view>优惠券抵扣：</view>
-							<view class='conter'>¥{{orderInfo.coupon_price}}</view>
+							<view class='conter'>₭{{orderInfo.coupon_price}}</view>
 						</view>
 						<view v-if="orderInfo.integral_price > 0" class='item acea-row row-between'>
 							<view>积分抵扣：</view>
-							<view class='conter'>¥{{orderInfo.integral_price}}</view>
+							<view class='conter'>₭{{orderInfo.integral_price}}</view>
 						</view>
 						<view class='item acea-row row-between'>
 							<view>支付方式：</view>

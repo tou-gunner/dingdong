@@ -32,7 +32,7 @@
 										<priceFormat :price="combinationInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 									</view>
 									<text v-if="storeInfo.price" class="orig_price regular">
-										¥{{storeInfo.price}}</text>
+										₭{{storeInfo.price}}</text>
 									</text>
 								</view>
 								<view class="combin-people">
@@ -44,7 +44,7 @@
 									<view class="acea-row row-between">
 										<view v-if="storeInfo.store_name" class='introduce skeleton-rect'>
 											<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red">{{storeInfo.merchant.type_name}}</text>
-											<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">自营</text>
+											<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">ຮ້ານຄ້າຫຼັກ</text>
 											{{storeInfo.store_name}}
 										</view>
 										<view v-if="diyProduct.shareList.length>0" class="fenxiang_btn">
@@ -176,10 +176,10 @@
 											<navigator :url="'/pages/store/home/index?id='+storeInfo.mer_id" hover-class="none" class="info">
 												<view class="name">{{storeInfo.merchant.mer_name}}
 												<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red ml8">{{storeInfo.merchant.type_name}}</text>
-												<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red ml8">自营</text>
+												<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red ml8">ຮ້ານຄ້າຫຼັກ</text>
 												</view>
 												<view class="txt">
-												{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}人关注
+												{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'ໝື່ນ'}}ຄົນຕິດຕາມ
 												</view>
 											</navigator>
 											<navigator :url="'/pages/store/home/index?id='+storeInfo.mer_id" class="link" hover-class="none">ເຂົ້າຮ້ານ</navigator>
@@ -819,7 +819,7 @@
 			 */
 			getGoodsDetails: function() {
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ...',
 					mask: true
 				});
 				let that = this;

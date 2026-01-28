@@ -3,7 +3,7 @@
 		<view class='sharing-con' @click='goShare'>
 			<image :src="domain+'/static/images/red-packets.png'"></image>
 			<view class='text font-color'>
-				<view class='money'><text class='label'>¥</text>{{parseFloat(sharePacket.max)}}</view>
+				<view class='money'><text class='label'>₭</text>{{parseFloat(sharePacket.max)}}</view>
 			</view>
 		</view>
 	</view>

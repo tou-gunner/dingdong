@@ -79,7 +79,7 @@
 				</view>
 				<view class='item acea-row row-between-wrapper'>
 					<view>ຈຳນວນເງິນຊຳລະ</view>
-					<view class='discount'>¥{{resData.order_pay_price || 0}}
+					<view class='discount'>₭{{resData.order_pay_price || 0}}
 					</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>

@@ -112,7 +112,7 @@ export default {
         let loadend = list.length < that.where.limit;
         that.loadend = loadend;
         that.loading = false;
-        that.loadTitle = loadend ? '加载更多' : '已全部加载';
+        that.loadTitle = loadend ? 'ໂຫຼດເພີ່ມເຕີມ' : 'ໂຫຼດຄົບແລ້ວ';
         that.$set(that, 'productList', productList);
         that.$set(that.where, 'page', that.where.page + 1);
       }).catch(err => {

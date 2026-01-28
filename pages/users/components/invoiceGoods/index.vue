@@ -14,7 +14,7 @@
 						</view>
 						<view class='attr line1' v-if="item.cart_info.productAttr.sku">{{item.cart_info.productAttr.sku}}</view>
 						<view class="acea-row row-middle item-money">
-							<view class='moneys semiBold'>¥{{item.cart_info.productAttr.price}}</view>
+							<view class='moneys semiBold'>₭{{item.cart_info.productAttr.price}}</view>
 							<view class="btn-item err" v-if="item.is_refund ==1">退款中 x {{item.product_num - item.refund_num}}</view>
 							<view class='btn-item err' v-if="item.is_refund >1">已退款 x {{item.product_num - item.refund_num}}</view>
 						</view>

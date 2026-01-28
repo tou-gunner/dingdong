@@ -35,7 +35,7 @@
 								<view class="price acea-row row-bottom">
 									<priceFormat :price="itm.productAttr.price" weight intSize="28" floatSize="20" labelSize="20"></priceFormat>
 									<view v-if="itm.productAttr.show_svip_price" class="acea-row row-middle vip-price">
-										<text class="vip-money regular">¥{{itm.productAttr.product.svip_price}}</text>
+										<text class="vip-money regular">₭{{itm.productAttr.product.svip_price}}</text>
 										<image class="vip-image" :src="`${domain}/static/images/svip.png`"></image>
 									</view>
 								</view>

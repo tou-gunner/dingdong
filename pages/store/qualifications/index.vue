@@ -4,23 +4,23 @@
 		<view class="container_qualifications" v-if="urlList.length">
 			<view class="container_qualifications_title">
 				<span class="margin_r">{{storeData.storeName}}</span>
-				<span>网店经营者资质信息</span>
+				<span>ຂໍ້ມູນໃບຢັ້ງຢືນຜູ້ດຳເນີນທຸລະກິດຮ້ານຄ້າ</span>
 			</view>
 			<view class="image_list">
 				<!-- <view v-for="(item, index) in urlList" :key="index"><image :src="item" mode="widthFix"></image></view> -->
 				<jyf-parser :domain='domain' :html="content" ref="article" :tag-style="tagStyle"></jyf-parser>
 			</view>
 			<view class="bottom_tip">
-				注：以上信息，由商家依据《电子商务法》规定发布公示。如需进一步核实，可联系商家客服咨询。
+				ໝາຍເຫດ: ຂໍ້ມູນຂ້າງເທິງນີ້ແມ່ນໄດ້ເປີດເຜີຍໂດຍຮ້ານຄ້າຕາມກົດໝາຍທຸລະກຳເອເລັກໂຕຣນິກ. ຫາກຕ້ອງການກວດສອບເພີ່ມເຕີມ, ສາມາດຕິດຕໍ່ຝ່າຍບໍລິການຂອງຮ້ານຄ້າໄດ້.
 			</view>
 		</view>
 		<!-- 输入验证码部分 -->
 		<view class="container_vercode" v-else>
-			<view class="container_vercode_title"><text>输入验证码查看证件信息</text></view>
+			<view class="container_vercode_title"><text>ໃສ່ລະຫັດຢືນຢັນເພື່ອເບິ່ງຂໍ້ມູນ</text></view>
 			<view class="container_vercode_content" >
 				<view class="container_vercode_content_heightfix" >
 					<view class="container_vercode_content_input">
-						<input type="text" v-model="verCodeValue" placeholder="请输入验证码">
+						<input type="text" v-model="verCodeValue" placeholder="ກະລຸນາໃສ່ລະຫັດຢືນຢັນ">
 					</view>
 					<!-- <view class="container_vercode_content_vercode" @click="getVerCodeImage" :style="{'background-image': `url(${captchaData.captcha})`}"> -->
 					<view class="container_vercode_content_vercode" @click="getVerCodeImage">
@@ -28,7 +28,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="container_vercode_button"><view class="button" @click="submitCaptChaData">确定</view></view>
+			<view class="container_vercode_button"><view class="button" @click="submitCaptChaData">ຕົກລົງ</view></view>
 		</view>
 	</view>
 </template>
@@ -90,7 +90,7 @@ export default {
 					this.verCodeValue = '';
 				})
 			} else {
-				Toast('请输入验证码');
+				Toast('ກະລຸນາໃສ່ລະຫັດຢືນຢັນ');
 			}
 		},
 		//

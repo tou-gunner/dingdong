@@ -19,7 +19,7 @@
                 </view>
               </block>
               <block v-else>
-                <emptyPage title="暂无活动专场哦~"></emptyPage>
+                <emptyPage title="ບໍ່ມີກິດຈະກຳພິເສດ~"></emptyPage>
               </block>
             </view>
           </scroll-view>

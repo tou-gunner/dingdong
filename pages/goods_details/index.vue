@@ -29,9 +29,9 @@
 						<view v-if="storeInfo.atmosphere_pic" :style="{ backgroundImage: `url(${storeInfo.atmosphere_pic})` }" class='nav acea-row row-between-wrapper boder-44 pos-rel'>
 							<view class='money skeleton-rect'>
 								<priceFormat v-if="storeInfo.price" :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
-								<text v-if="!svipData" class='y-money'>¥{{marketPrice || 0}}</text>
+								<text v-if="!svipData" class='y-money'>₭{{marketPrice || 0}}</text>
 								<view class="atmosphere" v-if="svipData && svipData.show_svip_price && svipData.show_svip" style="display: inline-block;">
-									<text class="vip-money regular">¥{{storeInfo.svip_price}}</text>
+									<text class="vip-money regular">₭{{storeInfo.svip_price}}</text>
 									<image class="vip-image" :src="`${domain}/static/images/svip.png`"></image>
 								</view>
 							</view>
@@ -59,7 +59,7 @@
 											<view class='money p-color skeleton-rect' style="min-width: 70rpx;">
 												<priceFormat v-if="storeInfo.price" :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 												<view v-if="svipData && svipData.show_svip_price && svipData.show_svip" style="display: inline-block;">
-													<text class="vip-money regular">¥{{storeInfo.svip_price || 0}}</text>
+													<text class="vip-money regular">₭{{storeInfo.svip_price || 0}}</text>
 													<image class="vip-image" :src="`${domain}/static/images/svip.png`"></image>
 												</view>
 											</view>
@@ -95,7 +95,7 @@
 											<view class="good-tag tags_item flex-center line1" v-for="tag of tagList" :style="[tag.style]" :key="tag.label">{{ tag.label }}</view>
 										</view>
 										<view class='label acea-row row-between-wrapper' :style="{'padding-bottom':coupon.list.length || storeInfo.top_pid?0 :10+'px;'}">
-											<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">¥{{marketPrice || 0}}</view>
+											<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">₭{{marketPrice || 0}}</view>
 											<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">ສະຕ໋ອກ:{{storeInfo.stock ? storeInfo.stock : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
 											<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">ຂາຍແລ້ວ:{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
 										</view>
@@ -150,7 +150,7 @@
 													</view>
 													<view class="list_total">
 														<view class="list_num">ລວມ{{item.count}}ຊິ້ນ</view>
-														<view class="list_price p-color">ປະຢັດ ¥{{item.max_price}}</view>
+														<view class="list_price p-color">ປະຢັດ ₭{{item.max_price}}</view>
 													</view>
 												</view>
 											</block>
@@ -628,7 +628,7 @@
 			}
 			if (!options.id && !options.scene) {
 				return this.$util.Tips({
-					title: '缺少参数无法查看商品'
+					title: 'ບໍ່ພົບພາລາມິເຕີ, ບໍ່ສາມາດເບິ່ງສິນຄ້າໄດ້'
 				}, {
 					tab: 3,
 					url: 1
@@ -881,7 +881,7 @@
 						this.$set(this.attr.productSelect, "cart_num", this.storeInfo.once_max_count);
 						this.$set(this, "cart_num", this.storeInfo.once_max_count);
 						return this.$util.Tips({
-							title: "单次购买件数不能超过"+this.storeInfo.once_max_count+"件！"
+							title: "ຈຳນວນການສັ່ງຊື້ແຕ່ລະຄັ້ງຕ້ອງບໍ່ເກີນ "+this.storeInfo.once_max_count+" ອັນ!"
 						});
 					}
 				} else {
@@ -894,7 +894,7 @@
 						this.$set(this.attr.productSelect, "cart_num", this.storeInfo.once_min_count);
 						this.$set(this, "cart_num", this.storeInfo.once_min_count);
 						return this.$util.Tips({
-							title: "单次购买件数不能少于"+this.storeInfo.once_min_count+"件！"
+							title: "ຈຳນວນການສັ່ງຊື້ແຕ່ລະຄັ້ງຕ້ອງບໍ່ຫຼຸດ "+this.storeInfo.once_min_count+" ອັນ!"
 						});
 					}
 				}
@@ -919,7 +919,7 @@
 					this.$set(this, "uniqueValue", productSelect.unique);
 					this.$set(this, "marketPrice", productSelect.ot_price);
 					this.$set(this, "attrValue", res);
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 				}
 				else {
 					this.$set(this.attr.productSelect, "image", productSelect.image);
@@ -931,7 +931,7 @@
 					this.$set(this.attr.productSelect, "cart_num", 0);
 					this.$set(this, "marketPrice", productSelect.ot_price);
 					this.$set(this, "attrValue", res);
-					this.$set(this, "attrTxt", "选择");
+					this.$set(this, "attrTxt", "ເລືອກ");
 					this.$set(this.attr.productSelect, "cart_num", 0);
 				}
 			},
@@ -959,7 +959,7 @@
 			 */
 			getGoodsDetails: function() {
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ...',
 					mask: true
 				});
 				let that = this;
@@ -1263,7 +1263,7 @@
 							type_id: this.id
 						}).then(res => {
 							that.$util.Tips({
-								title: '已取消收藏'
+								title: 'ຍົກເລີກການເກັບໄວ້ແລ້ວ'
 							});
 							that.$set(that.storeInfo, 'isRelation', !that.storeInfo.isRelation);
 						}).catch(err=>{
@@ -1277,7 +1277,7 @@
 							type: 0
 						}).then(res => {
 							that.$util.Tips({
-								title: '收藏成功'
+								title: 'ເກັບໄວ້ສຳເລັດແລ້ວ'
 							});
 							that.$set(that.storeInfo, 'isRelation', !that.storeInfo.isRelation);
 						}).catch(err=>{
@@ -1366,11 +1366,11 @@
 					productSelect.stock == 0
 				)
 					return that.$util.Tips({
-						title: "产品库存不足，请选择其它"
+						title: "ສິນຄ້າບໍ່ພຽງພໍ, ກະລຸນາເລືອກລາຍການອື່ນ"
 					});
 				if (that.attr.productSelect.cart_num == 0) {
 					return that.$util.Tips({
-						title: '购买个数不能为0！'
+						title: 'ຈຳນວນການສັ່ງຊື້ຕ້ອງບໍ່ແມ່ນ 0!'
 					})
 				}
 				let q = {
@@ -1398,7 +1398,7 @@
 							});
 						} else {
 							that.$util.Tips({
-								title: "添加购物车成功",
+								title: "ເພີ່ມເຂົ້າກະຕ່າສຳເລັດ",
 								success: () => {
 									that.getCartCount(true);
 								}
@@ -1464,8 +1464,8 @@
 						toLogin()
 					}else if(this.promoter.promoter_type==1){
 						uni.showModal({
-							title: '提示',
-							content: '请联系平台成为分销员（平台客服电话：'+app.globalData.service_type.sys_phone+'）',
+							title: 'ແຈ້ງເຕືອນ',
+							content: 'ກະລຸນາຕິດຕໍ່ຫາຝ່າຍບໍລິການເພື່ອເປັນຕົວແທນຈຳໜ່າຍ (ເບີໂທ: '+app.globalData.service_type.sys_phone+')',
 							success: function(res) {
 								if (res.confirm) {
 									uni.makePhoneCall({
@@ -1552,7 +1552,7 @@
 				that.posters = false;
 				that.$set(that, 'canvasStatus', true);
 				uni.showLoading({
-					title: '海报生成中',
+					title: 'ກຳລັງສ້າງໂປສເຕີ...',
 					mask: true
 				});
 				// #ifdef MP || APP-PLUS
@@ -1591,7 +1591,7 @@
 							fail: function(error) {
 								console.log(error)
 								return that.$util.Tips({
-									title: '请检查图片地址是否在合法域名内'
+									title: 'ກະລຸນາກວດສອບທີ່ຢູ່ຮູບພາບວ່າຢູ່ໃນໂດເມນທີ່ຖືກຕ້ອງຫຼືບໍ່'
 								});
 							}
 						});
@@ -1615,13 +1615,13 @@
 										success: function(res) {
 											that.posterImageClose();
 											that.$util.Tips({
-												title: '保存成功',
+												title: 'ບັນທຶກສຳເລັດ',
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: '保存失败'
+												title: 'ບັນທຶກບໍ່ສຳເລັດ'
 											});
 										}
 									})
@@ -1633,13 +1633,13 @@
 								success: function(res) {
 									that.posterImageClose();
 									that.$util.Tips({
-										title: '保存成功',
+										title: 'ບັນທຶກສຳເລັດ',
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: '保存失败'
+										title: 'ບັນທຶກບໍ່ສຳເລັດ'
 									});
 								},
 							})
@@ -1656,13 +1656,13 @@
 					success: function(res) {
 						that.posterImageClose();
 						that.$util.Tips({
-							title: '保存成功',
+							title: 'ບັນທຶກສຳເລັດ',
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: '保存失败'
+							title: 'ບັນທຶກບໍ່ສຳເລັດ'
 						});
 					},
 				})
@@ -1725,7 +1725,7 @@
 			appShare(scene){
 				let that = this
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ...',
 					mask: true
 				});
 				let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
@@ -1740,7 +1740,7 @@
 					imageUrl: that.storeInfo.image,
 					success: function(res) {
 						uni.showToast({
-							title: '分享成功',
+							title: 'ແບ່ງປັນສຳເລັດ',
 							icon: 'success'
 						})
 						that.posters = false;
@@ -1748,7 +1748,7 @@
 					},
 					fail: function(err) {
 						uni.showToast({
-							title: '分享失败',
+							title: 'ແບ່ງປັນບໍ່ສຳເລັດ',
 							icon: 'none',
 							duration: 2000
 						})

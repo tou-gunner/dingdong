@@ -10,8 +10,8 @@
 						<text>销量：{{itemObject.sales}}</text>
 					</view>
 					<view class="shop_list_item_shop_con_price">
-						<text>¥{{itemObject.price}}</text>
-						<del>¥{{itemObject.ot_price}}</del>
+						<text>₭{{itemObject.price}}</text>
+						<del>₭{{itemObject.ot_price}}</del>
 					</view>
 				</view>
 			</view>

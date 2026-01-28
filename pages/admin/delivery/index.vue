@@ -214,7 +214,7 @@
 <view class="footer">
 								ລວມ{{delivery.total_num}}ລາຍການ, ຊຳລະແລ້ວ
 						<priceFormat :price="delivery.pay_price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
-					（ ຄ່າຂົນສົ່ງ¥{{delivery.pay_postage}} ）
+					（ ຄ່າຂົນສົ່ງ₭{{delivery.pay_postage}} ）
 					</view>
 				</view>
 			</block>

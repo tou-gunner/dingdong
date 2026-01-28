@@ -16,10 +16,10 @@
 						</view>
 						<view class='attr line1' v-if="item.productInfo.attrInfo">{{item.productInfo.attrInfo.suk}}</view>
 						<view class='attr line1' v-else>{{item.productInfo.store_name}}</view>
-						<view class='money'>¥{{item.productInfo.price}}</view>
+						<view class='money'>₭{{item.productInfo.price}}</view>
 					</view>
 				</view>
-				<view class='totalSum'>共{{item.cartInfo.length || 0}}件商品，总金额 <text class='font-color price'>¥{{item.pay_price}}</text></view>
+				<view class='totalSum'>共{{item.cartInfo.length || 0}}件商品，总金额 <text class='font-color price'>₭{{item.pay_price}}</text></view>
 			</view>
 		</view>
 		<view class='loadingicon acea-row row-center-wrapper'>

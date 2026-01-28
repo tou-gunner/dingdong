@@ -55,7 +55,7 @@
             <view class="info">
               <view class="info-box" v-for="(items,index) in item.ProductLst" :key='index'>
                 <image class="image" :src="items.image"></image>
-                <view class="money">¥ {{items.price}}</view>
+                <view class="money">₭ {{items.price}}</view>
               </view>
             </view>
           </view>

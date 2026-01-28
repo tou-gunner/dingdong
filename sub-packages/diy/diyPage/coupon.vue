@@ -9,7 +9,7 @@
 							<view class="text">
 								<view class="money" :style="[couponMoneyColor]">
 									<template>
-										¥<text class="number">{{ item.coupon_price }}</text>
+										₭<text class="number">{{ item.coupon_price }}</text>
 									</template>
 								</view>
 								<view class="info">
@@ -33,7 +33,7 @@
 							<view class="text" :style="[couponMoneyColor]">
 								<view class="money">
 									<template>
-										¥<text class="number">{{ item.coupon_price }}</text>
+										₭<text class="number">{{ item.coupon_price }}</text>
 									</template>
 								</view>
 								<view class="info">
@@ -56,7 +56,7 @@
 								<view class="text acea-row row-column row-middle row-center">
 									<view class="money">
 										<template>
-											¥<text class="number">{{ item.coupon_price }}</text>
+											₭<text class="number">{{ item.coupon_price }}</text>
 										</template>
 									</view>
 									<view class="info">
@@ -83,7 +83,7 @@
 								<view class="text">
 									<view class="money" :style="[couponMoneyColor]">
 										<template>
-											¥<text class="number">{{ item.coupon_price }}</text>
+											₭<text class="number">{{ item.coupon_price }}</text>
 										</template>
 									</view>
 									<view class="info">
@@ -109,7 +109,7 @@
 							<view class="text acea-row row-column row-middle row-center">
 								<view class="money" :style="[couponMoneyColor]">
 									<template>
-										¥<text class="number">{{ item.coupon_price }}</text>
+										₭<text class="number">{{ item.coupon_price }}</text>
 									</template>
 								</view>
 								<view class="info" :style="[couponMoneyColor]">

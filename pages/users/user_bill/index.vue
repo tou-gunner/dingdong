@@ -2,9 +2,9 @@
 	<view :style="viewColor">
 		<view class='bill-details'>
 			<view class='nav acea-row'>
-				<view class='item' :class='type==0 ? "on":""' @click='changeType(0)'><text>全部</text></view>
-				<view class='item' :class='type==1 ? "on":""' @click='changeType(1)'><text>消费</text></view>
-				<view class='item' :class='type==2 ? "on":""' @click='changeType(2)'><text>充值</text></view>
+				<view class='item' :class='type==0 ? "on":""' @click='changeType(0)'><text>ທັງໝົດ</text></view>
+				<view class='item' :class='type==1 ? "on":""' @click='changeType(1)'><text>ໃຊ້ຈ່າຍ</text></view>
+				<view class='item' :class='type==2 ? "on":""' @click='changeType(2)'><text>ຕື່ມເງິນ</text></view>
 			</view>
 			<view class='sign-record'>
 				<view class='list' v-for="(item,index) in userBillList" :key="index">
@@ -26,7 +26,7 @@
 					<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>{{loadTitle}}
 				</view>
 				<view v-if="userBillList.length == 0">
-					<emptyPage title="暂无账单的记录哦～" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
+					<emptyPage title="ບໍ່ມີປະຫວັດການຊຳລະເງິນ" :noImage="`${domain}/static/images/noRecord.png`"></emptyPage>
 				</view>
 			</view>
 		</view>

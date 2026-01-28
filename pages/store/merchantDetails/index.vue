@@ -3,25 +3,25 @@
 		<view class="top">
 			<image class="img" :src="`${domain}/static/images/successTop.png`" mode=""></image>
 			<view class="title">
-				恭喜，您的申请已通过！
+				ຍິນດີນຳ, ການສະໝັກຂອງທ່ານຜ່ານການກວດສອບແລ້ວ!
 			</view>
 		</view>
 		<view class="msg" v-if="mer_id > 0 && resData.login_url">
 			<view class="url">
-				<text class="head">登录地址：</text>
+				<text class="head">ລິ້ງເຂົ້າສູ່ລະບົບ:</text>
 				<text class="content">{{resData.login_url}}</text>
 			</view>
 			<view class="phone">
 				<view class="">
-					<text class="head">商户账号：</text>
+					<text class="head">ບັນຊີຮ້ານຄ້າ:</text>
 					<text class="content">{{resData.phone}}</text>
 				</view>
-				<text class="cope acea-row row-middle row-center" @click="copyTBL()">复制</text>
+				<text class="cope acea-row row-middle row-center" @click="copyTBL()">ຄັດລອກ</text>
 			</view>
 		</view>
 		<view class="btn" v-if="mer_id > 0">
 			<view class="">
-				温馨提示：初始密码默认为手机号后六位，请初次登录后及时修改
+				ຄຳແນະນຳ: ລະຫັດຜ່ານເລີ່ມຕົ້ນແມ່ນເລກທ້າຍ 6 ໂຕຂອງເບີໂທລະສັບ, ກະລຸນາປ່ຽນລະຫັດຜ່ານຫຼັງຈາກເຂົ້າສູ່ລະບົບຄັ້ງທຳອິດ.
 			</view>
 		</view>
 	</view>
@@ -62,13 +62,13 @@
 				})
 			},
 			copyTBL(url) {
-				let copeData = `登录地址:${this.resData.login_url} 商户账号:${this.resData.phone}`
+				let copeData = `ທີ່ຢູ່ເຂົ້າສູ່ລະບົບ:${this.resData.login_url} ບັນຊີຮ້ານຄ້າ:${this.resData.phone}`
 				// #ifdef MP || APP-PLUS
 				uni.setClipboardData({
 					data: copeData,
 					success: function() {
 						uni.showToast({
-							title: '复制成功',
+							title: 'ຄັດລອກສຳເລັດ',
 							duration: 1000
 						});
 					}
@@ -90,7 +90,7 @@
 				}
 				transfer.blur();
 				this.$util.Tips({
-					title: '复制成功'
+					title: 'ຄັດລອກສຳເລັດ'
 				});
 				transfer.style.display = 'none'
 				document.body.removeChild(transfer);
@@ -115,7 +115,7 @@
 				if (document.execCommand('copy')) {
 					document.execCommand('copy');
 					this.$util.Tips({
-						title: '复制成功'
+						title: 'ຄັດລອກສຳເລັດ'
 					});
 				}
 				input.blur();

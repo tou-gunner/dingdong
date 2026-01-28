@@ -9,7 +9,7 @@
 			<!-- #ifdef MP || APP-PLUS -->
 			<view class="sys-title">
 				<view class='iconfont icon-ic_leftarrow' :style="{top:sysHeight}" @tap='goBack'></view>
-				<text v-show="isFixed">商户入驻</text>
+				<text v-show="isFixed">ລົງທຶນຮ້ານຄ້າ</text>
 			</view>
 			<!-- #endif -->
 			<view v-if="isFixed" class="bg"></view>
@@ -20,33 +20,33 @@
 					<image mode="widthFix" class="merchantBg" :src="domain+'/static/images/merchantBg.png'" alt="">
 				</view>
 				<view class="application-record" @click="jumpToList">
-					申请记录
+					ປະຫວັດການສະໝັກ
 					<text class="iconfont icon-ic_rightarrow"></text>
 				</view>
 				<view class='list'>
 					<view class="item">
 						<view class="acea-row row-middle">
-							<text class="item-name">商户名称</text>
-							<input type="text" maxlength="30" placeholder="请输入商户名称" v-model="merchantData.enterprise_name" @input="validateBtn"
+							<text class="item-name">ຊື່ຮ້ານຄ້າ</text>
+							<input type="text" maxlength="30" placeholder="ກະລຸນາໃສ່ຊື່ຮ້ານຄ້າ" v-model="merchantData.enterprise_name" @input="validateBtn"
 							 placeholder-class='placeholder' />
 						</view>
 					</view>
 					<view class="item">
 						<view class="acea-row row-middle">
-							<text class="item-name">用户姓名</text>
-							<input type="text" placeholder="请输入姓名" v-model="merchantData.user_name" @input="validateBtn" placeholder-class='placeholder' />
+							<text class="item-name">ຊື່ຜູ້ໃຊ້</text>
+							<input type="text" placeholder="ກະລຸນາໃສ່ຊື່" v-model="merchantData.user_name" @input="validateBtn" placeholder-class='placeholder' />
 						</view>
 					</view>
 					<view class="item">
 						<view class="acea-row row-middle">
-							<text class="item-name">联系电话</text>
-							<input type="number" placeholder="请输入手机号" v-model="merchantData.phone" @input="validateBtn" placeholder-class='placeholder' />
+							<text class="item-name">ເບີໂທຕິດຕໍ່</text>
+							<input type="number" placeholder="ກະລຸນາໃສ່ເບີໂທລະສັບ" v-model="merchantData.phone" @input="validateBtn" placeholder-class='placeholder' />
 						</view>
 					</view>
 					<view class="item rel">
 						<view class="acea-row row-middle">
-							<text class="item-name">验证码</text>
-							<input type="text" placeholder="填写验证码" v-model="merchantData.yanzhengma" @input="validateBtn" class="codeIput"
+							<text class="item-name">ລະຫັດຢືນຢັນ</text>
+							<input type="text" placeholder="ໃສ່ລະຫັດຢືນຢັນ" v-model="merchantData.yanzhengma" @input="validateBtn" class="codeIput"
 							 placeholder-class='placeholder' />
 							<button class="code" :disabled="disabled" :class="disabled === true ? 'on' : ''" @click="handleVerify">
 								{{ text }}
@@ -55,8 +55,8 @@
 					</view>
 					<view class="item" v-if="isShowCode">
 						<view class="acea-row row-middle">
-							<text class="item-name">验证码</text>
-							<input type="text" placeholder="请输入验证码" class="codeIput" v-model="codeVal" @input="validateBtn"
+							<text class="item-name">ລະຫັດຢືນຢັນ</text>
+							<input type="text" placeholder="ກະລຸນາໃສ່ລະຫັດຢືນຢັນ" class="codeIput" v-model="codeVal" @input="validateBtn"
 							 placeholder-class='placeholder' />
 							<view class="imageCode" @click="again"><image :src="codeUrl" /></view>
 						</view>
@@ -65,9 +65,9 @@
 						<view class="uni-list">
 							<view class="uni-list-cell">
 								<view class="uni-list-cell-db acea-row row-middle">
-									<text class="item-name">商户分类</text>
+									<text class="item-name">ປະເພດຮ້ານຄ້າ</text>
 									<picker @change="bindPickerChange" :value="index" :range="array" range-key="category_name">
-										<input placeholder="请选择商户分类" type="text" readonly disabled v-model="mer_classification">
+										<input placeholder="ກະລຸນາເລືອກປະເພດຮ້ານຄ້າ" type="text" readonly disabled v-model="mer_classification">
 										<view class='iconfont icon-ic_rightarrow'></view>
 									</picker>
 								</view>
@@ -79,12 +79,12 @@
 							<view class="uni-list-cell">
 								<view class="uni-list-cell-db acea-row row-middle">
 									<view class="item-name acea-row row-middle">
-										<text>店铺类型</text>
+										<text>ປະເພດຮ້ານ</text>
 										<text class="iconfont icon-icon_question" @click="getAgreement"></text>
 									</view>
 
 									<picker @change="bindPickerChange1" :value="index1" :range="storeTypeArr" range-key="type_name">
-										<input placeholder="请选择店铺类型" type="text" disabled readonly v-model="mer_storeType">
+										<input placeholder="ກະລຸນາເລືອກປະເພດຮ້ານ" type="text" disabled readonly v-model="mer_storeType">
 										<view v-if="mer_storeType" @tap.stop="mer_storeType=''" class="iconfont icon-guanbi2"></view>
 										<view class='iconfont icon-ic_rightarrow'></view>
 									</picker>
@@ -94,8 +94,8 @@
 					</view>
 					<view class="item no-border">
 						<view class='acea-row row-middle'>
-							<text class="item-title">请上传营业执照及行业相关资质证明图片</text>
-							<text class="item-desc">(图片最多可上传10张,图片格式支持JPG、PNG、JPEG)</text>
+							<text class="item-title">ກະລຸນາອັບໂຫຼດໃບອະນຸຍາດດຳເນີນທຸລະກິດ ແລະ ຮູບພາບທີ່ກ່ຽວຂ້ອງ</text>
+							<text class="item-desc">(ສາມາດອັບໂຫຼດຮູບໄດ້ສູງສຸດ 10 ຮູບ, ຮູບແບບທີ່ຮອງຮັບ: JPG, PNG, JPEG)</text>
 							<view class="upload">
 								<view class='pictrue' v-for="(item,index) in pics" :key="index" :data-index="index" @click="getPhotoClickIdx">
 									<image :src='item'></image>
@@ -103,15 +103,15 @@
 								</view>
 								<view class='pictrue acea-row row-center-wrapper row-column' @click='uploadpic' v-if="pics.length < 10">
 									<text class='iconfont icon-ic_camera1'></text>
-									<view>上传图片</view>
+									<view>ອັບໂຫຼດຮູບ</view>
 								</view>
 							</view>
 						</view>
 					</view>
 					<view class="item no-border acea-row row-middle">
 						<checkbox-group @change='ChangeIsAgree'>
-							<checkbox class="checkbox" :checked="isAgree ? true : false" />已阅读并同意</checkbox-group>
-						<button class="settleAgree" @click="getConfig">《入驻协议》</button>
+							<checkbox class="checkbox" :checked="isAgree ? true : false" />ໄດ້ອ່ານ ແລະ ຍິນຍອມ</checkbox-group>
+						<button class="settleAgree" @click="getConfig">《ຂໍ້ຕົກລົງການລົງທຶນ》</button>
 					</view>
 					<button class='submitBtn' :class="validate === true ? 'on':''" @click="formSubmit">ສົ່ງຄຳຮ້ອງຂໍ</button>
 				</view>
@@ -120,7 +120,7 @@
 		<view class="instructions" v-if="showProtocol">
 			<view class="agreement-count">
 				<view class="setAgCount">
-					<view class="title">{{isType ? '店铺类型说明' : '商户入驻协议'}}</view>
+					<view class="title">{{isType ? 'ຄຳອະທິບາຍປະເພດຮ້ານ' : 'ຂໍ້ຕົກລົງການລົງທຶນຮ້ານຄ້າ'}}</view>
 					<view class="agBox">
 						<view class="content">
 							<jyf-parser :html="protocol" ref="article" :tag-style="tagStyle"></jyf-parser>
@@ -143,7 +143,7 @@
 				<view class="info">ຄາດວ່າຈະກວດກາເສັດພາຍໃນ 15 ມື້ລັດຖະການ, ເຈົ້າໜ້າທີ່ບໍລິການຈະຕິດຕໍ່ທ່ານທັນທີ!</view>
 			</view>
 			<view class="goHome" hover-class="none" @click="goHome">
-				返回首页
+				ກັບຄືນໜ້າຫຼັກ
 			</view>
 		</view>
 	</view>
@@ -190,7 +190,7 @@
 				cartId: '', //购物车id
 				pinkId: 0, //拼团id
 				couponId: 0, //优惠券id
-				text: "获取验证码",
+				text: "ຮັບລະຫັດຢືນຢັນ",
 				codeUrl: "",
 				disabled: false,
 				isAgree: false,
@@ -245,7 +245,7 @@
 			if (options.mer_i_id) {
 				this.mer_i_id = options.mer_i_id
 				uni.showLoading({
-					title: '获取数据中',
+					title: 'ກຳລັງໂຫຼດຂໍ້ມູນ',
 				});
 				this.$nextTick(function() {
 					this.getGoodsDetails(options.mer_i_id)
@@ -410,7 +410,7 @@
 			async code(data) {
 				let that = this;
 				if (!that.merchantData.phone) return that.$util.Tips({
-					title: '请填写手机号码'
+					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບ'
 				});
 				if (!that.isValidLaoPhone(that.merchantData.phone)) return that.$util.Tips({
 					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
@@ -450,16 +450,16 @@
 				if (this.disabled) return;
 				this.disabled = true;
 				let n = 60;
-				this.text = "剩余 " + n + "s";
+				this.text = "ເຫຼືອ " + n + "s";
 				const run = setInterval(() => {
 					n = n - 1;
 					if (n < 0) {
 						clearInterval(run);
 					}
-					this.text = "剩余 " + n + "s";
-					if (this.text < "剩余 " + 0 + "s") {
+					this.text = "ເຫຼືອ " + n + "s";
+					if (this.text < "ເຫຼືອ " + 0 + "s") {
 						this.disabled = false;
-						this.text = "重新获取";
+						this.text = "ຮັບໃໝ່";
 					}
 				}, 1000);
 			},
@@ -549,28 +549,28 @@
 				let that = this,
 					value = that.merchantData;
 				if (!value.enterprise_name) return that.$util.Tips({
-					title: '请输入企业名称'
+					title: 'ກະລຸນາໃສ່ຊື່ບໍລິສັດ/ຮ້ານຄ້າ'
 				});
 				if (!value.user_name) return that.$util.Tips({
-					title: '请输入姓名'
+					title: 'ກະລຸນາໃສ່ຊື່'
 				});
 				if (!value.phone) return that.$util.Tips({
-					title: '请输入手机号'
+					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບ'
 				});
 				if (!that.isValidLaoPhone(value.phone)) return that.$util.Tips({
 					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				if (!value.yanzhengma) return that.$util.Tips({
-					title: '请填写验证码'
+					title: 'ກະລຸນາໃສ່ລະຫັດຢືນຢັນ'
 				});
 				if (!value.classification) return that.$util.Tips({
-					title: '请选择商户分类'
+					title: 'ກະລຸນາເລືອກປະເພດຮ້ານຄ້າ'
 				});
 				if (!that.isAgree) return that.$util.Tips({
-					title: '请勾选并同意入驻协议'
+					title: 'ກະລຸນາເລືອກ ແລະ ຍອມຮັບຂໍ້ຕົກລົງການລົງທຶນ'
 				});
 				if (that.isShowCode && !that.codeVal) return that.$util.Tips({
-					title: '请填写图片验证码'
+					title: 'ກະລຸນາໃສ່ລະຫັດຢືນຢັນຮູບພາບ'
 				});
 				that.validate = true;
 				return true;
@@ -590,13 +590,13 @@
 			},
 			handleVerify() {
 				if (!this.merchantData.phone) return this.$util.Tips({
-					title: '请输入手机号'
+					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບ'
 				});
 				if (!this.isValidLaoPhone(this.merchantData.phone)) return this.$util.Tips({
 					title: 'ກະລຸນາໃສ່ເບີໂທລະສັບທີ່ຖືກຕ້ອງ'
 				});
 				if (!this.isAgree) return this.$util.Tips({
-					title: '请勾选并同意入驻协议'
+					title: 'ກະລຸນາເລືອກ ແລະ ຍອມຮັບຂໍ້ຕົກລົງການລົງທຶນ'
 				});
 				this.$refs.verify.show();
 				this.pageStyle = 'overflow: hidden;'; // 小程序

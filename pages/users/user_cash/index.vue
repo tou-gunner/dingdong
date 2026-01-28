@@ -87,13 +87,13 @@
 							</view>
 							<view class='item acea-row row-between-wrapper'>
 								<view class='name'>提现</view>
-								<view class='input acea-row row-between-wrapper'><input :placeholder='"最低提现金额：¥"+minPrice' placeholder-class='placeholder' name="extract_price"
+								<view class='input acea-row row-between-wrapper'><input :placeholder='"最低提现金额：₭"+minPrice' placeholder-class='placeholder' name="extract_price"
 									type='digit' v-model="extract_price"></input>
 									<view class="all" @click="allCash">全部提现</view>
 								</view>
 							</view>
 							<view class='tip mt25'>
-								当前可提现金额：<text class="price">¥{{userInfo.brokerage_price}}，</text>冻结佣金：¥{{userInfo.lock_brokerage}}
+								当前可提现金额：<text class="price">₭{{userInfo.brokerage_price}}，</text>冻结佣金：₭{{userInfo.lock_brokerage}}
 							</view>
 							<view class='tip' v-if="userInfo.broken_day>0">
 								说明：每笔佣金的冻结期为{{userInfo.broken_day}}天，到期后可提现
@@ -114,7 +114,7 @@
 								</view>
 								<view class='item acea-row row-between-wrapper'>
 									<view class='name'>提现</view>
-									<view class='input acea-row row-between-wrapper'><input :placeholder='"最低提现金额：¥"+minPrice' placeholder-class='placeholder' name="extract_price"
+									<view class='input acea-row row-between-wrapper'><input :placeholder='"最低提现金额：₭"+minPrice' placeholder-class='placeholder' name="extract_price"
 									 type='digit' v-model="extract_price"></input>
 									 <view class="all" @click="allCash">全部提现</view>
 									</view>
@@ -133,14 +133,14 @@
 									</view>
 								</view>
 								<view class='tip mt25'>
-									当前可提现金额: <text class="price">¥{{userInfo.brokerage_price}}，</text>冻结佣金：¥{{userInfo.lock_brokerage}}
+									当前可提现金额: <text class="price">₭{{userInfo.brokerage_price}}，</text>冻结佣金：₭{{userInfo.lock_brokerage}}
 								</view>
 								<view class='tip' v-if="userInfo.broken_day>0">
 									说明: 每笔佣金的冻结期为{{userInfo.broken_day}}天，到期后可提现
 								</view>
 							</view>
 							<view v-else class="auto_arrival">
-								<view class='tip'>当前可提现金额: <text class="price">¥{{userInfo.brokerage_price}}</text>冻结佣金：¥{{userInfo.lock_brokerage}}
+								<view class='tip'>当前可提现金额: <text class="price">₭{{userInfo.brokerage_price}}</text>冻结佣金：₭{{userInfo.lock_brokerage}}
 								</view>
 								<view class='input'><input placeholder-class='placeholder1' name="extract_price"
 									 type="digit" @input="handleInput" :placeholder="placeholderValue" @focus="placeholderValue = ''" v-model="extract_price" @blur="blurPrice"></input>
@@ -161,7 +161,7 @@
 							</view>
 							<view class='item acea-row row-between-wrapper'>
 								<view class='name'>提现</view>
-								<view class='input acea-row row-between-wrapper'><input :placeholder='"最低提现金额：¥"+minPrice' placeholder-class='placeholder' name="extract_price"
+								<view class='input acea-row row-between-wrapper'><input :placeholder='"最低提现金额：₭"+minPrice' placeholder-class='placeholder' name="extract_price"
 									type='digit' @input="handleInput" v-model="extract_price" @blur="blurPrice"></input>
 									<view class="all" @click="allCash">全部提现</view>
 								</view>
@@ -180,7 +180,7 @@
 								</view>
 							</view>
 							<view class='tip'>
-								当前可提现金额: <text class="price">¥{{userInfo.brokerage_price}}，</text>冻结佣金：¥{{userInfo.lock_brokerage}}
+								当前可提现金额: <text class="price">₭{{userInfo.brokerage_price}}，</text>冻结佣金：₭{{userInfo.lock_brokerage}}
 							</view>
 							<view class='tip' v-if="userInfo.broken_day>0">
 								说明: 每笔佣金的冻结期为{{userInfo.broken_day}}天，到期后可提现
@@ -197,14 +197,14 @@
 							<view class="itemCon">
 								<view class='item acea-row row-between-wrapper'>
 									<view class='name'>提现</view>
-									<view class='input acea-row row-between-wrapper'><input :placeholder='"最低提现金额：¥"+minPrice' placeholder-class='placeholder' name="extract_price"
+									<view class='input acea-row row-between-wrapper'><input :placeholder='"最低提现金额：₭"+minPrice' placeholder-class='placeholder' name="extract_price"
 										type='digit' @input="handleInput" v-model="extract_price" @blur="blurPrice"></input>
 										<view class="all" @click="allCash">全部提现</view>
 									</view>
 								</view>
 							</view>
 							<view class='tip'>
-								当前可提现金额: <text class="price">¥{{userInfo.brokerage_price}}，</text>冻结佣金：¥{{userInfo.lock_brokerage}}
+								当前可提现金额: <text class="price">₭{{userInfo.brokerage_price}}，</text>冻结佣金：₭{{userInfo.lock_brokerage}}
 							</view>
 							<view class='tip' v-if="userInfo.broken_day>0">
 								说明: 每笔佣金的冻结期为{{userInfo.broken_day}}天，到期后可提现

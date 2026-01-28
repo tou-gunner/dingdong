@@ -51,7 +51,7 @@
 													<priceFormat :price="itemn.product.price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
 												</view>
 												<view class="ot_price regular">
-												¥{{itemn.product.ot_price}}
+												₭{{itemn.product.ot_price}}
 												</view>
 											</view>
 										</view>
@@ -59,7 +59,7 @@
 								</block>
 							</view>
 							<view class="save_money semiBold"><text>ປະຢັດ:</text>
-								¥{{item.checked_save_money}}
+								₭{{item.checked_save_money}}
 							</view>
 							<view v-if="item.is_limit == 0 || (item.is_limit == 1 && item.limit_num > 0)" class="btn" @click="subData(index)">
 								ຊື້ຊຸດນີ້（{{item.checked_num}}ຊິ້ນສິນຄ້າ）

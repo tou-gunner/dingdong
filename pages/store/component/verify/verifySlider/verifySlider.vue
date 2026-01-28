@@ -81,7 +81,7 @@
 			},
 			explain: {
 				type: String,
-				default: '向右滑动完成验证'
+				default: 'ເລື່ອນໄປທາງຂວາເພື່ອຢືນຢັນ'
 			},
 			imgSize: {
 				type: Object,
@@ -256,7 +256,7 @@
 							}, 1500)
 							this.passFalg = true
 							this.tipWords =
-								`${((this.endMovetime-this.startMoveTime)/1000).toFixed(2)}s验证成功`
+								`${((this.endMovetime-this.startMoveTime)/1000).toFixed(2)}ວິນາທີ ຢືນຢັນສຳເລັດ`
 							setTimeout(() => {
 								this.tipWords = ""
 								this.$emit('success', {
@@ -273,7 +273,7 @@
 								this.refresh();
 							}, 1000);
 							this.$parent.$emit('error', this)
-							this.tipWords = "验证失败"
+							this.tipWords = "ການຢືນຢັນສະຖານະນະພາບ ລົ້ມເຫຼວ"
 							setTimeout(() => {
 								this.tipWords = ""
 							}, 1000)

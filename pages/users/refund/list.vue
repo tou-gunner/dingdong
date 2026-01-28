@@ -17,7 +17,7 @@
 							<view class="msg">
 								<view class="name line1"><text v-if="goods.product.cart_info.product_type === 2" class="event_name event_bg">ຈອງລ່ວງໜ້າ</text>{{goods.product.cart_info.product.store_name}}</view>
 								<view class="des">{{goods.product.cart_info.productAttr.sku}}</view>
-								<view class="price">ຄືນເງິນ: <text class="semiBold">¥{{goods.refund_price}}</text></view>
+								<view class="price">ຄືນເງິນ: <text class="semiBold">₭{{goods.refund_price}}</text></view>
 								<view class="num">x {{goods.refund_num}}</view>
 							</view>
 						</view>

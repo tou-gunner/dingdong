@@ -445,7 +445,7 @@ export default {
 				ctx.setTextAlign('center')
 				ctx.setFontSize(48);
 				ctx.setFillStyle('red');
-				ctx.fillText('¥' + price, WIDTH / 2, 880 + contentHh);
+				ctx.fillText('₭' + price, WIDTH / 2, 880 + contentHh);
 				ctx.draw(true, function() {
 					uni.canvasToTempFilePath({
 						canvasId: 'myCanvas',
@@ -533,17 +533,17 @@ export default {
 				ctx.setFontSize(40);
 				ctx.setFillStyle('red');
 				ctx.font = 'bold 40px dinProRegular';	
-				ctx.fillText('¥' + price, 30, 990 + contentHh);
+				ctx.fillText('₭' + price, 30, 990 + contentHh);
 				ctx.setFontSize(26);
 				ctx.setFillStyle('#999999');
 				ctx.beginPath();
-				const textWidth = ctx.measureText(ot_price+'¥').width + 16; //检查字体的宽度
+				const textWidth = ctx.measureText(ot_price+'₭').width + 16; //检查字体的宽度
 				//绘制数字中间的矩形
 				ctx.setFillStyle('#999999');
 				ctx.rect(35, 1062,textWidth-40, 1);
 				ctx.fill();
 				ctx.closePath();
-				ctx.fillText('¥' + ot_price, 35, 1030 + contentHh);
+				ctx.fillText('₭' + ot_price, 35, 1030 + contentHh);
 				// ctx.clip();
 				// ctx.restore();
 				that.handleBorderRect(ctx, 30, 108, WIDTH-60, WIDTH-20, 16);

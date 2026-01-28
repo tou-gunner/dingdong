@@ -41,7 +41,7 @@
 									{{item.store_name}}
 								</view>
 								<view class="acea-row row-middle">
-									<view class='money'>¥<text class='num'>{{item.price}}</text></view>
+									<view class='money'>₭<text class='num'>{{item.price}}</text></view>
 								</view>
 								<view v-if="theme != 1" class="score">{{item.rate}}ຄະແນນ {{item.reply_count}}ຄຳເຫັນ</view>
 							</view>

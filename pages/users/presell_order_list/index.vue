@@ -36,13 +36,13 @@
 										</view>
 									</view>
 									<view class='money'>
-										<view v-if="goods.cart_info.productPresellAttr" class="regular">¥{{goods.cart_info.productPresellAttr.presell_price}}</view>
+										<view v-if="goods.cart_info.productPresellAttr" class="regular">₭{{goods.cart_info.productPresellAttr.presell_price}}</view>
 										<view>x{{goods.product_num}}</view>
 									</view>
 								</view>
 								<view v-if="goods.cart_info.productPresell.presell_type === 2" class="event_price">
-									<text class="color_gray">定金已支付 <text>¥{{ item.pay_price }}，</text></text>
-									尾款待支付 <text class="p-color">¥{{ item.presellOrder&&item.presellOrder.pay_price }}</text>
+									<text class="color_gray">定金已支付 <text>₭{{ item.pay_price }}，</text></text>
+									尾款待支付 <text class="p-color">₭{{ item.presellOrder&&item.presellOrder.pay_price }}</text>
 								</view>
 							</view>
 						</block>

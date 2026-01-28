@@ -61,7 +61,7 @@ export default {
       safeAreaBottomSize: systemInfo.safeAreaInsets.bottom,
       formatTime: "00:00:00",
       inCheckinArea: false,
-      addressInfo: "获取位置中...",
+      addressInfo: "ກຳລັງດຶງຂໍ້ມູນຕຳແໜ່ງ...",
       location: null,
       checkinLocation: null,
       checkinPopupVisible: false

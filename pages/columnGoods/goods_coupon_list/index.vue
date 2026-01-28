@@ -58,7 +58,7 @@
 											<priceFormat :price="item.price" weight intSize="40" floatSize="26" labelSize="26"></priceFormat>
 										</view>
 										<view v-if="item.show_svip_info.show_svip_price && item.svip_price" class="acea-row row-middle svip-count">
-											<text class='vip-money regular'>¥{{item.svip_price}}</text>
+											<text class='vip-money regular'>₭{{item.svip_price}}</text>
 											<view class="vipImg">
 												<image :src="`${domain}/static/images/svip.png`"></image>
 											</view>

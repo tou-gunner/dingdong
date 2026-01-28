@@ -34,7 +34,7 @@
 									<navigator hover-class="none" class="item" v-for="(itm, idx) in item.broadcast" :key="idx">
 										<view class="pro-img" v-if="idx < 3">
 											<image :src="itm.goods.cover_img"></image>
-											<view class="price" v-if="idx < 2">¥{{itm.goods.price}}</view>
+											<view class="price" v-if="idx < 2">₭{{itm.goods.price}}</view>
 											<view v-else class="more">+{{ item.broadcast.length - 2 }}</view>
 										</view>
 									</navigator>

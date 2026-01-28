@@ -17,18 +17,18 @@
 				<view class='item acea-row row-center-wrapper'>
 					<block v-if="item.status == 0">
 						<view v-if="item.coupon.send_type == 5" class='money vip-coupon' :style="{ 'background-image': `url(${domain}/static/images/coupon-vip-bg.png)` }">
-							<view class="line1 coupon_value">¥<text class='num'>{{item.coupon_price}}</text></view>
+							<view class="line1 coupon_value">₭<text class='num'>{{item.coupon_price}}</text></view>
 							<view v-if="item.use_min_price==0" class="pic-num">ຮັບຄູປອງຫຼຸດລາຄາ {{item.coupon_price}} ກີບ</view>
 							<view v-else class="pic-num">ຊື້ຄົບ {{item.use_min_price}} ກີບໃຊ້ໄດ້</view>
 						</view>
 						<view v-else class='money' :style="{ 'background-image': `url(${domain}/static/diy/couponBg${keyColor}.png)` }">
-							<view class="line1 coupon_value">¥<text class='num semiBold'>{{item.coupon_price}}</text></view>
+							<view class="line1 coupon_value">₭<text class='num semiBold'>{{item.coupon_price}}</text></view>
 							<view v-if="item.use_min_price==0" class="pic-num">ຮັບຄູປອງຫຼຸດລາຄາ {{item.coupon_price}} ກີບ</view>
 							<view v-else class="pic-num">ຊື້ຄົບ {{item.use_min_price}} ກີບໃຊ້ໄດ້</view>
 						</view>
 					</block>
 					<view v-else class='money moneyGray' :style="'background-image: url('+domain+'/static/images/sign-rotate-bg.png)'">
-						<view>¥<text class='num semiBold'>{{item.coupon_price}}</text></view>
+						<view>₭<text class='num semiBold'>{{item.coupon_price}}</text></view>
 						<view class="pic-num">ຊື້ຄົບ {{ item.use_min_price }} ກີບໃຊ້ໄດ້</view>
 					</view>
 					<view class='text'>

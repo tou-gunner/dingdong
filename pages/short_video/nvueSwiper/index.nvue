@@ -118,7 +118,7 @@
 												<view class="name line1">{{ goods.spu.store_name }}</view>
 												<view class="product-price">
 													<view class="price">
-														¥
+														₭
 														<text>{{ goods.spu.price }}</text>
 													</view>
 													<view class="buy-btn">购买</view>

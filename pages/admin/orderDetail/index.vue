@@ -67,7 +67,7 @@
 								<view class="num">x{{ item.product_num }}
 									<text class="font-color refund_num" v-if="item.product_num-item.refund_num>0">(-{{item.product_num-item.refund_num}})</text>
 								</view>
-								<!-- <view v-if="orderInfo.order_type == 0" class="y-money">¥{{ item.cart_info.productAttr.ot_price }}</view>	 -->
+								<!-- <view v-if="orderInfo.order_type == 0" class="y-money">₭{{ item.cart_info.productAttr.ot_price }}</view>	 -->
 							</view>
 						</view>
 					</navigator>
@@ -75,7 +75,7 @@
 						ລວມ{{ orderInfo.total_num }}ລາຍການ, ຊຳລະແລ້ວ
 						<view class="money">
 							<priceFormat :price="orderInfo.pay_price" weight intSize="32" floatSize="22" labelSize="22"></priceFormat>
-						</view> ( ຄ່າຂົນສົ່ງ ¥{{orderInfo.pay_postage}} )
+						</view> ( ຄ່າຂົນສົ່ງ ₭{{orderInfo.pay_postage}} )
 					</view>
 				</view>
 				<!-- 提货点信息 -->
@@ -143,23 +143,23 @@
 				<view class="wrapper mt20 boder-24 bg-f">
 					<view class="item acea-row row-between">
 						<view>ລາຄາລວມສິນຄ້າ：</view>
-						<view class="conter">¥{{ orderInfo.total_price }}</view>
+						<view class="conter">₭{{ orderInfo.total_price }}</view>
 					</view>
 					<view v-if="orderInfo.coupon_price > 0" class="item acea-row row-between">
 						<view>ສ່ວນຫຼຸດຄູປອງ：</view>
-						<view class="conter">-¥{{ orderInfo.coupon_price }}</view>
+						<view class="conter">-₭{{ orderInfo.coupon_price }}</view>
 					</view>
 					<view v-if="orderInfo.svip_discount > 0" class="item acea-row row-between">
 					  <view>ສ່ວນຫຼຸດສະມາຊິກ：</view>
-					  <view class="conter">-¥{{ orderInfo.svip_discount }}</view>
+					  <view class="conter">-₭{{ orderInfo.svip_discount }}</view>
 					</view>
 					<view v-if="orderInfo.integral_price > 0" class="item acea-row row-between">
 						<view>ສ່ວນຫຼຸດຄະແນນ：</view>
-						<view class="conter">-¥{{ orderInfo.integral_price }}</view>
+						<view class="conter">-₭{{ orderInfo.integral_price }}</view>
 					</view>
 					<view v-if="orderInfo.pay_postage > 0" class="item acea-row row-between">
 						<view>ຄ່າຂົນສົ່ງ：</view>
-						<view class="conter">¥{{ orderInfo.pay_postage }}</view>
+						<view class="conter">₭{{ orderInfo.pay_postage }}</view>
 					</view>
 					<view class="actualPay acea-row row-right">
 						ຊຳລະຕົວຈິງ：

@@ -8,7 +8,7 @@
 				</view>
 				<!--#endif-->
 				<view class='input acea-row row-between-wrapper'><text class='iconfont icon-ic_search'></text>
-					<input placeholder='搜索商品名称' placeholder-class='placeholder' confirm-type='search' name="search" :value='where.keyword'
+					<input placeholder='ຄົ້ນຫາຊື່ສິນຄ້າ' placeholder-class='placeholder' confirm-type='search' name="search" :value='where.keyword'
 					 @confirm="searchSubmit"></input>
 				</view>
 				<view style="text-align: right;" class='iconfont' :class='is_switch==true?"icon-a-ic_Imageandtextsorting":"icon-a-ic_Picturearrangement"' @click='Changswitch'></view>
@@ -21,17 +21,17 @@
 							<text v-else class="iconfont icon-ic_uparrow"></text>
 						</view>
 						<view class='item' :class="{'t-color':firstKey == 3}" @click='set_where(3)'>
-							销量
+							ຍອດຂາຍ
 						</view>
 						<view class='item' :class="{'t-color':firstKey == 2}" @click='set_where(2)'>
-							价格
+							ລາຄາ
 							<image v-if="price==1" :src="domain+'/static/diy/up'+keyColor+'.png'"></image>
 							<image v-else-if="price==2" :src="domain+'/static/diy/down'+keyColor+'.png'"></image>
 							<image v-else :src='`${domain}/static/images/horn.png`'></image>
 						</view>
 						<!-- down -->
 						<view class='item' :class="{'t-color':firstKey == 4}" @click='bindRight'>
-							筛选
+							ການກອງ
 							<text class="iconfont icon-ic_sort"></text>
 						</view>
 					</view>
@@ -44,9 +44,9 @@
 						<view class='pictrue on'>
 							<image :src='item.image' class="on"></image>
 							<view v-if="item.border_pic" :style="{ backgroundImage: `url(${item.border_pic})` }" class="border-picture"></view>
-							<text class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '1'">秒杀</text>
-							<text class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '2'">砍价</text>
-							<text class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '3'">拼团</text>
+							<text class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '1'">Flash Sale</text>
+							<text class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '2'">ຕໍ່ລອງລາຄາ</text>
+							<text class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '3'">ສັ່ງຊື້ເປັນກຸ່ມ</text>
 						</view>
 						<view class='text on acea-row row-between-wrapper'>
 							<view class='name'>
@@ -54,18 +54,18 @@
 							</view>
 							<view class="item_bot">
 								<view class='money on'>
-									¥<text class='num'>{{item.price}}</text>
+									₭<text class='num'>{{item.price}}</text>
 								</view>
 								<view v-if="item.product_type != 0 || item.issetCoupon || item.delivery_free == 1" class="item_tags">
-									<text v-if="item.product_type != 0" :class="'font_bg-red type'+item.product_type">{{item.product_type == 1 ? "秒杀" : item.product_type == 2 ? "预售" : item.product_type == 3 ? "助力" : item.product_type == 4 ? "拼团" : ""}}</text>
-									<text class="tags_item ticket" v-if="item.issetCoupon">领券</text>
-									<text class="tags_item delivery" v-if="item.delivery_free == 1">包邮</text>
+									<text v-if="item.product_type != 0" :class="'font_bg-red type'+item.product_type">{{item.product_type == 1 ? "Flash Sale" : item.product_type == 2 ? "预售" : item.product_type == 3 ? "助力" : item.product_type == 4 ? "ສັ່ງຊື້ເປັນກຸ່ມ" : ""}}</text>
+									<text class="tags_item ticket" v-if="item.issetCoupon">ຮັບຄູບອງ</text>
+									<text class="tags_item delivery" v-if="item.delivery_free == 1">ສົ່ງຟຣີ</text>
 								</view>
-								<view class="score">{{item.rate}}评分 {{item.reply_count}}条评论</view>
+								<view class="score">{{item.rate}}ຄະແນນ {{item.reply_count}}ຄວາມຄິດເຫັນ</view>
 								<view class="company" v-if="item.merchant" @click.stop="goShop(item.mer_id)">
 									<view class="store_name line1">{{item.merchant.mer_name}}</view>
 									<view class="flex">
-										进店
+										ເຂົ້າຮ້ານ
 										<text class="iconfont icon-ic_rightarrow"></text>
 									</view>
 								</view>
@@ -85,7 +85,7 @@
 				<view class='noCommodity' v-if="productList.length==0 && where.page > 1">
 					<view class='pictrue'>
 						<image :src="`${domain}/static/images/no_thing.png`"></image>
-						<view>暂无商品，去看点什么吧</view>
+						<view>ບໍ່ມີສິນຄ້າ, ລອງໄປເບິ່ງຢ່າງອື່ນດູ</view>
 					</view>
 					<recommend v-if="recommend_switch == 1" :hostProduct="hostProduct"></recommend>
 				</view>
@@ -164,7 +164,7 @@
 				nows: false,
 				loadend: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມເຕີມ',
 				title: '',
 				hostProduct: [],
 				hotPage: 1,
@@ -182,11 +182,11 @@
 						key: 1,
 					},
 					{
-						title: '评分',
+						title: 'ຄະແນນ',
 						key: 2,
 					},
 					{
-						title: '新品',
+						title: 'ສິນຄ້າໃໝ່',
 						key: 3,
 					}
 				],
@@ -435,12 +435,12 @@
 					let loadend = list.length < that.where.limit;
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? '已全部加载' : '加载更多';
+					that.loadTitle = loadend ? 'ໂຫຼດຄົບແລ້ວ' : 'ໂຫຼດເພີ່ມເຕີມ';
 					that.$set(that, 'productList', productList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = '加载更多';
+					that.loadTitle = 'ໂຫຼດເພີ່ມເຕີມ';
 				});
 			},
 		},

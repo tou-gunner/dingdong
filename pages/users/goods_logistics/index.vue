@@ -13,7 +13,7 @@
 					<view class="text-right">
 						<view class='money regular'>
 							<view v-if="orderInfo.activity_type == 20">{{product.cart_info.productAttr.ot_price}}个积分 <block v-if="product.cart_info.productAttr.price>0">+{{product.cart_info.productAttr.price}}元</block></view>
-							<view v-else>¥{{product.product_price}}</view>
+							<view v-else>₭{{product.product_price}}</view>
 							<view>x{{product.product_num}}</view>
 						</view>
 					</view>

@@ -540,7 +540,7 @@
       getCombinationPink: function() {
         var that = this;
         uni.showLoading({
-          title: '加载中',
+          title: 'ກຳລັງໂຫຼດ...',
           mask: true
         });
         getCombinationPink(that.pinkId)
@@ -561,7 +561,7 @@
                 28) + '...' : res.data.product.store_name);
             that.$set(that.picData, 'label', res.data.buying_count_num + "人团");
             that.$set(that.picData, 'price', res.data.product.price);
-            that.$set(that.picData, 'msg', '划线价：¥ ' + res.data.product.ot_price + " 还差 " +
+            that.$set(that.picData, 'msg', '划线价：₭ ' + res.data.product.ot_price + " 还差 " +
               that.count + " 人 拼团成功");
             this.posterCompenents = true
             //#ifdef H5

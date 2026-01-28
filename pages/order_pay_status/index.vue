@@ -59,7 +59,7 @@
 				<view class="coupon-box" :class="{on:isOpen}">
 					<block v-for="(item,index) in couponList" :key="index">
 						<view class="coupon-item flex">
-							<view class="left-bg" :style="{ 'background-image': `url(${domain}/static/diy/couponBg${keyColor}.png)` }"><text>¥</text>{{item.coupon_price}}</view>
+							<view class="left-bg" :style="{ 'background-image': `url(${domain}/static/diy/couponBg${keyColor}.png)` }"><text>₭</text>{{item.coupon_price}}</view>
 							<view class="info">
 								<view class="title">{{item.title}}</view>
 								<view v-if="item.use_min_price==0" class="des">ຫຼຸດທັນທີ {{item.coupon_price}} ກີບ</view>

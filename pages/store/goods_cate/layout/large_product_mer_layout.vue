@@ -20,7 +20,7 @@
         <LargeProductItem :goods="goods" v-for="goods in productList" :key="goods.spu_id" @addCart="selecAttr" />
 
         <!-- 空页面组件 -->
-        <emptyPage title="暂无商品，去看点别的吧～" :noImage="`${domain}/static/images/no_thing.png`"
+        <emptyPage title="ບໍ່ມີສິນຄ້າ, ລອງໄປເບິ່ງຢ່າງອື່ນດູ" :noImage="`${domain}/static/images/no_thing.png`"
           v-if="!productList.length && !loading" />
 
         <!-- 底部 tabbar 高度占位 -->

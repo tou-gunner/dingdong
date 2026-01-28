@@ -12,37 +12,37 @@
 					<view class="check-item">
 						<view>商品售价：</view>
 						<view class="radio">
-							¥{{couponData.total_price}}
+							₭{{couponData.total_price}}
 						</view>
 					</view>
 					<view v-if="couponData.order_total_integral_price>0" class="check-item">
 						<view>积分抵扣：</view>
 						<view class="radio">
-							-¥{{couponData.order_total_integral_price}}
+							-₭{{couponData.order_total_integral_price}}
 						</view>
 					</view>
 					<view v-if="couponData.total_platform_coupon_price>0" class="check-item">
 						<view>平台优惠金额：</view>
 						<view class="radio">
-							-¥{{ couponData.total_platform_coupon_price }}
+							-₭{{ couponData.total_platform_coupon_price }}
 						</view>
 					</view>
 					<view v-if="couponData.order_coupon_price>0" class="check-item">
 						<view>店铺优惠金额：</view>
 						<view class="radio">
-							-¥{{ couponData.order_coupon_price }}
+							-₭{{ couponData.order_coupon_price }}
 						</view>
 					</view>
 					<view v-if="couponData.order_svip_discount>0" class="check-item">
 						<view>SVIP优惠金额：</view>
 						<view class="radio">
-							-¥{{ couponData.order_svip_discount }}
+							-₭{{ couponData.order_svip_discount }}
 						</view>
 					</view>
 					<view v-if="couponData.total_coupon>0" class="check-item total font-bold">
 						<view>共优惠：</view>
 						<view class="radio">
-							-¥{{ couponData.total_coupon}}
+							-₭{{ couponData.total_coupon}}
 						</view>
 					</view>
 				</view>

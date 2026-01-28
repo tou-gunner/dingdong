@@ -120,8 +120,8 @@ export default {
         }
       } else if (event === EVENT.VERIFY) {
         const [err, { confirm }] = await uni.showModal({
-          title: "提示",
-          content: `确定要核销此订单吗？`,
+          title: "ແຈ້ງເຕືອນ",
+          content: `ທ່ານຕ້ອງການຢືນຢັນການກວດສອບຄຳສັ່ງຊື້ນີ້ບໍ?`,
         });
         if (err || !confirm) return;
         uni.showLoading({

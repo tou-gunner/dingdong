@@ -24,7 +24,7 @@
 									<view class="pictrue"><image :src="item.avatar || '/static/images/f.png'"></image></view>
 									<view class="text line1">{{item.nickname}}</view>
 								</view>
-								<view class="people p-color">¥{{item.count}}</view>
+								<view class="people p-color">₭{{item.count}}</view>
 							</view>
 
 						</block>

@@ -19,7 +19,7 @@
 									</view>
 								 </view>
 								 <view class='money money_lf' v-if="item.product">
-								 	<text class="under_price regular">¥{{item.product.price}}</text>
+								 	<text class="under_price regular">₭{{item.product.price}}</text>
 								 </view>
 							 </view>
 						</div>

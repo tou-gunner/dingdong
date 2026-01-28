@@ -25,24 +25,24 @@
     <view class="order-detail-price">
       <view class="info-item">
         <view class="info-key">ລາຄາສິນຄ້າລວມ:</view>
-        <view class="info-value">¥{{ orderInfo.total_price }}</view>
+        <view class="info-value">₭{{ orderInfo.total_price }}</view>
       </view>
       <view v-if='orderInfo.svip_discount > 0' class="info-item">
         <view class="info-key">ສ່ວນຫຼຸດສະມາຊິກ：</view>
 				{{orderInfo.svip_discount > 0}}
-        <view class="info-value">-¥{{ orderInfo.svip_discount }}</view>
+        <view class="info-value">-₭{{ orderInfo.svip_discount }}</view>
       </view>
       <view v-if='orderInfo.coupon_price > 0' class="info-item">
         <view class="info-key">ສ່ວນຫຼຸດຄູປ໋ອງ：</view>
-        <view class="info-value">-¥{{ orderInfo.coupon_price }}</view>
+        <view class="info-value">-₭{{ orderInfo.coupon_price }}</view>
       </view>
     	<view v-if='orderInfo.integral_price > 0' class="info-item">
     	  <view class="info-key">ຫັກຄະແນນ：</view>
-    	  <view class="info-value">-¥{{ orderInfo.integral_price }}</view>
+    	  <view class="info-value">-₭{{ orderInfo.integral_price }}</view>
     	</view>
     	<view v-if='orderInfo.pay_postage > 0' class="info-item">
     	  <view class="info-key">ຄ່າຂົນສົ່ງ：</view>
-    	  <view class="info-value">+¥{{ orderInfo.pay_postage }}</view>
+    	  <view class="info-value">+₭{{ orderInfo.pay_postage }}</view>
     	</view>
       <view class="price-total__wrapper">
         ຈ່າຍຕົວຈິງ：

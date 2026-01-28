@@ -78,6 +78,14 @@
 		},
 		onLoad() {},
 		methods: {
+			// Lao phone validation helper
+			isValidLaoPhone(phone) {
+				if (!phone) return false;
+				let cleanPhone = phone.replace(/[\s\-\.\+]/g, '');
+				if (cleanPhone.startsWith('856')) cleanPhone = cleanPhone.substring(3);
+				if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
+				return /^(20|30)?\d{8}$/.test(cleanPhone);
+			},
 			open() {
 				this.showBind = true;
 			},
@@ -110,7 +118,7 @@
 				if (!that.phone) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ！'
 				});
-				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
+				if (!that.isValidLaoPhone(that.phone)) return that.$util.Tips({
 					title: '请输入正确的手机号码！'
 				});
 				if (!that.captcha) return that.$util.Tips({
@@ -173,7 +181,7 @@
 				if (!that.phone) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ！'
 				});
-				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
+				if (!that.isValidLaoPhone(that.phone)) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ！'
 				});
 				this.disabled = true
@@ -209,7 +217,7 @@
 				if (!that.phone) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບ！'
 				});
-				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
+				if (!that.isValidLaoPhone(that.phone)) return that.$util.Tips({
 					title: 'ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ！'
 				});
 				this.$refs.verify.show();

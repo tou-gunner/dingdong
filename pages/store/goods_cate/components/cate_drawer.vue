@@ -1,7 +1,7 @@
 <template>
   <base-drawer mode="right" :visible="visible" background-color="transparent" mask maskClosable @close="closeDrawer">
     <view class="drawer_box bg--w111-fff h-full flex flex-col">
-      <view class="h-80 flex-center fs-34 fw-500 text--w111-333">筛选</view>
+      <view class="h-80 flex-center fs-34 fw-500 text--w111-333">ການກອງ</view>
       <view class="flex-1">
         <scroll-view scroll-y class="h-full">
           <view v-for="(item, index) in categoryList" :key="index">
@@ -11,7 +11,7 @@
                   @click="handleChangeFirstCate(index)">{{ item.cate_name }}</view>
                 <view class="fs-20 text--w111-999" v-if="item.children && item.children.length > 3"
                   @tap="openShowMore(item)">
-                  <text>{{ expandMap[item.store_category_id] ? '收起' : '展开' }}</text>
+                  <text>{{ expandMap[item.store_category_id] ? 'ຫຍໍ້ເຂົ້າ' : 'ເບິ່ງເພີ່ມເຕີມ' }}</text>
                   <text class="iconfont fs-20"
                     :class="expandMap[item.store_category_id] ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text>
                 </view>
@@ -32,10 +32,10 @@
       </view>
       <view class="bg--w111-fff w-full rd-b-40 bottom-wrapper">
         <view class="px-32 flex-between-center h-112">
-          <view class="w-296 h-72 rd-40rpx flex-center text-primary-con con_border bg--w111-fff" @click="handleReset">重置
+          <view class="w-296 h-72 rd-40rpx flex-center text-primary-con con_border bg--w111-fff" @click="handleReset">ລ້າງຄ່າ
           </view>
           <view class="w-296 h-72 rd-40rpx flex-center text--w111-fff bg-color" @tap="handleConfirm">
-            确定</view>
+            ຕົກລົງ</view>
         </view>
       </view>
     </view>

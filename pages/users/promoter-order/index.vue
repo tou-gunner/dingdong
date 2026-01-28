@@ -27,8 +27,8 @@
 											</view>
 											<view class='text line1'>{{item.user.nickname}}</view>
 										</view>
-										<view class='money' v-if="item.status >= 2">返佣：<text class='p-color'>¥{{item.brokerage}}</text></view>
-										<view class='money' v-else>待结算佣金：<text class='p-color'>¥{{item.brokerage}}</text></view>
+										<view class='money' v-if="item.status >= 2">返佣：<text class='p-color'>₭{{item.brokerage}}</text></view>
+										<view class='money' v-else>待结算佣金：<text class='p-color'>₭{{item.brokerage}}</text></view>
 									</view>
 									<view class='bottom'>
 										<view class="acea-row">

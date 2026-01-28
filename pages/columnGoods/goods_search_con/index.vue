@@ -78,7 +78,7 @@
 										<priceFormat :price="item.price" weight intSize="40" floatSize="26" labelSize="26"></priceFormat>
 									</view>
 									<view v-if="item.show_svip_info&&item.show_svip_info.show_svip_price && item.svip_price" class="acea-row row-middle">
-										<text class='vip-money'>¥{{item.svip_price}}</text>
+										<text class='vip-money'>₭{{item.svip_price}}</text>
 										<view class="vipImg">
 											<image :src="`${domain}/static/images/svip.png`"></image>
 										</view>
@@ -161,7 +161,7 @@
 								<navigator :url="`/pages/goods_details/index?id=${goods.product_id}`">
 									<image :src="goods.image" mode=""></image>
 									<view class="price">
-										<text>¥</text>{{goods.price}}
+										<text>₭</text>{{goods.price}}
 									</view>
 								</navigator>
 							</view>

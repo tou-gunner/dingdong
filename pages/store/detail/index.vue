@@ -11,18 +11,18 @@
 						<image v-if="margin_ico_switch == 1 && margin_ico && store.is_margin == 10" :src="margin_ico"
 							class="store-margin"></image>
 						<text v-if="store.type_name" class="font-bg-red ml8">{{ store.type_name }}</text>
-						<text v-else-if="store.is_trader" class="font-bg-red ml8">自营</text>
+						<text v-else-if="store.is_trader" class="font-bg-red ml8">ຮ້ານຄ້າຫຼັກ</text>
 					</view>
 					<view class="fans">{{ store.care_count < 10000 ? store.care_count : (store.care_count / 10000).toFixed(2)
-						+ '万' }}人关注</view>
+						+ 'ໝື່ນ' }}ຄົນຕິດຕາມ</view>
 					</view>
 					<button :class="{ followed: store.care }" hover-class="none" @click="handleToggleFollow(store)">
 						<text v-show="!store.care" class="iconfont icon-ic_love"></text>
-						{{ store.care ? '已关注' : '关注' }}
+						{{ store.care ? 'ຕິດຕາມແລ້ວ' : 'ຕິດຕາມ' }}
 					</button>
 				</view>
 				<view class="section wrap">
-					<view class="name">店铺评级</view>
+					<view class="name">ຄະແນນຮ້ານຄ້າ</view>
 					<view class="score-wrap">
 						<view class="star" :class="'star' + keyColor">
 							<view
@@ -33,36 +33,36 @@
 					</view>
 				</view>
 				<view class="section wrap" @click="popupShow = true">
-					<view class="name">店铺二维码</view>
+					<view class="name">QR Code ຮ້ານຄ້າ</view>
 					<view><text class="iconfont icon-ic_QRcode"></text></view>
 				</view>
 				<navigator v-if="store.isset_certificate"
 					:url="`/pages/store/qualifications/index?mer_id=${store.mer_id}&uid=${this.uid}&storeName=${store.mer_name}`"
 					class="section wrap">
-					<view class="name">店铺资质</view>
+					<view class="name">ໃບຢັ້ງຢືນຮ້ານຄ້າ</view>
 					<view><text class="iconfont icon-a-ic_ic_orderforgoods1"></text></view>
 				</navigator>
 				<view @click="goChat" class="section wrap">
-					<view class="name">联系客服</view>
+					<view class="name">ຕິດຕໍ່ຝ່າຍບໍລິການ</view>
 					<view><text class="iconfont icon-ic_customerservice"></text></view>
 				</view>
 				<view class="section info">
 					<view class="item very">
-						<view class="name">店铺简介</view>
+						<view class="name">ຂໍ້ມູນຮ້ານຄ້າ</view>
 						<view class="value">{{ store.mer_info }}</view>
 					</view>
 					<view class="item very">
-						<view class="name">店铺地址</view>
+						<view class="name">ທີ່ຢູ່ຮ້ານຄ້າ</view>
 						<view class="value">{{ store.mer_address }}</view>
 						<view v-if="store.lat && store.long && mer_location == 1" class="iconfont icon-ic_location51"
 							@click="showMaoLocation(store.lat, store.long)"></view>
 					</view>
 					<view v-if="store.service_phone" class="item">
-						<view class="name">联系电话</view>
+						<view class="name">ເບີໂທຕິດຕໍ່</view>
 						<view class="value">{{ store.service_phone }}</view>
 					</view>
 					<view class="item">
-						<view class="name">开店时间</view>
+						<view class="name">ເວລາເປີດຮ້ານ</view>
 						<view class="value">{{ store.create_time | dateFormat }}</view>
 					</view>
 				</view>
@@ -70,7 +70,7 @@
 					<view :class="{ 'popup-active': popupShow }" class="popup-qrcode">
 						<view class="qrcode-main">
 							<view class="name">{{ store.mer_name }}</view>
-							<view class="info">保存二维码可分享店铺给好友哦~</view>
+							<view class="info">ບັນທຶກ QR Code ເພື່ອແບ່ງປັນຮ້ານຄ້າໃຫ້ໝູ່ເພື່ອນ~</view>
 							<!-- #ifndef MP -->
 							<image :src="storeCode"></image>
 							<!-- #endif -->
@@ -147,8 +147,8 @@ export default {
 			let that = this;
 			if (that.store.service_phone) {
 				uni.showModal({
-					title: '提示',
-					content: '暂无在线客服，确定拨打客服电话:' + that.store.service_phone + '吗？',
+					title: 'ແຈ້ງເຕືອນ',
+					content: 'ບໍ່ມີພະນັກງານອອນລາຍ, ຕ້ອງການໂທຫາເບີບໍລິການ: ' + that.store.service_phone + ' ຫຼືບໍ່?',
 					success: function (res) {
 						if (res.confirm) {
 							uni.makePhoneCall({
@@ -159,7 +159,7 @@ export default {
 				});
 			} else {
 				return that.$util.Tips({
-					title: '暂无可用客服'
+					title: 'ບໍ່ມີຝ່າຍບໍລິການທີ່ສາມາດຕິດຕໍ່ໄດ້'
 				});
 			}
 		},
@@ -193,7 +193,7 @@ export default {
 			console.log(lat, long);
 			if (!lat || !long)
 				return this.$util.Tips({
-					title: '请设置允许商城访问您的位置！'
+					title: 'ກະລຸນາອະນຸຍາດໃຫ້ເຂົ້າເຖິງຕຳແໜ່ງຂອງທ່ານ!'
 				});
 			//#ifdef H5
 			if (this.$wechat.isWeixin() === true) {
@@ -255,7 +255,7 @@ export default {
 												filePath: resFile.tempFilePath,
 												success: (res) => {
 													return uni.showToast({
-														title: '保存成功！'
+														title: 'ບັນທຶກສຳເລັດ!'
 													});
 												},
 												fail: (res) => {
@@ -268,8 +268,8 @@ export default {
 										},
 										fail: () => {
 											uni.showModal({
-												title: '您已拒绝获取相册权限',
-												content: '是否进入权限管理，调整授权？',
+												title: 'ທ່ານໄດ້ປະຕິເສດການເຂົ້າເຖິງຮູບພາບ',
+												content: 'ຕ້ອງການເຂົ້າໄປຕັ້ງຄ່າສິດການເຂົ້າເຖິງ ຫຼືບໍ່?',
 												success: (res) => {
 													if (res.confirm) {
 														uni.openSetting({
@@ -279,7 +279,7 @@ export default {
 														});
 													} else if (res.cancel) {
 														return uni.showToast({
-															title: '已取消！'
+															title: 'ຍົກເລີກແລ້ວ!'
 														});
 													}
 												}
@@ -291,7 +291,7 @@ export default {
 										filePath: resFile.tempFilePath,
 										success: (res) => {
 											return uni.showToast({
-												title: '保存成功！'
+												title: 'ບັນທຶກສຳເລັດ!'
 											});
 										},
 										fail: (res) => {

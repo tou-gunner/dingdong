@@ -16,7 +16,7 @@
 								<text class="name line2" v-if="item.spu && item.spu.store_name.length>=32">{{item.spu.store_name.slice(0,32)}}...</text>
 								<text class="name line2" v-else>{{item.spu && item.spu.store_name}}</text>
 								<view class="bottom">
-									<view v-if="item.spu" class="price"><text class="sm">¥</text><text class="text">{{item.spu.price}}</text></view>
+									<view v-if="item.spu" class="price"><text class="sm">₭</text><text class="text">{{item.spu.price}}</text></view>
 									<text class="buy-btn">立即购买</text>
 								</view>
 							</view>

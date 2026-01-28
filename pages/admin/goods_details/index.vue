@@ -8,9 +8,9 @@
 					<view v-if="storeInfo.atmosphere_pic" :style="{ backgroundImage: `url(${storeInfo.atmosphere_pic})` }" class='nav acea-row row-between-wrapper boder-44 pos-rel'>
 						<view class='money skeleton-rect'>
 							<priceFormat v-if="storeInfo.price" :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
-							<text v-if="!svipData" class='y-money'>¥{{marketPrice || 0}}</text>
+							<text v-if="!svipData" class='y-money'>₭{{marketPrice || 0}}</text>
 							<view class="atmosphere" v-if="svipData && svipData.show_svip_price && svipData.show_svip" style="display: inline-block;">
-								<text class="vip-money regular">¥{{storeInfo.svip_price}}</text>
+								<text class="vip-money regular">₭{{storeInfo.svip_price}}</text>
 								<image class="vip-image" :src="`${domain}/static/images/svip.png`"></image>
 							</view>
 						</view>
@@ -20,7 +20,7 @@
 						<view class='money skeleton-rect'>
 							<text class="money-text">ລາຄາ Flash Sale</text>
 							<priceFormat :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
-							<text class='y-money regular'>¥{{storeInfo.ot_price}}</text></view>
+							<text class='y-money regular'>₭{{storeInfo.ot_price}}</text></view>
 							<view class='acea-row row-middle skeleton-rect' v-if="storeInfo.seckill_status == '1'">
 								<view class='time'>
 									<view>ເວລາທີ່ເຫຼືອ</view>
@@ -43,7 +43,7 @@
 								</view>
 							</view>
 							<view class='label acea-row row-between-wrapper'>
-								<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">¥{{storeInfo.ot_price || 0}}</view>
+								<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">₭{{storeInfo.ot_price || 0}}</view>
 								<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">ສາງ:{{storeInfo.stock || 0}}{{storeInfo.unit_name || ''}}</view>
 								<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">ຂາຍແລ້ວ:{{storeInfo.sales || 0}}{{storeInfo.unit_name || ''}}</view>
 							</view>
@@ -61,7 +61,7 @@
 									<view class='iconfont icon-fenxiang' v-if="comForm != 'admin'"></view>
 								</view>
 								<view class='label acea-row' :class="'label'+product_type">
-									<view class="line-through">¥{{storeInfo.ot_price || ''}}</view>
+									<view class="line-through">₭{{storeInfo.ot_price || ''}}</view>
 									<view style="margin-left: 30rpx;">ຈອງແລ້ວ:0{{ storeInfo.unit_name }}</view>
 								</view>
 								<view class='introduce line2'>
@@ -198,7 +198,7 @@
 									<priceFormat :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 								</view>
 								<text v-if="storeInfo.ot_price" class="orig_price regular">
-									¥{{storeInfo.ot_price}}</text>
+									₭{{storeInfo.ot_price}}</text>
 								</text>
 							</view>
 							<view class="combin-people">
@@ -321,7 +321,7 @@
 							<view class='money p-color skeleton-rect' style="min-width: 70rpx;">
 								<priceFormat v-if="storeInfo.price" :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
 								<view v-if="svipData && svipData.show_svip_price && svipData.show_svip" style="display: inline-block;">
-									<text class="vip-money regular">¥{{storeInfo.svip_price || 0}}</text>
+									<text class="vip-money regular">₭{{storeInfo.svip_price || 0}}</text>
 									<image class="vip-image" :src="`${domain}/static/images/svip.png`"></image>
 								</view>
 							</view>
@@ -356,7 +356,7 @@
 							{{storeInfo.store_name || ''}}
 						</view>
 						<view class='label acea-row row-between-wrapper' style="padding-bottom:10px;">
-							<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">¥{{storeInfo.ot_price || 0}}</view>
+							<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">₭{{storeInfo.ot_price || 0}}</view>
 							<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">ສາງ:{{storeInfo.stock ? storeInfo.stock : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
 							<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">ຂາຍໄດ້:{{storeInfo.sales ? storeInfo.sales : 0}}{{storeInfo.unit_name ? storeInfo.unit_name : ''}}</view>
 						</view>

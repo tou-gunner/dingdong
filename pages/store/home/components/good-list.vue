@@ -14,7 +14,7 @@
               <view v-for="item in goods" :key="item.product_id" class="item" @click="goGoodsDetail(item)">
                 <view class="image">
                   <image :src="item.image"></image>
-                  <view v-if="item.stock == 0" class="sell_out">已售罄</view>
+                  <view v-if="item.stock == 0" class="sell_out">ສິນຄ້າໝົດແລ້ວ</view>
                   <view v-if="item.border_pic" :style="{ backgroundImage: `url(${item.border_pic})` }"
                     class="border-picture"></view>
                 </view>
@@ -30,7 +30,7 @@
                       </view>
                       <view v-if="item.show_svip_info && item.show_svip_info.show_svip_price && item.svip_price"
                         class="acea-row row-middle">
-                        <text class='vip-money'>¥{{ item.svip_price }}</text>
+                        <text class='vip-money'>₭{{ item.svip_price }}</text>
                         <view class="vipImg">
                           <image class="image" :src="`${domain}/static/images/svip.png`"></image>
                         </view>
@@ -39,16 +39,16 @@
                     <view v-if="item.product_type != 0 || item.issetCoupon || item.delivery_free == 1"
                       class="item_tags">
                       <text v-if="item.product_type != 0" :class="'font_bg-red type' + item.product_type">{{
-                        item.product_type == 1 ? "秒杀" :
-                          item.product_type == 2 ? "预售" : item.product_type == 3 ? "助力" : item.product_type == 4 ?
-                            "拼团"
+                        item.product_type == 1 ? "Flash Sale" :
+                          item.product_type == 2 ? "ສັ່ງຈອງລ່ວງໜ້າ" : item.product_type == 3 ? "ຊ່ວຍເຫຼືອ" : item.product_type == 4 ?
+                            "ສັ່ງຊື້ເປັນກຸ່ມ"
                             : "" }}</text>
-                      <text class="tags_item ticket" v-if="item.issetCoupon">领券</text>
-                      <text class="tags_item delivery" v-if="item.delivery_free == 1">包邮</text>
+                      <text class="tags_item ticket" v-if="item.issetCoupon">ຮັບຄູບອງ</text>
+                      <text class="tags_item delivery" v-if="item.delivery_free == 1">ສົ່ງຟຣີ</text>
                       <view class="tags_item reservation" v-if="item.reservation_type && item.type == 4">
                         {{ reservateLabel(item.reservation_type) }}</view>
                     </view>
-                    <view class="score">{{ item.rate }}评分 {{ item.reply_count }}条评论</view>
+                    <view class="score">{{ item.rate }}ຄະແນນ {{ item.reply_count }}ຄວາມຄິດເຫັນ</view>
                   </view>
                 </view>
                 <view class="add-cart acea-row row-middle row-center" @click.stop='selecAttr(item)'>
@@ -66,7 +66,7 @@
             <text :hidden="!goodsLoading" class="iconfont icon-jiazai loading"></text>
             {{ loadTitle }}
           </view>
-          <emptyPage v-if="goods.length == 0 && !goodsLoading" title="暂无商品~"></emptyPage>
+          <emptyPage v-if="goods.length == 0 && !goodsLoading" title="ບໍ່ມີສິນຄ້າ~"></emptyPage>
         </view>
       </view>
     </scroll-view>

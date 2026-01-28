@@ -2,18 +2,18 @@
 	<view class="right-wrapper" :style="viewColor">
 		<view class="control-wrapper animated" :class="showBox?'slideInRight':''">
 			<view class="header">
-				<view class="title font-bold">价格区间</view>
+				<view class="title font-bold">ຊ່ວງລາຄາ</view>
 				<view class="input-wrapper">
-					<input placeholder="最低价" v-model="min" type="number"/>
+					<input placeholder="ລາຄາຕ່ຳສຸດ" v-model="min" type="number"/>
 					<view class="line"></view>
-					<input placeholder="最高价" v-model="max" type="number"/>
+					<input placeholder="ລາຄາສູງສຸດ" v-model="max" type="number"/>
 				</view>
 			</view>
 			<view class="content-box content-border">
 				<view class="content-title">
-					<view class="title">品牌</view>
+					<view class="title">ຍີ່ຫໍ້</view>
 					<view v-if="list.length>3">
-						<view class="btns" @click="isShowBrand = !isShowBrand">{{isShowBrand?'收起':'展开'}}<text class="iconfont" :class="isShowBrand ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
+						<view class="btns" @click="isShowBrand = !isShowBrand">{{isShowBrand?'ຫຍໍ້ເຂົ້າ':'ເບິ່ງເພີ່ມເຕີມ'}}<text class="iconfont" :class="isShowBrand ? 'icon-ic_uparrow' : 'icon-ic_downarrow'"></text></view>
 					</view>
 				</view>
 				<view class="brand-wrapper">
@@ -24,13 +24,13 @@
 							</view>
 						</view>
 					</scroll-view>
-					<view class="btns" v-if="!isShow && list.length>9" @click="isShow = true">展开全部<text class="iconfont icon-ic_downarrow"></text></view>
-					<view class="btns" v-if="isShow && list.length>9"  @click="isShow = false">收起<text class="iconfont icon-ic_uparrow"></text></view>
+					<view class="btns" v-if="!isShow && list.length>9" @click="isShow = true">ເບິ່ງທັງໝົດ<text class="iconfont icon-ic_downarrow"></text></view>
+					<view class="btns" v-if="isShow && list.length>9"  @click="isShow = false">ຫຍໍ້ເຂົ້າ<text class="iconfont icon-ic_uparrow"></text></view>
 				</view>
 			</view>
 			<view class="foot-btn">
-				<view class="btn-item" @click="reset">重置</view>
-				<view class="btn-item confirm" @click="confirm">确定</view>
+				<view class="btn-item" @click="reset">ລ້າງຄ່າ</view>
+				<view class="btn-item confirm" @click="confirm">ຕົກລົງ</view>
 			</view>
 		</view>
 		<view class="right-bg" @click="close"></view>
@@ -75,8 +75,8 @@
 				isShow:false,
 				list:[],
 				storeTypeList: [
-					{name: '全部', value: '',check: true},
-					{name: '自营', value: 'trader',check: false},
+					{name: 'ທັງໝົດ', value: '',check: true},
+					{name: 'ຮ້ານຄ້າຫຼັກ', value: 'trader',check: false},
 				],
 				activeList:[],
 				showBox:false,
@@ -97,8 +97,8 @@
 			},
 			bindChenckType(item,index){
 				this.storeTypeList = [
-					{name: '全部', value: '',check: false},
-					{name: '自营', value: 'trader',check: false},
+					{name: 'ທັງໝົດ', value: '',check: false},
+					{name: 'ຮ້ານຄ້າຫຼັກ', value: 'trader',check: false},
 				]
 				this.storeTypeList[index]['check'] = true
 				this.is_trader = this.storeTypeList[0]['check'] ? '' : 1
@@ -113,8 +113,8 @@
 					el.check = false
 				})
 				this.storeTypeList = [
-					{name: '全部', value: '',check: true},
-					{name: '自营', value: 'trader',check: false}
+					{name: 'ທັງໝົດ', value: '',check: true},
+					{name: 'ຮ້ານຄ້າຫຼັກ', value: 'trader',check: false}
 				]
 				this.min = this.max = ''
 				this.arrFilter()

@@ -43,20 +43,20 @@
 									<view class='money'>
 										<text>ລາຄາແຟຣສ:</text>
 										<priceFormat :price="item.price" weight intSize="40" floatSize="26" labelSize="26"></priceFormat>
-										<text class="y_money">¥{{item.ot_price}}</text>
+										<text class="y_money">₭{{item.ot_price}}</text>
 									</view>
 									<view class="progress-btn acea-row row-middle" :class="'btn'+item.skill_status" :style="{'background-image': item.skill_status == 0 ? `url(${domain}/static/images/seckill-btn0.png)` : `url(${domain}/static/images/seckill-btn.png)`}">
 										<block v-if="item.skill_status == 1">
 											<view class="progress">
 												<view class='bg-reds' :style="'width:'+item.percent+';'"></view>
 											</view>
-											<view class='piece'>已抢{{item.percent}}</view>
+											<view class='piece'>ຈອງແລ້ວ {{item.percent}}</view>
 										</block>
 										<block v-else-if="item.skill_status == 0">
-											<view class='piece orange'>活动即将开始</view>
+											<view class='piece orange'>ກິດຈະກຳໃກ້ຈະເລີ່ມແລ້ວ</view>
 										</block>
 										<block v-else-if="item.skill_status == -1">
-											<view class='piece'>活动已结束</view>
+											<view class='piece'>ກິດຈະກຳສິ້ນສຸດແລ້ວ</view>
 										</block>
 									</view>
 								</view>
@@ -66,7 +66,7 @@
 					<view class='noCommodity' v-if="seckillList.length == 0 && (page != 1 || active== 0) && loadend">
 						<view class='pictrue'>
 							<image :src="`${domain}/static/images/no_thing.png`"></image>
-							<view>暂无商品，去看点什么吧</view>
+							<view>ບໍ່ມີສິນຄ້າ, ລອງໄປເບິ່ງຢ່າງອື່ນດູ</view>
 						</view>
 					</view>
 				</view>
@@ -199,7 +199,7 @@
 				if (that.pageloading) return;
 				this.pageloading = true
 				uni.showLoading({
-					title: '正在加载',
+					title: 'ກຳລັງໂຫຼດ...',
 				})
 				getSeckillList(data).then(res => {
 					var seckillList = res.data.list;

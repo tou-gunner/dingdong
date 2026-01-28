@@ -16,7 +16,7 @@
 								<view class="name line2">{{item.spu && item.spu.store_name}}</view>
 								<view class="bottom">
 									<view class="price">
-										<!-- ¥<text>{{item.spu && item.spu.price}}</text> -->
+										<!-- ₭<text>{{item.spu && item.spu.price}}</text> -->
 										<priceFormat :price="item.spu && item.spu.price" weight intSize="36" floatSize="26" labelSize="26"></priceFormat>
 									</view>
 									<view class="buy-btn">ຊື້ດຽວນີ້</view>

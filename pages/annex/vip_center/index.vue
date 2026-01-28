@@ -55,7 +55,7 @@
 						<text v-if="item.svipIssue" class="receive-bg":style="'background-image: url('+domain+'/static/images/received-bg.png)'"></text>
 						<view class="coupon-count">
 							<view class="money">
-								<text>¥</text>
+								<text>₭</text>
 								<text class="num">{{item.coupon_price}}</text>
 							</view>
 							<view class="text">
@@ -81,7 +81,7 @@
 						<view class="new">
 							<priceFormat :price="item.value && item.value.price | moneyFormat" weight intSize="50" floatSize="50" labelSize="34"></priceFormat>
 						</view>
-						<view class="old">¥{{item.value && item.value.cost_price | moneyFormat}}</view>
+						<view class="old">₭{{item.value && item.value.cost_price | moneyFormat}}</view>
 					</view>
 				</scroll-view>
 				<view class="buy" @click="pay">ຈ່າຍດຽວນີ້</view>

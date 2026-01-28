@@ -8,7 +8,7 @@
 				</view>
 				<!--#endif-->
 				<view class='input acea-row row-between-wrapper'><text class='iconfont icon-ic_search'></text>
-					<input placeholder='搜索店铺名称' placeholder-class='placeholder' confirm-type='search' name="search" :value='sotreParam.keyword'
+					<input placeholder='ຄົ້ນຫາຊື່ຮ້ານຄ້າ' placeholder-class='placeholder' confirm-type='search' name="search" :value='sotreParam.keyword'
 					 @confirm="searchSubmit"></input>
 				</view>
 				<view v-if="mer_location == 1" :class="'styleType'+store_street_theme" style="text-align: right;" class='iconfont search-right' @click='showMaoLocation(latitude,longitude)'>
@@ -29,7 +29,7 @@
 						</view>
 					</view>
 					<view class="item" @click="bindRight">
-						<view>筛选
+						<view>ການກອງ
 						<text class="iconfont icon-ic_sort"></text>
 						</view>
 						<view class="line">
@@ -51,11 +51,11 @@
 											<view class="txt line1">{{item.mer_name}}</view>
 											<image v-if="margin_ico_switch==1 && margin_ico && item.is_margin==10" :src="margin_ico" class="store-margin"></image>
 											<text v-if="item.type_name" class="font-bg-red ml8">{{item.type_name}}</text>
-											<text v-else-if="item.is_trader" class="font-bg-red ml8">自营</text>
+											<text v-else-if="item.is_trader" class="font-bg-red ml8">ຮ້ານຄ້າຫຼັກ</text>
 										</view>
 										<view class="mer-btn">
 											<view class="">
-												{{item.care_count<10000 ? item.care_count : (item.care_count/10000).toFixed(2)+'万'}}人关注
+												{{item.care_count<10000 ? item.care_count : (item.care_count/10000).toFixed(2)+'万'}}ຄົນຕິດຕາມ
 											</view>
 											<view class="line" v-if="item.distance"></view>
 											<view class="distance" v-if="item.distance" @click.stop="showStoreLocation(item)">
@@ -90,11 +90,11 @@
 										<view class="mer-top" @click.stop="goStore(item.mer_id)">
 											<view class="txt line1">{{item.mer_name}}</view>
 											<text v-if="item.type_name" class="font-bg-red ml8">{{item.type_name}}</text>
-											<text v-else-if="item.is_trader" class="font-bg-red ml8">自营</text>
+											<text v-else-if="item.is_trader" class="font-bg-red ml8">ຮ້ານຄ້າຫຼັກ</text>
 										</view>
 										<view class="mer-btn" @click.stop="goStore(item.mer_id)">
 											<view class="">
-												{{item.care_count<10000 ? item.care_count : (item.care_count/10000).toFixed(2)+'万'}}人关注
+												{{item.care_count<10000 ? item.care_count : (item.care_count/10000).toFixed(2)+'万'}}ຄົນຕິດຕາມ
 											</view>
 											<view class="line" v-if="item.distance"></view>
 											<view class="distance" v-if="item.distance" @click.stop="showStoreLocation(item)">
@@ -130,11 +130,11 @@
 										<view class="mer-top">
 											<view class="txt line1">{{item.mer_name}}</view>
 											<text v-if="item.type_name" class="font-bg-red ml8">{{item.type_name}}</text>
-											<text v-else-if="item.is_trader" class="font-bg-red red3 ml8">自营</text>
+											<text v-else-if="item.is_trader" class="font-bg-red red3 ml8">ຮ້ານຄ້າຫຼັກ</text>
 										</view>
 										<view class="mer-btn">
 											<view class="">
-												{{item.care_count<10000 ? item.care_count : (item.care_count/10000).toFixed(2)+'万'}}人关注
+												{{item.care_count<10000 ? item.care_count : (item.care_count/10000).toFixed(2)+'万'}}ຄົນຕິດຕາມ
 											</view>
 											<view class="line" v-if="item.distance"></view>
 											<view class="distance" v-if="item.distance" @click.stop="showStoreLocation(item)">
@@ -167,7 +167,7 @@
 				<view class='no-shop' v-if="!storeList.length && !loading && !loadingIcon">
 					<view class='pictrue' style="margin: 0 auto;">
 						<image :src="`${domain}/static/images/no_thing.png`"></image>
-						<text>暂无店铺，快去搜索其他店铺吧</text>
+						<text>ບໍ່ມີຮ້ານຄ້າ, ລອງຄົ້ນຫາຮ້ານຄ້າອື່ນດູ</text>
 					</view>
 				</view>
 			</block>
@@ -208,7 +208,7 @@
 				nows: false,
 				loading: false,
 				loadingIcon: true,
-				loadTitle: '加载更多',
+				loadTitle: 'ໂຫຼດເພີ່ມເຕີມ',
 				title: '',
 				hotPage: 1,
 				hotLimit: 10,
@@ -221,7 +221,7 @@
 				downStatus: false,
 				// 下拉菜单
 				downMenu: [{
-						title: '默认',
+						title: 'ທົ່ວໄປ',
 						key: 0,
 						order: ""
 					},
@@ -231,7 +231,7 @@
 						order: 'sales'
 					},
 					{
-						title: '好评',
+						title: 'ຄະແນນດີ',
 						key: 2,
 						order: 'rate'
 					},
@@ -358,14 +358,14 @@
 			/** 打开地图**/
 			showMaoLocation(lat, long) {
 				if (!lat || !long) return this.$util.Tips({
-					title: '请设置允许商城访问您的位置！'
+					title: 'ກະລຸນາອະນຸຍາດໃຫ້ເຂົ້າເຖິງຕຳແໜ່ງຂອງທ່ານ!'
 				});
 				//#ifdef H5
 				if (this.$wechat.isWeixin() === true) {
 					this.$wechat.seeLocation({
 						latitude: Number(lat),
 						longitude: Number(long),
-						name: '当前位置',
+						name: 'ຕຳແໜ່ງປັດຈຸບັນ',
 						address: this.location_address
 					}).then(res=>{})
 				}else{
@@ -373,7 +373,7 @@
 					uni.openLocation({
 						latitude: parseFloat(lat),
 						longitude: parseFloat(long),
-						name: '当前位置',
+						name: 'ຕຳແໜ່ງປັດຈຸບັນ',
 						address: this.location_address,
 						scale: 8,
 						success: function(res) {},
@@ -384,7 +384,7 @@
 			},
 			showStoreLocation(item) {
 				if (!item.lat || !item.long) return this.$util.Tips({
-					title: '请设置允许商城访问您的位置！'
+					title: 'ກະລຸນາອະນຸຍາດໃຫ້ເຂົ້າເຖິງຕຳແໜ່ງຂອງທ່ານ!'
 				});
 				//#ifdef H5
 				if (this.$wechat.isWeixin() === true) {
@@ -534,7 +534,7 @@
 					return
 				}
 				uni.showToast({
-					title: '已加载全部',
+					title: 'ໂຫຼດຄົບແລ້ວ',
 					icon: 'none',
 					duration: 1000
 				});

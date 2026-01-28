@@ -33,7 +33,7 @@
 								<view> {{storeInfo.store_name}}</view>
 							</view>
 							<view class='label acea-row row-middle'>
-								<view class='stock line-through'>¥{{storeInfo.cost}}</view>
+								<view class='stock line-through'>₭{{storeInfo.cost}}</view>
 								<view class='stock'>ສະຕ໋ອກ:
 									{{ storeInfo.stock}}
 								</view>

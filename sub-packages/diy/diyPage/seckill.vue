@@ -47,7 +47,7 @@
 									<priceFormat :price="item.price" intSize="36" decimalSize="36" weight></priceFormat>
 								</view>
 								<text class="text-line fs-28 text--w111-999 pt-10 Regular" v-if="checkboxInfo.includes(3)"
-									:style="[otPriceColor]">¥{{ item.ot_price.toString().split('.')[1] ?
+									:style="[otPriceColor]">₭{{ item.ot_price.toString().split('.')[1] ?
 										item.ot_price : item.ot_price + '.00' }}</text>
 							</view>
 							<view class='w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff' v-if="!showBtn" :style="[btnBgColor, getBtnOtherStyle(item)]">{{ item.skill_status | btnText }}</view>
@@ -68,7 +68,7 @@
 								<priceFormat :price="item.price" intSize="36" decimalSize="36" labelSize="24" weight></priceFormat>
 							</view>
 							<text class="text-line fs-28 text--w111-999 pt-14 Regular" v-if="checkboxInfo.includes(3)"
-								:style="[otPriceColor]">¥{{ item.ot_price.toString().split('.')[1] ? item.ot_price
+								:style="[otPriceColor]">₭{{ item.ot_price.toString().split('.')[1] ? item.ot_price
 									: item.ot_price + '.00' }}</text>
 						</view>
 						<view class='w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff bg--w111-E93323' v-if="!showBtn"
@@ -92,7 +92,7 @@
 						<image src="@/static/images/shandian.png" class="shandian"></image>
 					</view>
 					<view class="text-line fs-24 text--w111-999 Regular lh-32rpx mt-10" :style="[otPriceColor]"
-						v-if="checkboxInfo.includes(3)">¥{{ item.ot_price.toString().split('.')[1] ?
+						v-if="checkboxInfo.includes(3)">₭{{ item.ot_price.toString().split('.')[1] ?
 							item.ot_price : item.ot_price + '.00' }}</view>
 				</view>
 			</view>
@@ -111,7 +111,7 @@
 									<priceFormat :price="item.price" intSize="36" decimalSize="36" labelSize="24" weight></priceFormat>
 								</view>
 								<view class="text-line fs-24 text--w111-999 Regular lh-32rpx" :style="[otPriceColor]"
-									v-if="checkboxInfo.includes(3)">¥{{ item.ot_price.toString().split('.')[1] ?
+									v-if="checkboxInfo.includes(3)">₭{{ item.ot_price.toString().split('.')[1] ?
 										item.ot_price : item.ot_price + '.00' }}</view>
 							</view>
 							<view class="qiang flex-center fs-24 text--w111-fff" v-if="!showBtn" :style="[btnBgColor, getBtnOtherStyle(item)]">ຊື້

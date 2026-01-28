@@ -8,7 +8,7 @@
 				<view class="info">
 					<view class="name line1">{{item.cart_info.product.store_name}}</view>
 					<view class="tips">{{item.cart_info.productAttr.sku}}</view>
-					<view class="price">¥{{item.cart_info.productAttr.price}} ×{{item.refund_num}}</view>
+					<view class="price">₭{{item.cart_info.productAttr.price}} ×{{item.refund_num}}</view>
 				</view>
 				<view class="check-box" @click="bindCheck(item)">
 					<view v-if="item.check" class="iconfont icon-a-ic_CompleteSelect"></view>

@@ -2,81 +2,81 @@
 	<view class="refund-detail" :style="viewColor">
 		<view class="head">
 			<block v-if="type == -1">
-				<view class="txt">退款失败</view>
-				<view class="time">申请时间：{{detail.status_time}}</view>
+				<view class="txt">ຄືນເງິນລົ້ມເຫຼວ</view>
+				<view class="time">ເວລາຮ້ອງຂໍ：{{detail.status_time}}</view>
 			</block>
 			<block v-if="type == 0">
-				<view class="txt">审核中</view>
-				<view class="time">申请时间：{{detail.status_time}}</view>
+				<view class="txt">ກຳລັງກວດສອບ</view>
+				<view class="time">ເວລາຮ້ອງຂໍ：{{detail.status_time}}</view>
 			</block>
 			<block v-if="type == 1">
-				<view class="txt">请退货并填写物流信息</view>
-				<view class="time">申请时间：{{detail.status_time}}</view>
+				<view class="txt">ກະລຸນາສົ່ງສິນຄ້າຄືນແລະຕື່ມຂໍ້ມູນຂົນສົ່ງ</view>
+				<view class="time">ເວລາຮ້ອງຂໍ：{{detail.status_time}}</view>
 			</block>
 			<block v-if="type == 2">
-				<view class="txt">请等待商家收货并退款</view>
-				<view class="time">还剩：
-				<countDown :is-day="true" :tip-text="' '" :day-text="'天'" :hour-text="':'" :minute-text="':'" :second-text="' '"
+				<view class="txt">ກະລຸນາລໍຖ້າຮ້ານຄ້າຮັບສິນຄ້າແລະຄືນເງິນ</view>
+				<view class="time">ຍັງເຫຼືອ：
+				<countDown :is-day="true" :tip-text="' '" :day-text="'ວັນ'" :hour-text="':'" :minute-text="':'" :second-text="' '"
 				 :datatime="datatime"></countDown>
 				</view>
 			</block>
 			<block v-if="type == 3">
-				<view class="txt">退款成功，金额 ¥{{detail.refund_price}}</view>
-				<view class="time">申请时间：{{detail.status_time}}</view>
+				<view class="txt">ຄືນເງິນສຳເລັດ, ຈຳນວນເງິນ ₭{{detail.refund_price}}</view>
+				<view class="time">ເວລາຮ້ອງຂໍ：{{detail.status_time}}</view>
 			</block>
 			<block v-if="type == -2">
-				<view class="txt">已取消退货申请</view>
-				<view class="time">申请时间：{{detail.status_time}}</view>
+				<view class="txt">ຍົກເລີກການຮ້ອງຂໍຄືນສິນຄ້າແລ້ວ</view>
+				<view class="time">ເວລາຮ້ອງຂໍ：{{detail.status_time}}</view>
 			</block>
 			<block v-if="type == 4">
-				<view class="txt">已申请平台介入</view>
-				<view class="time">申请时间：{{detail.status_time}}</view>
+				<view class="txt">ຮ້ອງຂໍໃຫ້ແພລດຟອມເຂົ້າມາແກ້ໄຂແລ້ວ</view>
+				<view class="time">ເວລາຮ້ອງຂໍ：{{detail.status_time}}</view>
 			</block>
 		</view>
 		<view class="pad20">
 			<!-- 商户拒绝原因 -->
 			<view class="box bg-f boder-24" v-if="type == -1 && detail.fail_message">
-				<view class="txt">商户拒绝退款原因</view>
+				<view class="txt">ເຫດຜົນຮ້ານຄ້າປະຕິເສດການຄືນເງິນ</view>
 				<view class="des">{{detail.fail_message}}</view>
 			</view>
 			<!-- 平台拒绝原因 -->
 			<view class="box bg-f boder-24" v-if="type == -1 && detail.platform_msg">
-				<view class="txt">平台拒绝退款原因</view>
+				<view class="txt">ເຫດຜົນແພລດຟອມປະຕິເສດການຄືນເງິນ</view>
 				<view class="des">{{detail.platform_msg}}</view>
 			</view>
 			<!-- 待退货 -->
 			<view class="info-box bg-f boder-24 mt20" v-if="type == 1">
-				<view class="title">商家已同意您的退货申请，请尽早退货</view>
+				<view class="title">ຮ້ານຄ້າໄດ້ຕົກລົງຮັບການຄືນສິນຄ້າຂອງທ່ານ, ກະລຸນາສົ່ງຄືນໂດຍໄວ</view>
 				<view class="store-info">
-					<view class="text">收货人姓名：<text class="info">{{detail.mer_delivery_user}}</text></view>
-					<view class="text">收货人联系方式：<text class="info">{{detail.phone}}</text></view>
-					<view class="text">收货人地址：<text class="info">{{detail.mer_delivery_address}}</text></view>
+					<view class="text">ຊື່ຜູ້ຮັບ：<text class="info">{{detail.mer_delivery_user}}</text></view>
+					<view class="text">ເບີໂທຕິດຕໍ່：<text class="info">{{detail.phone}}</text></view>
+					<view class="text">ທີ່ຢູ່ຮັບສິນຄ້າ：<text class="info">{{detail.mer_delivery_address}}</text></view>
 					<view class="red-txt">
-						<text class="iconfont icon-icon_tip"></text>请按以上收货信息将商品退回
+						<text class="iconfont icon-icon_tip"></text>ກະລຸນາສົ່ງສິນຄ້າຄືນຕາມຂໍ້ມູນຂ້າງເທິງ
 					</view>
 				</view>
 			</view>
 			<!-- 待收货 -->
 			<view class="info-box bg-f boder-24 mt20" v-if="type == 2">
-				<view class="title">商家收货并验货无误，将操作退款给您</view>
+				<view class="title">ຮ້ານຄ້າໄດ້ຮັບແລະກວດສອບສິນຄ້າແລ້ວ, ຈະດຳເນີນການຄືນເງິນໃຫ້ທ່ານ</view>
 				<view class="store-info">
-					<view class="text">收货人姓名：<text class="info">{{detail.mer_delivery_user}}</text></view>
-					<view class="text">收货人联系方式：<text class="info">{{detail.phone}}</text></view>
-					<view class="text">收货人地址：<text class="des">{{detail.mer_delivery_address}}</text></view>
+					<view class="text">ຊື່ຜູ້ຮັບ：<text class="info">{{detail.mer_delivery_user}}</text></view>
+					<view class="text">ເບີໂທຕິດຕໍ່：<text class="info">{{detail.phone}}</text></view>
+					<view class="text">ທີ່ຢູ່ຮັບສິນຄ້າ：<text class="des">{{detail.mer_delivery_address}}</text></view>
 				</view>
 			</view>
 			<view class='line' v-if="type == 1 || type == $attrs">
 				<image :src="`${imgUrl}/static/images/line.jpg`"></image>
 			</view>
 			<view class="info-box bg-f boder-24 mt20">
-				<view class="title">退款信息</view>
+				<view class="title">ຂໍ້ມູນການຄືນເງິນ</view>
 				<view class="product-box">
 					<view class="product-item acea-row row-between" v-for="(item,index) in detail.refundProduct" :key="index">
 						<image class="img-box" :src="item.product.cart_info.productAttr.image" mode="" v-if="item.product.cart_info.productAttr.image"></image>
 						<image class="img-box" :src="item.product.cart_info.product.image" mode="" v-else></image>
 						<view class="msg acea-row row-between">
 							<view class="name-count">
-								<view class="name line1"><text v-if="item.product.cart_info.product_type === 2" class="event_name event_bg">预售</text>{{item.product.cart_info.product.store_name}}</view>
+								<view class="name line1"><text v-if="item.product.cart_info.product_type === 2" class="event_name event_bg">ສິນຄ້າຈອງ</text>{{item.product.cart_info.product.store_name}}</view>
 								<view class="des">{{item.product.cart_info.productAttr.sku}}</view>
 							</view>
 							<view class="price-count">
@@ -92,49 +92,49 @@
 
 			<view class="content mt20 bg-f boder-24">
 				<view class="item">
-					<view class="label">订单编号：</view>
+					<view class="label">ລະຫັດຄຳສັ່ງຊື້：</view>
 					<view class="txt flex">
 						<text>{{detail.refund_order_sn}}</text>
 						<!-- #ifdef H5 -->
-							<text class='copy copy-data' :data-clipboard-text="detail.refund_order_sn">复制</text>
+							<text class='copy copy-data' :data-clipboard-text="detail.refund_order_sn">ສຳເນົາ</text>
 						<!-- #endif -->
 						<!-- #ifdef MP -->
-							<text class='copy' @tap='copy'>复制</text>
+							<text class='copy' @tap='copy'>ສຳເນົາ</text>
 						<!-- #endif -->
 					</view>
 				</view>
 				<view class="item">
-					<view class="label">退款金额：</view>
+					<view class="label">ຈຳນວນເງິນຄືນ：</view>
 					<view class="txt flex">
-						<text>¥ {{detail.refund_price}}</text>
+						<text>₭ {{detail.refund_price}}</text>
 					</view>
 				</view>
 				<view class="item">
-					<view class="label">申请件数：</view>
+					<view class="label">ຈຳນວນທີ່ຮ້ອງຂໍ：</view>
 					<view class="txt flex">
 						<text>{{detail.refund_num}}</text>
 					</view>
 				</view>
 				<view class="item">
-					<view class="label">申请时间：</view>
+					<view class="label">ເວລາຮ້ອງຂໍ：</view>
 					<view class="txt flex">
 						<text>{{detail.create_time}}</text>
 					</view>
 				</view>
 				<view class="item">
-					<view class="label">备注说明：</view>
+					<view class="label">ໝາຍເຫດ：</view>
 					<view class="txt flex">
 						<text>{{detail.mark ? detail.mark : ""}}</text>
 					</view>
 				</view>
 				<view class="item">
-					<view class="label">商家备注：</view>
+					<view class="label">ໝາຍເຫດຮ້ານຄ້າ：</view>
 					<view class="txt flex">
 						<text>{{detail.mer_mark ? detail.mer_mark : ""}}</text>
 					</view>
 				</view>
 				<view class="item" style="display: block;">
-					<view class="label">退款凭证：</view>
+					<view class="label">ຫຼັກຖານການຄືນເງິນ：</view>
 					<view class="upload-img">
 						<view class="img-item" v-for="(item,index) in detail.pics" :key="index">
 							<image :src="item" mode="" @click="loookImg(item,index)"></image>
@@ -143,11 +143,11 @@
 				</view>
 				<view class="btn-wrapper">
 					<block v-if="detail.platform">
-						<view class="btn" @click="plantform(detail.refund_order_id)">平台介入</view>
+						<view class="btn" @click="plantform(detail.refund_order_id)">ແພລດຟອມແກ້ໄຂ</view>
 					</block>
 					<block v-else-if="type==1">
-						<view class="btn gray" @click="cancelSales">取消售后</view>
-						<view class="btn" @click="goPage">退回商品</view>
+						<view class="btn gray" @click="cancelSales">ຍົກເລີກການບໍລິການຫຼັງການຂາຍ</view>
+						<view class="btn" @click="goPage">ສົ່ງສິນຄ້າຄືນ</view>
 					</block>
 					<block v-else-if="type==-1">
 						<view class="btn" @click="applyAgain(detail)">再次申请</view>

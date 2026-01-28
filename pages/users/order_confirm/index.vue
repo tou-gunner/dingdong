@@ -197,13 +197,13 @@
 								<text v-if="item.list[0].productPresell && item.list[0].productPresell.presell_type == 2">(ໄລຍະເງິນຍອດທ້າຍ)</text>
 							</view>
 							<view class='discount regular' v-if='!item.order.isCityTake && item.order.postage_price > 0'>
-								¥{{item.order.postage_price}}
+								₭{{item.order.postage_price}}
 							</view>
 							<view
 								class='discount regular'
 								v-else-if='item.order.isCityTake && item.order.city_take_postage > 0'
 							>
-								¥{{item.order.city_take_postage}}
+								₭{{item.order.city_take_postage}}
 							</view>
 							<view class='discount' v-else-if="item.order.isCityTake && !item.order.delivery_status">ບໍ່ຢູ່ໃນຂອບເຂດການຈັດສົ່ງ</view>
 							<view class='discount' v-else>{{item.order.isCityTake ? 'ຈັດສົ່ງຟຣີ' : 'ຂົນສົ່ງຟຣີ'}}</view>
@@ -213,7 +213,7 @@
 							<view>ສ່ວນຫຼຸດຮ້ານຄ້າ</view>
 							<block v-if="item.coupon.length>0">
 								<view class='discount' @tap='couponTap(item,index)'>
-									<text v-if="item.order.coupon_price>0">-¥{{item.order.coupon_price}}</text>
+									<text v-if="item.order.coupon_price>0">-₭{{item.order.coupon_price}}</text>
 									<text v-else>ຍັງບໍ່ໄດ້ເລືອກຄູປອງ</text>
 									<text class='iconfont icon-ic_rightarrow'></text>
 								</view>
@@ -427,15 +427,15 @@
 			<view class='moneyList boder-24 bg-f'>
 				<view class='item acea-row row-between-wrapper'>
 					<view>ລາຄາສິນຄ້າລວມ:</view>
-					<view class='money'>¥{{proPrice}}</view>
+					<view class='money'>₭{{proPrice}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="couponData.order_total_postage > 0">
 					<view>ຄ່າຂົນສົ່ງ:</view>
-					<view class='money'>¥{{couponData.order_total_postage}}</view>
+					<view class='money'>₭{{couponData.order_total_postage}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="coupon_price > 0">
 					<view>ມູນຄ່າສ່ວນຫຼຸດຮ້ານຄ້າ:</view>
-					<view class='money'>-¥{{coupon_price}}</view>
+					<view class='money'>-₭{{coupon_price}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="open_integral && userInfo.integral>0 && order_type == 0">
 					<view>ຫັກແຕ້ມສະສົມ:</view>
@@ -454,7 +454,7 @@
 					<view>ຄູປອງແພລດຟອມ <text @tap="showCoupon" class="iconfont icon-icon_question"></text></view>
 					<block v-if="platformCoupon.length > 0">
 						<view class='discount money' @tap='couponTap2(platformCoupon,0)'>
-							<text v-if="total_platform_coupon_price>0">ສ່ວນຫຼຸດ ¥{{total_platform_coupon_price}}</text>
+							<text v-if="total_platform_coupon_price>0">ສ່ວນຫຼຸດ ₭{{total_platform_coupon_price}}</text>
 							<text v-else>ຍັງບໍ່ໄດ້ເລືອກຄູປອງ</text>
 							<text class='iconfont icon-ic_rightarrow'></text>
 						</view>
@@ -465,7 +465,7 @@
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="priceGroup.storePostage > 0">
 					<view>ຄ່າຂົນສົ່ງ:</view>
-					<view class='money'>+¥{{priceGroup.storePostage}}</view>
+					<view class='money'>+₭{{priceGroup.storePostage}}</view>
 				</view>
 			</view>
 			<view style='height:140rpx;'></view>
@@ -478,7 +478,7 @@
 						</view>
 					</view>
 					<view class="coupon_price" v-if="couponData.total_coupon > 0">
-						ສ່ວນຫຼຸດ: ¥ {{couponData.total_coupon}}
+						ສ່ວນຫຼຸດ: ₭ {{couponData.total_coupon}}
 						<text @click="openDiscount">ລາຍລະອຽດສ່ວນຫຼຸດ</text>
 					</view>
 				</view>

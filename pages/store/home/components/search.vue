@@ -22,7 +22,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "搜索商品"
+      default: "ຄົ້ນຫາສິນຄ້າ"
     },
     store: Object
   },

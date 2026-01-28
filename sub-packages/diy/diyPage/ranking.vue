@@ -63,7 +63,7 @@
 							<view class="mt-20 fs-26 w-280 line1">{{ item.list[0].store_name }}</view>
 							<view class="flex items-baseline mt-10" :style="[priceColor]">
 								<priceFormat :price="item.list[0].price" weight intSize="28" floatSize="28" labelSize="28" />
-								<text class="fs-20 text--w111-999 text-line pl-8" v-if="item.list[0].ot_price">¥{{ item.list[0].ot_price || '' }}</text>
+								<text class="fs-20 text--w111-999 text-line pl-8" v-if="item.list[0].ot_price">₭{{ item.list[0].ot_price || '' }}</text>
 							</view>
 						</view>
 						<view class="last-item-placeholder-style2 inline-block" />

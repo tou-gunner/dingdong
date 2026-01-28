@@ -37,7 +37,7 @@
 					<view class="new">
 						<priceFormat :price="item.value.price | moneyFormat" weight intSize="50" floatSize="50" labelSize="34"></priceFormat>
 					</view>
-					<view class="old">¥{{item.value.cost_price | moneyFormat}}</view>
+					<view class="old">₭{{item.value.cost_price | moneyFormat}}</view>
 				</view>
 			</scroll-view>
 			<view v-if="memberType.length>0" class="buy" @click="pay">{{svip_type == 1 ? 'ລອງໃຊ້ດຽວນີ້' : 'ເປີດໃຊ້ດຽວນີ້'}}</view>

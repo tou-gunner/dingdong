@@ -1,7 +1,7 @@
 <template>
 	<text :class="weight ? 'semiBold' : 'regular'" class="price-format">
 		<text class="intPrice" :data-x="unit" :style="{'font-size': intSize + unit} ">
-			<text :style="{'font-size': labelSize + unit} " class="normal" :class="{'font600' : coupon}">¥</text>
+			<text :style="{'font-size': labelSize + unit} " class="normal" :class="{'font600' : coupon}">₭</text>
 		{{ intPrice }}</text>
 		<text v-if="coupon" class="floatPrice" :style="{'font-size': floatSize + unit} ">{{ couponPrice }}</text>
 		<text v-else class="floatPrice" :style="{'font-size': floatSize + unit }">{{floatPrice}}</text>

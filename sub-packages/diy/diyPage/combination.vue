@@ -46,7 +46,7 @@
 									<priceFormat :price="item.price" intSize="36" floatSize="36" labelSize="24" weight />
 								</view>
 								<text class="text-line fs-28 text--w111-999 pt-14 Regular" v-if="checkboxInfo.includes(3)"
-									:style="[otPriceColor]">¥{{ item.product.price }}</text>
+									:style="[otPriceColor]">₭{{ item.product.price }}</text>
 							</view>
 							<view class="w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff" v-if="!showBtn"
 								:style="[btnBgColor]">ໄປຊື້ເປັນກຸ່ມ</view>
@@ -72,7 +72,7 @@
 								<priceFormat :price="item.price" intSize="36" floatSize="36" labelSize="24" weight />
 							</view>
 							<text class="text-line fs-28 text--w111-999 Regular" v-if="checkboxInfo.includes(3)"
-								:style="[otPriceColor]">¥{{ item.product.price }}</text>
+								:style="[otPriceColor]">₭{{ item.product.price }}</text>
 						</view>
 						<view class="w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff bg--w111-E93323" v-if="!showBtn"
 							:style="[btnBgColor]">ໄປຊື້ເປັນກຸ່ມ</view>
@@ -94,7 +94,7 @@
 						<priceFormat :price="item.price" intSize="36" floatSize="36" labelSize="24" weight />
 					</view>
 					<view class="text-line fs-24 text--w111-999 Regular lh-32rpx" :style="[otPriceColor]"
-						v-if="checkboxInfo.includes(3)">¥{{ item.product.price }}</view>
+						v-if="checkboxInfo.includes(3)">₭{{ item.product.price }}</view>
 				</view>
 			</view>
 			<!-- 滑动 -->
@@ -113,7 +113,7 @@
 						<view class="mt-12" :style="{ color: priceColor }" v-if="checkboxInfo.includes(2)">
 							<priceFormat :price="item.price" intSize="36" floatSize="36" labelSize="24" weight />
 						</view>
-						<view class="text-line fs-24 Regular lh-32rpx" :style="[otPriceColor]" v-if="checkboxInfo.includes(3)">¥{{
+						<view class="text-line fs-24 Regular lh-32rpx" :style="[otPriceColor]" v-if="checkboxInfo.includes(3)">₭{{
 							item.product.price }}</view>
 					</view>
 				</view>

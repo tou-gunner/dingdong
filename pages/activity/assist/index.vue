@@ -26,7 +26,7 @@
 							<view class='money font-bold'>ຕ່ຳສຸດ:
 								<priceFormat :price="item.assistSku && item.assistSku[0].assist_price" weight intSize="40" floatSize="24" labelSize="24"></priceFormat>
 							</view>
-							<view class="price regular">¥{{item.product.price}}</view>
+							<view class="price regular">₭{{item.product.price}}</view>
 						</view>
 						<view class='cutBnt'></text>ເລີ່ມຊ່ວຍເຫຼືອ</view>
 					</view>

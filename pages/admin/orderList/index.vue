@@ -136,7 +136,7 @@
 							<view class="money">
 								<priceFormat :price="item.pay_price" weight intSize="32" floatSize="22" labelSize="20"></priceFormat>
 							</view>
-							( ຄ່າຂົນສົ່ງ ¥{{ item.pay_postage}} )
+							( ຄ່າຂົນສົ່ງ ₭{{ item.pay_postage}} )
 						</view>
 						<view class="operation acea-row row-between-wrapper">
 							<view class="more">

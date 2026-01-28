@@ -38,7 +38,7 @@
 										weight />
 								</view>
 								<text class="text-line fs-28 text--w111-999 pt-10 Regular line-price" v-if="checkboxInfo.includes(3)"
-									:style="[otPriceColor]">¥{{ item.product.ot_price }}</text>
+									:style="[otPriceColor]">₭{{ item.product.ot_price }}</text>
 							</view>
 							<view class="w-144 h-56 rd-30rpx flex-center fs-24 text--w111-fff" v-if="!showBtn" :style="[btnBgColor]">
 								ເຂົ້າຮ່ວມຕໍ່ລອງ</view>
@@ -61,7 +61,7 @@
 									weight />
 							</view>
 							<text class="text-line fs-28 text--w111-999 pt-14 Regular line-price" v-if="checkboxInfo.includes(3)"
-								:style="[otPriceColor]">¥{{ item.product.ot_price }}</text>
+								:style="[otPriceColor]">₭{{ item.product.ot_price }}</text>
 						</view>
 						<view class="w-144 h-56 rd-30rpx flex-center fs-24 bg--w111-E93323" v-if="!showBtn" :style="[btnBgColor]">
 							ເຂົ້າຮ່ວມຕໍ່ລອງ</view>
@@ -84,7 +84,7 @@
 						</view>
 					</view>
 					<view class="text-line fs-24 text--w111-999 Regular lh-32rpx" :style="[otPriceColor]"
-						v-if="checkboxInfo.includes(3)">¥{{ item.product.ot_price }}</view>
+						v-if="checkboxInfo.includes(3)">₭{{ item.product.ot_price }}</view>
 				</view>
 			</view>
 			<!-- 滑动 -->
@@ -106,7 +106,7 @@
 							</view>
 						</view>
 						<view class="text-line fs-24 text--w111-999 Regular lh-32rpx" :style="[otPriceColor]"
-							v-if="checkboxInfo.includes(3)">¥{{ item.product.ot_price }}</view>
+							v-if="checkboxInfo.includes(3)">₭{{ item.product.ot_price }}</view>
 					</view>
 				</view>
 			</scroll-view>

@@ -4,7 +4,7 @@
 			<view class="payment-top acea-row row-column row-center-wrapper">
 				<span class="name">我的余额</span>
 				<view class="pic">
-					¥<text class="pic-font regular">{{ userinfo.now_money || 0 }}</text>
+					₭<text class="pic-font regular">{{ userinfo.now_money || 0 }}</text>
 				</view>
 			</view>
 			<view class="payment">
@@ -32,11 +32,11 @@
 					</view>
 				</view>
 				<view class="tip" v-else>
-					<view class='input'><text>¥</text><input placeholder="0.00" type='number' placeholder-class='placeholder' :value="number"
+					<view class='input'><text>₭</text><input placeholder="0.00" type='number' placeholder-class='placeholder' :value="number"
 						 name="number"></input></view>
 					<view class="tips-title">
 						<view style="font-weight: bold; font-size: 26rpx;">提示：</view>
-						<view style="margin-top: 10rpx;">当前佣金为 <text class='t-color'>¥{{userinfo.brokerage_price || 0}}</text></view>
+						<view style="margin-top: 10rpx;">当前佣金为 <text class='t-color'>₭{{userinfo.brokerage_price || 0}}</text></view>
 					</view>
 					<view class="tips-box">
 						<view class="tips mt-30">注意事项：</view>

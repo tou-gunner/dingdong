@@ -98,7 +98,7 @@ export default {
         if (BtnUtil.getServiceRecordStatus(this.orderInfo, this.merServiceConfig)) {
           config.push(
             {
-              text: "服务记录",
+              text: "ປະຫວັດການບໍລິການ",
               type: "primary",
               event: BTN_EVENT.SERVICE_RECORD
             }
@@ -108,7 +108,7 @@ export default {
 
 
       const verifyItem = {
-        text: "核销",
+        text: "ຢືນຢັນ",
         type: "primary",
         event: BTN_EVENT.VERIFY
       };
@@ -159,7 +159,7 @@ export default {
     async handleSaveRemark({ remark }) {
       if (!remark) {
         this.$util.Tips({
-          title: "请输入备注信息",
+          title: "ກະລຸນາໃສ່ໝາຍເຫດ",
           icon: "none"
         });
         return;
@@ -187,8 +187,8 @@ export default {
     },
     async handleVerify() {
       const [err, { confirm }] = await uni.showModal({
-        title: "提示",
-        content: `确定要核销此订单吗？`,
+        title: "ແຈ້ງເຕືອນ",
+        content: `ທ່ານຕ້ອງການຢືນຢັນການກວດສອບຄຳສັ່ງຊື້ນີ້ບໍ?`,
       });
       if (err || !confirm) return;
       uni.showLoading({

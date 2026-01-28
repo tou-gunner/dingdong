@@ -14,7 +14,7 @@
 						</view>
 
 						<view class='money'>
-							<view>¥{{ productInfo.product_type == 3 ? productInfo.productAssistAttr.assist_price : productInfo.productAttr.price}}</view>
+							<view>₭{{ productInfo.product_type == 3 ? productInfo.productAssistAttr.assist_price : productInfo.productAttr.price}}</view>
 							<view class='num'>x{{cart_num}}</view>
 						</view>
 					</view>

@@ -5,8 +5,8 @@
 				<image :src="domain+'/static/diy/select01'+keyColor+'.png'" mode=""></image>
 			</view>
 			<view class="right-wrapper">
-				<view class="title">我要退款(无需退货)</view>
-				<view class="txt">未收到货，或与卖家协商同意不退货只退款</view>
+				<view class="title">ຂ້ອຍຕ້ອງການເງິນຄືນ (ບໍ່ສົ່ງສິນຄ້າ)</view>
+				<view class="txt">ບໍ່ໄດ້ຮັບສິນຄ້າ, ຫຼື ຕົກລົງກັບຜູ້ຂາຍຂໍເງິນຄືນໂດຍບໍ່ສົ່ງສິນຄ້າ</view>
 			</view>
 			<view class="iconfont icon-ic_rightarrow"></view>
 		</view>
@@ -15,8 +15,8 @@
 				<image :src="domain+'/static/diy/select02'+keyColor+'.png'" mode=""></image>
 			</view>
 			<view class="right-wrapper">
-				<view class="title">{{order_type != 2 ? '我要退货退款' : '我要退款'}}</view>
-				<view class="txt" v-if="order_type != 2">已收到货，需要退还收到的货物</view>
+				<view class="title">{{order_type != 2 ? 'ຂ້ອຍຕ້ອງການສົ່ງຄືນສິນຄ້າ ແລະ ຂໍເງິນຄືນ' : 'ຂ້ອຍຕ້ອງການເງິນຄືນ'}}</view>
+				<view class="txt" v-if="order_type != 2">ໄດ້ຮັບສິນຄ້າແລ້ວ, ຕ້ອງການສົ່ງຄືນສິນຄ້າທີ່ໄດ້ຮັບ</view>
 			</view>
 			<view class="iconfont icon-ic_rightarrow"></view>
 		</view>

@@ -14,7 +14,7 @@
 					<view class="text">
 						<view class="name">{{item.name}}</view>
 						<view class="info" v-if="item.number">
-							{{item.title}} <span class="money">¥{{ item.number }}</span>
+							{{item.title}} <span class="money">₭{{ item.number }}</span>
 						</view>
 						<view class="info" v-else>{{item.title}}</view>
 					</view>

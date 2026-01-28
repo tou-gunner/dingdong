@@ -20,7 +20,7 @@
 				<view class='picTxt acea-row row-between-wrapper'>
 					<view class='text'>
 						<view class='name'>ຂໍ້ມູນການສັ່ງຊື້</view>
-						<view>ຄຳສັ່ງຊື້: {{orderData.orderCount || 0}} ລວມທັງໝົດ: ¥{{orderData.orderPrice || 0}}</view>
+						<view>ຄຳສັ່ງຊື້: {{orderData.orderCount || 0}} ລວມທັງໝົດ: ₭{{orderData.orderPrice || 0}}</view>
 					</view>
 					<view class='pictrue'>
 						<image :src="`${domain}/static/images/orderTime.png`"></image>
@@ -102,13 +102,13 @@
 															</view>
 														</view>
 														<view class='money'>
-															<view class="regular">¥{{goods.cart_info.productPresellAttr.presell_price}}</view>
+															<view class="regular">₭{{goods.cart_info.productPresellAttr.presell_price}}</view>
 															<view>x{{goods.product_num}}</view>
 														</view>
 													</view>
 													<view v-if="goods.cart_info.productPresell.presell_type === 2" class="event_price">
-														 ເງິນມັດຈຳລໍຖ້າຈ່າຍ <text class="t-color">¥{{ order.pay_price }}</text>
-														ເງິນຍອດທ້າຍລໍຖ້າຈ່າຍ <text class="t-color">¥{{ order.presellOrder.pay_price }}</text>
+														 ເງິນມັດຈຳລໍຖ້າຈ່າຍ <text class="t-color">₭{{ order.pay_price }}</text>
+														ເງິນຍອດທ້າຍລໍຖ້າຈ່າຍ <text class="t-color">₭{{ order.presellOrder.pay_price }}</text>
 													</view>
 												</view>
 												</block>
@@ -125,11 +125,11 @@
 																{{goods.cart_info.product.store_name}}
 															</view>
 															<view class='money' v-if="item.orderList[0].activity_type == 4">
-																<view class="regular" v-if="goods.cart_info.activeSku">¥{{goods.cart_info.activeSku.active_price}}</view>
+																<view class="regular" v-if="goods.cart_info.activeSku">₭{{goods.cart_info.activeSku.active_price}}</view>
 																<view>x{{goods.product_num}}</view>
 															</view>
 															<view v-else class='money'>
-																<view class="regular">¥{{goods.cart_info.productAttr.price}}</view>
+																<view class="regular">₭{{goods.cart_info.productAttr.price}}</view>
 																<view>x{{goods.product_num}}</view>
 															</view>
 														</view>
@@ -195,7 +195,7 @@
 													<view class="t-color refund-text">{{goods.is_refund==1?'ກຳລັງຄືນເງິນ':goods.is_refund==2?'ຄືນເງິນບາງສ່ວນ':goods.is_refund==3?'ຄືນເງິນທັງໝົດ':''}}</view>
 												</view>
 												<view class='money'>
-													<view class="regular">¥{{goods.cart_info.productPresellAttr.presell_price}}</view>
+													<view class="regular">₭{{goods.cart_info.productPresellAttr.presell_price}}</view>
 													<view>x{{goods.product_num}}</view>
 												</view>
 											</view>
@@ -216,16 +216,16 @@
 												</view>
 												<view class='money' v-if="item.activity_type == 3">
 													<view class="regular" v-if="goods.cart_info.productAssistAttr">
-														¥{{goods.cart_info.productAssistAttr.assist_price}}
+														₭{{goods.cart_info.productAssistAttr.assist_price}}
 													</view>
 													<view>x{{goods.product_num}}</view>
 												</view>
 												<view class='money' v-else-if="item.activity_type == 4">
-													<view class="regular" v-if="goods.cart_info.activeSku">¥{{goods.cart_info.activeSku.active_price}}</view>
+													<view class="regular" v-if="goods.cart_info.activeSku">₭{{goods.cart_info.activeSku.active_price}}</view>
 													<view>x{{goods.product_num}}</view>
 												</view>
 												<view class='money' v-else>
-													<view class="regular">¥{{goods.cart_info.productAttr.price}}</view>
+													<view class="regular">₭{{goods.cart_info.productAttr.price}}</view>
 													<view>x{{goods.product_num}}</view>
 												</view>
 											</view>

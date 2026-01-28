@@ -4,7 +4,7 @@
     <view class="text">
       <navigator :url="`/pages/store/detail/index?id=${store.mer_id}`" hover-class="none">
         <text v-if="store.type_name" class="font-bg-red">{{ store.type_name }}</text>
-        <text v-else-if="store.is_trader" class="font-bg-red">自营</text>
+        <text v-else-if="store.is_trader" class="font-bg-red">ຮ້ານຄ້າຫຼັກ</text>
         <text class="name">{{ store.mer_name }}</text>
         <image v-if="margin_ico_switch == 1 && margin_ico && store.is_margin == 10" :src="margin_ico"
           class="store-margin"></image>
@@ -24,11 +24,11 @@
     </view>
     <button hover-class="none" :class="store.care ? 'care' : ''" v-if="!isLogin" @click="authOpen">
       <text v-show="!store.care" class="iconfont icon-ic_love"></text>
-      {{ store.care ? '已关注' : '关注' }}
+      {{ store.care ? ' ຕິດຕາມແລ້ວ' : ' ຕິດຕາມ' }}
     </button>
     <button v-else hover-class="none" :class="store.care ? 'care' : ''" @click="handleToggleFollow(store)">
       <text v-show="!store.care" class="iconfont icon-ic_love"></text>
-      {{ store.care ? '已关注' : '关注' }}
+      {{ store.care ? ' ຕິດຕາມແລ້ວ' : ' ຕິດຕາມ' }}
     </button>
   </view>
 </template>

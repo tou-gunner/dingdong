@@ -39,7 +39,7 @@
 				</view>
 				<view class="foot-box bg-f">
 					<view class="left">
-						已选择{{coupon_number}}张，可优惠<text>¥{{coupon_amount}}</text>
+						已选择{{coupon_number}}张，可优惠<text>₭{{coupon_amount}}</text>
 					</view>
 					<view class="btn" @tap='close'>确定</view>
 				</view>

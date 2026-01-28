@@ -6,7 +6,7 @@
 					<image :src="item.cart_info.productAttr.image || item.cart_info.product.image"></image>
 				</view>
 				<view class="info">
-					<view class="name line1"><text v-if="order_status == 2" class="event_name event_bg">预售</text>{{item.cart_info.product.store_name}}</view>
+					<view class="name line1"><text v-if="order_status == 2" class="event_name event_bg">ສິນຄ້າຈອງ</text>{{item.cart_info.product.store_name}}</view>
 					<view class='attr line1' v-if="item.cart_info.productAttr.sku">{{item.cart_info.productAttr.sku}}</view>
 					<view class="money acea-row row-middle">
 						<view class="price">
@@ -20,7 +20,7 @@
 		</view>
 		<view class="form-box bg-f boder-24">
 			<view class="form-item item-txt" v-if="type==1">
-				<text class="label">商品件数</text>
+				<text class="label">ຈຳນວນສິນຄ້າ</text>
 				<view class="picker">
 					<picker @change="bindNumChange" :value="numIndex" :range="numArray" :disabled="order_status == 2">
 						<view class="picker-box">
@@ -31,11 +31,11 @@
 				</view>
 			</view>
 			<view class="form-item item-txt">
-				<text class="label">{{ status == 0 ? '退款金(含运费)' : '退款金(不含运费)' }}</text>
-				<input style="text-align: right;" :class="{disabled:type == 2}" :disabled="type == 2" class="p-color" type="text" placeholder-class='placeholder' placeholder="请输入金额" v-model="refundPrice" @blur="checkMaxPrice">
+				<text class="label">{{ status == 0 ? 'ຈຳນວນເງິນຄືນ (ລວມຄ່າຂົນສົ່ງ)' : 'ຈຳນວນເງິນຄືນ (ບໍ່ລວມຄ່າຂົນສົ່ງ)' }}</text>
+				<input style="text-align: right;" :class="{disabled:type == 2}" :disabled="type == 2" class="p-color" type="text" placeholder-class='placeholder' placeholder="ກະລຸນາປ້ອນຈຳນວນເງິນ" v-model="refundPrice" @blur="checkMaxPrice">
 			</view>
 			<view class="form-item item-txt">
-				<text class="label">退款原因</text>
+				<text class="label">ເຫດຜົນການຂໍເງິນຄືນ</text>
 				<view class="picker">
 					<picker @change="bindPickerChange" :value="qsIndex" :range="qsArray">
 						<view class="picker-box">
@@ -46,13 +46,13 @@
 				</view>
 			</view>
 			<view class="form-item item-txtarea">
-				<text class="label">备注说明</text>
-				<view class="txtarea"><textarea v-model="con" value="" placeholder-class='placeholder' placeholder="填写备注信息，100字以内" /></view>
+				<text class="label">ໝາຍເຫດ</text>
+				<view class="txtarea"><textarea v-model="con" value="" placeholder-class='placeholder' placeholder="ຕື່ມຂໍ້ມູນໝາຍເຫດ, ບໍ່ເກີນ 100 ຄຳ" /></view>
 			</view>
 			<view class="upload-box">
 				<view class="title">
-					<view class="txt">上传凭证</view>
-					<view class="des">( 最多可上传9张 )</view>
+					<view class="txt">ອັບໂຫລດຫຼັກຖານ</view>
+					<view class="des">( ອັບໂຫລດໄດ້ສູງສຸດ 9 ຮູບ )</view>
 				</view>
 				<view class="upload-img">
 					<view class="img-item" v-for="(item,index) in uploadImg" :key="index">
@@ -61,7 +61,7 @@
 					</view>
 					<view v-if="uploadImg.length < 9" class="add-img" @click="uploadpic">
 						<text class="iconfont icon-ic_camera1"></text>
-						<text class="txt">上传凭证</text>
+						<text class="txt">ອັບໂຫລດຫຼັກຖານ</text>
 					</view>
 				</view>
 			</view>
@@ -140,7 +140,7 @@
 			limitAamount(){
 				if(parseFloat(this.refundPrice) > parseFloat(this.maxRefundPrice)){
 					uni.showToast({
-						title:'退款金额不能大于支付金额',
+						title:'ຈຳນວນເງິນຄືນບໍ່ສາມາດຫຼາຍກວ່າຈຳນວນເງິນທີ່ຈ່າຍ',
 						icon:'none'
 					})
 					this.validate = false;
@@ -226,7 +226,7 @@
 					});
 				}else{
 					uni.showToast({
-						title:'最多可上传9张',
+						title:'ອັບໂຫລດໄດ້ສູງສຸດ 9 ຮູບ',
 						icon:'none'
 					})
 				}

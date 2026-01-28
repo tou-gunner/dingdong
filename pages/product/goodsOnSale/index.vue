@@ -45,8 +45,8 @@
 									<span>销量：{{ item.sales }}</span>
 								</view>
 								<view class="shop_list_item_shop_con_price">
-									<span>¥{{ item.price }}</span>
-									<del>¥{{ item.ot_price }}</del>
+									<span>₭{{ item.price }}</span>
+									<del>₭{{ item.ot_price }}</del>
 								</view>
 							</view>
 						</view>

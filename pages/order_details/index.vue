@@ -289,9 +289,9 @@
 											营业时间
 										</view>
 										<view class="text">
-											<text v-if="orderInfo.take.business_date && orderInfo.take.business_date.length == 7">周一至周日：</text>
+											<text v-if="orderInfo.take.business_date && orderInfo.take.business_date.length == 7">ວັນຈັນ ຫາ ວັນອາທິດ：</text>
 											<block v-else>
-												<text v-for="item in orderInfo.take.business_date">{{'周'+ toChinese(item)}},</text>
+												<text v-for="item in orderInfo.take.business_date">{{'ວັນ'+ getWeekDay(item)}},</text>
 											</block>
 											<text class="time" v-if="orderInfo.take.business_time_end && orderInfo.take.business_time_start">
 												{{orderInfo.take.business_time_start}}-{{orderInfo.take.business_time_end}}
@@ -301,7 +301,7 @@
 									<view v-if="orderInfo.status == 0 || orderInfo.status == 9" class="code" @click="showCode">
 										<text class="iconfont icon-a-ic_QRcode"></text>
 										<view class="text">
-											自提码
+											ລະຫັດຮັບສິນຄ້າ
 										</view>
 									</view>
 								</view>
@@ -457,7 +457,7 @@
 						</view>
 						<!-- <view class='item acea-row row-between'>
 							<view>ລາຄາສິນຄ້າທັງໝົດ:</view>
-							<view class='conter'>¥{{orderInfo.total_price}}</view>
+							<view class='conter'>₭{{orderInfo.total_price}}</view>
 						</view> -->
 						<view class='item acea-row row-between'>
 							<view>ວິທີຊຳລະ:</view>
@@ -485,27 +485,27 @@
 					<view class='wrapper boder-24'>
 						<view class='item acea-row row-between' v-if="orderInfo.pay_postage > 0 && orderInfo.order_type != 1">
 							<view>ຄ່າຂົນສົ່ງ:</view>
-							<view class='conter'>+¥{{orderInfo.pay_postage}}</view>
+							<view class='conter'>+₭{{orderInfo.pay_postage}}</view>
 						</view>
 						<view class='item acea-row row-between'>
 							<view>ລາຄາສິນຄ້າທັງໝົດ:</view>
-							<view class='conter'>¥{{orderInfo.total_price}}</view>
+							<view class='conter'>₭{{orderInfo.total_price}}</view>
 						</view>
 						<view class='item acea-row row-between' v-if='orderInfo.coupon_price > 0'>
 							<view>ສ່ວນຫຼຸດຄູປອງ:</view>
-							<view class='conter'>-¥{{orderInfo.coupon_price}}</view>
+							<view class='conter'>-₭{{orderInfo.coupon_price}}</view>
 						</view>
 						<view class='item acea-row row-between' v-if='orderInfo.integral'>
 							<view>ສ່ວນຫຼຸດຄະແນນ:</view>
-							<view class='conter'>-¥{{orderInfo.integral_price}}</view>
+							<view class='conter'>-₭{{orderInfo.integral_price}}</view>
 						</view>
 						<view class='item acea-row row-between' v-if="orderInfo.activity_type == 2">
 							<view>ຈຳນວນຊຳລະຕົວຈິງ:</view>
-							<view class='conter'>¥{{orderInfo.presell_price}}</view>
+							<view class='conter'>₭{{orderInfo.presell_price}}</view>
 						</view>
 						<view class='item acea-row row-between' v-else>
 							<view>ຈຳນວນຊຳລະຕົວຈິງ:</view>
-							<view class='conter'>¥{{orderInfo.pay_price}}</view>
+							<view class='conter'>₭{{orderInfo.pay_price}}</view>
 						</view>
 						<view class='item acea-row row-between'>
 							<view></view>
@@ -703,7 +703,7 @@
 			filterDay(val){
 				if(val){
 					var reg =/(\d{4})\-(\d{2})\-(\d{2})/;
-					var date = val.replace(reg,"$2月$3日");
+					var date = val.replace(reg,"$2-$3");
 					return date
 				}
 			}
@@ -760,23 +760,18 @@
 					}
 				}
 			},
-			// 数字转汉字
-			toChinese(num){
-				let changeNum = ['零', '一', '二', '三', '四', '五', '六', '日', '八', '九'];
-				let unit = ["", "十", "百", "千", "万"];
-				num = parseInt(num);
-				let getWan = (temp) => {
-			　　let strArr = temp.toString().split("").reverse();
-			　　let newNum = "";
-			　　for (var i = 0; i < strArr.length; i++) {
-				　　newNum = (i == 0 && strArr[i] == 0 ? "" : (i > 0 && strArr[i] == 0 && strArr[i - 1] == 0 ? "" : changeNum[strArr[i]] + (strArr[i] == 0 ? unit[0] : unit[i]))) + newNum;
-			　　}
-			 　 return newNum;
-			 }
-			 let overWan = Math.floor(num / 10000);
-			 let noWan = num % 10000;
-			 if (noWan.toString().length < 4) {　　　　　　noWan = "0" + noWan;　　　 }
-			 return overWan ? getWan(overWan) + "万" + getWan(noWan) : getWan(num);
+			// ມື້ຂອງອາທິດ
+			getWeekDay(num){
+				const daysMap = {
+					1: 'ຈັນ',
+					2: 'ອັງຄານ',
+					3: 'ພຸດ',
+					4: 'ພະຫັດ',
+					5: 'ສຸກ',
+					6: 'ເສົາ',
+					7: 'ອາທິດ'
+				};
+				return daysMap[num] || num;
 			},
 			// 返回店铺首页
 			goStore(mer_id){
@@ -1003,7 +998,7 @@
 			getOrderInfo: function() {
 				let that = this;
 				uni.showLoading({
-					title: "正在加载中"
+					title: "ກຳລັງໂຫຼດ"
 				});
 				getOrderDetail(that.order_id).then(res => {
 					uni.hideLoading();

@@ -292,7 +292,7 @@
 				font-size: 30rpx;
 				z-index: 10;
 				background-size: 100% 100%;
-				font-family: '黑体';
+				font-family: sans-serif;
 				font-weight: bold;
 			}
 			.name {

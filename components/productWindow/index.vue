@@ -16,7 +16,7 @@
 							<text style="margin-right: 2rpx;">ລາຄາຂາຍລ່ວງໜ້າ</text>
 							<priceFormat :price="attr.productSelect.price" weight intSize="40" floatSize="26" labelSize="26">
 							</priceFormat>
-							<text v-if="presell_type === 2" style="margin-left:10rpx;">ເງິນມັດຈຳ¥<text class="num semiBold">{{
+							<text v-if="presell_type === 2" style="margin-left:10rpx;">ເງິນມັດຈຳ₭<text class="num semiBold">{{
 								attr.productSelect.down_price }}</text></text>
 						</view>
 						<text class="stock" v-if='isShow'>ຄັງສິນຄ້າ: {{ attr.productSelect.stock }}</text>
@@ -36,7 +36,7 @@
 									</priceFormat>
 								</view>
 								<view v-if="svipPrice" class="acea-row row-middle">
-									<text class='vip-money semiBold'>¥{{ attr.productSelect.svip_price }}</text>
+									<text class='vip-money semiBold'>₭{{ attr.productSelect.svip_price }}</text>
 									<view class="vipImg">
 										<image :src="`${domain}/static/images/svip.png`" class="vip-img"></image>
 									</view>

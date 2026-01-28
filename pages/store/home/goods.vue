@@ -8,16 +8,16 @@
         <view class="nav-cont" :class="{ noPointer: preview }">
           <view :class="{ active: navActive === 0 }" class="item" @click="navActive = 0; select.show = !select.show">
             <view class="cont">
-              {{ select.selected ? '评分' : '默认' }}
+              {{ select.selected ? 'ຄະແນນ' : 'ທົ່ວໄປ' }}
               <text :class="['arrow-icon', 'iconfont', select.show ? 'icon-ic_uparrow' : 'icon-ic_downarrow']"></text>
             </view>
           </view>
           <view :class="{ active: navActive === 1 }" class="item" @click="set_where(2, 0)">
-            <view class="cont">销量</view>
+            <view class="cont">ຍອດຂາຍ</view>
           </view>
           <view :class="{ active: navActive === 2 }" class="item" @click="set_where(3, 0)">
             <view class="cont">
-              价格
+              ລາຄາ
               <image v-if="navActive === 2"
                 :src="sortPrice ? domain + '/static/diy/up' + keyColor + '.png' : domain + '/static/diy/down' + keyColor + '.png'">
               </image>
@@ -48,19 +48,19 @@
                 <view :class="{ active: navActive === 0 }" class="item"
                   @click="navActive = 0; select.show = !select.show">
                   <view class="cont">
-                    {{ select.selected ? '评分' : '默认' }}
+                    {{ select.selected ? 'ຄະແນນ' : 'ທົ່ວໄປ' }}
                     <text
                       :class="['arrow-icon', 'iconfont', select.show ? 'icon-ic_uparrow' : 'icon-ic_downarrow']"></text>
                   </view>
                 </view>
                 <view :class="{ active: navActive === 1 }" class="item" @click="set_where(2, 0)">
                   <view class="cont">
-                    销量
+                    ຍອດຂາຍ
                   </view>
                 </view>
                 <view :class="{ active: navActive === 2 }" class="item" @click="set_where(3, 0)">
                   <view class="cont">
-                    价格
+                    ລາຄາ
                     <image v-if="navActive === 2 && where.order == 'price_asc'"
                       :src="domain + '/static/diy/up' + keyColor + '.png'"></image>
                     <image v-if="navActive === 2 && where.order == 'price_desc'"
@@ -157,11 +157,11 @@ export default {
         selected: 0,
         options: [{
           id: 0,
-          name: '默认'
+          name: 'ທົ່ວໄປ'
         },
         {
           id: 1,
-          name: '评分'
+          name: 'ຄະແນນ'
         }
         ]
       },
@@ -291,7 +291,7 @@ export default {
         let loadend = list.length < that.where.limit;
         that.loadend = loadend;
         that.loading = false;
-        that.loadTitle = loadend ? '已全部加载' : '加载更多';
+        that.loadTitle = loadend ? 'ໂຫຼດຄົບແລ້ວ' : 'ໂຫຼດເພີ່ມເຕີມ';
         that.$set(that, 'goods', goodsList);
         that.$set(that.where, 'page', that.where.page + 1);
       }).catch(err => {

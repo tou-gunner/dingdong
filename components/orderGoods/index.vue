@@ -44,7 +44,7 @@
 						<view v-if="orderData.status >= 10" class="event_progress bg-f mt20">
 							<view class="progress_list">
 								<view class="progress_name font-bold">阶段一： 买家已付款</view>
-								<view class="progress_price">商品定金  <text class="align_right regular">¥{{ orderData.pay_price }}</text></view>
+								<view class="progress_price">商品定金  <text class="align_right regular">₭{{ orderData.pay_price }}</text></view>
 								<view class="progress_pay">定金实付款
 									<view class="align_right t-color">
 										<priceFormat :price="orderData.pay_price" weight intSize="28" floatSize="20" labelSize="20"></priceFormat>
@@ -57,7 +57,7 @@
 									<text v-if="orderData.status == 10 && orderData.presellOrder.activeStatus == 1">等待买家付尾款</text>
 									<text v-if="orderData.status == 11 || orderData.presellOrder.activeStatus == 2">交易已关闭</text>
 								</view>
-								<view class="progress_price">商品尾款  <text class="align_right regular">¥{{ orderData.presellOrder.pay_price }}</text></view>
+								<view class="progress_price">商品尾款  <text class="align_right regular">₭{{ orderData.presellOrder.pay_price }}</text></view>
 								<view class="progress_pay">尾款需付款
 									<view class="align_right t-color">
 										<priceFormat :price="orderData.presellOrder.pay_price" weight intSize="28" floatSize="20" labelSize="20"></priceFormat>

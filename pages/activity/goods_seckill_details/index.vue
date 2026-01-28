@@ -26,9 +26,9 @@
 						<view class="swiper-bg pos-rel">
 							<view class='nav acea-row row-between-wrapper boder-44 pos-rel' :style="{ 'background-image': `url(${domain}/static/images/seckill-bg.png)`}">
 								<view class='money skeleton-rect'>
-									<text class="money-text">秒杀价</text>
+									<text class="money-text">ລາຄາໂປຣ</text>
 									<priceFormat :price="storeInfo.price" weight intSize="48" floatSize="32" labelSize="32"></priceFormat>
-									<text class='y-money regular'>¥{{storeInfo.ot_price}}</text></view>
+									<text class='y-money regular'>₭{{storeInfo.ot_price}}</text></view>
 								<view class='acea-row row-middle skeleton-rect' v-if="storeInfo.seckill_status == '1'">
 									<view class='time'>
 										<view>ເຫຼືອເວລາ</view>
@@ -41,7 +41,7 @@
 									<view class='introduce skeleton-rect acea-row row-between'>
 										<view class="title">
 											<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red">{{storeInfo.merchant.type_name}}</text>
-											<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">自营</text>
+											<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red">ຮ້ານຄ້າຫຼັກ</text>
 											{{storeInfo.store_name}}
 										</view>
 										<view v-if="diyProduct.shareList.length>0" class="fenxiang_btn">
@@ -51,9 +51,9 @@
 										</view>
 									</view>
 									<view class='label acea-row row-between-wrapper'>
-										<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">¥{{storeInfo.ot_price || 0}}</view>
-										<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">库存:{{storeInfo.stock || 0}}{{storeInfo.unit_name || ''}}</view>
-										<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">已售:{{storeInfo.sales || 0}}{{storeInfo.unit_name || ''}}</view>
+										<view v-show="diyProduct.isOpen.includes(0)" class="skeleton-rect line-through">₭{{storeInfo.ot_price || 0}}</view>
+										<view v-show="diyProduct.isOpen.includes(2)" class="skeleton-rect">ສາງ:{{storeInfo.stock || 0}}{{storeInfo.unit_name || ''}}</view>
+										<view v-show="diyProduct.isOpen.includes(1)" class="skeleton-rect">ຂາຍແລ້ວ:{{storeInfo.sales || 0}}{{storeInfo.unit_name || ''}}</view>
 									</view>
 								</view>
 							</view>
@@ -68,9 +68,9 @@
 								</view>
 								<view class='userEvaluation boder-24' id="past1" v-if="replyCount && replyCount>0 && diyProduct.showReply==1">
 									<view class='title acea-row row-between-wrapper'>
-										<view>用户评价({{replyCount}})</view>
+										<view>ລີວິວຈາກລູກຄ້າ({{replyCount}})</view>
 										<navigator class='praise' hover-class='none' :url='"/pages/users/goods_comment_list/index?product_id="+id'>
-											<text class='t-color'>{{replyChance}}</text>好评率
+											<text class='t-color'>{{replyChance}}</text>ອັດຕາການລີວິວ
 											<text class='iconfont icon-ic_rightarrow'></text>
 										</navigator>
 									</view>
@@ -104,24 +104,24 @@
 											<navigator :url="'/pages/store/home/index?id='+storeInfo.mer_id" hover-class="none" class="info">
 												<view class="name">{{storeInfo.merchant.mer_name}}
 													<text v-if="(storeInfo.merchant && storeInfo.merchant.type_name)" class="font-bg-red ml8">{{storeInfo.merchant.type_name}}</text>
-													<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red ml8">自营</text>
+													<text v-else-if="(storeInfo.merchant && storeInfo.merchant.is_trader)" class="font-bg-red ml8">ຮ້ານຄ້າຫຼັກ</text>
 												</view>
 												<view class="txt">
-												{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'万'}}人关注
+												{{storeInfo.merchant.care_count < 10000 ? storeInfo.merchant.care_count : (storeInfo.merchant.care_count/10000).toFixed(2)+'ໝື່ນ'}}ຄົນຕິດຕາມ
 												</view>
 											</navigator>
 											<navigator :url="'/pages/store/home/index?id='+storeInfo.merchant.mer_id" class="link"
-											 hover-class="none">进店</navigator>
+											 hover-class="none">ເຂົ້າຮ້ານ</navigator>
 										</view>
 										<view class="score-wrapper">
 											<view class="item">
-												商品描述<text>{{storeInfo.merchant.product_score}}</text>
+												ລາຍລະອຽດສິນຄ້າ<text>{{storeInfo.merchant.product_score}}</text>
 											</view>
 											<view class="item">
-												卖家服务<text>{{storeInfo.merchant.service_score}}</text>
+												ການບໍລິການ<text>{{storeInfo.merchant.service_score}}</text>
 											</view>
 											<view class="item">
-												物流服务<text>{{storeInfo.merchant.postage_score}}</text>
+												ການຂົນສົ່ງ<text>{{storeInfo.merchant.postage_score}}</text>
 											</view>
 										</view>
 									</view>
@@ -791,7 +791,7 @@
 			 */
 			getGoodsDetails: function() {
 				uni.showLoading({
-					title: '加载中',
+					title: 'ກຳລັງໂຫຼດ...',
 					mask: true
 				});
 				let that = this;
