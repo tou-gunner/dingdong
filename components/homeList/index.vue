@@ -124,6 +124,7 @@
 		color: #333;
 		position: relative;
 		.iconfont {
+			font-family: "iconfont" !important;
 			font-size: 32rpx;
 		}
 	}
