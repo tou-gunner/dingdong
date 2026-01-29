@@ -90,7 +90,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 	.dialog_nav {
 		position: absolute;
 		left: 30rpx;
@@ -123,8 +123,12 @@
 		font-size: 28rpx;
 		color: #333;
 		position: relative;
-		.iconfont {
+		:deep(.iconfont) {
+			font-family: "iconfont" !important;
 			font-size: 32rpx;
+			font-style: normal;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
 		}
 	}
 	.dialog_after {
