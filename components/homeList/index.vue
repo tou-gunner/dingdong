@@ -123,12 +123,8 @@
 		font-size: 28rpx;
 		color: #333;
 		position: relative;
-		:deep(.iconfont) {
-			font-family: "iconfont" !important;
+		.iconfont {
 			font-size: 32rpx;
-			font-style: normal;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
 		}
 	}
 	.dialog_after {
